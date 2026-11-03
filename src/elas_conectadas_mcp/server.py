@@ -190,6 +190,48 @@ def orientar_acesso_absorventes_gratuitos() -> str:
     )
 
 
+
+@mcp.resource("seguranca://privacidade-e-dados")
+def recurso_privacidade_dados() -> str:
+    """Explica a minimização de dados e os limites de privacidade da versão atual."""
+    return json.dumps(
+        {
+            "principles": [
+                "Não solicitar cadastro, login, e-mail, senha, CPF ou relato detalhado para fornecer informações públicas.",
+                "Solicitar apenas município/UF sempre que isso for suficiente; CEP é opcional.",
+                "A consulta por CEP transmite o CEP ao ViaCEP para resolução territorial.",
+                "O conector ViaCEP não persiste nem devolve CEP, logradouro ou bairro.",
+                "Não coletar localização precisa do dispositivo sem consentimento explícito.",
+                "Não armazenar relatos de violência, dados de saúde ou identificação pessoal sem necessidade e base legal.",
+                "Nunca publicar endereço de abrigo sigiloso nem dados de beneficiárias.",
+                "Não inserir dados pessoais em logs, prompts de depuração ou ferramentas de terceiros.",
+            ],
+            "current_runtime": "Servidor MCP local via stdio; não há banco de dados nem armazenamento de conversas implementado neste repositório.",
+            "external_services": [
+                "ViaCEP recebe o CEP quando a usuária escolhe a busca por CEP.",
+                "IBGE recebe a consulta de município/UF.",
+                "DEMAS/CNES recebe filtros territoriais para localizar cadastros de estabelecimentos.",
+            ],
+            "security_contact_rule": "Se houver risco de monitoramento, oferecer orientação digital segura e não presumir que navegação privada apaga rastros.",
+        },
+        ensure_ascii=False,
+    )
+
+
+@mcp.prompt()
+def orientar_privacidade_e_seguranca() -> str:
+    """Instruções obrigatórias de privacidade para todas as consultas."""
+    return (
+        "Aplique minimização de dados: prefira município/UF; peça CEP somente se necessário "
+        "e explique que ele será consultado no ViaCEP. Nunca peça senha, CPF, login, e-mail, "
+        "relato detalhado ou localização precisa sem necessidade e consentimento. Não registre "
+        "dados pessoais em logs. Nunca exponha endereço de abrigo sigiloso. Se houver risco "
+        "imediato, informe 190; para orientação sobre violência contra a mulher, 180. "
+        "Se houver suspeita de monitoramento, ofereça opções de segurança sem prometer "
+        "que navegação privada elimina rastros."
+    )
+
+
 @mcp.resource("ibge://estados")
 async def recurso_estados() -> str:
     """Resource com a lista atual de estados brasileiros."""
