@@ -22,5 +22,7 @@ async def test_search_by_cep_resolves_municipality_and_returns_cnes_results():
     service = HealthSearchService(ibge=FakeIBGE(), demas=FakeDEMAS(), viacep=FakeViaCEP())
     result = await service.search_by_cep("01001000")
     assert result["location"]["municipality"] == "São Paulo"
+    assert "cep" not in result["location"]
+    assert "privacy_notice" in result
     assert result["municipal_health_facilities"]["municipality"] == "São Paulo"
     assert result["municipal_health_facilities"]["results"]["record_count"] == 1
