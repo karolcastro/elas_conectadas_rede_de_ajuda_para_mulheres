@@ -67,3 +67,45 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 ## Status
 
 Projeto em fase de definição e estruturação do MVP. A cobertura nacional e a atualização contínua são objetivos a validar por meio de implementação e testes; não são apresentadas aqui como funcionalidades já concluídas.
+
+
+## Código-fonte inicial
+
+O repositório agora contém a primeira implementação Python do servidor MCP:
+
+- `src/elas_conectadas_mcp/server.py`: servidor MCP com Tools, Resource e Prompt.
+- `src/elas_conectadas_mcp/connectors/ibge.py`: conector assíncrono para a API oficial de Localidades do IBGE.
+- `tests/test_ibge_connector.py`: testes automatizados com respostas HTTP simuladas.
+- `pyproject.toml`: dependências e configuração do projeto.
+- `.env.example`: exemplo sem credenciais.
+
+### Executar localmente
+
+Requisitos: Python 3.11 ou superior.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
+pytest
+```
+
+Iniciar o servidor MCP:
+
+```bash
+elas-conectadas-mcp
+```
+
+O servidor usa transporte **stdio**, adequado para integração com um cliente MCP local. Para conectá-lo a um cliente MCP, configure o comando de execução no cliente. Não publique o servidor local em uma URL pública sem implementar autenticação, autorização e controles de segurança apropriados.
+
+### Tools disponíveis nesta primeira versão
+
+- `listar_estados`
+- `listar_municipios(uf)`
+- `consultar_municipio(codigo_ibge)`
+
+Resource disponível: `ibge://estados`.
+
+Prompt disponível: `orientar_busca_por_municipio`.
+
+**Limite desta versão:** o conector IBGE padroniza referências territoriais. Ele não localiza UBS, não consulta o CNES/DEMAS, não confirma exames, não consulta campanhas e não faz busca de ONGs. Essas integrações serão implementadas nas próximas etapas. Os testes foram adicionados ao repositório, mas precisam ser executados em ambiente Python para confirmar o funcionamento.
