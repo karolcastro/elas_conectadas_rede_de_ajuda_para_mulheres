@@ -1,4 +1,5 @@
 import pytest
+
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 
 class FakeIBGE:
