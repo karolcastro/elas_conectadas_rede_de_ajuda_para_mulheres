@@ -11,6 +11,7 @@ from elas_conectadas_mcp.connectors.ibge import IBGEConnector
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
+from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -27,6 +28,7 @@ demas = DEMASConnector()
 viacep = ViaCEPConnector()
 health_search = HealthSearchService(ibge=ibge, demas=demas, viacep=viacep)
 protection_registry = ProtectionRegistry()
+official_network_directory = OfficialNetworkDirectory()
 
 
 @mcp.tool()
@@ -129,6 +131,35 @@ def orientar_busca_protecao_mulher() -> str:
         "advogados, endereços ou telefones. Não divulgue endereços de abrigos sigilosos. "
         "Só apresente gratuidade, horários, critérios e disponibilidade quando confirmados "
         "em fonte oficial recente; informe a fonte e a data da verificação."
+    )
+
+
+
+@mcp.tool()
+def orientar_consulta_rede_oficial_atendimento(uf: str | None = None, municipio: str | None = None, tipo_servico: str | None = None) -> dict:
+    """Fornece o link e instruções para consultar o Painel oficial da Rede de Atendimento.
+
+    Não retorna unidades automaticamente: a consulta estruturada do painel não está
+    disponível por API pública documentada nesta implementação.
+    """
+    return official_network_directory.guide(uf=uf, municipality=municipio, category=tipo_servico)
+
+
+@mcp.resource("protecao://painel-rede-atendimento")
+def recurso_painel_rede_atendimento() -> str:
+    """Resource com o link oficial e os tipos de serviços da Rede de Atendimento."""
+    return json.dumps(official_network_directory.guide(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_acesso_rede_atendimento() -> str:
+    """Prompt para orientar a consulta segura do painel oficial."""
+    return (
+        "Use o Painel da Rede de Atendimento do Ministério das Mulheres para consultar "
+        "serviços por estado e município. Não afirme ter consultado unidades automaticamente "
+        "se os registros não foram retornados por uma integração verificável. Confirme contato "
+        "e funcionamento antes do deslocamento. Nunca divulgue endereços sigilosos de abrigos; "
+        "nesses casos, oriente a mulher a buscar encaminhamento seguro pelo Ligue 180."
     )
 
 
