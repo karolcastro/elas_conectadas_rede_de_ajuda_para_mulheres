@@ -32,6 +32,10 @@ O agente deve evitar coleta e armazenamento desnecessários de dados pessoais, n
 
 O projeto prevê combinar consultas online a fontes oficiais durante cada pesquisa com uma base de dados estruturada e atualizada periodicamente. Informações não confirmadas devem ser identificadas como não verificadas — nunca inventadas ou apresentadas como atuais.
 
+## Padrão de integração
+
+Os agentes e integrações serão estruturados com **MCP (Model Context Protocol)**, expondo ferramentas, recursos e prompts de forma modular e segura. A arquitetura MCP está especificada na documentação; os servidores e tools serão considerados implementados somente após desenvolvimento e testes.
+
 ## Tecnologias propostas
 
 | Tecnologia | Uso previsto |
