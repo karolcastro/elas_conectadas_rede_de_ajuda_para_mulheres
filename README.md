@@ -9,7 +9,7 @@ Ajudar mulheres a encontrar serviços confiáveis de acordo com sua necessidade 
 ## Funcionalidades previstas
 
 - Busca por tipo de ajuda em linguagem natural.
-- Busca por CEP ou município/estado.
+- Busca por CEP (resolução de município via ViaCEP, serviço público de terceiros) ou município/estado.
 - Uso opcional da localização atual do dispositivo, somente com autorização explícita.
 - Localização de serviços gratuitos de proteção, acolhimento, assistência jurídica, apoio psicológico, social e de saúde da mulher.
 - Busca de UBS, ambulatórios e serviços públicos para consultas e exames, distinguindo unidades localizadas de exames efetivamente confirmados.
@@ -120,3 +120,8 @@ Prompt disponível: `orientar_busca_por_municipio`.
 A ferramenta `buscar_unidades_saude_por_municipio` recebe município e UF, resolve o código territorial pela API do IBGE e consulta estabelecimentos ativos no CNES/DEMAS. A resposta preserva os códigos usados e inclui fonte e ressalvas. O cadastro não confirma agenda, atendimento atual, gratuidade ou realização de exame específico.
 
 Para instalar e testar: `pip install -e ".[dev]"` e `pytest`. Os testes ainda precisam ser executados no ambiente Python antes de considerar a integração validada.
+
+
+### Busca por CEP — limite importante
+
+O conector ViaCEP consulta um serviço público de terceiros, sem autenticação, para obter município, UF e código IBGE associados ao CEP. A busca seguinte localiza registros CNES no município; ela não determina a unidade mais próxima do endereço nem confirma a realização de exames, gratuidade, agenda ou funcionamento atual. O usuário também pode informar diretamente município e UF, sem fornecer CEP.
