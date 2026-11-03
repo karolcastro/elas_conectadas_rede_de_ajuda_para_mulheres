@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import pytest
 
-from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory, PANEL_SERVICE_TYPES
+from elas_conectadas_mcp.services.official_network_directory import (
+    PANEL_SERVICE_TYPES,
+    OfficialNetworkDirectory,
+)
 
 def test_guide_returns_official_panel_and_does_not_claim_automated_results():
     result = OfficialNetworkDirectory().guide(uf="SP", municipality="São Paulo")
