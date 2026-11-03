@@ -1,5 +1,6 @@
 import httpx
 import pytest
+
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 
 @pytest.mark.asyncio
