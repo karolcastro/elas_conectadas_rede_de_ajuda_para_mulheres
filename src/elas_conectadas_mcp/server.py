@@ -8,6 +8,7 @@ from mcp.server.fastmcp import FastMCP
 
 from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
+from elas_conectadas_mcp.services.health_search import HealthSearchService
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -21,6 +22,7 @@ mcp = FastMCP(
 
 ibge = IBGEConnector()
 demas = DEMASConnector()
+health_search = HealthSearchService(ibge=ibge, demas=demas)
 
 
 @mcp.tool()
@@ -75,6 +77,12 @@ async def consultar_estabelecimento_cnes(codigo_cnes: int) -> dict:
 async def listar_ubs_cnes(limite: int = 100, pagina: int = 0) -> dict:
     """Lista UBS cadastradas no CNES com paginação (limite máximo documentado: 1000)."""
     return await demas.list_basic_health_units(limit=limite, offset=pagina)
+
+
+@mcp.tool()
+async def buscar_unidades_saude_por_municipio(municipio: str, uf: str, limite: int = 20, pagina: int = 0) -> dict:
+    """Resolve município/UF no IBGE e busca estabelecimentos ativos no CNES/DEMAS."""
+    return await health_search.search_by_municipality(municipality=municipio, uf=uf, limit=limite, offset=pagina)
 
 
 @mcp.resource("ibge://estados")
