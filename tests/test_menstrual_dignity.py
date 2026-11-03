@@ -1,5 +1,6 @@
 from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
 
+
 def test_guidance_includes_official_sources_and_access_note():
     result = MenstrualDignityGuide().get_guidance()
     assert result["program_name"] == "Programa Dignidade Menstrual"
