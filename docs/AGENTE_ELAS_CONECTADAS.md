@@ -664,3 +664,34 @@ Confirmar existência, contato institucional, território atendido, público, gr
 
 ### Governança de segurança do repositório
 O arquivo `SECURITY.md` define como reportar vulnerabilidades sem expor dados em issues públicas e restringe testes a ambientes autorizados com dados fictícios. `.github/dependabot.yml` agenda atualizações semanais de dependências Python e GitHub Actions; cada atualização deve passar pelo CI antes de ser aceita.
+
+
+## 29. Catálogo regional verificado — São Paulo (capital)
+
+Em 03/11/2026 foi adicionada a primeira carga municipal de serviços públicos especializados, com base nas páginas institucionais da Prefeitura de São Paulo:
+
+- Delegacias de Defesa da Mulher (DDMs), com endereço, telefone e horário publicados pela Prefeitura.
+- Casas da Mulher e Centros de Defesa e de Convivência da Mulher (CDCMs) nas zonas Norte, Sul, Leste, Oeste e Centro.
+- Casa da Mulher Brasileira, com funcionamento informado de 24 horas.
+
+### Integração MCP
+- Tool: `buscar_servicos_protecao_por_localidade(uf, municipio, categoria)`.
+- Resource: `protecao://catalogo-regional`.
+- O serviço filtra por UF, município e categoria e retorna fonte oficial e data de verificação.
+
+### Fontes primárias
+- Prefeitura — DDMs: https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715
+- Prefeitura — Casas da Mulher, Zona Norte: https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/casas_da_mulher/356854
+- Prefeitura — Casas da Mulher, Zona Sul: https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/casas_da_mulher/356855
+- Prefeitura — Casas da Mulher, Zona Leste: https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/casas_da_mulher/356856
+- Prefeitura — Casas da Mulher, Zona Oeste: https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/casas_da_mulher/356860
+- Prefeitura — Casas da Mulher, Centro: https://prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/casas_da_mulher/356857
+
+### Regras de segurança e qualidade
+- Os registros representam endereços públicos publicados pela Prefeitura; não são abrigos sigilosos.
+- Nenhum endereço de abrigo ou casa de acolhimento sigilosa foi incluído.
+- A gratuidade está registrada como serviço público; o catálogo não afirma vaga, disponibilidade ou atendimento individual imediato.
+- Horários reproduzem a fonte municipal; podem mudar. Confirmar por telefone antes de deslocar.
+- O catálogo inicial cobre somente o município de São Paulo. Não extrapolar para outras cidades do estado.
+- A busca filtra município e categoria, mas não calcula distância geográfica. A ordenação não significa "mais próximo".
+- A próxima ingestão deve priorizar outras capitais/estados somente após validação de fontes primárias equivalentes.
