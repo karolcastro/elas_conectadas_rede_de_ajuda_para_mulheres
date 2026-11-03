@@ -8,14 +8,14 @@ from elas_conectadas_mcp.connectors.demas import DEMASConnector
 async def test_search_establishments_sends_documented_filters():
     def handler(request: httpx.Request) -> httpx.Response:
         assert request.url.path.endswith("/cnes/estabelecimentos")
-        assert request.url.params["codigo_municipio"] == "3550308"
+        assert request.url.params["codigo_municipio"] == "355030"
         assert request.url.params["status"] == "1"
         assert request.url.params["limit"] == "20"
         return httpx.Response(200, json=[{"codigo_cnes": "123", "nome_fantasia": "Unidade teste"}])
 
     async with httpx.AsyncClient(transport=httpx.MockTransport(handler)) as client:
         result = await DEMASConnector(client).search_establishments(
-            municipality_code=3550308, status=1, limit=20
+            municipality_code=355030, status=1, limit=20
         )
 
     assert result["record_count"] == 1
