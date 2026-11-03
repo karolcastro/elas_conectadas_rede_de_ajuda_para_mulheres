@@ -1,16 +1,25 @@
 """Conector público de CEP via ViaCEP, sem autenticação."""
 from __future__ import annotations
+
 import re
 from typing import Any
+
 import httpx
+
 BASE_URL = "https://viacep.com.br/ws"
 _TIMEOUT = httpx.Timeout(12.0, connect=5.0)
+
+
 class ViaCEPError(RuntimeError):
     """Falha ao consultar o serviço ViaCEP."""
+
+
 class ViaCEPConnector:
     """Consulta endereço e código IBGE associados a um CEP brasileiro."""
+
     def __init__(self, client: httpx.AsyncClient | None = None) -> None:
         self._client = client
+
     async def lookup(self, cep: str) -> dict[str, Any]:
         digits = re.sub(r"\D", "", cep)
         if not re.fullmatch(r"\d{8}", digits):
