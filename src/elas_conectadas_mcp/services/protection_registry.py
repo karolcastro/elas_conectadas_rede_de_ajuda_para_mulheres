@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-CATALOG_PATH = Path(__file__).resolve().parents[2] / "data" / "servicos_protecao.json"
+CATALOG_PATH = Path(__file__).resolve().parents[3] / "data" / "servicos_protecao.json"
 ALLOWED_CATEGORIES = {"emergencia", "violencia_contra_mulher", "delegacia", "assistencia_juridica", "acolhimento", "ong", "apoio_psicossocial"}
 
 class ProtectionRegistry:
