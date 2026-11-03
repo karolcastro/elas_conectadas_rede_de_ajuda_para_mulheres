@@ -10,9 +10,9 @@ from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 from elas_conectadas_mcp.services.health_search import HealthSearchService
-from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
-from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
 from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
+from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
+from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
 
 mcp = FastMCP(
     "Elas Conectadas",
