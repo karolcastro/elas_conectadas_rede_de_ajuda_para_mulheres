@@ -126,14 +126,17 @@ def consultar_telefones_de_urgencia() -> dict:
 
 @mcp.tool()
 def buscar_servicos_protecao_por_localidade(
-    uf: str, municipio: str | None = None, categoria: str | None = None
+    uf: str, municipio: str | None = None, categoria: str | None = None,
+    incluir_registros_vencidos: bool = False,
 ) -> dict:
     """Busca serviços regionais previamente verificados por UF, município e categoria.
 
-    Não calcula distância. Retorna apenas registros com fonte oficial e data de verificação.
+    Não calcula distância. Por padrão, oculta registros sem verificação válida ou com revisão vencida.
+    Para auditoria, incluir_registros_vencidos=True mostra registros sinalizados como expirados.
     """
     return protection_registry.list_services(
-        uf=uf, municipality=municipio, category=categoria
+        uf=uf, municipality=municipio, category=categoria,
+        include_stale=incluir_registros_vencidos,
     )
 
 
