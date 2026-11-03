@@ -184,3 +184,10 @@ Foi adicionada a primeira carga regional ao arquivo `data/servicos_protecao.json
 A ferramenta MCP `buscar_servicos_protecao_por_localidade(uf, municipio, categoria)` consulta esse catálogo. O resource `protecao://catalogo-regional` disponibiliza a primeira cobertura municipal.
 
 **Limites:** esta carga inicial cobre somente São Paulo (capital), não o estado inteiro nem o Brasil. Não calcula proximidade, não garante disponibilidade de atendimento e não publica endereços de abrigos sigilosos. Confirme funcionamento antes do deslocamento. Em perigo imediato, 190; orientação, 180.
+
+
+## Cursos e capacitações gratuitas para mulheres
+
+Foi adicionado o módulo MCP `buscar_cursos_programas_para_mulheres(uf)`, o resource `capacitacao://programas-gratuitos` e o prompt `orientar_inscricao_cursos_mulheres`.
+
+A primeira lista inclui o curso Ela Empreende! (Qualifica SP), módulos de Educação Financeira para Mulheres Empreendedoras (MDS) e o Programa Mulheres Mil (MEC). Cada oportunidade informa público, formato, fonte oficial, gratuidade e situação de inscrição com ressalvas. Não se presume vaga aberta quando a fonte não confirma. A ferramenta não solicita credenciais nem documentos; eventual login gov.br ocorre somente no portal externo oficial.
