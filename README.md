@@ -13,7 +13,7 @@ Ajudar mulheres a encontrar serviços confiáveis de acordo com sua necessidade 
 - Uso opcional da localização atual do dispositivo, somente com autorização explícita.
 - Localização de serviços gratuitos de proteção, acolhimento, assistência jurídica, apoio psicológico, social e de saúde da mulher.
 - Busca de UBS, ambulatórios e serviços públicos para consultas e exames, distinguindo unidades localizadas de exames efetivamente confirmados.
-- Integração planejada com a API DEMAS/CNES do Ministério da Saúde e API de Localidades do IBGE.
+- Integração implementada no servidor MCP para resolver município/UF via IBGE e consultar estabelecimentos ativos no CNES/DEMAS.
 - Pipeline de ingestão, normalização, validação e atualização com fonte e data de verificação.
 - Divulgação de campanhas oficiais e iniciativas de ONGs para mulheres e meninas, incluindo dignidade menstrual e acesso a absorventes.
 - Busca de cursos, bolsas e capacitações, priorizando iniciativas criadas por mulheres para mulheres ou destinadas especificamente ao público feminino.
@@ -113,3 +113,10 @@ Resources disponíveis: `ibge://estados` e `demas://fontes`.
 Prompt disponível: `orientar_busca_por_municipio`.
 
 **Limite desta versão:** o conector IBGE padroniza referências territoriais. Ele consulta registros de estabelecimentos e UBS no CNES por meio da API DEMAS. Ainda não confirma oferta de exames, agenda, gratuidade ou disponibilidade operacional; também não consulta campanhas nem ONGs. Essas integrações serão implementadas nas próximas etapas. Os testes estão no repositório, mas ainda precisam ser executados em ambiente Python para confirmar o funcionamento.
+
+
+## Busca municipal de unidades de saúde (MCP)
+
+A ferramenta `buscar_unidades_saude_por_municipio` recebe município e UF, resolve o código territorial pela API do IBGE e consulta estabelecimentos ativos no CNES/DEMAS. A resposta preserva os códigos usados e inclui fonte e ressalvas. O cadastro não confirma agenda, atendimento atual, gratuidade ou realização de exame específico.
+
+Para instalar e testar: `pip install -e ".[dev]"` e `pytest`. Os testes ainda precisam ser executados no ambiente Python antes de considerar a integração validada.
