@@ -99,7 +99,7 @@ async def buscar_unidades_saude_por_cep(cep: str, limite: int = 20, pagina: int 
     return await health_search.search_by_cep(cep, limit=limite, offset=pagina)
 
 
-protection_registry = ProtectionRegistry()
+
 
 
 @mcp.tool()
