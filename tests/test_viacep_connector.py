@@ -17,6 +17,10 @@ async def test_lookup_returns_minimized_location_without_street_or_postal_code()
     assert "logradouro" not in result
     assert "bairro" not in result
     assert "privacy_notice" in result
+    assert "cep" not in result
+    assert "logradouro" not in result
+    assert "bairro" not in result
+    assert "privacy_notice" in result
 
 @pytest.mark.asyncio
 async def test_invalid_cep_is_rejected_without_request():
