@@ -75,6 +75,7 @@ O repositório agora contém a primeira implementação Python do servidor MCP:
 
 - `src/elas_conectadas_mcp/server.py`: servidor MCP com Tools, Resource e Prompt.
 - `src/elas_conectadas_mcp/connectors/ibge.py`: conector assíncrono para a API oficial de Localidades do IBGE.
+- `src/elas_conectadas_mcp/connectors/demas.py`: conector para estabelecimentos e UBS do CNES via API DEMAS.
 - `tests/test_ibge_connector.py`: testes automatizados com respostas HTTP simuladas.
 - `pyproject.toml`: dependências e configuração do projeto.
 - `.env.example`: exemplo sem credenciais.
@@ -103,9 +104,12 @@ O servidor usa transporte **stdio**, adequado para integração com um cliente M
 - `listar_estados`
 - `listar_municipios(uf)`
 - `consultar_municipio(codigo_ibge)`
+- `buscar_estabelecimentos_saude(codigo_municipio, codigo_uf, codigo_tipo_unidade, status, limite, pagina)`
+- `consultar_estabelecimento_cnes(codigo_cnes)`
+- `listar_ubs_cnes(limite, pagina)`
 
-Resource disponível: `ibge://estados`.
+Resources disponíveis: `ibge://estados` e `demas://fontes`.
 
 Prompt disponível: `orientar_busca_por_municipio`.
 
-**Limite desta versão:** o conector IBGE padroniza referências territoriais. Ele não localiza UBS, não consulta o CNES/DEMAS, não confirma exames, não consulta campanhas e não faz busca de ONGs. Essas integrações serão implementadas nas próximas etapas. Os testes foram adicionados ao repositório, mas precisam ser executados em ambiente Python para confirmar o funcionamento.
+**Limite desta versão:** o conector IBGE padroniza referências territoriais. Ele consulta registros de estabelecimentos e UBS no CNES por meio da API DEMAS. Ainda não confirma oferta de exames, agenda, gratuidade ou disponibilidade operacional; também não consulta campanhas nem ONGs. Essas integrações serão implementadas nas próximas etapas. Os testes estão no repositório, mas ainda precisam ser executados em ambiente Python para confirmar o funcionamento.
