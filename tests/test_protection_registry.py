@@ -1,8 +1,10 @@
 import json
 from pathlib import Path
+
 import pytest
 
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
+
 
 def test_registry_filters_by_category_and_uf(tmp_path: Path):
     catalog = tmp_path / "services.json"
