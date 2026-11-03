@@ -11,10 +11,11 @@
       "free": true,
       "audience": "Pessoas em situação de emergência que necessitam de resposta policial",
       "access_instructions": "Ligue 190 em caso de perigo imediato ou emergência policial.",
-      "official_source": "https://www.gov.br/pt-br/servicos/denunciar-violencia-contra-a-mulher",
+      "official_source": "https://www.gov.br/mcom/pt-br/noticias/2026/setembro/emergencia-voce-sabe-para-quem-ligar-quando-precisa",
       "verification_status": "official_national_channel",
       "address": null,
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "verification_date": "2026-11-03"
     },
     {
       "id": "br-ligue-180",
@@ -28,7 +29,12 @@
       "official_source": "https://www.gov.br/mulheres/pt-br/ligue180",
       "verification_status": "official_national_channel",
       "address": null,
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "whatsapp": "+55 61 9610-0180",
+      "email": "central180@mulheres.gov.br",
+      "service_hours": "24 horas por dia, todos os dias",
+      "official_directory": "https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento",
+      "verification_date": "2026-11-03"
     }
   ]
 }
