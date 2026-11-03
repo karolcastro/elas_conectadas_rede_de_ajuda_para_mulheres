@@ -305,3 +305,102 @@ Não apresentar campanha encerrada como ativa, não inventar pontos de distribui
 
 A categoria **Saúde da Mulher** deve aparecer no menu principal, ao lado das demais categorias de ajuda. Ao selecioná-la, o agente pergunta qual informação a mulher procura (exames/consultas, unidade de saúde próxima, saúde menstrual, campanhas ou outro tema) e solicita a localização mínima necessária. A usuária também pode escrever livremente o que precisa.
 
+
+
+## 17. Plano de conectores — Saúde da Mulher (primeira trilha de integração)
+
+Esta seção transforma a categoria Saúde da Mulher em uma trilha técnica de integração. A implementação deve começar por fontes com API ou dados oficiais e só depois complementar com páginas de campanhas e organizações.
+
+### 17.1 Fontes prioritárias confirmadas
+
+| Fonte | Dado/uso | Mecanismo | Situação para implementação |
+|---|---|---|---|
+| DEMAS / API de Dados Abertos do Ministério da Saúde | Cadastro CNES, UBS, hospitais, serviços especializados e equipamentos. | API documentada com Swagger. A página institucional da SEIDIGI informa acesso livre e sem autenticação; validar o comportamento real dos endpoints em teste de integração antes de liberar em produção. | Prioridade 1. |
+| Portal de Dados Abertos do SUS — dataset CNES | Arquivos e metadados oficiais do Cadastro Nacional de Estabelecimentos de Saúde. O catálogo indica frequência diária e exibe a data da última atualização. | API/recurso e arquivos disponíveis no catálogo. | Prioridade 1 como fonte de atualização/contingência. |
+| IBGE — API de Localidades | Códigos oficiais de estados e municípios para padronizar a busca territorial. | API REST documentada. | Prioridade 1. |
+| Ministério da Saúde — Programa Dignidade Menstrual / Farmácia Popular | Regras oficiais, critérios de elegibilidade, emissão da autorização e locais credenciados. | Páginas oficiais e painel de endereços; não presumir API de consulta de farmácias sem documentação pública. | Prioridade 1 para conteúdo e links; verificar opção técnica de consulta de unidades. |
+| Secretarias estaduais e municipais de Saúde | Campanhas locais, mutirões, unidades de referência, horários e fluxos de encaminhamento. | Sites e canais institucionais oficiais; integração individual por fonte. | Prioridade 2. |
+| ONGs e coletivos | Campanhas, distribuição comunitária, educação menstrual e projetos para mulheres/meninas. | Site institucional e canais oficiais, com verificação manual/automatizada controlada. | Prioridade 2; não assumir API. |
+
+### 17.2 Endpoints e documentação técnica
+
+- DEMAS API / Swagger: https://apidadosabertos.saude.gov.br/ (documentação interativa da API).
+- Portal de Dados Abertos do SUS — CNES: https://dadosabertos.saude.gov.br/dataset/cnes-cadastro-nacional-de-estabelecimentos-de-saude
+- IBGE API de Localidades: https://servicodados.ibge.gov.br/api/docs/localidades
+- Programa Dignidade Menstrual — Ministério da Saúde: https://www.gov.br/saude/pt-br/composicao/sectics/farmacia-popular
+- FAQ oficial do Programa Dignidade Menstrual: https://www.gov.br/saude/pt-br/composicao/saps/dignidade-menstrual/faq
+- Painel de endereço das Farmácias Populares: acessar pelo portal oficial da Farmácia Popular; o agente deverá guardar o link oficial vigente após validação manual.
+
+A API DEMAS documenta recursos de assistência à saúde, incluindo listagem de UBS, hospitais e leitos, estabelecimentos CNES, serviços especializados e equipamentos. Os nomes e parâmetros exatos devem ser lidos do Swagger na implementação; não codificar parâmetros presumidos.
+
+### 17.3 Contrato de dados normalizado
+
+Todo conector deve entregar registros no modelo comum:
+
+- `source_id`: identificador interno da fonte.
+- `source_record_id`: identificador original (ex.: código CNES).
+- `name`: nome oficial do estabelecimento, programa ou campanha.
+- `record_type`: unidade_saude, servico_saude, campanha ou organizacao.
+- `categories`: categorias relacionadas.
+- `address`, `municipality_code`, `state_code`, `postal_code`: localização, quando fornecida.
+- `latitude`, `longitude`, `geolocation_source`: coordenadas e origem, quando disponíveis.
+- `phone`, `website`, `official_contact`: canais oficiais, quando publicados.
+- `services`: procedimentos/serviços explicitamente confirmados pela fonte.
+- `free_service`: true, false ou unknown — nunca inferir.
+- `availability_status`: confirmed, not_confirmed, unavailable ou unknown.
+- `source_url`, `source_updated_at`, `checked_at`.
+- `validation_status`: confirmed, needs_review ou rejected.
+- `notes`: ressalvas e limitações da fonte.
+
+### 17.4 Regras específicas para localizar exames
+
+O CNES identifica estabelecimentos e cadastros de serviços, mas não garante agenda, estoque, encaminhamento ou disponibilidade imediata de exame. A resposta deve separar claramente:
+
+1. Unidade localizada no cadastro oficial.
+2. Serviço/procedimento cadastrado para aquela unidade, quando houver evidência.
+3. Confirmação atual de que a unidade realiza o exame e como acessá-lo.
+
+Sem confirmação dos itens 2 e 3, o agente deve dizer “unidade de saúde localizada; confirme diretamente se realiza o exame desejado e se exige encaminhamento/agendamento”. Nunca afirmar que uma UBS faz mamografia ou Papanicolau apenas por ser UBS.
+
+### 17.5 Programa Dignidade Menstrual
+
+A resposta deve usar como referência primária o Ministério da Saúde e o Programa Farmácia Popular. Informar critérios, documentação e quantidade somente após consultar a página oficial vigente, pois regras podem mudar. O agente pode orientar a encontrar a Farmácia Popular credenciada pelo painel oficial e explicar que a emissão da autorização é feita pelo Meu SUS Digital ou com apoio de UBS, conforme orientação oficial.
+
+Não solicitar CPF, credenciais Gov.br ou login da usuária no chat. O agente apenas explica o procedimento e encaminha para o canal oficial. Não coletar dados de elegibilidade além do mínimo necessário para explicar a regra.
+
+### 17.6 Pipeline de ingestão e atualização
+
+1. Executar o conector da fonte dentro dos limites documentados.
+2. Guardar a resposta bruta e metadados de coleta, quando a licença permitir.
+3. Normalizar campos para o contrato comum.
+4. Validar identificadores, município, status ativo e consistência dos contatos.
+5. Deduplicar sem unir registros incertos automaticamente.
+6. Comparar com a versão anterior e registrar alterações.
+7. Marcar registros antigos como desatualizados quando ultrapassarem a janela de revisão definida para a fonte.
+8. Disponibilizar para busca apenas registros com fonte e data de verificação.
+9. Em falha, preservar a última versão com rótulo de data e não apresentá-la como confirmação atual.
+
+A periodicidade de coleta deve respeitar a frequência oficial de cada base. Para o catálogo CNES, o portal informa frequência diária; isso não significa que cada campo do registro tenha sido confirmado operacionalmente pela unidade naquele dia.
+
+### 17.7 Testes mínimos de aceitação
+
+- Consultar municípios/UF pela API do IBGE e validar códigos.
+- Consultar UBS e estabelecimentos no DEMAS, registrando status HTTP, paginação, limites e data da coleta.
+- Conferir amostra de resultados contra o portal oficial CNES.
+- Verificar se os campos de endereço e contato existem e sua taxa de preenchimento.
+- Testar filtros por município, UF e situação ativa, conforme documentação real.
+- Simular indisponibilidade e resposta incompleta.
+- Garantir que ausência de campo não seja preenchida por inferência.
+- Confirmar que nenhuma resposta afirma realização de exame sem evidência da oferta.
+- Verificar links oficiais e regras atuais do Programa Dignidade Menstrual.
+- Testar a exibição da fonte e da data de verificação na interface.
+
+### 17.8 Ordem de desenvolvimento
+
+1. Catálogo de fontes e contrato normalizado.
+2. Conector IBGE para municípios e UFs.
+3. Conector DEMAS/CNES para UBS e estabelecimentos.
+4. Camada de busca geográfica e filtros.
+5. Validação complementar de serviços/exames nos canais oficiais das unidades e gestores locais.
+6. Módulo de campanhas e Dignidade Menstrual.
+7. Conectores por secretaria local e organização/ONG, com revisão e histórico.
