@@ -704,7 +704,7 @@ Foi criado o serviço `WomenTrainingDirectory`, com a ferramenta MCP `buscar_cur
 ### Oportunidades incluídas na primeira versão
 - **Ela Empreende! — Qualifica SP:** curso gratuito destinado exclusivamente a mulheres, online via WhatsApp, com certificado. A notícia estadual informa inscrições contínuas até o preenchimento das vagas; confirmar no portal se ainda há disponibilidade.
 - **Educação Financeira para Mulheres Empreendedoras — MDS:** módulos gratuitos online sobre finanças pessoais e do negócio, plano de negócios, crédito e gestão de crises, conforme o Portal de Educação Empreendedora.
-- **Programa Mulheres Mil — MEC:** programa gratuito de qualificação para mulheres em situação de vulnerabilidade. A notícia de 25/09/2026 divulgou 1,3 mil vagas em sete estados com início a partir de outubro; esta implementação não declara inscrições abertas em 03/11/2026. É obrigatório conferir o Painel de Oportunidades do Pronatec e o edital da instituição local.
+- **Programa Mulheres Mil — MEC:** em 03/11/2026, a Agência Gov informou previsão de 230 vagas em 11 cursos presenciais para novembro e dezembro, ofertados por sete instituições em MG, PE, PR, ES, RN e BA. A ferramenta direciona ao Painel de Oportunidades do Pronatec com filtro Mulheres Mil e mês Novembro/Dezembro. A previsão não confirma que inscrições continuam abertas ou que há vaga remanescente; a candidata deve confirmar requisitos e edital diretamente com a instituição.
 
 ### Fontes oficiais
 - Qualifica SP: https://www.qualificasp.sp.gov.br/
