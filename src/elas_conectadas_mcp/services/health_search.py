@@ -2,6 +2,7 @@
 from __future__ import annotations
 import unicodedata
 from typing import Any
+
 from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
