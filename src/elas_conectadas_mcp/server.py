@@ -8,6 +8,7 @@ from mcp.server.fastmcp import FastMCP
 
 from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
+from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 
 mcp = FastMCP(
@@ -22,7 +23,8 @@ mcp = FastMCP(
 
 ibge = IBGEConnector()
 demas = DEMASConnector()
-health_search = HealthSearchService(ibge=ibge, demas=demas)
+viacep = ViaCEPConnector()
+health_search = HealthSearchService(ibge=ibge, demas=demas, viacep=viacep)
 
 
 @mcp.tool()
@@ -85,6 +87,16 @@ async def buscar_unidades_saude_por_municipio(municipio: str, uf: str, limite: i
     return await health_search.search_by_municipality(municipality=municipio, uf=uf, limit=limite, offset=pagina)
 
 
+@mcp.tool()
+async def buscar_unidades_saude_por_cep(cep: str, limite: int = 20, pagina: int = 0) -> dict:
+    """Resolve CEP pelo ViaCEP e busca estabelecimentos CNES no município identificado.
+
+    ViaCEP é um serviço público de terceiros, não uma API oficial do Governo Federal.
+    A consulta localiza o município, mas não calcula distância exata entre endereço e unidade.
+    """
+    return await health_search.search_by_cep(cep, limit=limite, offset=pagina)
+
+
 @mcp.resource("ibge://estados")
 async def recurso_estados() -> str:
     """Resource com a lista atual de estados brasileiros."""
@@ -97,7 +109,7 @@ def recurso_fontes_demas() -> str:
     return json.dumps(
         {
             "source": "Ministério da Saúde — DEMAS / CNES",
-            "api": "https://apidadosabertos.saude.gov.br/v1",
+            "api": "https://apidadosabertos.saude.gov.br",
             "swagger": "https://apidadosabertos.saude.gov.br/static/swagger.json",
             "access": "API pública sem autenticação, conforme página institucional do MS",
             "limitations": [
