@@ -132,3 +132,6 @@ O conector ViaCEP consulta um serviço público de terceiros, sem autenticação
 O catálogo `data/servicos_protecao.json` contém somente canais nacionais oficiais já cadastrados: 190 (emergência policial) e 180 (Central de Atendimento à Mulher). O servidor MCP expõe `consultar_telefones_de_urgencia` e `listar_canais_oficiais_de_ajuda`. A busca por delegacias, ONGs, assistência jurídica e acolhimento local depende de registros regionais verificados antes de serem adicionados ao catálogo; nenhum resultado local é inventado ou presumido. Endereços sigilosos de abrigos não devem ser armazenados ou divulgados.
 
 A suíte de testes é executada automaticamente no GitHub Actions. O status atual da validação deve ser conferido na aba Actions; não considere o módulo validado até que testes e lint terminem com sucesso.
+
+
+O registro do Ligue 180 inclui telefone, WhatsApp (+55 61 9610-0180), e-mail oficial, funcionamento 24 horas e link para o Painel da Rede de Atendimento do Ministério das Mulheres. A ferramenta apresenta o painel oficial como caminho para localizar serviços por estado e município; não afirma ter importado automaticamente os dados do painel.
