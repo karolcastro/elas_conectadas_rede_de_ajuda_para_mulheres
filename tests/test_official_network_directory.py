@@ -7,6 +7,7 @@ from elas_conectadas_mcp.services.official_network_directory import (
     OfficialNetworkDirectory,
 )
 
+
 def test_guide_returns_official_panel_and_does_not_claim_automated_results():
     result = OfficialNetworkDirectory().guide(uf="SP", municipality="São Paulo")
     assert result["official_panel_url"].startswith("https://www.gov.br/")
