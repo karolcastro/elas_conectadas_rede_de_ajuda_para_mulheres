@@ -147,3 +147,14 @@ Foi adicionada a ferramenta MCP `orientar_consulta_rede_oficial_atendimento`, o 
 ## Saúde menstrual — Programa Dignidade Menstrual
 
 A ferramenta MCP `consultar_programa_dignidade_menstrual`, o resource `saude://dignidade-menstrual` e o prompt `orientar_acesso_absorventes_gratuitos` apresentam critérios, etapas e fontes oficiais do Programa Dignidade Menstrual. A informação é pública e pode ser consultada sem cadastro no Elas Conectadas. A emissão de autorização no serviço externo Meu SUS Digital pode exigir autenticação gov.br; o agente nunca deve solicitar credenciais. O guia não confirma estoque em farmácia específica.
+
+
+## Segurança e privacidade — controles adicionados
+
+- O .gitignore cobre variantes de .env, chaves privadas, certificados, diretórios de segredos e bancos locais; .env.example permanece versionável.
+- Dependências centrais e ferramentas de teste estão fixadas em versões explícitas no pyproject.toml para reduzir variação de instalação.
+- O GitHub Actions executa testes, Ruff, Bandit, pip-audit e Gitleaks (incluindo histórico disponível no checkout).
+- A busca por CEP transmite o CEP ao ViaCEP, mas a resposta do conector agora retorna somente município, UF e código IBGE; não devolve CEP, rua ou bairro e não persiste esses dados.
+- Resource MCP seguranca://privacidade-e-dados e prompt orientar_privacidade_e_seguranca definem minimização, consentimento e proteção de endereços sigilosos.
+
+**Limite importante:** esses controles reduzem riscos, mas não certificam segurança total. Segredos removidos de arquivos atuais ainda podem permanecer no histórico Git; o scanner Gitleaks foi adicionado ao CI para verificar commits disponíveis e precisa concluir com sucesso. A versão atual roda via MCP stdio e não implementa banco ou armazenamento de conversas.
