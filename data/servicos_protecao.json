@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "description": "Catálogo inicial de canais nacionais oficiais. Serviços locais e organizações só devem ser adicionados após validação documental.",
+  "records": [
+    {
+      "id": "br-emergencia-policia-190",
+      "name": "Polícia Militar — emergência",
+      "category": "emergencia",
+      "coverage": "Brasil",
+      "phone": "190",
+      "free": true,
+      "audience": "Pessoas em situação de emergência que necessitam de resposta policial",
+      "access_instructions": "Ligue 190 em caso de perigo imediato ou emergência policial.",
+      "official_source": "https://www.gov.br/pt-br/servicos/denunciar-violencia-contra-a-mulher",
+      "verification_status": "official_national_channel",
+      "address": null,
+      "shelter_address_public": false
+    },
+    {
+      "id": "br-ligue-180",
+      "name": "Central de Atendimento à Mulher — Ligue 180",
+      "category": "violencia_contra_mulher",
+      "coverage": "Brasil",
+      "phone": "180",
+      "free": true,
+      "audience": "Mulheres em situação de violência e pessoas que buscam orientação ou informações sobre a rede de atendimento",
+      "access_instructions": "Ligue 180 para orientação, acolhimento e informações sobre serviços da rede de atendimento à mulher.",
+      "official_source": "https://www.gov.br/mulheres/pt-br/ligue180",
+      "verification_status": "official_national_channel",
+      "address": null,
+      "shelter_address_public": false
+    }
+  ]
+}
