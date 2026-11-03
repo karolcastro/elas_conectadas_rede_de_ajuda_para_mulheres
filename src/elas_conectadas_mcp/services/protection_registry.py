@@ -7,10 +7,20 @@ from typing import Any
 
 
 CATALOG_PATH = Path(__file__).resolve().parents[3] / "data" / "servicos_protecao.json"
-ALLOWED_CATEGORIES = {"emergencia", "violencia_contra_mulher", "delegacia", "assistencia_juridica", "acolhimento", "ong", "apoio_psicossocial"}
+ALLOWED_CATEGORIES = {
+    "emergencia",
+    "violencia_contra_mulher",
+    "delegacia",
+    "assistencia_juridica",
+    "acolhimento",
+    "ong",
+    "apoio_psicossocial",
+}
+
 
 class ProtectionRegistry:
     """Lê registros previamente verificados; não inventa nem completa dados ausentes."""
+
     def __init__(self, catalog_path: Path | None = None) -> None:
         self.catalog_path = catalog_path or CATALOG_PATH
 
@@ -29,16 +39,28 @@ class ProtectionRegistry:
             if category and item.get("category") != category:
                 continue
             coverage = str(item.get("coverage", ""))
-            if uf and coverage not in {"Brasil", uf.strip().upper()} and uf.strip().upper() not in item.get("ufs", []):
+            normalized_uf = uf.strip().upper() if uf else None
+            if uf and coverage not in {"Brasil", normalized_uf} and normalized_uf not in item.get("ufs", []):
                 continue
             selected.append(item)
         return {
             "services": selected,
             "count": len(selected),
             "catalog_source": "Catálogo curado do projeto; cada registro contém sua fonte oficial.",
-            "important_notice": "A lista contém apenas registros cadastrados e validados. Ausência de resultado não significa inexistência de serviço na região. Confirme funcionamento, critérios e disponibilidade diretamente com o órgão responsável.",
+            "important_notice": (
+                "A lista contém apenas registros cadastrados e validados. Ausência de resultado "
+                "não significa inexistência de serviço na região. Confirme funcionamento, "
+                "critérios e disponibilidade diretamente com o órgão responsável."
+            ),
         }
 
     def national_emergency_channels(self) -> dict[str, Any]:
         result = self.list_services()
-        return {"services": [x for x in result["services"] if x.get("category") in {"emergencia", "violencia_contra_mulher"}], "important_notice": result["important_notice"]}
+        return {
+            "services": [
+                item
+                for item in result["services"]
+                if item.get("category") in {"emergencia", "violencia_contra_mulher"}
+            ],
+            "important_notice": result["important_notice"],
+        }
