@@ -1,8 +1,10 @@
 """Consulta catálogo curado de serviços com validação de fonte e cobertura."""
 from __future__ import annotations
+
 import json
 from pathlib import Path
 from typing import Any
+
 
 CATALOG_PATH = Path(__file__).resolve().parents[3] / "data" / "servicos_protecao.json"
 ALLOWED_CATEGORIES = {"emergencia", "violencia_contra_mulher", "delegacia", "assistencia_juridica", "acolhimento", "ong", "apoio_psicossocial"}
