@@ -1,11 +1,13 @@
 """Orquestra a resolução territorial do IBGE com a busca de estabelecimentos CNES."""
 from __future__ import annotations
+
 import unicodedata
 from typing import Any
 
 from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
+
 
 def _normalize_name(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value.strip().casefold())
