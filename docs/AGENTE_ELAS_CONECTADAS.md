@@ -695,3 +695,22 @@ Em 03/11/2026 foi adicionada a primeira carga municipal de serviços públicos e
 - O catálogo inicial cobre somente o município de São Paulo. Não extrapolar para outras cidades do estado.
 - A busca filtra município e categoria, mas não calcula distância geográfica. A ordenação não significa "mais próximo".
 - A próxima ingestão deve priorizar outras capitais/estados somente após validação de fontes primárias equivalentes.
+
+
+## 30. Cursos e capacitações gratuitas para mulheres
+
+Foi criado o serviço `WomenTrainingDirectory`, com a ferramenta MCP `buscar_cursos_programas_para_mulheres(uf)`, resource `capacitacao://programas-gratuitos` e prompt `orientar_inscricao_cursos_mulheres`.
+
+### Oportunidades incluídas na primeira versão
+- **Ela Empreende! — Qualifica SP:** curso gratuito destinado exclusivamente a mulheres, online via WhatsApp, com certificado. A notícia estadual informa inscrições contínuas até o preenchimento das vagas; confirmar no portal se ainda há disponibilidade.
+- **Educação Financeira para Mulheres Empreendedoras — MDS:** módulos gratuitos online sobre finanças pessoais e do negócio, plano de negócios, crédito e gestão de crises, conforme o Portal de Educação Empreendedora.
+- **Programa Mulheres Mil — MEC:** programa gratuito de qualificação para mulheres em situação de vulnerabilidade. A notícia de 25/09/2026 divulgou 1,3 mil vagas em sete estados com início a partir de outubro; esta implementação não declara inscrições abertas em 03/11/2026. É obrigatório conferir o Painel de Oportunidades do Pronatec e o edital da instituição local.
+
+### Fontes oficiais
+- Qualifica SP: https://www.qualificasp.sp.gov.br/
+- Secretaria de Desenvolvimento Econômico de SP: https://www.desenvolvimentoeconomico.sp.gov.br/DesenvolvimentoEconomico/noticias/qualifica%2Bsp%2Boferece%2Bcursos%2Bgratuitos%2Bpara%2Bquem%2Bquer%2Bempreender%2Bou%2Bmelhorar%2Ba%2Bgestao%2Bdo%2Bnegocio
+- MDS — Portal de Educação Empreendedora: https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo/quero-empreender/portal-de-educacao-empreendedora
+- MEC/Ministério das Mulheres — Mulheres Mil: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/setembro-defeso-eleitoral/mulheres-mil-abre-1-3-mil-vagas-de-cursos-profissionalizantes-gratuitos-e-presenciais
+
+### Proteção de dados
+O módulo é somente de leitura e não coleta dados da usuária. Se o portal externo exigir conta gov.br, a mulher acessa diretamente o serviço oficial; o agente nunca solicita CPF, senha, e-mail, login ou documentos. A disponibilidade de vagas deve ser confirmada na fonte antes de recomendar inscrição.
