@@ -3,6 +3,7 @@ import pytest
 
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 
+
 @pytest.mark.asyncio
 async def test_lookup_returns_address_and_ibge_code():
     def handler(request: httpx.Request) -> httpx.Response:
