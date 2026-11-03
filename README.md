@@ -165,3 +165,10 @@ A ferramenta MCP `consultar_programa_dignidade_menstrual`, o resource `saude://d
 Foi adicionada a ferramenta MCP orientar_assistencia_juridica_gratuita, o resource juridico://assistencia-gratuita e o prompt orientar_busca_defensoria_mulher. Eles encaminham a usuária aos diretórios do Conselho Nacional de Justiça e do CONDEGE, além do Ligue 180 e do Painel da Rede de Atendimento.
 
 O agente não simula uma busca municipal: a ferramenta retorna links oficiais e instruções para localizar a Defensoria do estado, procurar atendimento à mulher/NUDEM e confirmar critérios diretamente com a instituição. Não solicita CPF, documentos ou relato de violência.
+
+
+## ONGs, coletivos e iniciativas femininas — fontes de descoberta
+
+Foi adicionada a ferramenta MCP orientar_busca_ongs_coletivos_mulheres, o resource comunidade://ongs-e-coletivos e o prompt orientar_validacao_ong_feminina. O módulo aponta o Mapa das OSC do IPEA, o Painel da Rede de Atendimento e o Ligue 180 como fontes para descobrir iniciativas.
+
+**Importante:** o Mapa das OSC é fonte de descoberta, não prova que a organização atende mulheres, é gratuita, está ativa ou é liderada por mulheres. Coletivos informais podem não aparecer. O agente deve validar cada item em fonte institucional antes de recomendar e não simula resultados locais automáticos.
