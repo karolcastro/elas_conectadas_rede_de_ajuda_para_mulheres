@@ -15,6 +15,7 @@ from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
 from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
 from elas_conectadas_mcp.services.women_organizations import WomenOrganizationsGuide
+from elas_conectadas_mcp.services.women_training import WomenTrainingDirectory
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -35,6 +36,7 @@ official_network_directory = OfficialNetworkDirectory()
 menstrual_dignity_guide = MenstrualDignityGuide()
 free_legal_aid_directory = FreeLegalAidDirectory()
 women_organizations_guide = WomenOrganizationsGuide()
+women_training_directory = WomenTrainingDirectory()
 
 
 @mcp.tool()
@@ -257,6 +259,31 @@ def orientar_privacidade_e_seguranca() -> str:
         "que navegação privada elimina rastros."
     )
 
+
+
+
+@mcp.tool()
+def buscar_cursos_programas_para_mulheres(uf: str | None = None) -> dict:
+    """Lista cursos gratuitos e programas destinados a mulheres, com status de inscrição e fontes."""
+    return women_training_directory.search(uf=uf)
+
+
+@mcp.resource("capacitacao://programas-gratuitos")
+def recurso_programas_gratuitos_mulheres() -> str:
+    """Resource de cursos e programas gratuitos com público e status transparentes."""
+    return json.dumps(women_training_directory.search(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_inscricao_cursos_mulheres() -> str:
+    """Prompt para orientar cursos sem pedir credenciais ou prometer vagas."""
+    return (
+        "Priorize cursos gratuitos criados por mulheres para mulheres ou destinados especificamente "
+        "a mulheres. Mostre público-alvo, formato, fonte oficial, data de verificação e status real. "
+        "Não transforme curso listado em inscrição aberta nem anuncie vagas sem confirmação atual. "
+        "Se o portal externo exigir gov.br, oriente a usuária a acessar diretamente o site oficial; "
+        "nunca peça CPF, senha, login, e-mail ou documentos no chat."
+    )
 
 
 @mcp.resource("ibge://estados")
