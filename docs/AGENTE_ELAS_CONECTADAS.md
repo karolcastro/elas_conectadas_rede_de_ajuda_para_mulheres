@@ -596,3 +596,12 @@ A ferramenta MCP `orientar_consulta_rede_oficial_atendimento` encaminha a usuár
 **Limite técnico:** a página oficial e a notícia institucional confirmam a existência e as funcionalidades de consulta do painel, mas não documentam uma API pública para recuperar automaticamente seus registros. Por isso, nesta entrega foi implementado link oficial + orientação, não scraping nem uma busca local simulada. A ferramenta retorna `automated_records_available=false` e `integration_status=official_link_and_guidance_only`. Próximo passo técnico: obter do Ministério das Mulheres uma fonte de dados/exportação ou API oficialmente autorizada e documentada, antes de construir ingestão automática.
 
 **Segurança:** nunca divulgar endereços sigilosos de casas-abrigo. Para encaminhamento seguro, orientar contato com o Ligue 180. Confirmar funcionamento e contato antes de recomendar deslocamento.
+
+
+## 25. Saúde menstrual — Programa Dignidade Menstrual
+
+Foi adicionada a ferramenta MCP `consultar_programa_dignidade_menstrual`, resource `saude://dignidade-menstrual` e prompt `orientar_acesso_absorventes_gratuitos`. O módulo explica o benefício federal de retirada gratuita de absorventes em farmácias credenciadas, os critérios de elegibilidade e a emissão da autorização pelo Meu SUS Digital, além de orientar a buscar apoio em UBS, CRAS, CREAS, Centro POP ou Consultório na Rua quando necessário.
+
+A consulta dentro do Elas Conectadas não exige cadastro. A emissão da autorização em sistema externo pode exigir autenticação gov.br; o agente não deve solicitar CPF ou senha. A quantidade informada é de até 40 unidades a cada 56 dias e a validade da autorização é de 180 dias, conforme fontes oficiais consultadas. A página oficial do serviço gov.br consultada em 03/11/2026 informa renda mensal de até R$ 218 por pessoa; outras páginas oficiais podem apresentar valores desatualizados, portanto o agente deve conferir o critério vigente na página do serviço antes de avaliar elegibilidade individual. Não prometer estoque em farmácia específica.
+
+Fontes oficiais: serviço gov.br para obter autorização, FAQ do Ministério da Saúde e página do Programa Farmácia Popular.
