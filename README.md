@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em fase de definição e estruturação do MVP. A cobertura nacional e a atualização contínua são objetivos a validar por meio de implementação e testes; não são apresentadas aqui como funcionalidades já concluídas.
+Projeto em desenvolvimento com servidor MCP, catálogo nacional de canais oficiais, catálogo regional inicial de São Paulo capital, diretório inicial de capacitações e conectores de território/saúde. A cobertura regional ainda é parcial; a busca não calcula distância e não confirma disponibilidade operacional. Consulte a documentação para limites e status de cada integração.
 
 
 ## Código-fonte inicial
@@ -191,3 +191,10 @@ A ferramenta MCP `buscar_servicos_protecao_por_localidade(uf, municipio, categor
 Foi adicionado o módulo MCP `buscar_cursos_programas_para_mulheres(uf)`, o resource `capacitacao://programas-gratuitos` e o prompt `orientar_inscricao_cursos_mulheres`.
 
 A primeira lista inclui o curso Ela Empreende! (Qualifica SP), módulos de Educação Financeira para Mulheres Empreendedoras (MDS) e o Programa Mulheres Mil (MEC). Em 03/11/2026, a Agência Gov informou 230 vagas previstas em 11 cursos do Mulheres Mil para novembro e dezembro, em MG, PE, PR, ES, RN e BA. O agente direciona ao Painel de Oportunidades do Pronatec e deixa claro que a previsão de oferta não garante vaga ou inscrição aberta. Cada oportunidade informa público, formato, fonte oficial, gratuidade e status. A ferramenta não solicita credenciais nem documentos; eventual login gov.br ocorre somente no portal externo oficial.
+
+
+## Governança de atualização do catálogo de proteção
+
+Cada registro do catálogo de proteção possui data de verificação e prazo de revisão editorial calculado em 90 dias. A ferramenta `buscar_servicos_protecao_por_localidade` oculta por padrão registros com data ausente/inválida ou prazo vencido e informa quantos foram omitidos. O parâmetro `incluir_registros_vencidos=true` existe para auditoria e retorna os registros marcados como `expired` ou `needs_review`; eles não devem ser apresentados como contatos atuais. O prazo é um alerta para revisão humana, não uma validação automática de que o serviço continua funcionando.
+
+A data `review_due_date` é armazenada no JSON e calculada novamente pela lógica do serviço. Antes de adicionar ou renovar um registro, verificar a página institucional, contato, endereço público, horário, cobertura e gratuidade. Não divulgar endereço de acolhimento sigiloso.
