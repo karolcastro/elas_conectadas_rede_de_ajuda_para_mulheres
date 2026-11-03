@@ -27,3 +27,22 @@ def test_registry_does_not_fabricate_missing_records(tmp_path: Path):
     result = ProtectionRegistry(catalog).list_services(uf="SP")
     assert result["count"] == 0
     assert result["services"] == []
+
+
+def test_registry_filters_by_municipality_and_category():
+    registry = ProtectionRegistry()
+    result = registry.list_services(
+        uf="SP", municipality="São Paulo", category="delegacia"
+    )
+    assert result["count"] >= 1
+    assert all(item["municipality"] == "São Paulo" for item in result["services"])
+    assert all(item["official_source"].startswith("https://") for item in result["services"])
+    assert all(item["verification_date"] == "2026-11-03" for item in result["services"])
+
+
+def test_registry_includes_only_publicly_listed_protection_units():
+    result = ProtectionRegistry().list_services(uf="SP", municipality="São Paulo")
+    ids = {item["id"] for item in result["services"]}
+    assert "sp-capital-cmb" in ids
+    assert "sp-capital-ddm-1" in ids
+    assert all(item.get("shelter_address_public") is False for item in result["services"])
