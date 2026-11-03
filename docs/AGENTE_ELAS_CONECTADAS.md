@@ -547,3 +547,18 @@ Foram adicionados testes com HTTP mock para filtros municipais, consulta por CNE
 - Swagger: https://apidadosabertos.saude.gov.br/static/swagger.json
 - Página institucional de acesso livre à API: https://www.gov.br/saude/pt-br/acesso-a-informacao/sic/dados-em-transparencia-ativa/seidigi
 - Dataset UBS: https://dadosabertos.saude.gov.br/dataset/unidades-basicas-de-saude-ubs
+
+
+## 21. Integração IBGE + CNES por município
+
+Foi criada a camada `HealthSearchService` e a ferramenta MCP `buscar_unidades_saude_por_municipio(municipio, uf, limite, pagina)`. O serviço consulta municípios da UF no IBGE, compara o nome ignorando acentos e caixa, mantém o código IBGE de sete dígitos e deriva o código municipal sem dígito verificador para o filtro CNES. A resposta registra ambos os códigos e as fontes consultadas.
+
+### Correção da URL base DEMAS
+
+O Swagger oficial descreve os caminhos `/cnes/estabelecimentos` e `/assistencia-a-saude/unidade-basicas-de-saude` diretamente no domínio `https://apidadosabertos.saude.gov.br`; por isso a URL base do conector foi corrigida para não inserir `/v1`.
+
+### Limites
+
+A ferramenta localiza registros cadastrais ativos. Não confirma agenda, funcionamento no momento da consulta, gratuidade, vagas ou realização de exames específicos. A confirmação deve vir da unidade ou da Secretaria de Saúde. A implementação foi publicada, mas os testes automatizados e chamadas reais ainda precisam ser executados.
+
+Referências: IBGE Localidades https://servicodados.ibge.gov.br/api/docs/localidades ; Swagger DEMAS https://apidadosabertos.saude.gov.br/static/swagger.json .
