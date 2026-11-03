@@ -214,3 +214,94 @@ O MVP deve testar a busca por localização, a consulta a fontes oficiais, a apr
 - A localização do dispositivo depende de autorização e suporte do navegador/dispositivo.
 - A plataforma não presta atendimento emergencial, jurídico, psicológico ou médico diretamente.
 - A implementação deve passar por testes de segurança, privacidade, acessibilidade e qualidade antes de ser usada em situações reais.
+
+
+## 16. Saúde da mulher, exames e campanhas
+
+O agente deverá oferecer uma categoria própria chamada **Saúde da Mulher**. Essa área ajuda a localizar serviços de saúde, entender onde buscar exames preventivos e identificar campanhas e iniciativas voltadas à saúde, dignidade e direitos de mulheres e meninas.
+
+### 16.1 Localização de serviços e exames
+
+A partir do município/estado, CEP ou localização atual autorizada, o agente deverá localizar unidades públicas e serviços gratuitos onde a mulher possa buscar orientação, consulta, prevenção e realização de exames.
+
+Exemplos de necessidades que a usuária pode informar:
+- Consulta ginecológica e planejamento reprodutivo.
+- Exame preventivo do câncer do colo do útero (Papanicolau).
+- Mamografia e avaliação das mamas.
+- Testagem e orientação sobre ISTs.
+- Pré-natal, puerpério e planejamento familiar.
+- Vacinação relacionada à saúde da mulher, quando indicada.
+- Atendimento de saúde sexual e reprodutiva.
+- Atendimento para adolescentes e meninas, respeitando protocolos e regras de proteção aplicáveis.
+
+O agente deve localizar, conforme a disponibilidade de dados:
+- Unidades Básicas de Saúde (UBS) e equipes de Saúde da Família.
+- Centros de referência e ambulatórios especializados.
+- Hospitais e serviços públicos de diagnóstico.
+- Serviços de saúde sexual e reprodutiva.
+- Unidades móveis e mutirões de exames, quando houver divulgação oficial vigente.
+
+### 16.2 Fontes e integração de dados em saúde
+
+Priorizar fontes oficiais, especialmente:
+- **CNES/DATASUS:** cadastro de estabelecimentos de saúde. Pode apoiar a localização e identificação da unidade, mas não comprova sozinho que um exame específico está disponível naquela unidade.
+- **Meu SUS Digital e canais oficiais do Ministério da Saúde:** informações oficiais sobre serviços, programas e acesso à rede pública, conforme funcionalidades e dados disponíveis.
+- **Secretarias Estaduais e Municipais de Saúde:** páginas oficiais com endereços, horários, campanhas, fluxos de encaminhamento e mutirões locais.
+- **Conecte SUS / sistemas oficiais que o substituam ou integrem:** verificar o canal oficial vigente e suas funcionalidades antes de implementar qualquer integração.
+- **DATASUS e dados abertos do SUS:** utilizar bases e APIs documentadas para dados compatíveis com a finalidade, respeitando limitações e atualização.
+
+A existência de uma unidade no CNES não significa que ela realiza todos os exames. Antes de afirmar que determinado exame pode ser feito em uma unidade, o agente deve confirmar a oferta em fonte oficial da unidade/gestor ou orientar a usuária a confirmar diretamente com o serviço.
+
+### 16.3 Orientação segura sobre exames
+
+- Não diagnosticar, interpretar sintomas ou substituir avaliação profissional.
+- Não recomendar um exame como necessário para uma pessoa específica; orientar a procurar a equipe de saúde para avaliar indicação, idade, histórico e periodicidade.
+- Diferenciar “unidade de saúde localizada” de “exame confirmado naquela unidade”.
+- Informar se é necessário agendamento, encaminhamento ou documento, somente quando confirmado por fonte oficial.
+- Não prometer vaga, atendimento imediato ou realização de exame sem confirmação.
+- Quando a informação não estiver disponível, apresentar telefone/canal oficial da unidade ou Secretaria de Saúde para confirmação.
+- Não coletar dados clínicos sensíveis para fazer uma busca geográfica simples.
+- Para sintomas graves ou urgentes, orientar a procurar atendimento de urgência/emergência; não tentar fazer triagem diagnóstica pelo agente.
+
+### 16.4 Campanhas e iniciativas para mulheres e meninas
+
+O agente deverá manter uma área para localizar e divulgar campanhas, programas e iniciativas sobre:
+- Dignidade menstrual e acesso gratuito a absorventes e produtos de higiene menstrual.
+- Saúde menstrual e educação sobre menstruação.
+- Prevenção e conscientização sobre câncer de mama e colo do útero.
+- Vacinação e prevenção de ISTs.
+- Saúde sexual e reprodutiva.
+- Saúde materna, gestação e puerpério.
+- Saúde mental e bem-estar.
+- Direitos de meninas e adolescentes, educação e proteção.
+- Mutirões, dias de atendimento, ações comunitárias e campanhas de doação.
+
+Exemplos de fontes e iniciativas que podem ser monitoradas:
+- **Programa Dignidade Menstrual**, do Governo Federal/Ministério da Saúde, para informações oficiais sobre o programa e os critérios de acesso a absorventes gratuitos.
+- **Absorvente para Todas**, como termo/iniciativa a ser pesquisado e validado em fontes oficiais da organização responsável antes de cadastrar campanha, parceiros, pontos de distribuição ou disponibilidade.
+- Campanhas oficiais do Ministério da Saúde, Secretarias Estaduais e Municipais de Saúde.
+- Organizações da sociedade civil, coletivos femininos, associações comunitárias e ONGs que publiquem campanhas em seus canais institucionais.
+- Organizações e projetos que atuem com meninas, adolescentes, educação menstrual e dignidade menstrual.
+
+O nome “Absorvente para Todas” deve ser tratado como referência fornecida pela idealizadora para descoberta da iniciativa, e não como confirmação automática de que há campanha ativa, distribuição disponível em determinada região ou vínculo com órgão público. Antes de divulgar, identificar a entidade responsável e confirmar a campanha em canal oficial.
+
+### 16.5 Dados mínimos de cada campanha
+
+- Nome oficial da campanha.
+- Organização ou órgão responsável.
+- Objetivo e público beneficiado (mulheres, meninas, adolescentes ou público geral).
+- Localidade/abrangência.
+- Período de vigência e status (ativa, encerrada ou não confirmado).
+- O que oferece: informação, atendimento, exame, absorventes, produtos, doações, oficinas ou encaminhamento.
+- Critérios de participação e documentos, se houver.
+- Como acessar ou participar.
+- Endereço/canais oficiais e link de inscrição, quando aplicável.
+- Fonte primária e data da última verificação.
+- Informação explícita sobre gratuidade e eventuais condições.
+
+Não apresentar campanha encerrada como ativa, não inventar pontos de distribuição e não afirmar que absorventes ou exames estão disponíveis sem confirmação atual.
+
+### 16.6 Opção no menu principal
+
+A categoria **Saúde da Mulher** deve aparecer no menu principal, ao lado das demais categorias de ajuda. Ao selecioná-la, o agente pergunta qual informação a mulher procura (exames/consultas, unidade de saúde próxima, saúde menstrual, campanhas ou outro tema) e solicita a localização mínima necessária. A usuária também pode escrever livremente o que precisa.
+
