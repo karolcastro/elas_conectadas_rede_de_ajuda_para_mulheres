@@ -63,8 +63,18 @@ class HealthSearchService:
             municipality=str(location["municipality"]), uf=str(location["uf"]), limit=limit, offset=offset
         )
         return {
-            "location": location,
+            "location": {
+                "municipality": location["municipality"],
+                "uf": location["uf"],
+                "ibge_municipality_code": location["ibge_municipality_code"],
+                "source": location["source"],
+                "source_url": location["source_url"],
+            },
             "municipal_health_facilities": result,
+            "privacy_notice": (
+                "O CEP foi utilizado apenas para resolver município e UF via ViaCEP. "
+                "O agente não armazena o CEP nem devolve rua ou bairro."
+            ),
             "important_notice": (
                 "A consulta por CEP identifica o município e não calcula distância exata. "
                 "Os registros CNES não confirmam oferta de exame, agenda, gratuidade ou atendimento atual."
