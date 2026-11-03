@@ -631,3 +631,17 @@ Fontes oficiais: serviço gov.br para obter autorização, FAQ do Ministério da
 - Fazer rotação imediata de qualquer credencial que Gitleaks encontrar no histórico; remover do histórico por procedimento controlado quando necessário.
 - Criar aviso de privacidade claro e processo de retenção/eliminação antes de qualquer persistência de dados pessoais.
 - Pentest dinâmico somente em ambiente de homologação controlado, com autorização, dados fictícios e escopo definido.
+
+
+## 27. Assistência jurídica gratuita — primeira integração oficial
+
+Foi adicionado o serviço FreeLegalAidDirectory e a ferramenta MCP orientar_assistencia_juridica_gratuita, além do resource juridico://assistencia-gratuita e do prompt orientar_busca_defensoria_mulher.
+
+### Fontes
+- Conselho Nacional de Justiça: diretório das Defensorias Públicas estaduais.
+- CONDEGE: diretório institucional complementar.
+- Ministério das Mulheres: orientação sobre a rede de atendimento e o papel da Defensoria Pública.
+- Ligue 180 e Painel da Rede de Atendimento: orientação e encaminhamento para serviços locais.
+
+### Limite de cobertura
+A ferramenta retorna diretórios institucionais e instruções, não resultados municipais automáticos, telefones individuais ou promessas de atendimento. Critérios e fluxos variam por estado e caso; não declarar inelegibilidade sem confirmação da Defensoria. Não coletar CPF, documentos, endereço residencial ou relatos detalhados para apresentar os links.
