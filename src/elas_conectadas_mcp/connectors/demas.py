@@ -6,7 +6,7 @@ Os registros CNES não confirmam agenda, gratuidade, atendimento ou disponibilid
 """
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 
 import httpx
@@ -75,7 +75,7 @@ class DEMASConnector:
             "source_url": SOURCE_URL,
             "api_endpoint": f"{BASE_URL}/{endpoint}",
             "documentation_url": SWAGGER_URL,
-            "checked_at": datetime.now(timezone.utc).isoformat(),
+            "checked_at": datetime.now(UTC).isoformat(),
             "record_count": len(records),
             "records": records,
             "important_notice": (
