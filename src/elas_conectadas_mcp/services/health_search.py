@@ -4,6 +4,7 @@ import unicodedata
 from typing import Any
 from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
+from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 
 def _normalize_name(value: str) -> str:
     normalized = unicodedata.normalize("NFKD", value.strip().casefold())
@@ -11,9 +12,10 @@ def _normalize_name(value: str) -> str:
 
 class HealthSearchService:
     """Resolve município/UF no IBGE e consulta registros CNES."""
-    def __init__(self, ibge: IBGEConnector | None = None, demas: DEMASConnector | None = None) -> None:
+    def __init__(self, ibge: IBGEConnector | None = None, demas: DEMASConnector | None = None, viacep: ViaCEPConnector | None = None) -> None:
         self.ibge = ibge or IBGEConnector()
         self.demas = demas or DEMASConnector()
+        self.viacep = viacep or ViaCEPConnector()
 
     async def search_by_municipality(self, municipality: str, uf: str, *, limit: int = 20, offset: int = 0) -> dict[str, Any]:
         """Resolve município no IBGE e consulta estabelecimentos ativos no DEMAS/CNES.
@@ -49,4 +51,19 @@ class HealthSearchService:
             "source_cnes": "https://apidadosabertos.saude.gov.br/static/swagger.json",
             "results": result,
             "important_notice": "Os resultados são registros cadastrais ativos no CNES. Não confirmam agenda, atendimento atual, gratuidade nem realização de exame específico. Confirme com a unidade ou Secretaria de Saúde.",
+        }
+
+    async def search_by_cep(self, cep: str, *, limit: int = 20, offset: int = 0) -> dict[str, Any]:
+        """Resolve CEP via ViaCEP e pesquisa unidades cadastradas no município."""
+        location = await self.viacep.lookup(cep)
+        result = await self.search_by_municipality(
+            municipality=str(location["municipality"]), uf=str(location["uf"]), limit=limit, offset=offset
+        )
+        return {
+            "location": location,
+            "municipal_health_facilities": result,
+            "important_notice": (
+                "A consulta por CEP identifica o município e não calcula distância exata. "
+                "Os registros CNES não confirmam oferta de exame, agenda, gratuidade ou atendimento atual."
+            ),
         }
