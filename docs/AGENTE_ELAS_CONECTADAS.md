@@ -660,3 +660,7 @@ O Mapa das OSC combina dados de bases públicas e informações inseridas pelas 
 
 ### Critérios obrigatórios antes de recomendar
 Confirmar existência, contato institucional, território atendido, público, gratuidade, critérios, disponibilidade e data de verificação. Afirmar que uma iniciativa é criada/liderada por mulheres somente quando a própria instituição ou fonte confiável comprovar. Nunca divulgar endereço sigiloso de abrigo ou dados de pessoas atendidas.
+
+
+### Governança de segurança do repositório
+O arquivo `SECURITY.md` define como reportar vulnerabilidades sem expor dados em issues públicas e restringe testes a ambientes autorizados com dados fictícios. `.github/dependabot.yml` agenda atualizações semanais de dependências Python e GitHub Actions; cada atualização deve passar pelo CI antes de ser aceita.
