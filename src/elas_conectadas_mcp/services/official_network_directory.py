@@ -18,10 +18,17 @@ PANEL_SERVICE_TYPES = [
     "Patrulhas Maria da Penha",
 ]
 
+
 class OfficialNetworkDirectory:
     """Não faz scraping nem simula busca; encaminha ao painel oficial consultável."""
 
-    def guide(self, *, uf: str | None = None, municipality: str | None = None, category: str | None = None) -> dict[str, Any]:
+    def guide(
+        self,
+        *,
+        uf: str | None = None,
+        municipality: str | None = None,
+        category: str | None = None,
+    ) -> dict[str, Any]:
         if uf and (len(uf.strip()) != 2 or not uf.strip().isalpha()):
             raise ValueError("Informe a sigla da UF com duas letras.")
         if municipality and len(municipality.strip()) < 2:
@@ -46,6 +53,11 @@ class OfficialNetworkDirectory:
             ],
             "integration_status": "official_link_and_guidance_only",
             "automated_records_available": False,
-            "important_notice": "O painel é oficial e permite pesquisa por região, estado e município. Não foi identificada nesta implementação uma API pública documentada para consultar seus registros automaticamente; por isso, esta ferramenta não afirma ter localizado unidades nem reproduz dados do painel.",
+            "important_notice": (
+                "O painel é oficial e permite pesquisa por região, estado e município. "
+                "Não foi identificada nesta implementação uma API pública documentada "
+                "para consultar seus registros automaticamente; por isso, esta ferramenta "
+                "não afirma ter localizado unidades nem reproduz dados do painel."
+            ),
             "verification_date": "2026-11-03",
         }
