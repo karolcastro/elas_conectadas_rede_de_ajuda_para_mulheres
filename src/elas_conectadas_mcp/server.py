@@ -12,6 +12,7 @@ from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
 from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
+from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -29,6 +30,7 @@ viacep = ViaCEPConnector()
 health_search = HealthSearchService(ibge=ibge, demas=demas, viacep=viacep)
 protection_registry = ProtectionRegistry()
 official_network_directory = OfficialNetworkDirectory()
+menstrual_dignity_guide = MenstrualDignityGuide()
 
 
 @mcp.tool()
@@ -160,6 +162,31 @@ def orientar_acesso_rede_atendimento() -> str:
         "se os registros não foram retornados por uma integração verificável. Confirme contato "
         "e funcionamento antes do deslocamento. Nunca divulgue endereços sigilosos de abrigos; "
         "nesses casos, oriente a mulher a buscar encaminhamento seguro pelo Ligue 180."
+    )
+
+
+
+@mcp.tool()
+def consultar_programa_dignidade_menstrual() -> dict:
+    """Explica critérios e etapas oficiais para obter absorventes gratuitos."""
+    return menstrual_dignity_guide.get_guidance()
+
+
+@mcp.resource("saude://dignidade-menstrual")
+def recurso_dignidade_menstrual() -> str:
+    """Resource com orientações oficiais do Programa Dignidade Menstrual."""
+    return json.dumps(menstrual_dignity_guide.get_guidance(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_acesso_absorventes_gratuitos() -> str:
+    """Prompt de orientação sobre acesso ao Programa Dignidade Menstrual."""
+    return (
+        "Explique o Programa Dignidade Menstrual com base nas fontes oficiais retornadas. "
+        "Não peça CPF, senha, conta gov.br nem dados sensíveis no chat. Informe que a consulta "
+        "no Elas Conectadas é sem cadastro, mas o serviço externo pode exigir autenticação "
+        "gov.br para emitir autorização. Não garanta estoque em farmácia; indique confirmação "
+        "com a unidade e apoio de UBS/CRAS/CREAS quando necessário."
     )
 
 
