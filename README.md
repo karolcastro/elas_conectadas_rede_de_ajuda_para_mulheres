@@ -158,3 +158,10 @@ A ferramenta MCP `consultar_programa_dignidade_menstrual`, o resource `saude://d
 - Resource MCP seguranca://privacidade-e-dados e prompt orientar_privacidade_e_seguranca definem minimização, consentimento e proteção de endereços sigilosos.
 
 **Limite importante:** esses controles reduzem riscos, mas não certificam segurança total. Segredos removidos de arquivos atuais ainda podem permanecer no histórico Git; o scanner Gitleaks foi adicionado ao CI para verificar commits disponíveis e precisa concluir com sucesso. A versão atual roda via MCP stdio e não implementa banco ou armazenamento de conversas.
+
+
+## Assistência jurídica gratuita — diretórios oficiais
+
+Foi adicionada a ferramenta MCP orientar_assistencia_juridica_gratuita, o resource juridico://assistencia-gratuita e o prompt orientar_busca_defensoria_mulher. Eles encaminham a usuária aos diretórios do Conselho Nacional de Justiça e do CONDEGE, além do Ligue 180 e do Painel da Rede de Atendimento.
+
+O agente não simula uma busca municipal: a ferramenta retorna links oficiais e instruções para localizar a Defensoria do estado, procurar atendimento à mulher/NUDEM e confirmar critérios diretamente com a instituição. Não solicita CPF, documentos ou relato de violência.
