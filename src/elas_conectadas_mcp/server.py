@@ -14,6 +14,7 @@ from elas_conectadas_mcp.services.health_search import HealthSearchService
 from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
 from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
+from elas_conectadas_mcp.services.women_organizations import WomenOrganizationsGuide
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -33,6 +34,7 @@ protection_registry = ProtectionRegistry()
 official_network_directory = OfficialNetworkDirectory()
 menstrual_dignity_guide = MenstrualDignityGuide()
 free_legal_aid_directory = FreeLegalAidDirectory()
+women_organizations_guide = WomenOrganizationsGuide()
 
 
 @mcp.tool()
@@ -298,6 +300,31 @@ def orientar_busca_defensoria_mulher() -> str:
         "e triagem variam; não conclua inelegibilidade sem confirmação do órgão. O Ligue 180 "
         "pode orientar e indicar serviços locais. Não peça CPF, documentos, senha ou relato "
         "detalhado para fornecer esses caminhos. Não invente unidade, telefone ou endereço."
+    )
+
+
+
+@mcp.tool()
+def orientar_busca_ongs_coletivos_mulheres(uf: str | None = None, municipio: str | None = None) -> dict:
+    """Aponta fontes institucionais para descobrir ONGs e coletivos e validar atendimento."""
+    return women_organizations_guide.guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("comunidade://ongs-e-coletivos")
+def recurso_ongs_coletivos_mulheres() -> str:
+    """Resource com fontes de descoberta e critérios de validação de organizações."""
+    return json.dumps(women_organizations_guide.guide(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_validacao_ong_feminina() -> str:
+    """Prompt para validar organizações sem inventar foco, gratuidade ou disponibilidade."""
+    return (
+        "Use o Mapa das OSC do IPEA apenas como fonte de descoberta, não como prova de que "
+        "uma organização atende mulheres ou oferece serviço gratuito. Confirme missão, atuação "
+        "territorial, liderança feminina quando alegada, contato institucional, gratuidade, "
+        "critérios, disponibilidade e data de verificação. Coletivos informais podem não constar "
+        "no Mapa. Não peça cadastro ou dados pessoais da mulher para fornecer fontes."
     )
 
 
