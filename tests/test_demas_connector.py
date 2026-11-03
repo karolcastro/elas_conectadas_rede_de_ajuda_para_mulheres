@@ -20,7 +20,7 @@ async def test_search_establishments_sends_documented_filters():
 
     assert result["record_count"] == 1
     assert result["records"][0]["codigo_cnes"] == "123"
-    assert "não confirma agenda" in result["important_notice"]
+    assert "Não confirma agenda" in result["important_notice"]
 
 
 @pytest.mark.asyncio
