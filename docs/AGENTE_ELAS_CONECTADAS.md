@@ -714,3 +714,17 @@ Foi criado o serviço `WomenTrainingDirectory`, com a ferramenta MCP `buscar_cur
 
 ### Proteção de dados
 O módulo é somente de leitura e não coleta dados da usuária. Se o portal externo exigir conta gov.br, a mulher acessa diretamente o serviço oficial; o agente nunca solicita CPF, senha, e-mail, login ou documentos. A disponibilidade de vagas deve ser confirmada na fonte antes de recomendar inscrição.
+
+
+## 31. Governança de validade dos registros regionais
+
+A consulta ao catálogo de proteção agora aplica uma janela editorial de revisão de 90 dias a partir de `verification_date`.
+
+- O campo `review_due_date` é registrado em cada entrada e recalculado pelo serviço.
+- Registros dentro do prazo recebem `catalog_status=verified`.
+- Registros vencidos recebem `catalog_status=expired`; registros sem data válida recebem `catalog_status=needs_review`.
+- A busca padrão oculta os dois últimos estados e informa `excluded_stale_count).
+- Para auditoria, a tool `buscar_servicos_protecao_por_localidade` aceita `incluir_registros_vencidos=true`, mas os resultados vêm explicitamente sinalizados e não devem ser recomendados como atuais.
+- A resposta informa a data de referência `as_of` e o prazo de revisão de cada registro.
+
+A janela de 90 dias é uma política de manutenção do catálogo, não prova de funcionamento, disponibilidade ou atendimento. A confirmação com o órgão responsável continua obrigatória antes de orientar deslocamento. Testes cobrem validade, vencimento, data ausente/inválida e consulta explícita de registros antigos.
