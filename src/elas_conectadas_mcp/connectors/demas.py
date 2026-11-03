@@ -11,7 +11,7 @@ from typing import Any
 
 import httpx
 
-BASE_URL = "https://apidadosabertos.saude.gov.br/v1"
+BASE_URL = "https://apidadosabertos.saude.gov.br"
 SOURCE_URL = "https://apidadosabertos.saude.gov.br/"
 SWAGGER_URL = "https://apidadosabertos.saude.gov.br/static/swagger.json"
 _TIMEOUT = httpx.Timeout(25.0, connect=7.0)
