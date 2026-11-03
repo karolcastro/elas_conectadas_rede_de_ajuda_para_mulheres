@@ -172,3 +172,6 @@ O agente não simula uma busca municipal: a ferramenta retorna links oficiais e 
 Foi adicionada a ferramenta MCP orientar_busca_ongs_coletivos_mulheres, o resource comunidade://ongs-e-coletivos e o prompt orientar_validacao_ong_feminina. O módulo aponta o Mapa das OSC do IPEA, o Painel da Rede de Atendimento e o Ligue 180 como fontes para descobrir iniciativas.
 
 **Importante:** o Mapa das OSC é fonte de descoberta, não prova que a organização atende mulheres, é gratuita, está ativa ou é liderada por mulheres. Coletivos informais podem não aparecer. O agente deve validar cada item em fonte institucional antes de recomendar e não simula resultados locais automáticos.
+
+
+Consulte `SECURITY.md` para a política de divulgação responsável de vulnerabilidades. O Dependabot está configurado para propor atualizações semanais de dependências Python e GitHub Actions.
