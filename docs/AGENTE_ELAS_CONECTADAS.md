@@ -490,3 +490,23 @@ Os prompts não podem autorizar o modelo a inventar contatos, disponibilidade, g
 ### 18.7 Critério de conclusão MCP
 
 Uma integração só será considerada MCP implementada quando houver servidor executável, tools/resources/prompts documentados conforme aplicável, schemas validados, tratamento de erros, controles de segurança e testes de integração. Ter apenas uma API HTTP ou uma função Python não significa, por si só, que exista um servidor MCP.
+
+
+## 19. Implementação inicial do servidor MCP
+
+Foi adicionada ao repositório a primeira implementação em Python, com:
+- servidor MCP baseado em FastMCP;
+- conector assíncrono para a API oficial de Localidades do IBGE;
+- tools para listar estados, listar municípios por UF e consultar município por código;
+- resource `ibge://estados`;
+- prompt reutilizável para orientar busca por município;
+- testes automatizados com transporte HTTP simulado;
+- configuração de dependências e arquivos auxiliares.
+
+### Limites conhecidos
+
+Esta entrega é a fundação MCP e o primeiro conector territorial. Ainda não inclui integração com DEMAS/CNES, geolocalização por CEP/coordenadas, Supabase, serviços de saúde, campanhas, ONGs, nem interface de chat. O conector IBGE não deve ser usado como evidência de que um estabelecimento existe ou oferece determinado exame.
+
+### Validação antes de produção
+
+Instalar as dependências, executar `pytest`, validar a comunicação com a API oficial do IBGE e testar o servidor com um cliente MCP compatível. Só depois desses passos marcar a primeira versão como validada.
