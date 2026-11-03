@@ -562,3 +562,12 @@ O Swagger oficial descreve os caminhos `/cnes/estabelecimentos` e `/assistencia-
 A ferramenta localiza registros cadastrais ativos. Não confirma agenda, funcionamento no momento da consulta, gratuidade, vagas ou realização de exames específicos. A confirmação deve vir da unidade ou da Secretaria de Saúde. A implementação foi publicada, mas os testes automatizados e chamadas reais ainda precisam ser executados.
 
 Referências: IBGE Localidades https://servicodados.ibge.gov.br/api/docs/localidades ; Swagger DEMAS https://apidadosabertos.saude.gov.br/static/swagger.json .
+
+
+## 22. Busca territorial por CEP
+
+Foi adicionado `ViaCEPConnector` para resolver CEP em município, UF e código IBGE, sem exigir autenticação. A ferramenta MCP `buscar_unidades_saude_por_cep` encadeia a consulta de CEP à busca municipal IBGE + CNES.
+
+**Transparência da fonte:** ViaCEP é um serviço público de terceiros, não uma API oficial do Governo Federal. O CEP é usado para identificar município/UF; a implementação não calcula distância geográfica exata nem afirma qual unidade é a mais próxima. A usuária pode evitar o CEP e informar município/UF diretamente.
+
+Testes automatizados com HTTP mock cobrem CEP válido, formato inválido e CEP não encontrado. Ainda é necessário executar a suíte de testes e validar chamadas reais antes de declarar a integração operacional.
