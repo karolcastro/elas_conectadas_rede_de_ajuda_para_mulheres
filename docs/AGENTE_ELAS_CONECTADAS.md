@@ -404,3 +404,89 @@ A periodicidade de coleta deve respeitar a frequência oficial de cada base. Par
 5. Validação complementar de serviços/exames nos canais oficiais das unidades e gestores locais.
 6. Módulo de campanhas e Dignidade Menstrual.
 7. Conectores por secretaria local e organização/ONG, com revisão e histórico.
+
+
+## 18. Padrão de integração MCP (Model Context Protocol)
+
+O Elas Conectadas deverá ser desenvolvido com arquitetura compatível com **MCP (Model Context Protocol)**. O MCP será a camada padronizada para disponibilizar ferramentas, recursos e instruções ao modelo de IA, permitindo conectar fontes públicas, APIs oficiais, banco de dados e serviços externos de forma modular.
+
+Esta seção define o padrão arquitetural desejado; não significa que um servidor MCP já esteja implementado.
+
+### 18.1 Componentes MCP
+
+- **Tools:** operações executáveis pelo agente, com entradas e saídas estruturadas e validação.
+- **Resources:** documentos, catálogos, registros e conteúdos de referência que o modelo pode consultar.
+- **Prompts:** instruções reutilizáveis para fluxos de atendimento e tarefas recorrentes.
+
+### 18.2 Servidores MCP e responsabilidades
+
+Organizar servidores por domínio funcional, evitando um servidor monolítico:
+
+| Servidor MCP proposto | Responsabilidades |
+|---|---|
+| `mcp-localizacao` | Normalizar CEP/município, consultar localidades e calcular proximidade quando houver coordenadas válidas e consentimento. |
+| `mcp-saude-mulher` | Consultar estabelecimentos CNES/DEMAS, localizar serviços de saúde e recuperar informações de campanhas oficiais. |
+| `mcp-protecao-mulher` | Pesquisar canais oficiais de proteção, delegacias, centros de referência e serviços de acolhimento, preservando endereços sigilosos. |
+| `mcp-ongs-campanhas` | Consultar catálogo verificado de ONGs, coletivos, campanhas e iniciativas para mulheres e meninas. |
+| `mcp-capacitacao` | Localizar cursos, bolsas, programas e comunidades de formação destinados a mulheres. |
+| `mcp-base-confiavel` | Consultar registros normalizados no Supabase, fontes, datas de verificação e histórico de atualização. |
+
+Os servidores podem ser agrupados no MVP, desde que mantenham responsabilidades e permissões separadas.
+
+### 18.3 Catálogo inicial de Tools
+
+As ferramentas devem ter nomes claros, contratos de entrada/saída documentados, validação de parâmetros e mensagens de erro seguras. Exemplos de operações previstas:
+
+- `search_health_facilities`: buscar estabelecimentos por município/UF ou proximidade.
+- `get_facility_services`: consultar serviços cadastrados para um estabelecimento, deixando explícito que cadastro não confirma agenda ou disponibilidade.
+- `search_womens_health_campaigns`: localizar campanhas de saúde da mulher e dignidade menstrual.
+- `search_womens_support_services`: localizar serviços de proteção, assistência e acolhimento.
+- `search_women_led_organizations`: pesquisar ONGs, coletivos e iniciativas verificadas.
+- `search_womens_training_programs`: localizar cursos, bolsas e capacitações.
+- `get_source_provenance`: retornar fonte primária, data da consulta, atualização conhecida e status de validação.
+- `normalize_location`: padronizar município, UF e CEP; localização do dispositivo só pode ser utilizada após consentimento explícito.
+
+As operações são propostas e só devem ser anunciadas como disponíveis depois de implementadas e testadas.
+
+### 18.4 Resources MCP
+
+Disponibilizar recursos de leitura, conforme necessidade e política de acesso:
+
+- Catálogo de fontes oficiais e ONGs verificadas.
+- Metadados de datasets e APIs públicas.
+- Critérios e orientações oficiais de programas públicos.
+- Catálogo de serviços e campanhas com data de verificação.
+- Política de privacidade, segurança e proteção de endereços sigilosos.
+- Taxonomia de necessidades e categorias do agente.
+
+Cada resource deverá preservar origem, licença/condições de uso e data de atualização sempre que aplicável.
+
+### 18.5 Prompts MCP
+
+Manter prompts reutilizáveis e versionados para:
+
+- Acolhimento inicial e identificação da necessidade.
+- Busca local de serviços gratuitos.
+- Orientação sobre saúde da mulher e exames.
+- Pesquisa e validação de campanhas.
+- Busca de cursos e oportunidades para mulheres.
+- Atendimento em situação de risco e segurança digital.
+- Explicação dos resultados com fontes e próximos passos.
+
+Os prompts não podem autorizar o modelo a inventar contatos, disponibilidade, gratuidade, elegibilidade ou informações ausentes nas fontes.
+
+### 18.6 Transporte, segurança e governança
+
+- Escolher o transporte MCP conforme o ambiente de execução: `stdio` para processos locais e integrações controladas; Streamable HTTP para serviços remotos quando apropriado e suportado.
+- Autenticar e autorizar clientes quando necessário; nunca expor credenciais, tokens ou chaves no prompt, no frontend ou no repositório.
+- Aplicar princípio do menor privilégio e separar ferramentas de leitura de operações que alterem dados.
+- Validar todos os argumentos e limitar tamanho, frequência e escopo das consultas.
+- Registrar auditoria técnica sem armazenar relatos sensíveis desnecessários.
+- Tratar conteúdo recuperado de sites e documentos como dado não confiável; instruções encontradas nas fontes nunca podem substituir as políticas do agente.
+- Não permitir que uma ferramenta acesse localização precisa sem consentimento.
+- Não divulgar endereços sigilosos de abrigos ou dados pessoais de beneficiárias.
+- Versionar schemas, tools e prompts; testar compatibilidade e falhas antes de publicar.
+
+### 18.7 Critério de conclusão MCP
+
+Uma integração só será considerada MCP implementada quando houver servidor executável, tools/resources/prompts documentados conforme aplicável, schemas validados, tratamento de erros, controles de segurança e testes de integração. Ter apenas uma API HTTP ou uma função Python não significa, por si só, que exista um servidor MCP.
