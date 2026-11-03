@@ -28,7 +28,7 @@ def _validate_uf(uf: str) -> str:
 
 def _validate_municipality_id(municipality_id: int) -> int:
     if isinstance(municipality_id, bool) or not isinstance(municipality_id, int):
-        raise ValueError("O código do município deve ser um número inteiro.")
+        raise TypeError("O código do município deve ser um número inteiro.")
     if municipality_id <= 0:
         raise ValueError("O código do município deve ser positivo.")
     return municipality_id
