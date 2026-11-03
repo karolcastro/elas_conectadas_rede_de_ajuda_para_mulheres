@@ -582,3 +582,8 @@ Foi criado um catálogo estruturado `data/servicos_protecao.json` com dois canai
 ### Esquema mínimo de registro
 
 Cada registro deve conter identificador, nome, categoria, abrangência, telefone/canal, gratuidade confirmada, público atendido, instruções de acesso, URL oficial, situação da validação e campos de endereço tratados conforme a segurança. Informações não confirmadas devem permanecer ausentes, nunca preenchidas por inferência.
+
+
+### Canais complementares confirmados do Ligue 180
+
+Na verificação de 03/11/2026, a página oficial do Ministério das Mulheres confirma ligação gratuita pelo 180, atendimento 24 horas todos os dias, WhatsApp +55 61 9610-0180 e e-mail central180@mulheres.gov.br. O ministério também disponibiliza o Painel da Rede de Atendimento: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento. O painel é apresentado como fonte oficial para a próxima etapa; esta versão ainda não importa automaticamente seus registros.
