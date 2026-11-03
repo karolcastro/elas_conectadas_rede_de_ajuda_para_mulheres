@@ -11,7 +11,9 @@ Ajudar mulheres a encontrar serviços confiáveis de acordo com sua necessidade 
 - Busca por tipo de ajuda em linguagem natural.
 - Busca por CEP ou município/estado.
 - Uso opcional da localização atual do dispositivo, somente com autorização explícita.
-- Localização de serviços gratuitos de proteção, acolhimento, assistência jurídica, apoio psicológico e social.
+- Localização de serviços gratuitos de proteção, acolhimento, assistência jurídica, apoio psicológico, social e de saúde da mulher.
+- Busca de UBS, ambulatórios e serviços públicos para consultas e exames, distinguindo unidades localizadas de exames efetivamente confirmados.
+- Divulgação de campanhas oficiais e iniciativas de ONGs para mulheres e meninas, incluindo dignidade menstrual e acesso a absorventes.
 - Busca de cursos, bolsas e capacitações, priorizando iniciativas criadas por mulheres para mulheres ou destinadas especificamente ao público feminino.
 - Apresentação de contatos, critérios de atendimento, gratuidade, fonte oficial e data de verificação.
 - Orientação sobre como acessar o serviço.
@@ -50,6 +52,7 @@ Essas tecnologias compõem a arquitetura proposta; a presença nesta lista não 
 4. Assistência jurídica gratuita.
 5. Centros de atendimento psicológico e social.
 6. Cursos gratuitos, bolsas e capacitação para mulheres.
+7. Saúde da Mulher: localização de serviços e exames, saúde menstrual e campanhas para mulheres e meninas.
 
 ## Documentação
 
