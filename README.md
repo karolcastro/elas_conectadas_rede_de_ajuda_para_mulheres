@@ -175,3 +175,12 @@ Foi adicionada a ferramenta MCP orientar_busca_ongs_coletivos_mulheres, o resour
 
 
 Consulte `SECURITY.md` para a política de divulgação responsável de vulnerabilidades. O Dependabot está configurado para propor atualizações semanais de dependências Python e GitHub Actions.
+
+
+## Catálogo regional validado — São Paulo (capital)
+
+Foi adicionada a primeira carga regional ao arquivo `data/servicos_protecao.json`, com Delegacias de Defesa da Mulher (DDMs), Casas da Mulher, Centros de Defesa e de Convivência da Mulher (CDCMs) e Casa da Mulher Brasileira da capital paulista. Os registros incluem endereço público divulgado pela Prefeitura, telefone, horário informado, zona, fonte oficial e data de verificação (03/11/2026).
+
+A ferramenta MCP `buscar_servicos_protecao_por_localidade(uf, municipio, categoria)` consulta esse catálogo. O resource `protecao://catalogo-regional` disponibiliza a primeira cobertura municipal.
+
+**Limites:** esta carga inicial cobre somente São Paulo (capital), não o estado inteiro nem o Brasil. Não calcula proximidade, não garante disponibilidade de atendimento e não publica endereços de abrigos sigilosos. Confirme funcionamento antes do deslocamento. Em perigo imediato, 190; orientação, 180.
