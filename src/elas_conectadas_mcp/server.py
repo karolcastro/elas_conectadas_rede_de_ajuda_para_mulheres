@@ -10,6 +10,7 @@ from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 from elas_conectadas_mcp.services.health_search import HealthSearchService
+from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -25,6 +26,7 @@ ibge = IBGEConnector()
 demas = DEMASConnector()
 viacep = ViaCEPConnector()
 health_search = HealthSearchService(ibge=ibge, demas=demas, viacep=viacep)
+protection_registry = ProtectionRegistry()
 
 
 @mcp.tool()
@@ -95,6 +97,39 @@ async def buscar_unidades_saude_por_cep(cep: str, limite: int = 20, pagina: int 
     A consulta localiza o município, mas não calcula distância exata entre endereço e unidade.
     """
     return await health_search.search_by_cep(cep, limit=limite, offset=pagina)
+
+
+protection_registry = ProtectionRegistry()
+
+
+@mcp.tool()
+def listar_canais_oficiais_de_ajuda(categoria: str | None = None, uf: str | None = None) -> dict:
+    """Lista canais nacionais e serviços cadastrados com fonte oficial e abrangência."""
+    return protection_registry.list_services(category=categoria, uf=uf)
+
+
+@mcp.tool()
+def consultar_telefones_de_urgencia() -> dict:
+    """Retorna canais nacionais oficiais: 190 para emergência e 180 para atendimento à mulher."""
+    return protection_registry.national_emergency_channels()
+
+
+@mcp.resource("protecao://fontes-e-canais")
+def recurso_canais_protecao() -> str:
+    """Resource com canais nacionais oficiais e catálogo validado de proteção."""
+    return json.dumps(protection_registry.national_emergency_channels(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_busca_protecao_mulher() -> str:
+    """Orientação MCP para pesquisas seguras de proteção e acolhimento."""
+    return (
+        "Em perigo imediato, informe 190. Para orientação sobre violência contra a mulher, "
+        "informe 180. Consulte o catálogo curado e nunca invente delegacias, ONGs, abrigos, "
+        "advogados, endereços ou telefones. Não divulgue endereços de abrigos sigilosos. "
+        "Só apresente gratuidade, horários, critérios e disponibilidade quando confirmados "
+        "em fonte oficial recente; informe a fonte e a data da verificação."
+    )
 
 
 @mcp.resource("ibge://estados")
