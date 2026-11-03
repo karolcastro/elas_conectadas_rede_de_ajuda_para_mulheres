@@ -9,6 +9,7 @@ from mcp.server.fastmcp import FastMCP
 from elas_conectadas_mcp.connectors.demas import DEMASConnector
 from elas_conectadas_mcp.connectors.ibge import IBGEConnector
 from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
+from elas_conectadas_mcp.services.free_legal_aid import FreeLegalAidDirectory
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
 from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
@@ -31,6 +32,7 @@ health_search = HealthSearchService(ibge=ibge, demas=demas, viacep=viacep)
 protection_registry = ProtectionRegistry()
 official_network_directory = OfficialNetworkDirectory()
 menstrual_dignity_guide = MenstrualDignityGuide()
+free_legal_aid_directory = FreeLegalAidDirectory()
 
 
 @mcp.tool()
@@ -271,6 +273,31 @@ def orientar_privacidade_e_seguranca() -> str:
         "imediato, informe 190; para orientação sobre violência contra a mulher, 180. "
         "Se houver suspeita de monitoramento, ofereça opções de segurança sem prometer "
         "que navegação privada elimina rastros."
+    )
+
+
+
+@mcp.tool()
+def orientar_assistencia_juridica_gratuita(uf: str | None = None, municipio: str | None = None) -> dict:
+    """Encaminha para diretórios oficiais de Defensorias e assistência jurídica gratuita."""
+    return free_legal_aid_directory.guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("juridico://assistencia-gratuita")
+def recurso_assistencia_juridica_gratuita() -> str:
+    """Resource com diretórios oficiais e instruções para acessar assistência jurídica."""
+    return json.dumps(free_legal_aid_directory.guide(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_busca_defensoria_mulher() -> str:
+    """Prompt para orientar acesso à Defensoria Pública sem coletar dados sensíveis."""
+    return (
+        "Oriente a consulta aos diretórios oficiais do CNJ e CONDEGE. Encaminhe para o site "
+        "da Defensoria Pública estadual e procure o NUDEM ou atendimento à mulher. Critérios "
+        "e triagem variam; não conclua inelegibilidade sem confirmação do órgão. O Ligue 180 "
+        "pode orientar e indicar serviços locais. Não peça CPF, documentos, senha ou relato "
+        "detalhado para fornecer esses caminhos. Não invente unidade, telefone ou endereço."
     )
 
 
