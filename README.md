@@ -142,3 +142,8 @@ O registro do Ligue 180 inclui telefone, WhatsApp (+55 61 9610-0180), e-mail ofi
 Foi adicionada a ferramenta MCP `orientar_consulta_rede_oficial_atendimento`, o resource `protecao://painel-rede-atendimento` e o prompt `orientar_acesso_rede_atendimento`. Eles direcionam a usuária ao [Painel da Rede de Atendimento do Ministério das Mulheres](https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento) e explicam como filtrar estado, município e tipo de serviço.
 
 **Limite técnico explícito:** o Ministério documenta que o painel permite consulta por região, estado e cidade e apresenta localização e contatos, mas não foi identificada nesta implementação uma API pública documentada para importar os registros. Portanto, o agente ainda não retorna automaticamente a lista de unidades do painel. A ferramenta fornece encaminhamento ao canal oficial e não simula resultados. A consulta automática só será ativada após identificar uma interface de dados oficialmente suportada e testá-la.
+
+
+## Saúde menstrual — Programa Dignidade Menstrual
+
+A ferramenta MCP `consultar_programa_dignidade_menstrual`, o resource `saude://dignidade-menstrual` e o prompt `orientar_acesso_absorventes_gratuitos` apresentam critérios, etapas e fontes oficiais do Programa Dignidade Menstrual. A informação é pública e pode ser consultada sem cadastro no Elas Conectadas. A emissão de autorização no serviço externo Meu SUS Digital pode exigir autenticação gov.br; o agente nunca deve solicitar credenciais. O guia não confirma estoque em farmácia específica.
