@@ -40,14 +40,20 @@ class ViaCEPConnector:
         ibge = data.get("ibge")
         if not ibge or not str(ibge).isdigit():
             raise ViaCEPError("O ViaCEP não retornou o código IBGE do município.")
+        # Minimiza os dados devolvidos: não ecoa CEP, rua ou bairro.
+        # O CEP é transmitido ao ViaCEP para resolução, mas não é persistido por este conector.
         return {
-            "cep": data.get("cep"),
-            "logradouro": data.get("logradouro"),
-            "bairro": data.get("bairro"),
             "municipality": data.get("localidade"),
             "uf": data.get("uf"),
             "ibge_municipality_code": int(ibge),
             "source": "ViaCEP",
             "source_url": "https://viacep.com.br/",
-            "important_notice": "O CEP identifica o endereço e o município; não fornece coordenadas precisas nem comprova a proximidade física de unidades de saúde.",
+            "privacy_notice": (
+                "O CEP foi enviado ao ViaCEP para identificar município e UF. "
+                "Esta implementação não armazena o CEP e não devolve rua ou bairro."
+            ),
+            "important_notice": (
+                "O CEP identifica o município; não fornece coordenadas precisas nem "
+                "comprova a proximidade física de unidades de saúde."
+            ),
         }
