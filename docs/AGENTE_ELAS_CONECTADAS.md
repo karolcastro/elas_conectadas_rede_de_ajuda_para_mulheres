@@ -571,3 +571,14 @@ Foi adicionado `ViaCEPConnector` para resolver CEP em município, UF e código I
 **Transparência da fonte:** ViaCEP é um serviço público de terceiros, não uma API oficial do Governo Federal. O CEP é usado para identificar município/UF; a implementação não calcula distância geográfica exata nem afirma qual unidade é a mais próxima. A usuária pode evitar o CEP e informar município/UF diretamente.
 
 Testes automatizados com HTTP mock cobrem CEP válido, formato inválido e CEP não encontrado. Ainda é necessário executar a suíte de testes e validar chamadas reais antes de declarar a integração operacional.
+
+
+## 23. Módulo inicial de proteção e canais oficiais
+
+Foi criado um catálogo estruturado `data/servicos_protecao.json` com dois canais nacionais: 190 para emergência policial e 180 para orientação e atendimento sobre violência contra a mulher. O servidor MCP expõe ferramentas para consultar esses canais e listar registros por categoria/UF, além do resource `protecao://fontes-e-canais` e do prompt `orientar_busca_protecao_mulher`.
+
+**Limite de cobertura:** nesta etapa, não foi incluído nenhum registro regional de Delegacia da Mulher, ONG, abrigo ou assistência jurídica sem validação de fonte e contato. A ausência de resultados no catálogo não significa que o serviço não exista. Endereços de abrigos sigilosos não devem ser publicados. Antes de inserir um registro regional, verificar existência, contato, cobertura, gratuidade, critérios, data e URL oficial.
+
+### Esquema mínimo de registro
+
+Cada registro deve conter identificador, nome, categoria, abrangência, telefone/canal, gratuidade confirmada, público atendido, instruções de acesso, URL oficial, situação da validação e campos de endereço tratados conforme a segurança. Informações não confirmadas devem permanecer ausentes, nunca preenchidas por inferência.
