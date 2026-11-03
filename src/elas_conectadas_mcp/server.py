@@ -122,6 +122,28 @@ def consultar_telefones_de_urgencia() -> dict:
     return protection_registry.national_emergency_channels()
 
 
+@mcp.tool()
+def buscar_servicos_protecao_por_localidade(
+    uf: str, municipio: str | None = None, categoria: str | None = None
+) -> dict:
+    """Busca serviços regionais previamente verificados por UF, município e categoria.
+
+    Não calcula distância. Retorna apenas registros com fonte oficial e data de verificação.
+    """
+    return protection_registry.list_services(
+        uf=uf, municipality=municipio, category=categoria
+    )
+
+
+@mcp.resource("protecao://catalogo-regional")
+def recurso_catalogo_regional() -> str:
+    """Resource de leitura do catálogo regional validado."""
+    return json.dumps(
+        protection_registry.list_services(uf="SP", municipality="São Paulo"),
+        ensure_ascii=False,
+    )
+
+
 @mcp.resource("protecao://fontes-e-canais")
 def recurso_canais_protecao() -> str:
     """Resource com canais nacionais oficiais e catálogo validado de proteção."""
