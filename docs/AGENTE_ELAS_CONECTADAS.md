@@ -645,3 +645,18 @@ Foi adicionado o serviço FreeLegalAidDirectory e a ferramenta MCP orientar_assi
 
 ### Limite de cobertura
 A ferramenta retorna diretórios institucionais e instruções, não resultados municipais automáticos, telefones individuais ou promessas de atendimento. Critérios e fluxos variam por estado e caso; não declarar inelegibilidade sem confirmação da Defensoria. Não coletar CPF, documentos, endereço residencial ou relatos detalhados para apresentar os links.
+
+
+## 28. ONGs, coletivos e iniciativas femininas — descoberta responsável
+
+Foi adicionado o serviço WomenOrganizationsGuide, a ferramenta MCP orientar_busca_ongs_coletivos_mulheres, o resource comunidade://ongs-e-coletivos e o prompt orientar_validacao_ong_feminina.
+
+### Fontes de descoberta
+- IPEA — Mapa das Organizações da Sociedade Civil (Mapa das OSC).
+- Ministério das Mulheres — Painel da Rede de Atendimento.
+- Ligue 180 para orientação e encaminhamento à rede local.
+
+O Mapa das OSC combina dados de bases públicas e informações inseridas pelas próprias organizações. Portanto, não comprova por si só que uma entidade está atendendo, oferece serviço gratuito, atua especificamente com mulheres ou é liderada por mulheres. Coletivos informais podem não constar. O módulo não simula uma lista local automática.
+
+### Critérios obrigatórios antes de recomendar
+Confirmar existência, contato institucional, território atendido, público, gratuidade, critérios, disponibilidade e data de verificação. Afirmar que uma iniciativa é criada/liderada por mulheres somente quando a própria instituição ou fonte confiável comprovar. Nunca divulgar endereço sigiloso de abrigo ou dados de pessoas atendidas.
