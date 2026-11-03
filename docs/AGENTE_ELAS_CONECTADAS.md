@@ -587,3 +587,12 @@ Cada registro deve conter identificador, nome, categoria, abrangência, telefone
 ### Canais complementares confirmados do Ligue 180
 
 Na verificação de 03/11/2026, a página oficial do Ministério das Mulheres confirma ligação gratuita pelo 180, atendimento 24 horas todos os dias, WhatsApp +55 61 9610-0180 e e-mail central180@mulheres.gov.br. O ministério também disponibiliza o Painel da Rede de Atendimento: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento. O painel é apresentado como fonte oficial para a próxima etapa; esta versão ainda não importa automaticamente seus registros.
+
+
+## 24. Consulta ao Painel oficial da Rede de Atendimento
+
+A ferramenta MCP `orientar_consulta_rede_oficial_atendimento` encaminha a usuária ao Painel da Rede de Atendimento do Ministério das Mulheres, que permite consultar serviços por região, estado e município e apresenta localização e contato. O painel inclui Delegacias Especializadas, núcleos em delegacias gerais, NUDEM, promotorias especializadas, juizados/varas, CRAM/CEAM, casas-abrigo e acolhimento provisório, serviços de saúde para violência sexual, Casa da Mulher Brasileira e Patrulhas Maria da Penha.
+
+**Limite técnico:** a página oficial e a notícia institucional confirmam a existência e as funcionalidades de consulta do painel, mas não documentam uma API pública para recuperar automaticamente seus registros. Por isso, nesta entrega foi implementado link oficial + orientação, não scraping nem uma busca local simulada. A ferramenta retorna `automated_records_available=false` e `integration_status=official_link_and_guidance_only`. Próximo passo técnico: obter do Ministério das Mulheres uma fonte de dados/exportação ou API oficialmente autorizada e documentada, antes de construir ingestão automática.
+
+**Segurança:** nunca divulgar endereços sigilosos de casas-abrigo. Para encaminhamento seguro, orientar contato com o Ligue 180. Confirmar funcionamento e contato antes de recomendar deslocamento.
