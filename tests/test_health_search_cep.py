@@ -2,6 +2,7 @@ import pytest
 
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 
+
 class FakeIBGE:
     async def list_municipalities(self, uf):
         assert uf == "SP"
