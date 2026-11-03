@@ -15,7 +15,7 @@ class FakeDEMAS:
 class FakeViaCEP:
     async def lookup(self, cep):
         assert cep == "01001000"
-        return {"cep": "01001-000", "municipality": "São Paulo", "uf": "SP", "ibge_municipality_code": 3550308}
+        return {"cep": "01001-000", "municipality": "São Paulo", "uf": "SP", "ibge_municipality_code": 3550308, "source": "ViaCEP", "source_url": "https://viacep.com.br/"}
 
 @pytest.mark.asyncio
 async def test_search_by_cep_resolves_municipality_and_returns_cnes_results():
