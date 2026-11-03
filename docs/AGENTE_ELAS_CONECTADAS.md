@@ -510,3 +510,40 @@ Esta entrega é a fundação MCP e o primeiro conector territorial. Ainda não i
 ### Validação antes de produção
 
 Instalar as dependências, executar `pytest`, validar a comunicação com a API oficial do IBGE e testar o servidor com um cliente MCP compatível. Só depois desses passos marcar a primeira versão como validada.
+
+
+## 20. Implementação do conector DEMAS/CNES
+
+Foi adicionado o conector Python `src/elas_conectadas_mcp/connectors/demas.py`, com base na documentação Swagger oficial da API DEMAS.
+
+### Endpoints usados
+
+- `GET /cnes/estabelecimentos`: filtros documentados por código do município IBGE, código da UF, tipo de unidade e status; paginação.
+- `GET /cnes/estabelecimentos/{codigo_cnes}`: consulta de um estabelecimento por código CNES.
+- `GET /assistencia-a-saude/unidade-basicas-de-saude`: relação de UBS cadastradas no CNES; paginação.
+
+### Novas ferramentas MCP
+
+- `buscar_estabelecimentos_saude`
+- `consultar_estabelecimento_cnes`
+- `listar_ubs_cnes`
+
+Também foi adicionado o Resource `demas://fontes`, com referência à API e suas limitações.
+
+### Regras técnicas e de segurança
+
+- Os parâmetros são validados antes da chamada.
+- O endpoint geral de estabelecimentos usa limite máximo conservador de 20 por página, conforme a descrição específica desse endpoint no Swagger; a API documenta até 1000 para o endpoint de UBS.
+- Cada resposta inclui a fonte, endpoint consultado e horário UTC da consulta.
+- A resposta deixa explícito que cadastro CNES não confirma agenda, gratuidade, atendimento atual ou realização de exame.
+- Os registros originais são preservados sem presumir nomes de campos não descritos na documentação.
+
+### Testes adicionados
+
+Foram adicionados testes com HTTP mock para filtros municipais, consulta por CNES, paginação de UBS e validação de parâmetros. Os testes ainda precisam ser executados em ambiente Python; a publicação dos arquivos não equivale à validação de execução.
+
+### Referências oficiais
+
+- Swagger: https://apidadosabertos.saude.gov.br/static/swagger.json
+- Página institucional de acesso livre à API: https://www.gov.br/saude/pt-br/acesso-a-informacao/sic/dados-em-transparencia-ativa/seidigi
+- Dataset UBS: https://dadosabertos.saude.gov.br/dataset/unidades-basicas-de-saude-ubs
