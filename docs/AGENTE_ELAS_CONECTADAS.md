@@ -605,3 +605,29 @@ Foi adicionada a ferramenta MCP `consultar_programa_dignidade_menstrual`, resour
 A consulta dentro do Elas Conectadas não exige cadastro. A emissão da autorização em sistema externo pode exigir autenticação gov.br; o agente não deve solicitar CPF ou senha. A quantidade informada é de até 40 unidades a cada 56 dias e a validade da autorização é de 180 dias, conforme fontes oficiais consultadas. A página oficial do serviço gov.br consultada em 03/11/2026 informa renda mensal de até R$ 218 por pessoa; outras páginas oficiais podem apresentar valores desatualizados, portanto o agente deve conferir o critério vigente na página do serviço antes de avaliar elegibilidade individual. Não prometer estoque em farmácia específica.
 
 Fontes oficiais: serviço gov.br para obter autorização, FAQ do Ministério da Saúde e página do Programa Farmácia Popular.
+
+
+## 26. Segurança de código e privacidade — controles implementados
+
+### Controles no repositório
+- .gitignore ignora .env e variantes, chaves/certificados privados, diretórios de segredos e bancos locais, mantendo apenas .env.example.
+- Dependências centrais e ferramentas de teste possuem versões fixadas; ferramentas de auditoria Bandit e pip-audit foram adicionadas ao grupo de desenvolvimento.
+- Workflow CI executa pytest, Ruff, Bandit, pip-audit e Gitleaks. Gitleaks deve verificar o histórico disponível no checkout; a aprovação do workflow não substitui revisão de credenciais configuradas fora do Git.
+
+### Minimização de dados territoriais
+- A busca por CEP envia o CEP ao ViaCEP, serviço externo, somente quando a usuária escolhe esse método.
+- O conector devolve município, UF e código IBGE; não devolve CEP, logradouro ou bairro.
+- O código não persiste o CEP. Preferir município/UF quando suficientes.
+- Não usar localização precisa sem consentimento explícito. Não armazenar relatos de violência ou dados de saúde desnecessários.
+
+### Recursos MCP de privacidade
+- Resource seguranca://privacidade-e-dados descreve dados enviados a serviços externos e princípios de minimização.
+- Prompt orientar_privacidade_e_seguranca estabelece regras para não solicitar credenciais, CPF ou relatos detalhados, e para não expor abrigos sigilosos.
+
+### Limitações e requisitos antes de produção
+- O transporte atual é stdio; se for disponibilizado remotamente, implementar autenticação, autorização por ferramenta, TLS, rate limiting, proteção CSRF quando aplicável, gestão de sessão e auditoria sem dados sensíveis.
+- Não registrar CEP, conteúdo de relatos, tokens, credenciais ou respostas pessoais em logs.
+- Configurar Secret Scanning/Push Protection no GitHub e revisar secrets configurados em Actions/ambientes.
+- Fazer rotação imediata de qualquer credencial que Gitleaks encontrar no histórico; remover do histórico por procedimento controlado quando necessário.
+- Criar aviso de privacidade claro e processo de retenção/eliminação antes de qualquer persistência de dados pessoais.
+- Pentest dinâmico somente em ambiente de homologação controlado, com autorização, dados fictícios e escopo definido.
