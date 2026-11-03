@@ -15,7 +15,8 @@
       "verification_status": "official_national_channel",
       "address": null,
       "shelter_address_public": false,
-      "verification_date": "2026-11-03"
+      "verification_date": "2026-11-03",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "br-ligue-180",
@@ -34,7 +35,8 @@
       "email": "central180@mulheres.gov.br",
       "service_hours": "24 horas por dia, todos os dias",
       "official_directory": "https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento",
-      "verification_date": "2026-11-03"
+      "verification_date": "2026-11-03",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-1",
@@ -57,7 +59,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-2",
@@ -80,7 +83,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-6",
@@ -103,7 +107,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-3",
@@ -126,7 +131,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-9",
@@ -149,7 +155,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-4",
@@ -172,7 +179,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-5",
@@ -195,7 +203,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-7",
@@ -218,7 +227,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-ddm-8",
@@ -241,7 +251,8 @@
       "official_source": "https://www2.prefeitura.sp.gov.br/web/direitos_humanos/w/mulheres/rede_de_protecao/seguranca_e_justica/357715",
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
-      "shelter_address_public": false
+      "shelter_address_public": false,
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-brasilandia",
@@ -265,7 +276,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmbrasilandia@prefeitura.sp.gov.br"
+      "email": "smdhccrcmbrasilandia@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-cachoeirinha",
@@ -289,7 +301,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmcachoeirinha@prefeitura.sp.gov.br"
+      "email": "smdhccrcmcachoeirinha@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-perus",
@@ -313,7 +326,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmperus@prefeitura.sp.gov.br"
+      "email": "smdhccrcmperus@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-marias",
@@ -337,7 +351,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasamarias@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasamarias@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-cism2",
@@ -361,7 +376,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcismll@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcismll@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-capela",
@@ -385,7 +401,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmcapeladosocorro@prefeitura.sp.gov.br"
+      "email": "smdhccrcmcapeladosocorro@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-eliane",
@@ -409,7 +426,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmcasaeliane@prefeitura.sp.gov.br"
+      "email": "smdhccrcmcasaeliane@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-maria-lourdes",
@@ -433,7 +451,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmmlr@prefeitura.sp.gov.br"
+      "email": "smdhccrcmmlr@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-parelheiros",
@@ -457,7 +476,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmparelheiros@prefeitura.sp.gov.br"
+      "email": "smdhccrcmparelheiros@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-santo-amaro",
@@ -481,7 +501,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmsantoamaro@prefeitura.sp.gov.br"
+      "email": "smdhccrcmsantoamaro@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-sofia",
@@ -505,7 +526,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasasofia@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasasofia@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-mulheres-vivas",
@@ -529,7 +551,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmmulheresvivas@prefeitura.sp.gov.br"
+      "email": "smdhccdcmmulheresvivas@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-creser",
@@ -553,7 +576,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasamulhercreser@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasamulhercreser@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-sonia",
@@ -577,7 +601,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmsoniamariabatista@prefeitura.sp.gov.br"
+      "email": "smdhccdcmsoniamariabatista@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-itaquera",
@@ -601,7 +626,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmitaquera@prefeitura.sp.gov.br"
+      "email": "smdhccrcmitaquera@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-sao-miguel",
@@ -625,7 +651,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcmsaomiguel@prefeitura.sp.gov.br"
+      "email": "smdhccrcmsaomiguel@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-anastacia",
@@ -649,7 +676,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasaanastacia@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasaanastacia@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-cidinha",
@@ -673,7 +701,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasacidinhakopcak@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasacidinhakopcak@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-nana",
@@ -697,7 +726,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmnanaserafim@prefeitura.sp.gov.br"
+      "email": "smdhccdcmnanaserafim@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-viviane",
@@ -721,7 +751,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasavivianedossantos@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasavivianedossantos@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-marielle",
@@ -745,7 +776,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmmariellefranco@prefeitura.sp.gov.br"
+      "email": "smdhccdcmmariellefranco@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-margarida",
@@ -769,7 +801,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmmargaridamariaalves@prefeitura.sp.gov.br"
+      "email": "smdhccdcmmargaridamariaalves@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-zizi",
@@ -793,7 +826,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasazizi@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasazizi@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-casa-25marco",
@@ -817,7 +851,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccrcm25marco@prefeitura.sp.gov.br"
+      "email": "smdhccrcm25marco@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-marcia",
@@ -841,7 +876,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmcasamarciamartins@prefeitura.sp.gov.br"
+      "email": "smdhccdcmcasamarciamartins@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cmb",
@@ -865,7 +901,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "cmb@prefeitura.sp.gov.br"
+      "email": "cmb@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     },
     {
       "id": "sp-capital-cdcm-francisca",
@@ -889,7 +926,8 @@
       "verification_status": "official_municipal_service_directory",
       "verification_date": "2026-11-03",
       "shelter_address_public": false,
-      "email": "smdhccdcmfranciscafranco@prefeitura.sp.gov.br"
+      "email": "smdhccdcmfranciscafranco@prefeitura.sp.gov.br",
+      "review_due_date": "2027-02-01"
     }
   ]
 }
