@@ -833,3 +833,35 @@ A ferramenta `orientar_busca_ongs_coletivos_mulheres(uf, municipio)` agora retor
 - Fonte: https://www.mapadoacolhimento.org/atendimento/.
 
 **Regra de apresentação:** informar fonte e data da conferência (03/11/2026), público, gratuidade declarada, área/modalidade e limitações. Não afirmar vaga, tempo de resposta, cobertura presencial nacional ou disponibilidade local sem confirmação direta. A existência de e-mail institucional não significa que o serviço esteja aceitando novos casos.
+
+
+## 38. Segurança digital — iniciativa feminista verificada e limites de elegibilidade
+
+Em 03/11/2026, o diretório de ONGs e iniciativas foi ampliado com a Maria d'Ajuda, serviço gratuito de segurança e cuidados digitais mantido pela MariaLab.
+
+### Maria d'Ajuda — MariaLab
+- Linha de ajuda criada por organização feminista, voltada a mulheres, pessoas não binárias, pessoas LGBTQIA+ e organizações da América Latina.
+- Escopo: acolhimento e orientação em segurança digital, incluindo perda de contas, ataques de ódio, assédio, ameaças digitais, perseguição, repressão e censura.
+- A instituição declara que o serviço é gratuito.
+- Canal institucional: **sos@mariadajuda.org**.
+- A página informa que a equipe responde em até dois dias após o envio de uma breve contextualização; o agente deve apresentar isso como prazo informado pela organização, não como SLA garantido.
+- Modalidade online por e-mail; a página não restringe a atuação a um município específico.
+- Limite: não substitui emergência policial, assistência jurídica ou atendimento psicológico. Quando a demanda não é de segurança digital, a própria organização informa que indica outras linhas de ajuda.
+- Fonte: https://mariadajuda.org/
+
+### Marias da Internet — gratuidade pendente de confirmação
+- A página institucional descreve orientação jurídica, psicológica e perícia digital para mulheres vítimas de divulgação não autorizada de imagens íntimas.
+- A gratuidade e a disponibilidade atual não foram confirmadas nas páginas institucionais consultadas nesta verificação.
+- O registro fica em `organizations_requiring_cost_confirmation`, separado das iniciativas verificadas como gratuitas. O agente não deve apresentá-la como gratuita nem reproduzir telefones históricos sem nova confirmação institucional.
+- Fonte institucional: https://www.mariasdainternet.com.br/
+
+### SaferNet — limite de público do Helpline
+- A página oficial do Helpline informa que o serviço individual é destinado a crianças e adolescentes e que adultos não são elegíveis.
+- Por isso, o Helpline não deve ser indicado como canal geral para mulheres adultas. A existência de materiais públicos da SaferNet não altera esse critério de elegibilidade.
+- Fonte: https://new.safernet.org.br/helpline
+
+### Regras de apresentação
+- Diferenciar atendimento de segurança digital de apoio psicológico, jurídico ou de emergência.
+- Informar modalidade, público, abrangência e prazo como declarado pela própria iniciativa.
+- Não afirmar disponibilidade de equipe, resposta imediata ou cobertura presencial sem confirmação.
+- Manter iniciativas com gratuidade não confirmada fora da lista de serviços gratuitos verificados.
