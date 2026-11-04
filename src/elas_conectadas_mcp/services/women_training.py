@@ -209,12 +209,32 @@ PROGRAMS = [
         "women_specific": True,
         "opportunity_type": "comunidade",
         "content": ["apoio e troca entre mulheres na programação Python", "eventos e encontros comunitários", "materiais de aprendizagem", "orientações para criar grupos regionais"],
-        "enrollment_status": "Comunidade ativa com diretório público de capítulos consultado em 04/11/2026. A página não confirma custo, calendário, vagas ou disponibilidade de encontros em cada cidade; consulte o capítulo local.",
+        "enrollment_status": "Diretório público de capítulos consultado em 04/11/2026. A página não confirma atividade recente, custo, calendário, vagas ou disponibilidade de encontros em cada cidade; consulte o capítulo local.",
         "application_url": "https://brasil.pyladies.com/locais/",
         "official_source": "https://brasil.pyladies.com/about/",
         "directory_url": "https://portal.pyladies.com/chapters/",
         "verification_date": "2026-11-04",
-        "status_note": "A PyLadies Brasil declara como propósito incentivar a participação de mulheres na tecnologia. O diretório global lista capítulos em cidades brasileiras, mas não comprova que todos estejam realizando encontros atualmente. Gratuidade não confirmada; não apresentar como curso ou bolsa."
+        "status_note": "A PyLadies Brasil declara como propósito incentivar a participação de mulheres na tecnologia. A página da Python Brasil lista grupos regionais e contatos; a listagem não comprova que todos estejam realizando encontros atualmente. Gratuidade não confirmada; não apresentar como curso ou bolsa."
+    },
+    {
+        "id": "br-womakerscode-introducao-computacao-nuvem",
+        "name": "Introdução à Computação em Nuvem — Mais Mulheres em Tech",
+        "provider": "WoMakersCode / Mais Mulheres em Tech",
+        "audience": "Mulheres interessadas em iniciar estudos ou carreira em computação em nuvem; não exige experiência prévia.",
+        "coverage": "Brasil e América Latina, conforme a descrição da plataforma Mais Mulheres em Tech.",
+        "ufs": [],
+        "format": "Online, autoinstrucional; 9,5 horas e 46 lições.",
+        "free": True,
+        "certificate": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "curso",
+        "content": ["fundamentos de cloud computing", "AWS, Microsoft Azure e Google Cloud", "IaaS, PaaS e SaaS", "infraestrutura, redes e bancos de dados", "automação e escalabilidade", "segurança e boas práticas", "laboratórios introdutórios"],
+        "enrollment_status": "Curso listado na seção de programas com inscrições abertas da página oficial da WoMakersCode em 04/11/2026. A página individual confirma curso gratuito e online; não informa prazo final ou quantidade de vagas.",
+        "application_url": "https://www.maismulheres.tech/courses/introducao-a-computacao-em-nuvem",
+        "official_source": "https://www.womakerscode.org/",
+        "verification_date": "2026-11-04",
+        "status_note": "A página individual informa certificado, 9,5 horas e 46 lições. A página institucional da WoMakersCode apresenta cursos/programas com inscrições abertas. A usuária deve confirmar acesso e eventuais requisitos diretamente no portal."
     }
 ]
 
