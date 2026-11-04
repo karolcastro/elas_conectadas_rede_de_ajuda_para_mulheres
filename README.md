@@ -361,3 +361,29 @@ Em 04/11/2026, foram incluídas quatro referências municipais adicionais:
 A gratuidade individual não foi explicitamente confirmada pelas fontes utilizadas. Os quatro registros permanecem com `free: null` e custo não confirmado. Não os apresentar como serviços gratuitos confirmados.
 
 Fontes: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/marco/tenda-lilas-leva-acolhimento-e-informacao-sobre-enfrentamento-a-violencia-contra-as-mulheres-em-sergipe-e-no-rio-grande-do-norte ; https://www.estado.rs.gov.br/sexta-conferencia-estadual-de-politicas-para-as-mulheres-define-tres-propostas-e-elege-91-delegadas-para-a-etapa-nacional ; https://devportal.pmf.sc.gov.br/entidades/saude/index.php?cms=raivs&menu=6&submenuid=dyn-153 ; https://www.sapucaiadosul.rs.gov.br/telefones-uteis/
+
+
+## Atualização territorial — UFs antes sem referências locais (04/11/2026)
+
+Foram incorporadas referências de atendimento em **Alagoas, Amazonas, Mato Grosso, Minas Gerais, Paraíba e Rondônia**. A inclusão reduz as lacunas estaduais, mas não significa cobertura de todos os municípios.
+
+- **Alagoas:** CEAM de Maceió (gratuidade expressamente indicada no Portal Alagoas Digital) e Espaço Viva Mulher/CRAMSV de Arapiraca (custo não confirmado na carta municipal).
+- **Amazonas:** CREAM e seis unidades SAPEM em Manaus; seis SAMIC no interior (Itacoatiara, Humaitá, Maués, Tefé, Parintins e Tabatinga). As páginas da SEJUSC descrevem atendimento psicossocial e encaminhamentos para mulheres; a gratuidade individual não foi explicitamente confirmada.
+- **Mato Grosso:** delegacias especializadas em Cuiabá, Cáceres, Rondonópolis, Sinop, Tangará da Serra e Várzea Grande, a partir do diretório estadual. O próprio diretório lista horário comercial para os serviços; confirme antes de ir. 
+- **Minas Gerais:** CERNA, em Belo Horizonte, com atendimento gratuito declarado pelo Governo de Minas e modalidades presencial/virtual para mulheres do estado.
+- **Paraíba:** CRAM Ednalva Bezerra, em João Pessoa, e CRAM de Campina Grande. O custo não foi declarado expressamente nas fontes utilizadas e permanece pendente de confirmação.
+- **Rondônia:** CRAM de Porto Velho, com endereço e telefone publicados pela Prefeitura em agosto de 2026; a gratuidade não foi expressamente confirmada.
+
+### Fontes oficiais e institucionais consultadas
+- Alagoas — Portal Alagoas Digital (CEAM Maceió): https://alagoasdigital.al.gov.br/servico/3019
+- Alagoas — Carta de Serviços de Arapiraca (Espaço Viva Mulher): https://cartadeservicos.arapiraca.al.gov.br/servico/159
+- Amazonas — SEJUSC (CREAM, SAPEM e SAMIC): https://www.sejusc.am.gov.br/mulheres/
+- Mato Grosso — Portal Mato Grosso em Defesa das Mulheres (diretório de atendimento): https://mulher.mt.gov.br/atendimentos
+- Minas Gerais — Governo de Minas (CERNA): https://www.mg.gov.br/servico/solicitar-atendimento-no-centro-risoleta-neves-de-atendimento-mulheres-cerna
+- Paraíba — Observatório do Feminicídio da UEPB (rede de atendimento): https://observatoriodofeminicidio.uepb.edu.br/rede-de-atendimento-as-mulheres-em-situacao-de-violencia-domestica-e-sexual/
+- Paraíba — Prefeitura de Campina Grande (CRAM): https://coordenadoriadamulher.campinagrande.pb.gov.br/?page_id=208
+- Rondônia — Prefeitura de Porto Velho (CRAM, notícia de 14/08/2026): https://www.portovelho.ro.gov.br/noticias/57903
+
+**Gratuidade:** apenas CEAM Maceió e CERNA/MG foram marcados `free: true` nesta rodada, porque suas fontes declaram expressamente que o serviço não tem custo/é gratuito. Os demais foram mantidos com `free: null` e custo não confirmado. O agente não pode apresentá-los como opções gratuitas confirmadas.
+
+**Limites de cobertura:** os registros de Mato Grosso e Amazonas são serviços especializados e centros em municípios específicos; não representam todos os municípios desses estados. Para municípios sem unidade local curada, manter o encaminhamento ao Painel oficial da Rede do Ligue 180: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento.
