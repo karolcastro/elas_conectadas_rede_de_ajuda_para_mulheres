@@ -19,6 +19,7 @@ Ajudar mulheres a encontrar serviços confiáveis de acordo com sua necessidade 
 - Busca de cursos, bolsas e capacitações, priorizando iniciativas criadas por mulheres para mulheres ou destinadas especificamente ao público feminino.
 - Apresentação de contatos, critérios de atendimento, gratuidade, fonte oficial e data de verificação.
 - Orientação sobre como acessar o serviço.
+- Orientação nacional sobre Cadastro Único, Bolsa Família, BPC, Auxílio-Inclusão, Centro POP e acolhimento sigiloso para mulheres em situação de violência, com limites de elegibilidade e disponibilidade explícitos.
 - Informações de segurança digital quando houver risco de monitoramento.
 
 ## Segurança e acolhimento
