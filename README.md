@@ -328,3 +328,23 @@ O endereço está cadastrado apenas para as Casas da Mulher Brasileira listadas 
 Foram adicionados quatro Centros de Referência da Mulher Brasileira no DF: Recanto das Emas, Sol Nascente, São Sebastião e Sobradinho II. O Governo do Distrito Federal confirma atendimento gratuito, sem necessidade de agendamento, com telefones e endereços publicados. Horário informado: segunda a sexta, das 9h às 18h.
 
 Fonte oficial: https://www.gdfsaude.df.gov.br/web/guest/w/ef-centros-oferecem-atendimento-gratuito-a-mulheres-em-situacao-de-vulnerabilidade?p_l_back_url=%2Fweb%2Fguest%2Ftopicos%3Fsort%3DcreateDate-%26tag%3DEspa%25C3%25A7o%2BPr%25C3%25B3-Mulher&p_l_back_url_title=T%C3%B3picos
+
+
+## Expansão territorial — Acre, Goiás, Piauí e Espírito Santo
+
+Em 04/11/2026, foram adicionadas oito referências municipais de Centros de Referência da Mulher Brasileira, com base em páginas oficiais do Governo Federal, da Secretaria de Estado da Mulher do Acre e de prefeituras:
+
+- **Acre:** Cruzeiro do Sul e Brasiléia, com telefones publicados pela Secretaria de Estado da Mulher.
+- **Goiás:** Águas Lindas de Goiás, Jataí, Cidade Ocidental e Santo Antônio do Descoberto. Para Jataí há endereço publicado; Cidade Ocidental tem contato e horário em página municipal.
+- **Piauí:** São Raimundo Nonato, com endereço publicado e atendimento regional informado para 18 municípios do Território da Serra da Capivara.
+- **Espírito Santo:** Cariacica, com endereço, telefone e horário publicados pelo Ministério das Mulheres.
+
+**Gratuidade:** as fontes consultadas não confirmam expressamente que cada atendimento dessas oito unidades seja gratuito. Todos os registros usam `free: null`, `cost_status: not_confirmed_by_official_source` e `recommendation_status: cost_confirmation_required`. Não devem ser apresentados como serviços gratuitos confirmados.
+
+Fontes oficiais: [Secretaria da Mulher do Acre](https://semulher.ac.gov.br/voce-nao-esta-sozinha/); [Ministério das Mulheres — Águas Lindas](https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2025/outubro/em-aguas-lindas-de-goias-marcia-lopes-inaugura-centro-de-referencia-da-mulher-brasileira); [Ministério das Mulheres — Jataí](https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2024/marco/em-goias-municipio-de-jatai-ganha-primeiro-centro-de-referencia-da-mulher-brasileira-nesta-sexta-feira-8); [Prefeitura de Cidade Ocidental](https://cidadeocidental.go.gov.br/centro-de-referencia-da-mulher-brasileira/); [Ministério das Mulheres — CRMBs em Goiás](https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/junho/ministra-marcia-lopes-visita-rede-de-protecao-as-mulheres-em-cidade-ocidental-go); [Ministério das Mulheres — São Raimundo Nonato](https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/janeiro/sao-raimundo-nonato-inaugura-primeiro-centro-de-referencia-da-mulher-brasileira); [Ministério das Mulheres — Cariacica](https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/outubro-defeso-eleitoral/centro-de-referencia-da-mulher-brasileira-em-cariacica-es-oferecera-atendimento-a-mulheres-em-situacao-de-violencia).
+
+### Como interpretar a cobertura nacional
+
+O catálogo local não equivale a uma base nacional completa. O Ministério das Mulheres informa que o Painel da Rede permite pesquisar serviços por estado e município e reúne delegacias, Defensorias, CRAM/CEAM, acolhimento, saúde, Casas da Mulher Brasileira e outros pontos de atenção. A ferramenta MCP de consulta ao painel continua sendo um encaminhamento oficial, não uma importação automática dos registros. Ausência de unidade no catálogo não significa ausência de serviço no município.
+
+Fonte: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento
