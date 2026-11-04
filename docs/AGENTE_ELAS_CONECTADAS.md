@@ -1219,3 +1219,20 @@ Foi localizado um Guia Estadual da Rede de Enfrentamento da Paraíba publicado e
 ### Métricas após a rodada
 
 O catálogo contém **248 registros**, **248 IDs únicos**, presença nas **27 UFs** e **177 combinações de município/UF**. São **47 registros com gratuidade expressamente confirmada** e **201 com custo não confirmado**. Os dados são referências de contato, não garantia de funcionamento, vaga ou atendimento imediato.
+
+
+## Expansão rápida — organismos municipais e NUDEM em Mato Grosso do Sul (04/11/2026)
+
+Foram cadastrados 48 organismos municipais de políticas para mulheres, com base na tabela "Organismos de Políticas para Mulheres de MS" da página estadual "Não Se Cale — Outros Contatos". Os registros incluem coordenadorias, gerências e secretarias municipais com endereço, telefone e e-mail quando publicados. Os municípios adicionados foram: Água Clara, Amambai, Anastácio, Antônio João, Aquidauana, Aral Moreira, Bataguassu, Batayporã, Bela Vista, Bodoquena, Bonito, Brasilândia, Caarapó, Camapuã, Campo Grande, Caracol, Cassilândia, Chapadão do Sul, Corguinho, Coronel Sapucaia, Corumbá, Costa Rica, Coxim, Dois Irmãos do Buriti, Dourados, Eldorado, Guia Lopes da Laguna, Iguatemi, Itaquiraí, Ivinhema, Japorã, Jaraguari, Juti, Ladário, Maracaju, Miranda, Mundo Novo, Nioaque, Nova Alvorada do Sul, Paranhos, Porto Murtinho, Ribas do Rio Pardo, Rio Verde de Mato Grosso, Rochedo, São Gabriel do Oeste, Sidrolândia, Tacuru e Terenos.
+
+Esses organismos são portas institucionais para políticas públicas, orientação e articulação/encaminhamento local. Não devem ser apresentados como delegacias, serviços especializados de saúde, abrigos ou plantões de emergência. Horários não publicados permanecem não informados e a gratuidade individual não foi presumida.
+
+Também foi cadastrado o **NUDEM da Defensoria Pública de MS**, em Campo Grande: Avenida Afonso Pena, 3850, Jardim dos Estados; telefone (67) 3313-4919; nudem@defensoria.ms.def.br. A página oficial descreve defesa jurídica da mulher vítima de violência de gênero em sede policial e judicial. A atuação em comarcas do interior é excepcional e depende de designação.
+
+Fontes:
+- https://www.naosecale.ms.gov.br/fale-conosco/outros-contatos/
+- https://www.naosecale.ms.gov.br/rede-de-apoio/defensoria-publica-de-mato-grosso-do-sul/
+
+### Métricas após esta rodada
+
+**297 registros**, **297 IDs únicos**, presença nas **27 UFs**, **215 combinações município/UF**, **48 registros com gratuidade expressamente confirmada** e **249 com custo não confirmado**. Catálogo parcial e sem garantia de disponibilidade ou atendimento imediato.
