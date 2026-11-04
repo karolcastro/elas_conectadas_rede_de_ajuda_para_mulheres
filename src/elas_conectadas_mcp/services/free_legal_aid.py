@@ -221,3 +221,46 @@ class FreeLegalAidDirectory:
                 "Não envie CPF, documentos ou relato detalhado de violência ao agente para receber estas orientações."
             ]
         }
+
+
+    def cras_guide(self, *, uf: str | None = None, municipality: str | None = None) -> dict[str, Any]:
+        """Orienta acesso gratuito ao CRAS, CadÚnico e proteção social básica."""
+        if uf and (len(uf.strip()) != 2 or not uf.strip().isalpha()):
+            raise ValueError("Informe a sigla da UF com duas letras.")
+        if municipality and len(municipality.strip()) < 2:
+            raise ValueError("Informe um município válido.")
+        return {
+            "service": "Orientação para acesso ao CRAS — Proteção Social Básica",
+            "requested_location": {
+                "uf": uf.strip().upper() if uf else None,
+                "municipality": municipality.strip() if municipality else None,
+            },
+            "free": True,
+            "public_service": True,
+            "audience": (
+                "Famílias e pessoas em situação de vulnerabilidade e risco social, incluindo "
+                "pessoas de baixa renda, beneficiárias ou potenciais beneficiárias de programas sociais."
+            ),
+            "services": [
+                "Serviço de Proteção e Atendimento Integral à Família (PAIF).",
+                "Orientação sobre benefícios assistenciais e programas sociais.",
+                "Inscrição e atualização do Cadastro Único, conforme fluxo municipal.",
+                "Serviço de Convivência e Fortalecimento de Vínculos (SCFV), conforme oferta local.",
+                "Encaminhamento para outros serviços da rede socioassistencial."
+            ],
+            "official_locator": "https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/",
+            "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras",
+            "cadunico_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
+            "how_to_access": [
+                "Procure o CRAS mais próximo ou o posto de atendimento do Cadastro Único do município.",
+                "A inscrição e a atualização do Cadastro Único são gratuitas e presenciais.",
+                "A lista de documentos e o fluxo de atendimento devem ser confirmados com o município; o MDS informa CPF dos integrantes da família e documento de identificação do responsável familiar.",
+                "A inscrição no Cadastro Único não garante concessão automática de Bolsa Família ou de outro benefício."
+            ],
+            "limitations": [
+                "O localizador do MDS é uma fonte para descobrir unidades; não confirma horário, vaga ou atendimento imediato.",
+                "O CRAS é a porta de entrada da proteção social básica; situações de violação de direitos podem exigir encaminhamento ao CREAS ou a outro serviço especializado.",
+                "Não envie CPF, documentos ou dados familiares ao agente. A usuária deve tratar documentos diretamente com o posto oficial."
+            ],
+            "verification_status": "official_mds_sources_checked_2026-11-04"
+        }
