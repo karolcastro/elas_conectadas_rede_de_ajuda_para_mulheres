@@ -312,3 +312,12 @@ Fontes:
 - Pernambuco: https://transparencia.pe.gov.br/gestao-estadual/informacao-protecao-e-atendimento-as-mulheres/protecao-e-atendimento-as-mulheres/
 
 A cobertura é municipal conforme as unidades listadas; não representa todos os municípios desses estados. A presença em diretório não confirma vaga, funcionamento no momento da consulta ou disponibilidade de equipe. Contatos e horários devem ser confirmados antes do deslocamento.
+
+
+## Cobertura nacional — 13 Casas da Mulher Brasileira
+
+O catálogo agora inclui as 13 Casas da Mulher Brasileira que o Ministério das Mulheres listou como em funcionamento em agosto de 2026: Brasília/Ceilândia (DF), Campo Grande (MS), Salvador (BA), Fortaleza (CE), São Luís (MA), Teresina (PI), Aracaju (SE), Macapá (AP), Ananindeua (PA), Boa Vista (RR), Palmas (TO), São Paulo (SP) e Curitiba (PR). A fonte nacional confirma atendimento gratuito e funcionamento 24 horas, todos os dias.
+
+Fonte oficial: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/casa-da-mulher-brasileira-como-funciona-o-atendimento-e-onde-encontrar-uma-unidade
+
+O endereço está cadastrado apenas para as Casas da Mulher Brasileira listadas publicamente. Nenhum endereço de abrigo sigiloso é divulgado. A lista de unidades em funcionamento foi publicada em agosto de 2026 e deve ser revalidada antes do prazo editorial.

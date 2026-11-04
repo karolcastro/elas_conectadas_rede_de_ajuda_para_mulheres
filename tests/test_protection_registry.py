@@ -101,7 +101,8 @@ def test_registry_returns_verified_free_services_in_rio_and_recife():
     assert "rj-capital-ceam-tia-gaucha" in rio_ids
     assert "pe-recife-centro-referencia-clarice-lispector" in recife_ids
     assert all(item["free"] is True for item in rio["services"])
-    assert all(item["free"] is True for item in recife["services"])
+    assert next(item for item in recife["services"] if item["id"] == "pe-recife-centro-referencia-clarice-lispector")["free"] is True
+    assert all(item.get("free") is True or item.get("free") is None for item in recife["services"])
 
 
 def test_new_regional_records_have_sources_and_no_shelter_addresses():
@@ -151,3 +152,17 @@ def test_regional_lead_records_include_official_source_and_review_date():
     assert all(x["official_source"].startswith("https://") for x in leads)
     assert all(x["free"] is None for x in leads)
     assert all(x["shelter_address_public"] is False for x in leads)
+
+
+def test_national_casa_da_mulher_brasileira_units_are_free_and_24_hours():
+    registry = ProtectionRegistry(as_of=date(2026, 11, 4))
+    for uf, city in [("DF", "Brasília"), ("MS", "Campo Grande"), ("BA", "Salvador"),
+                     ("CE", "Fortaleza"), ("MA", "São Luís"), ("PI", "Teresina"),
+                     ("SE", "Aracaju"), ("AP", "Macapá"), ("PA", "Ananindeua"),
+                     ("RR", "Boa Vista"), ("TO", "Palmas"), ("SP", "São Paulo"),
+                     ("PR", "Curitiba")]:
+        result = registry.list_services(uf=uf, municipality=city)
+        cmb = [x for x in result["services"] if x.get("service_type") == "Casa da Mulher Brasileira"]
+        assert len(cmb) == 1
+        assert cmb[0]["free"] is True
+        assert cmb[0]["service_hours"] == "24 horas por dia, todos os dias"

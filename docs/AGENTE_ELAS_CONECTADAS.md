@@ -936,3 +936,14 @@ Fonte: https://transparencia.pe.gov.br/gestao-estadual/informacao-protecao-e-ate
 
 ### Limites e próxima etapa
 A presença em diretório não confirma funcionamento atual, vaga, equipe disponível nem gratuidade. A próxima etapa é confirmar os custos diretamente com as unidades e expandir a busca estruturada para os demais estados usando o Painel da Rede de Atendimento do Ministério das Mulheres, sem fingir que o painel foi consultado automaticamente quando não houver integração verificável.
+
+
+## 42. Cobertura nacional das Casas da Mulher Brasileira
+
+Foram cadastradas as 13 unidades que o Ministério das Mulheres informou estarem em funcionamento em agosto de 2026: Brasília/Ceilândia (DF), Campo Grande (MS), Salvador (BA), Fortaleza (CE), São Luís (MA), Teresina (PI), Aracaju (SE), Macapá (AP), Ananindeua (PA), Boa Vista (RR), Palmas (TO), São Paulo (SP) e Curitiba (PR).
+
+A fonte federal confirma que as Casas funcionam 24 horas por dia, todos os dias, e declara que o serviço é gratuito. Os endereços foram transcritos da relação oficial. Telefones locais não foram inventados nem adicionados quando não constavam da fonte.
+
+Fonte: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/casa-da-mulher-brasileira-como-funciona-o-atendimento-e-onde-encontrar-uma-unidade
+
+A cobertura é das 13 unidades explicitamente listadas como em funcionamento naquela publicação; não significa que haja uma Casa em todos os estados. A condição de funcionamento deve ser revalidada periodicamente.
