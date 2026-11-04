@@ -39,4 +39,4 @@ target-version = "py311"
 
 [tool.vercel]
 # ASGI app exposed by the Python Functions runtime; local MCP stdio stays unchanged.
-entrypoint = "api/index.py"
+entrypoint = "api.index:app"
