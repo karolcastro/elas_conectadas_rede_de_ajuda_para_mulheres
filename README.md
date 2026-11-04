@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo nacional de canais oficiais, catálogo regional com registros verificados em São Paulo capital, Rio de Janeiro capital e Recife, diretório inicial de capacitações e conectores de território/saúde. A cobertura regional ainda é parcial; para Salvador/BA, serviços oficiais foram identificados, mas a gratuidade individual ainda precisa de confirmação antes de incluí-los como opções gratuitas. A busca não calcula distância e não confirma disponibilidade operacional. Consulte a documentação para limites e status de cada integração.
+Projeto em desenvolvimento com servidor MCP, catálogo de 131 referências, incluindo canais nacionais e registros municipais em 21 das 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial: AL, AM, MT, MG, PB e RO ainda não possuem registros locais curados nesta base; para essas UFs, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. 44 registros têm gratuidade confirmada e 87 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
