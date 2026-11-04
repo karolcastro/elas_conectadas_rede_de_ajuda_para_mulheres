@@ -574,3 +574,20 @@ Fontes oficiais:
 - Introdução à IA: https://www.maismulheres.tech/courses/introducao-inteligencia-artificial
 - Como Conseguir um Emprego: https://www.maismulheres.tech/courses/como-conseguir-um-emprego
 - Liderança Feminina e Soft Skills: https://www.maismulheres.tech/courses/lideranca-feminina-e-soft-skills
+
+
+
+### Novas oportunidades da PrograMaria — 04/11/2026
+
+O diretório `WomenTrainingDirectory` recebeu três referências nacionais verificadas em páginas oficiais da PrograMaria:
+
+- **PrograMaria Sprint — Processos Seletivos em Tech:** gratuita, online, com quatro módulos, certificado digital e conteúdo disponível por seis semanas após a inscrição. A página informa inscrições por tempo indeterminado.
+- **PrograMaria Sprint — IA Generativa:** minicurso online gratuito com nove módulos sobre fundamentos de IA, LLMs, prompts, APIs, Copilot, ferramentas e agentes. A página informa inscrições abertas e ilimitadas; não informa certificado ou prazo final.
+- **Lista de interesse para bolsas em formação tech:** oportunidade futura com trilhas de front-end, análise de dados e back-end. A página exibe listas de interesse, mas informa que as datas dos processos de bolsas serão divulgadas em breve. Não apresentar como turma aberta nem garantir bolsa.
+
+As duas Sprints são priorizadas como iniciativas voltadas principalmente a mulheres e grupos de gênero minorizados. A lista de bolsas inclui outros grupos minorizados e não é exclusiva para mulheres. O agente deve preservar essa distinção e reconfirmar acesso, elegibilidade e inscrições no portal oficial.
+
+Fontes oficiais:
+- https://vamosjuntes.programaria.org/sprint-processos-seletivos
+- https://vamosjuntes.programaria.org/programaria-sprint-ia-generativa
+- https://vamosjuntes.programaria.org/oportunidades-gratuitas
