@@ -162,3 +162,21 @@ def test_food_security_guide_prioritizes_free_meals_and_discloses_local_limits()
 def test_food_security_guide_rejects_invalid_uf():
     with pytest.raises(ValueError, match="UF"):
         FreeLegalAidDirectory().food_security_guide(uf="São Paulo")
+
+
+def test_vulnerable_women_guide_lists_official_benefits_and_free_services():
+    result = FreeLegalAidDirectory().vulnerable_women_guide(uf="SP", municipality="São Paulo")
+    assert result["requested_location"] == {"uf": "SP", "municipality": "São Paulo"}
+    programs = {item["name"]: item for item in result["programs_and_services"]}
+    assert programs["Cadastro Único (CadÚnico)"]["free_to_access"] is True
+    assert programs["Bolsa Família — prioridade de atendimento às mulheres"]["free_to_access"] is True
+    assert programs["Benefício de Prestação Continuada (BPC)"]["free_to_access"] is True
+    assert programs["Centro POP"]["free_to_access"] is True
+    assert result["automated_local_results"] is False
+    assert any("sigilosos" in item for item in result["important_limits"])
+
+
+def test_vulnerable_women_guide_rejects_invalid_uf():
+    with pytest.raises(ValueError, match="UF"):
+        FreeLegalAidDirectory().vulnerable_women_guide(uf="São Paulo")
+
