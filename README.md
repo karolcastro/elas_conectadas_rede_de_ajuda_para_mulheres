@@ -209,3 +209,15 @@ Para SP, a resposta apresenta o canal estadual da Defensoria Pública: **0800 77
 Fontes: https://servicos.sp.gov.br/fcarta/2C493B4D-3542-4441-9DD4-60E7285C8DAB ; https://www.defensoria.sp.def.br/institucional/enderecos-e-telefones ; https://www.defensoria.sp.def.br/nucleos-especializados/pagina-inicial-nucleos-especializados/direitos-das-mulheres/redes-de-atendimento/violencia-domestica-e-familiar
 
 As ferramentas de ONGs e coletivos também estão registradas no servidor MCP: `orientar_busca_ongs_coletivos_mulheres(uf, municipio)`, resource `comunidade://ongs-e-coletivos` e prompt `orientar_validacao_ong_feminina`. Elas retornam fontes de descoberta e checklist de validação; não afirmam que uma organização local foi confirmada.
+
+
+
+## Assistência jurídica — contatos estaduais ampliados
+
+O módulo `orientar_assistencia_juridica_gratuita(uf, municipio)` agora inclui informações estaduais verificadas para SP, BA e PR, além de diretórios nacionais para as demais UFs:
+
+- **Bahia:** Disque Defensoria 129 ou 0800 071 3121, ligação gratuita, segunda a sexta das 8h às 17h (página estadual atualizada em 17/07/2026).
+- **Paraná:** Defensoria Pública (41) 99123-1961; NUDEM (41) 99285-8134 e nudem@defensoria.pr.def.br, de segunda a sexta das 10h às 17h, somente com agendamento.
+- **São Paulo:** canal estadual 0800 773 4340 e NUDEM com encaminhamento pelo canal geral, conforme as ressalvas já documentadas.
+
+A cobertura específica não representa atendimento nacional completo. Os dados não garantem vaga ou disponibilidade imediata; confirmar critérios e fluxo diretamente com o órgão. Fontes, datas e limitações estão detalhadas em `docs/AGENTE_ELAS_CONECTADAS.md`.
