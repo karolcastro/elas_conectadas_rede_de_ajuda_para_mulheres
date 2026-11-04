@@ -351,6 +351,18 @@ def orientar_busca_apoio_psicossocial() -> str:
 
 
 @mcp.tool()
+def orientar_acesso_cras(uf: str | None = None, municipio: str | None = None) -> dict:
+    """Orienta acesso gratuito ao CRAS, proteção social básica e Cadastro Único."""
+    return free_legal_aid_directory.cras_guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("assistencia://cras")
+def recurso_acesso_cras() -> str:
+    """Resource com informações oficiais sobre CRAS e Cadastro Único."""
+    return json.dumps(free_legal_aid_directory.cras_guide(), ensure_ascii=False)
+
+
+@mcp.tool()
 def orientar_busca_ongs_coletivos_mulheres(
     uf: str | None = None, municipio: str | None = None
 ) -> dict:
