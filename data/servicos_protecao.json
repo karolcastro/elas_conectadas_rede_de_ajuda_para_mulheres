@@ -7962,6 +7962,81 @@
       "verification_date": "2025-01-06",
       "review_due_date": "2027-02-02",
       "shelter_address_public": false
+    },
+    {
+      "id": "al-maceio-1a-deam",
+      "name": "1ª Delegacia Especializada de Atendimento à Mulher — Maceió",
+      "category": "protecao",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Maceió",
+      "service_type": "Delegacia especializada para registro e atendimento policial de violência contra mulheres",
+      "address": "Complexo de Delegacias Especializadas (CODE), Avenida Comendador Gustavo Paiva, Mangabeiras, Maceió/AL",
+      "phone": "(82) 3315-4976",
+      "service_hours": "24 horas por dia, conforme página da SESAU/AL.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que necessitam registrar ocorrência ou buscar atendimento policial especializado.",
+      "access_instructions": "A SESAU/AL lista a 1ª DEAM no CODE e informa funcionamento 24h. Confirme o fluxo de atendimento diretamente. Em emergência imediata, ligue 190; para orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "al-maceio-2a-deam",
+      "name": "2ª Delegacia Especializada de Atendimento à Mulher — Maceió",
+      "category": "protecao",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Maceió",
+      "service_type": "Delegacia especializada para registro e atendimento policial de violência contra mulheres",
+      "address": "Rua Antônio Souza Braga, Salvador Lyra, Maceió/AL",
+      "phone": "(82) 3315-4327",
+      "service_hours": "8h às 18h, conforme página da SESAU/AL.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que necessitam registrar ocorrência ou buscar atendimento policial especializado.",
+      "access_instructions": "A SESAU/AL lista a 2ª DEAM no bairro Salvador Lyra e informa atendimento das 8h às 18h. Confirme funcionamento antes de se deslocar. Em emergência imediata, ligue 190; para orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "al-arapiraca-deam",
+      "name": "Delegacia da Mulher — Arapiraca",
+      "category": "protecao",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Arapiraca",
+      "service_type": "Delegacia especializada para registro e atendimento policial de violência contra mulheres",
+      "address": "Rua São Domingos, Centro, Arapiraca/AL",
+      "phone": "(82) 3521-6318",
+      "service_hours": "8h às 18h, conforme página da SESAU/AL.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que necessitam registrar ocorrência ou buscar atendimento policial especializado.",
+      "access_instructions": "A SESAU/AL lista a Delegacia da Mulher na Rua São Domingos, Centro, e informa atendimento das 8h às 18h. Confirme funcionamento antes de se deslocar. Em emergência imediata, ligue 190; para orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
     }
   ]
 }
