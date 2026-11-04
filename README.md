@@ -162,9 +162,9 @@ A ferramenta MCP `consultar_programa_dignidade_menstrual`, o resource `saude://d
 
 ## Assistência jurídica gratuita — diretórios oficiais
 
-Foi adicionada a ferramenta MCP orientar_assistencia_juridica_gratuita, o resource juridico://assistencia-gratuita e o prompt orientar_busca_defensoria_mulher. Eles encaminham a usuária aos diretórios do Conselho Nacional de Justiça e do CONDEGE, além do Ligue 180 e do Painel da Rede de Atendimento.
+Foram adicionados a ferramenta MCP `orientar_assistencia_juridica_gratuita`, o resource `juridico://assistencia-gratuita` e o prompt `orientar_busca_defensoria_mulher`. Eles encaminham a usuária aos diretórios do Conselho Nacional de Justiça e do CONDEGE, além do Ligue 180 e do Painel da Rede de Atendimento.
 
-O agente não simula uma busca municipal: a ferramenta retorna links oficiais e instruções para localizar a Defensoria do estado, procurar atendimento à mulher/NUDEM e confirmar critérios diretamente com a instituição. Não solicita CPF, documentos ou relato de violência.
+O agente não simula uma busca municipal: a ferramenta retorna links oficiais e instruções para localizar a Defensoria do estado, procurar atendimento à mulher/NUDEM e confirmar critérios diretamente com a instituição. Para São Paulo, inclui o canal geral 0800 773 4340, horários publicados, gratuidade, agendamento prévio e link institucional do NUDEM. A página estadual informa que não é necessário apresentar documentos para solicitar o serviço, mas documentos podem ser necessários em etapas posteriores. O telefone direto do NUDEM não é exibido porque não foi confirmado em fonte atualizada nesta verificação. Não solicita CPF, documentos ou relato de violência.
 
 
 ## ONGs, coletivos e iniciativas femininas — fontes de descoberta
@@ -198,3 +198,14 @@ A primeira lista inclui o curso Ela Empreende! (Qualifica SP), módulos de Educa
 Cada registro do catálogo de proteção possui data de verificação e prazo de revisão editorial calculado em 90 dias. A ferramenta `buscar_servicos_protecao_por_localidade` oculta por padrão registros com data ausente/inválida ou prazo vencido e informa quantos foram omitidos. O parâmetro `incluir_registros_vencidos=true` existe para auditoria e retorna os registros marcados como `expired` ou `needs_review`; eles não devem ser apresentados como contatos atuais. O prazo é um alerta para revisão humana, não uma validação automática de que o serviço continua funcionando.
 
 A data `review_due_date` é armazenada no JSON e calculada novamente pela lógica do serviço. Antes de adicionar ou renovar um registro, verificar a página institucional, contato, endereço público, horário, cobertura e gratuidade. Não divulgar endereço de acolhimento sigiloso.
+
+
+## Assistência jurídica — integração MCP e canal paulista verificado
+
+A ferramenta `orientar_assistencia_juridica_gratuita(uf, municipio)`, o resource `juridico://assistencia-gratuita` e o prompt `orientar_busca_defensoria_mulher` estão registrados no servidor MCP.
+
+Para SP, a resposta apresenta o canal estadual da Defensoria Pública: **0800 773 4340**, gratuito, segunda a sexta das 7h às 19h em dias úteis; fins de semana e feriados das 7h às 12h, apenas casos urgentes pelo site com a assistente virtual Júlia. O atendimento exige agendamento prévio. A Carta de Serviços do Estado, atualizada em 09/09/2026, informa que não é preciso apresentar documentos para solicitar o serviço; isso não dispensa documentos que possam ser necessários posteriormente. A ferramenta também aponta a página do NUDEM/SP, sem inventar telefone direto não confirmado.
+
+Fontes: https://servicos.sp.gov.br/fcarta/2C493B4D-3542-4441-9DD4-60E7285C8DAB ; https://www.defensoria.sp.def.br/institucional/enderecos-e-telefones ; https://www.defensoria.sp.def.br/nucleos-especializados/pagina-inicial-nucleos-especializados/direitos-das-mulheres/redes-de-atendimento/violencia-domestica-e-familiar
+
+As ferramentas de ONGs e coletivos também estão registradas no servidor MCP: `orientar_busca_ongs_coletivos_mulheres(uf, municipio)`, resource `comunidade://ongs-e-coletivos` e prompt `orientar_validacao_ong_feminina`. Elas retornam fontes de descoberta e checklist de validação; não afirmam que uma organização local foi confirmada.
