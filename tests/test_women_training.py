@@ -131,3 +131,15 @@ def test_mulheres_mil_catalog_entry_targets_vulnerable_women_and_does_not_claim_
     assert "sobreviventes de violência" in item["audience"]
     assert "outubro já passou" in item["enrollment_status"]
     assert set(item["ufs"]) == {"AP", "MA", "RN", "GO", "ES", "MG", "SC"}
+
+
+def test_mds_entrepreneurship_portal_lists_free_courses_for_women():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    portal = programs["br-mds-portal-educacao-empreendedora-mulheres"]
+    assert portal["free"] is True
+    assert portal["women_specific"] is True
+    assert portal["opportunity_type"] == "catalogo_cursos_online"
+    assert any("Educação Financeira para Mulheres Empreendedoras" in course for course in portal["content"])
+    assert "não informa prazo de inscrição" in portal["enrollment_status"]
+    assert portal["official_source"].startswith("https://")
+
