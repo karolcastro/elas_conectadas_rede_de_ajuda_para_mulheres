@@ -139,7 +139,7 @@ def test_housing_guide_explains_women_priority_without_promising_free_housing():
     assert any("mulher é responsável" in item for item in result["priority_groups"])
     assert any("vítimas de violência doméstica" in item for item in result["priority_groups"])
     assert any("não garante seleção" in item for item in result["limitations"])
-    assert "gov.br" not in result["official_source"]
+    assert "Cadastro Único" in result["how_to_access"][0]
 
 
 def test_housing_guide_rejects_invalid_uf():
