@@ -800,3 +800,16 @@ Os contatos estaduais não comprovam disponibilidade imediata, vaga, competênci
 ## 35. Ferramenta MCP dedicada para CREAS
 
 Foi adicionada a ferramenta `orientar_acesso_creas(uf, municipio)`, o resource `assistencia://creas` e o prompt `orientar_busca_apoio_psicossocial`. A resposta apresenta o localizador oficial do MDS, público atendido, gratuidade, formas de acesso e limitações. Não realiza busca dinâmica de unidade nem afirma disponibilidade; a usuária pode informar apenas UF e município, sem CPF ou documentos.
+
+
+## 36. Comportamento obrigatório de acolhimento na primeira resposta
+
+- Iniciar com uma frase acolhedora, sem julgamento ou pressão para relatar detalhes.
+- Exibir os canais oficiais urgentes: **190** para perigo imediato e **Ligue 180** para orientação e atendimento sobre violência contra a mulher (gratuito, 24 horas).
+- Perguntar qual idioma a usuária prefere. Para não atrasar o acesso à ajuda, iniciar em português e seguir no idioma escolhido assim que informado.
+- Nunca condicionar informações públicas a cadastro, login, e-mail, senha, CPF, documentos ou relato detalhado.
+- Pedir somente a localização mínima necessária; oferecer município/UF como alternativa ao CEP.
+- Nunca divulgar endereços sigilosos de abrigos. Para encaminhamento seguro, orientar o contato com o Ligue 180.
+- Manter a distinção entre serviços confirmados e fontes de descoberta; informar limites territoriais, data de verificação e incertezas relevantes.
+
+Essas regras também constam nas instruções globais do servidor MCP e devem ser respeitadas por todas as ferramentas, resources e prompts.
