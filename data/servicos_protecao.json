@@ -4247,32 +4247,6 @@
       "address": "Rua João Segundo, 284, bairro Alvorada",
       "phone": "(66) 3481-1169 / Plantão (66) 98156-0027",
       "email": "depolaltoaraguaia@pjc.mt.gov.br"
-    },
-    {
-      "category": "delegacia",
-      "coverage": "MT",
-      "ufs": [
-        "MT"
-      ],
-      "state": "MT",
-      "service_type": "Núcleo/Delegacia Especializada de Atendimento à Mulher e Vulneráveis",
-      "free": null,
-      "audience": "Mulheres que necessitam de atendimento policial especializado, conforme escopo publicado pela Polícia Civil de Mato Grosso.",
-      "access_instructions": "O diretório oficial lista esta unidade, endereço e contato. O horário informado é comercial; confirme funcionamento e disponibilidade diretamente antes de se deslocar. A fonte não declara expressamente gratuidade, portanto o custo permanece não confirmado. Em perigo imediato, ligue 190; para orientação, 180.",
-      "official_source": "https://mulher.mt.gov.br/atendimentos",
-      "verification_status": "official_state_service_directory",
-      "verification_date": "2026-11-04",
-      "review_due_date": "2027-02-02",
-      "shelter_address_public": false,
-      "service_hours": "Horário comercial",
-      "cost_status": "not_confirmed_by_official_source",
-      "recommendation_status": "cost_confirmation_required",
-      "id": "mt-sorriso-ddm",
-      "name": "Núcleo de Delegacia Municipal Especializado de Atendimento à Mulher e Vulneráveis",
-      "municipality": "Sorriso",
-      "address": "Avenida Doutor José Fragelli, s/n, Centro",
-      "phone": "(66) 3522-1115",
-      "email": "msfaraguaia@pjc.mt.gov.br"
     }
   ]
 }
