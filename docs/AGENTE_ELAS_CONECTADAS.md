@@ -1072,4 +1072,40 @@ Fonte: https://www.sejusc.am.gov.br/mulheres/
 
 ### Métricas após a atualização (04/11/2026)
 
-O catálogo contém **166 registros**, com IDs únicos, presença nas **27 UFs**, 47 registros com gratuidade confirmada e 119 com gratuidade não confirmada. A cobertura municipal segue parcial. A página da Polícia Civil de Rondônia é uma fonte de descoberta institucional; os dados devem ser revalidados antes de orientar deslocamentos.
+O catálogo contém **171 registros**, com IDs únicos, presença nas **27 UFs**, 47 registros com gratuidade confirmada e 124 com gratuidade não confirmada. A cobertura municipal segue parcial. A página da Polícia Civil de Rondônia é uma fonte de descoberta institucional; os dados devem ser revalidados antes de orientar deslocamentos.
+
+
+## Revisão de fontes oficiais e expansão — 04/11/2026
+
+### Mato Grosso — cinco novas referências municipais
+
+Foram adicionados cinco núcleos/delegacias especializados listados no Portal Mato Grosso em Defesa das Mulheres:
+- Nobres — Rua Ceríaco A. Campos, esquina com Rua Alaor Soares de Souza, Lote 01A, Jardim Paraná; (65) 3613-8792, (65) 3613-9793 e (65) 98137-0604; dpnobres@pjc.mt.gov.br.
+- Nova Mutum — Avenida das Arapongas, 1123, Jardim das Orquídeas, piso superior da DERF; (65) 98173-0331; sedmnovamutum@pjc.mt.gov.br.
+- Nova Xavantina — Avenida Juscelino Kubitscheck, esquina com Iris de Paula, 100, Jardim Alvorada; (66) 3438-1179, (66) 98156-0073 e (65) 98173-0576; dpnovaxavantina@pjc.mt.gov.br.
+- Querência — Avenida Cuiabá, 175, Setor C; (66) 98156-0089; dpquerencia@pjc.mt.gov.br.
+- Alto Araguaia — Rua João Segundo, 284, bairro Alvorada; (66) 3481-1169; plantão (66) 98156-0027; depolaltoaraguaia@pjc.mt.gov.br.
+
+A página estadual lista horário comercial para esses registros. Não declara expressamente a gratuidade, por isso todos permanecem com `free: null`, custo não confirmado e orientação para confirmar funcionamento antes de se deslocar.
+
+Fonte oficial: https://mulher.mt.gov.br/atendimentos
+
+### Espírito Santo — revalidação do CRMB de Cariacica
+
+A notícia oficial do Ministério das Mulheres confirma a inauguração em 09/10/2026 e informa: Rua Rio Branco, 446, bairro Rio Branco, em frente ao Estádio Kleber Andrade; telefone (27) 3354-5565; segunda a sexta, das 8h às 18h. Serviços descritos: acolhimento, acompanhamento psicossocial e orientação jurídica, além de oficinas, cursos e rodas de conversa. A publicação não declara expressamente a gratuidade individual, mantida como não confirmada.
+
+Fonte oficial: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/outubro-defeso-eleitoral/centro-de-referencia-da-mulher-brasileira-em-cariacica-es-oferecera-atendimento-a-mulheres-em-situacao-de-violencia
+
+### Revisão das fontes — Rondônia e Amazonas
+
+A página da Polícia Civil de Rondônia continua listando as DEAMs incluídas no catálogo em Porto Velho, Ariquemes, Cacoal, Guajará-Mirim, Jaru, Ji-Paraná, Rolim de Moura e Vilhena, com contatos institucionais. O diretório usa a opção “Ver no mapa” em vez de publicar endereço textual no resultado consultado; o agente não deve inferir endereço ou horário.
+
+Fonte: https://www.pc.ro.gov.br/unidades-policiais/
+
+A página da SEJUSC Amazonas lista SAMIC em nove municípios, além de SAPEM em Manaus. A listagem consultada contém diferenças entre páginas oficiais sobre endereços/contatos de alguns SAMIC; não propagar divergências sem validação individual. O registro do CREAM Manaus permanece com custo não confirmado.
+
+Fonte: https://www.sejusc.am.gov.br/mulheres/
+
+### Métricas após revisão
+
+O catálogo contém **171 registros**, com presença nas **27 UFs**. São **47 registros com gratuidade expressamente confirmada** e **124 com custo não confirmado**. A cobertura municipal continua parcial; a existência de registros em todos os estados não significa atendimento cadastrado em todos os municípios.
