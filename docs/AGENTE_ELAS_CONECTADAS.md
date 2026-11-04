@@ -1510,3 +1510,26 @@ Fontes oficiais:
 - Restaurantes Populares: https://www.gov.br/pt-br/servicos/acessar-os-restaurantes-populares
 - Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
 - Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
+
+## Proteção social para mulheres em vulnerabilidade — 04/11/2026
+
+O módulo `FreeLegalAidDirectory` ganhou `vulnerable_women_guide(uf, municipality)`, exposto no MCP pela ferramenta `orientar_beneficios_mulheres_vulnerabilidade` e pelo resource `assistencia://beneficios-mulheres-vulnerabilidade`.
+
+O guia reúne caminhos nacionais de acesso a:
+- **Cadastro Único:** cadastro gratuito para famílias de baixa renda; inscrição presencial no CRAS ou posto municipal. A inscrição não garante concessão de benefício.
+- **Bolsa Família:** transferência de renda para famílias que cumpram os critérios vigentes, com seleção oficial; estar no CadÚnico não garante entrada automática.
+- **BPC:** benefício assistencial para pessoa idosa a partir de 65 anos ou pessoa com deficiência, sujeito aos critérios legais de renda, CadÚnico e avaliação.
+- **Auxílio-Inclusão:** benefício condicionado para pessoa com deficiência que recebe ou recebeu BPC e ingressa no trabalho remunerado, sujeito aos requisitos legais.
+- **Centro POP:** atendimento gratuito para pessoas adultas em situação de rua, incluindo refeições, higiene, apoio documental e orientação sobre direitos; a página oficial informa que não é necessário documento para atendimento.
+- **Acolhimento para mulheres em situação de violência:** acolhimento provisório sigiloso para mulheres adultas sob ameaça ou risco de morte, podendo incluir filhos; o acesso é articulado pela rede socioassistencial e serviços competentes.
+
+O guia informa público e caminhos de acesso, mas **não consulta resultados municipais automaticamente**, não confirma elegibilidade individual, concessão, vagas ou atendimento imediato. Não pede CPF, senha gov.br, documentos ou relatos sensíveis no chat. Endereços de abrigos permanecem sigilosos.
+
+Fontes oficiais:
+- Cadastro Único: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
+- Bolsa Família: https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/mulheres/protecao-social-para-mulheres-e-meninas
+- BPC e benefícios assistenciais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais
+- Centro POP: https://www.gov.br/pt-br/servicos/acessar-centro-pop-centro-de-referencia-especializado-para-populacao-em-situacao-de-rua
+- Acolhimento para mulheres em situação de violência: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/servico-de-acolhimento-para-mulheres-em-situacao-de-violencia
+- Localizador MOPS: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
+
