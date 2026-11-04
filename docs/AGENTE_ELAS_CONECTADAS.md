@@ -775,3 +775,22 @@ Em 03/11/2026, a ferramenta `orientar_assistencia_juridica_gratuita(uf, municipi
 
 ### Limites e privacidade
 Os contatos estaduais não comprovam disponibilidade imediata, vaga, competência para todo tipo de demanda ou atendimento em todos os municípios. A ferramenta informa a fonte e a data de atualização consultada e orienta confirmar critérios, documentos e fluxo com a Defensoria. Não solicita CPF, documentos, endereço residencial ou relato de violência. A cobertura estadual ainda é parcial: SP, BA e PR possuem informações específicas; para outras UFs, são apresentados diretórios institucionais, não contatos presumidos.
+
+
+
+## 34. Expansão jurídica e socioassistencial — MG, PE e CREAS
+
+### Minas Gerais (MG)
+- NUDEM da Defensoria Pública em Belo Horizonte: **(31) 98475-2616** e **(31) 98239-8863** (chamada e WhatsApp), de segunda a sexta, das 11h às 17h; e-mail **atendimentonudembh@defensoria.mg.def.br**.
+- A página institucional também publica contatos psicossociais por município/região metropolitana e interior. O contato do NUDEM cadastrado aqui é explicitamente de Belo Horizonte; não deve ser apresentado como linha estadual universal.
+- Fonte: https://defensoria.mg.def.br/contatos-para-o-atendimento/ (publicação identificada em 23/06/2025).
+
+### Pernambuco (PE)
+- NUDEM/DPPE: WhatsApp **(81) 99488-3765**, e-mail **defesadamulher@defensoria.pe.gov.br**.
+- Atendimento inicial exclusivamente por mensagem; respostas por ordem de chegada. A notícia oficial informa que, após orientação, eventual comparecimento à sede não exige agendamento prévio. A página de endereços da capital lista horário de 8h às 16h e critérios gerais de renda da Defensoria; confirmar a aplicação ao caso e à unidade.
+- Fontes: https://www.defensoria.pe.def.br/noticias/detalhe/4300/ (25/09/2026); https://www.defensoria.pe.def.br/enderecos/capital/.
+
+### Apoio socioassistencial — CREAS (Brasil)
+- O CREAS é serviço público e gratuito para pessoas/famílias em situação de risco ou violação de direitos, incluindo violência física, psicológica e sexual. Oferece acolhida, orientação e encaminhamento à rede pública.
+- O MDS disponibiliza localizador de unidades por município. Se o município não tiver CREAS, a orientação oficial é procurar o setor de assistência social da prefeitura. Não presumir vaga ou atendimento imediato.
+- Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-especializado-de-assistencia-social-creas (atualizada em 26/10/2026).
