@@ -5,6 +5,31 @@ from typing import Any
 
 PROGRAMS = [
     {
+        "id": "br-mds-acredita-primeiro-passo-inclusao-produtiva",
+        "name": "Acredita no Primeiro Passo — inclusão produtiva para pessoas do CadÚnico",
+        "provider": "Ministério do Desenvolvimento e Assistência Social — MDS e instituições parceiras",
+        "audience": "Pessoas de 16 a 65 anos inscritas no CadÚnico com dados atualizados; mulheres são um dos públicos prioritários, junto com jovens, pessoas com deficiência e populações tradicionais.",
+        "coverage": "Brasil",
+        "ufs": [],
+        "format": "Programa nacional com cursos online e ações de empregabilidade e empreendedorismo oferecidas por parceiros; modalidades variam conforme a oferta.",
+        "free": True,
+        "priority": 0,
+        "women_specific": False,
+        "opportunity_type": "programa_inclusao_produtiva",
+        "content": [
+            "cursos gratuitos de qualificação profissional",
+            "orientação e apoio à busca de emprego",
+            "educação financeira e empreendedora",
+            "orientação técnica para estruturação de pequenos negócios",
+        ],
+        "enrollment_status": "Programa oficial listado pelo MDS; acesso a cursos, vagas e serviços depende dos parceiros e das ofertas disponíveis. Confirmar elegibilidade, turma e disponibilidade diretamente no portal.",
+        "application_url": "https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo",
+        "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo",
+        "verification_date": "2026-11-04",
+        "cost_note": "Cursos e ações de inclusão produtiva são oferecidos gratuitamente conforme as ofertas do programa. Microcrédito é empréstimo e não deve ser apresentado como bolsa, benefício gratuito ou dinheiro a fundo perdido.",
+        "status_note": "O programa prioriza mulheres, mas não é exclusivo para elas. Em regra, exige inscrição ativa e dados atualizados no CadÚnico; não solicitar CPF ou comprovantes no Elas Conectadas.",
+    },
+    {
         "id": "sp-qualifica-ela-empreende",
         "name": "Ela Empreende! — Qualifica SP",
         "provider": "Governo do Estado de São Paulo / Qualifica SP",
