@@ -1011,7 +1011,7 @@ Fontes: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/mar
 
 ## Situação consolidada da cobertura territorial (04/11/2026)
 
-O catálogo possui **131 registros** com referências em **21 das 27 Unidades da Federação** (incluindo o Distrito Federal). A validação estrutural encontrou IDs únicos e todos os registros possuem fonte, data de verificação e campo explícito de gratuidade. Há 44 registros com `free: true` e 87 com `free: null`/custo não confirmado. Os estados sem registros locais curados nesta versão são **AL, AM, MT, MG, PB e RO**. Para eles, o MCP mantém a ferramenta `orientar_consulta_rede_oficial_atendimento(uf, municipio, tipo_servico)`, que encaminha à consulta por estado e município no Painel do Ministério das Mulheres. Essa rota não é uma importação automática e não deve ser descrita como catálogo municipal próprio. A ausência de registros locais não significa ausência de serviços.
+O catálogo possui **156 registros** e presença nas **27 das 27 Unidades da Federação** (incluindo o Distrito Federal). A cobertura municipal continua parcial e não equivale a uma listagem exaustiva de todos os municípios. A validação estrutural encontrou IDs únicos e todos os registros possuem fonte, data de verificação e campo explícito de gratuidade. Há 46 registros com `free: true` e 110 com `free: null`/custo não confirmado. Para municípios sem referência local curada, o MCP mantém a ferramenta `orientar_consulta_rede_oficial_atendimento(uf, municipio, tipo_servico)`, que encaminha à consulta por estado e município no Painel do Ministério das Mulheres. Essa rota não é uma importação automática e não deve ser descrita como catálogo municipal próprio.
 
 
 ## Atualização territorial — UFs antes sem referências locais (04/11/2026)
