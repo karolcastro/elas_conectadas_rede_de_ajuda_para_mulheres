@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from typing import Any
+import unicodedata
 
 IPEA_MAP_URL = "https://mapaosc.ipea.gov.br/"
 MINISTRY_PANEL_URL = "https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento"
@@ -13,6 +14,70 @@ MARIA_DAJUDA_URL = "https://mariadajuda.org/"
 MARIAS_DA_INTERNET_URL = "https://www.mariasdainternet.com.br/"
 SAFERNET_HELPLINE_URL = "https://new.safernet.org.br/helpline"
 VERIFICATION_DATE = "2026-11-03"
+
+IN_PERSON_CITIES = {
+    ("BA", "salvador"),
+    ("PE", "recife"),
+    ("SP", "sao paulo"),
+    ("RJ", "rio de janeiro"),
+}
+
+
+def _normalize_place(value: str | None) -> str | None:
+    if not value:
+        return None
+    normalized = unicodedata.normalize("NFKD", value.strip().casefold())
+    return "".join(char for char in normalized if not unicodedata.combining(char))
+
+
+def _locality_match(
+    organization: dict[str, Any], uf: str | None, municipality: str | None
+) -> tuple[int, str, str]:
+    name = organization["name"]
+    city = _normalize_place(municipality)
+    if name == "TamoJuntas":
+        if uf and city and (uf, city) in IN_PERSON_CITIES:
+            return (
+                0,
+                "presential_city_published",
+                "Cidade consta na página institucional como local de atendimento presencial; confirmar disponibilidade atual.",
+            )
+        if uf and city:
+            if organization.get("state_contact"):
+                return (
+                    2,
+                    "state_contact_published_no_local_service_confirmation",
+                    "Há e-mail institucional associado à UF, mas a cidade não consta entre as localidades de atendimento presencial publicado. A organização informa orientações e encaminhamentos para outras localidades.",
+                )
+            return (
+                3,
+                "no_local_service_confirmation",
+                "Não há atendimento presencial confirmado para esta cidade nesta base. A organização informa orientações e encaminhamentos para outras localidades; consulte o contato geral.",
+            )
+        if uf:
+            return (
+                2,
+                "state_contact_only_city_not_provided",
+                "Há contato institucional associado à UF, mas sem município informado não é possível confirmar atendimento presencial local.",
+            )
+        return (
+            3,
+            "location_not_provided",
+            "Informe município e UF para verificar se a localidade consta entre as cidades com atendimento presencial publicado.",
+        )
+    if name == "Mapa do Acolhimento":
+        return (
+            1,
+            "national_online_scope",
+            "A plataforma publica critérios nacionais e atendimento por profissionais voluntárias; isso não confirma disponibilidade de profissional ou prazo na localidade.",
+        )
+    if name == "Maria d'Ajuda — MariaLab":
+        return (
+            1,
+            "latin_america_online_scope",
+            "A linha de ajuda informa atendimento online para a América Latina; a resposta depende da análise e disponibilidade da equipe.",
+        )
+    return (4, "locality_not_assessed", "Cobertura local não avaliada.")
 
 
 class WomenOrganizationsGuide:
@@ -113,6 +178,16 @@ class WomenOrganizationsGuide:
                 "verification_basis": "Página institucional da Maria d'Ajuda/MariaLab, com declaração de gratuidade, público, escopo e canal de contato.",
             },
         ]
+        for organization in verified_organizations:
+            priority, match, evidence = _locality_match(
+                organization, normalized_uf, municipality
+            )
+            organization["locality_priority"] = priority
+            organization["locality_match"] = match
+            organization["locality_evidence"] = evidence
+
+        verified_organizations.sort(key=lambda item: item["locality_priority"])
+
         return {
             "purpose": "Descobrir organizações da sociedade civil, ONGs e iniciativas de apoio a mulheres.",
             "requested_location": {
