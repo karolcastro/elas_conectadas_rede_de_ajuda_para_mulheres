@@ -247,8 +247,7 @@ class FreeLegalAidDirectory:
                 "Inscrição e atualização do Cadastro Único, conforme fluxo municipal.",
                 "Serviço de Convivência e Fortalecimento de Vínculos (SCFV), conforme oferta local.",
                 "Encaminhamento para outros serviços da rede socioassistencial.",
-
-            "Benefícios Eventuais da Assistência Social, conforme regulamentação municipal, para situações temporárias de vulnerabilidade, que podem incluir falta de alimentação, necessidade de abrigo/moradia temporária, transporte ou outras necessidades urgentes.",
+                "Benefícios Eventuais da Assistência Social, conforme regulamentação municipal, para situações temporárias de vulnerabilidade, que podem incluir falta de alimentação, necessidade de abrigo/moradia temporária, transporte ou outras necessidades urgentes.",
             ],
             "official_locator": "https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/",
             "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras",
