@@ -4,7 +4,7 @@
 
 O servidor MCP existente continua funcionando por stdio para desenvolvimento local. A camada HTTP foi adicionada separadamente, usando Streamable HTTP e uma aplicação ASGI Starlette compatível com o runtime Python da Vercel.
 
-- Entry point Vercel: api/index.py
+- Entry point Vercel: api/mcp.py
 - Endpoint MCP: /api/mcp
 - Autenticação: token Bearer obrigatório em todas as requisições MCP.
 - Execução serverless: modo HTTP stateless e respostas JSON; não depende de sessões mantidas em memória.
@@ -45,7 +45,7 @@ O comando elas-conectadas-mcp continua iniciando o transporte stdio original. N�
 4. Confirme que a URL pública e o domínio estão cobertos pelas allowlists.
 5. Só depois de revisar o Preview, considere promover para Production.
 
-A presença de api/index.py habilita o entrypoint Python ASGI; isso não significa que o projeto já tenha sido implantado ou que exista um projeto Vercel vinculado. A validação final precisa ocorrer em Preview, pois o runtime, o roteamento de subcaminhos e os limites de duração/streaming dependem da plataforma.
+A presença de api/mcp.py habilita o endpoint Python ASGI; isso não significa que o projeto já tenha sido implantado ou que exista um projeto Vercel vinculado. A validação final precisa ocorrer em Preview, pois o runtime, o roteamento de subcaminhos e os limites de duração/streaming dependem da plataforma.
 
 ## Limites e segurança
 
