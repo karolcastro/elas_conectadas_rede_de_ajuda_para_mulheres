@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo de 158 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 111 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
+Projeto em desenvolvimento com servidor MCP, catálogo de 166 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 119 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
@@ -387,3 +387,14 @@ Foram incorporadas referências de atendimento em **Alagoas, Amazonas, Mato Gros
 **Gratuidade:** apenas CEAM Maceió e CERNA/MG foram marcados `free: true` nesta rodada, porque suas fontes declaram expressamente que o serviço não tem custo/é gratuito. Os demais foram mantidos com `free: null` e custo não confirmado. O agente não pode apresentá-los como opções gratuitas confirmadas.
 
 **Limites de cobertura:** os registros de Mato Grosso e Amazonas são serviços especializados e centros em municípios específicos; não representam todos os municípios desses estados. Para municípios sem unidade local curada, manter o encaminhamento ao Painel oficial da Rede do Ligue 180: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento.
+
+
+### Atualização de Rondônia — 04/11/2026
+
+Foram adicionadas oito referências de Delegacias Especializadas em Atendimento à Mulher no diretório oficial da Polícia Civil de Rondônia: Porto Velho, Ariquemes, Cacoal, Guajará-Mirim, Jaru, Ji-Paraná, Rolim de Moura e Vilhena. A página publica telefones e e-mails, mas não endereços textuais nem horários específicos para essas unidades; por isso, esses campos não foram inventados e a orientação é confirmar localização e funcionamento diretamente com a Polícia Civil. A gratuidade não foi expressamente confirmada na fonte.
+
+Fonte: https://www.pc.ro.gov.br/unidades-policiais/
+
+O registro do CREAM de Manaus também foi corrigido conforme o diretório da SEJUSC: endereço Avenida Presidente Kennedy, 39, Educandos, contatos telefônicos e horário de segunda a sexta, 8h às 17h. A gratuidade permanece não confirmada.
+
+Fonte: https://www.sejusc.am.gov.br/mulheres/
