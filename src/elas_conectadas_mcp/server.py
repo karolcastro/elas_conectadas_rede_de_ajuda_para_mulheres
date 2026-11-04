@@ -289,6 +289,59 @@ def orientar_inscricao_cursos_mulheres() -> str:
     )
 
 
+
+@mcp.tool()
+def orientar_assistencia_juridica_gratuita(
+    uf: str | None = None, municipio: str | None = None
+) -> dict:
+    """Orienta como localizar Defensoria Pública e assistência jurídica gratuita oficial."""
+    return free_legal_aid_directory.guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("juridico://assistencia-gratuita")
+def recurso_assistencia_juridica_gratuita() -> str:
+    """Resource com diretórios oficiais de assistência jurídica gratuita."""
+    return json.dumps(free_legal_aid_directory.guide(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_busca_defensoria_mulher() -> str:
+    """Prompt para localizar assistência jurídica sem solicitar dados pessoais."""
+    return (
+        "Ajude a localizar a Defensoria Pública e serviços jurídicos gratuitos usando "
+        "fontes institucionais. Informe critérios e agendamento conforme a fonte do estado. "
+        "Em São Paulo, informe o telefone 0800 773 4340 e o horário publicado, esclarecendo "
+        "que o atendimento requer agendamento. Não solicite CPF, senha, login, e-mail, "
+        "documentos ou relato detalhado no chat. Não prometa elegibilidade nem resultado jurídico."
+    )
+
+
+@mcp.tool()
+def orientar_busca_ongs_coletivos_mulheres(
+    uf: str | None = None, municipio: str | None = None
+) -> dict:
+    """Indica fontes públicas para descobrir e validar ONGs e coletivos de mulheres."""
+    return women_organizations_guide.guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("comunidade://ongs-e-coletivos")
+def recurso_ongs_coletivos_mulheres() -> str:
+    """Resource com fontes de descoberta e critérios de validação de iniciativas."""
+    return json.dumps(women_organizations_guide.guide(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_validacao_ong_feminina() -> str:
+    """Prompt para validar iniciativas sem inventar organizações ou serviços."""
+    return (
+        "Use fontes institucionais para descobrir e validar ONGs, coletivos e iniciativas "
+        "femininas. O Mapa das OSC é fonte de descoberta, não prova atendimento atual, "
+        "gratuidade ou liderança feminina. Confirme atuação local, público, custo, horários, "
+        "contato e status antes de recomendar. Não invente organizações e não solicite cadastro "
+        "ou dados pessoais para apresentar informações públicas."
+    )
+
+
 @mcp.resource("ibge://estados")
 async def recurso_estados() -> str:
     """Resource com a lista atual de estados brasileiros."""
