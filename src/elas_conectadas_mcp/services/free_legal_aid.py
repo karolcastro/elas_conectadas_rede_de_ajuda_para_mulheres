@@ -11,6 +11,10 @@ PANEL_URL = "https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendi
 SP_DEFENSORIA_SERVICE_URL = "https://servicos.sp.gov.br/fcarta/2C493B4D-3542-4441-9DD4-60E7285C8DAB"
 SP_DEFENSORIA_ADDRESSES_URL = "https://www.defensoria.sp.def.br/institucional/enderecos-e-telefones"
 SP_WOMEN_RIGHTS_URL = "https://www.defensoria.sp.def.br/nucleos-especializados/pagina-inicial-nucleos-especializados/direitos-das-mulheres/redes-de-atendimento/violencia-domestica-e-familiar"
+BA_DEFENSORIA_SERVICE_URL = "https://www.ba.gov.br/servico/dpe/solicitar-atendimento-na-defensoria-publica-do-estado-ba"
+BA_DEFENSORIA_CONTACT_URL = "https://www.ba.gov.br/ouvidoria/120/dpe"
+PR_DEFENSORIA_SERVICE_URL = "https://www.parana.pr.gov.br/servicos/Servicos/Mulher/Solicitar-atendimento-na-Defensoria-Publica-do-Estado-do-Parana-K03Yaq34"
+PR_NUDEM_URL = "https://www.defensoriapublica.pr.def.br/Pagina/Nucleo-de-Promocao-e-Defesa-dos-Direitos-das-Mulheres"
 
 
 class FreeLegalAidDirectory:
@@ -46,6 +50,43 @@ class FreeLegalAidDirectory:
                 "official_source": SP_WOMEN_RIGHTS_URL,
                 "source_last_updated": "2024-06",
                 "purpose": "Página institucional com orientações sobre direitos e rede de atendimento para mulheres em situação de violência. Não há telefone direto atual confirmado nesta fonte; utilize o canal geral da Defensoria para confirmar encaminhamento ao núcleo."
+            })
+        if normalized_uf == "BA":
+            state_specific_contacts.append({
+                "name": "Defensoria Pública do Estado da Bahia — Disque Defensoria",
+                "phone": "129 ou 0800 071 3121",
+                "service_hours": "Segunda a sexta-feira, das 8h às 17h.",
+                "free": True,
+                "audience": "Pessoas sem condições financeiras de arcar com assistência jurídica ou em situação de vulnerabilidade social; confirme a triagem diretamente.",
+                "appointment_required": None,
+                "online_access": BA_DEFENSORIA_SERVICE_URL,
+                "official_source": BA_DEFENSORIA_CONTACT_URL,
+                "source_last_updated": "2026-07-17",
+                "important_notice": "A página oficial consultada apresenta os telefones como Disque Defensoria e informa ligação gratuita. O horário e a opção de atendimento devem ser confirmados diretamente; a página de serviço estadual explica como solicitar assistência jurídica gratuita."
+            })
+        if normalized_uf == "PR":
+            state_specific_contacts.append({
+                "name": "Defensoria Pública do Estado do Paraná — informações e atendimento",
+                "phone": "(41) 99123-1961",
+                "free": True,
+                "audience": "Em geral, pessoas com renda familiar de até três salários mínimos; a página estadual cita exceções, inclusive mulheres vítimas de violência doméstica e familiar, independentemente de renda.",
+                "appointment_required": False,
+                "online_access": "https://agendamento.defensoria.pr.def.br/",
+                "official_source": PR_DEFENSORIA_SERVICE_URL,
+                "source_last_updated": "2026-11-03",
+                "important_notice": "A página estadual informa atendimento presencial gratuito, com agendamento online recomendado, mas também possibilidade de comparecer diretamente a uma sede. Documentos são solicitados na triagem inicial; confirme a unidade e a lista atualizada antes de se deslocar."
+            })
+            state_specific_contacts.append({
+                "name": "Núcleo de Promoção e Defesa dos Direitos das Mulheres — NUDEM/PR",
+                "phone": "(41) 99285-8134",
+                "email": "nudem@defensoria.pr.def.br",
+                "service_hours": "Segunda a sexta-feira, das 10h às 17h.",
+                "free": True,
+                "appointment_required": True,
+                "service_modes": ["presencial", "remoto"],
+                "official_source": PR_NUDEM_URL,
+                "source_last_updated": "2026-09-29",
+                "purpose": "Núcleo especializado em promoção e defesa dos direitos das mulheres; atendimento somente com agendamento."
             })
         return {
             "service": "Assistência jurídica gratuita",
@@ -86,6 +127,8 @@ class FreeLegalAidDirectory:
                 "No site oficial da Defensoria, procure atendimento à mulher, violência doméstica ou NUDEM.",
                 "Confirme diretamente critérios de atendimento, documentos, agendamento, modalidade e gratuidade.",
                 "Em São Paulo, use o telefone estadual 0800 773 4340 ou o agendamento online; o atendimento exige agendamento prévio.",
+                "Na Bahia, use o Disque Defensoria 129 ou 0800 071 3121; confirme a opção adequada e os critérios diretamente com a DPE-BA.",
+                "No Paraná, consulte o NUDEM pelo telefone (41) 99285-8134 ou e-mail nudem@defensoria.pr.def.br; o núcleo atende somente com agendamento, presencial ou remotamente.",
                 "Para demanda relacionada à violência contra a mulher em São Paulo, consulte a página do NUDEM; se não houver contato direto publicado, solicite encaminhamento pelo canal geral da Defensoria.",
                 "Se não encontrar o núcleo local, use o Ligue 180 para orientação e encaminhamento na rede.",
             ],
