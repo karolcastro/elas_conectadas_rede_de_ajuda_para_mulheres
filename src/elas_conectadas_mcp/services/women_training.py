@@ -287,6 +287,31 @@ PROGRAMS = [
         "verification_date": "2026-11-04",
         "status_note": "A página individual informa certificado, 9,5 horas e 46 lições. A página institucional da WoMakersCode apresenta cursos/programas com inscrições abertas. A usuária deve confirmar acesso e eventuais requisitos diretamente no portal."
     }
+    {
+        "id": "br-mds-portal-educacao-empreendedora-mulheres",
+        "name": "Portal de Educação Empreendedora — cursos gratuitos para mulheres",
+        "provider": "Ministério do Desenvolvimento e Assistência Social — Programa Acredita no Primeiro Passo",
+        "audience": "Mulheres empreendedoras e pessoas em situação de vulnerabilidade interessadas em iniciar ou fortalecer pequenos negócios; alguns cursos são especificamente destinados a mulheres.",
+        "coverage": "Brasil",
+        "ufs": [],
+        "format": "Online, cursos autoinstrucionais com cargas horárias variadas.",
+        "free": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "catalogo_cursos_online",
+        "content": [
+            "Educação Financeira para Mulheres Empreendedoras — Módulo 1 (6 horas): metas financeiras, saúde financeira pessoal e do negócio, registros e custos.",
+            "Educação Financeira para Mulheres Empreendedoras — Módulo 2 (5 horas): plano de negócios, crédito e gestão de crises.",
+            "Crescendo meu Negócio de Alimentação (6 horas): estoque, produtividade, legislação sanitária, precificação, marketing e vendas.",
+            "Superpoderes da Tecnologia (3 horas): tecnologia, inteligência artificial, Canva, WhatsApp Business e organização.",
+            "Guia Essencial de Gestão para Ambulantes (2 horas): estoque, precificação, controle financeiro, marketing e formalização."
+        ],
+        "enrollment_status": "Os cursos aparecem no Portal de Educação Empreendedora oficial, cuja página foi atualizada em 02/11/2026. A página descreve os cursos como gratuitos e apresenta acesso online; não informa prazo de inscrição, quantidade de vagas ou garantia de suporte individual. Verifique o acesso ao curso escolhido no portal.",
+        "application_url": "https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo/quero-empreender/portal-de-educacao-empreendedora/portal-de-educacao-empreendedora",
+        "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo/quero-empreender/portal-de-educacao-empreendedora/portal-de-educacao-empreendedora",
+        "verification_date": "2026-11-04",
+        "status_note": "O portal é uma vitrine de cursos digitais; a existência da página não garante atendimento de mentoria, bolsa, crédito ou capital semente. O programa Acredita no Primeiro Passo atende públicos de inclusão produtiva, mas nem todos os cursos são exclusivos para mulheres. Não confundir crédito com apoio financeiro não reembolsável."
+    },
 ]
 
 
