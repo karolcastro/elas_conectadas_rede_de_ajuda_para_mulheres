@@ -1550,3 +1550,43 @@ Fontes:
 - Notícia sobre 230 vagas Mulheres Mil (Agência Gov/MEC, 03/11/2026): https://agenciagov.ebc.com.br/noticias/202611/programa-mulheres-mil-oferece-230-vagas-gratuitas-em-cursos-de-qualificacao-profissional
 - Painel de Oportunidades Pronatec: https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9
 
+
+
+## Publicação experimental do servidor MCP na Vercel — 04/11/2026
+
+### Diagnóstico da falha anterior
+
+A inspeção do deployment mais recente identificou o erro `PYTHON_ENTRYPOINT_NOT_FOUND`: o runtime Python da Vercel não encontrou um dos nomes de entrada convencionais (`app.py`, `main.py`, `api/index.py` etc.) nem uma configuração explícita em `tool.vercel.entrypoint`. O código existente expunha somente `main()` com transporte MCP `stdio`, que é apropriado para clientes locais, mas não constitui por si só uma aplicação HTTP/ASGI para a Vercel.
+
+### Adaptação criada em branch de validação
+
+- Branch: `feat/vercel-streamable-http-deploy`.
+- Novo arquivo `api/index.py`: importa a instância MCP já configurada em `src/elas_conectadas_mcp/server.py` e cria a aplicação ASGI por `mcp.streamable_http_app()`.
+- Endpoint MCP: `/mcp`, usando Streamable HTTP e `stateless_http=True` para não depender de sessões em memória entre invocações serverless.
+- Endpoint de saúde: `GET /health`, que retorna apenas status e identificação técnica, sem dados de usuárias ou resultados de diretórios.
+- Segurança de transporte: DNS-rebinding protection permanece habilitada; hosts permitidos são exatos, obtidos do hostname estável do projeto e das variáveis de ambiente de URL atribuídas pela Vercel. Não foi usada uma allowlist genérica de qualquer domínio.
+- Limite do corpo da requisição MCP: 1 MiB.
+- `pyproject.toml`: `tool.vercel.entrypoint = "api/index.py"`.
+- O transporte local `stdio` e o comando `elas-conectadas-mcp` permanecem inalterados.
+
+### Limites de segurança e publicação
+
+Esta adaptação ainda precisa passar pelo build e por testes funcionais. Ela não comprova que a Vercel aceitará a configuração nem que a aplicação esteja operacional. O endpoint MCP não tem autenticação própria nem rate limiting distribuído implementado nesta etapa. A proteção SSO/Deployment Protection do projeto deve permanecer ativa durante a validação; não a desativar para tornar o endpoint público sem uma revisão específica de autenticação, abuso, privacidade e rate limiting.
+
+O repositório contém um servidor MCP, não uma interface web completa para mulheres. Um piloto público requer uma interface acessível, conexão segura ao endpoint, revisão de proteção de acesso e confirmação de que nenhuma funcionalidade de leitura pode ser abusada para gerar carga excessiva em fontes externas.
+
+### Plano de testes antes de produção
+
+1. Gerar deployment de Preview da branch, sem promoção para produção.
+2. Verificar logs de build e estado final `READY`.
+3. Testar `GET /health`.
+4. Executar handshake Streamable HTTP em `/mcp`, listar ferramentas e testar chamadas sintéticas de leitura.
+5. Realizar carga progressiva no Preview, começando com 1, 5 e 10 requisições concorrentes; aumentar gradualmente apenas se latência, erros e recursos permanecerem estáveis.
+6. Registrar latência p50/p95, taxa de erro, invocações, CPU, memória e transferência. Não estimar capacidade mensal a partir de um teste curto sem observar limites e padrões de uso.
+7. Usar exclusivamente CEPs fictícios/consultas sintéticas e nenhum relato real de violência ou dado pessoal.
+
+### Estado nesta atualização
+
+A causa do build foi identificada e a adaptação de entrypoint foi preparada em branch separada. **Build, testes HTTP/MCP, teste de carga e publicação pública ainda não foram confirmados.** Nenhum plano pago foi contratado e nenhuma configuração de produção, domínio, SSO ou cobrança foi alterada.
+
+Referências técnicas: documentação do MCP Python SDK sobre [aplicações ASGI](https://py.sdk.modelcontextprotocol.io/run/asgi/) e [deploy e escala](https://py.sdk.modelcontextprotocol.io/run/deploy/); documentação Vercel sobre [Python Functions](https://vercel.com/docs/functions/runtimes/python).
