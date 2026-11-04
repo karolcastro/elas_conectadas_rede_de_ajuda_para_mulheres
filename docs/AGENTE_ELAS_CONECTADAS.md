@@ -753,3 +753,25 @@ Fontes:
 - https://www.defensoria.sp.def.br/nucleos-especializados/pagina-inicial-nucleos-especializados/direitos-das-mulheres/redes-de-atendimento/violencia-domestica-e-familiar
 
 Os módulos de organizações continuam sendo fontes de descoberta e critérios de validação, não uma lista de ONGs confirmadas por município. É proibido inferir gratuidade, liderança feminina, atendimento ativo ou vagas sem confirmação institucional.
+
+
+
+## 33. Assistência jurídica gratuita — expansão verificada para Bahia e Paraná
+
+Em 03/11/2026, a ferramenta `orientar_assistencia_juridica_gratuita(uf, municipio)` passou a apresentar contatos estaduais adicionais, sem simular localização automática de unidade municipal.
+
+### Bahia (BA)
+- Disque Defensoria: **129** ou **0800 071 3121**.
+- Ligação gratuita; segunda a sexta-feira, das 8h às 17h, conforme página do Governo da Bahia atualizada em 17/07/2026.
+- O serviço estadual descreve assistência e orientação jurídica integral e gratuita para pessoas sem condições de pagar ou em situação de vulnerabilidade social.
+- Fontes: https://www.ba.gov.br/ouvidoria/120/dpe ; https://www.ba.gov.br/servico/dpe/solicitar-atendimento-na-defensoria-publica-do-estado-ba
+- A fonte consultada não confirmou uma linha direta atual do NUDEM/BA; por isso, nenhum telefone específico do núcleo foi adicionado.
+
+### Paraná (PR)
+- Defensoria Pública: **(41) 99123-1961**; atendimento presencial gratuito, agendamento online recomendado e possibilidade de comparecimento direto a uma sede, conforme a página estadual.
+- NUDEM/PR: **(41) 99285-8134**, **nudem@defensoria.pr.def.br**, de segunda a sexta, das 10h às 17h. Atendimento somente com agendamento, presencial ou remoto.
+- A página estadual informa critério geral de renda familiar de até três salários mínimos e exceções, incluindo mulheres vítimas de violência doméstica e familiar, independentemente de renda.
+- Fontes: https://www.parana.pr.gov.br/servicos/Servicos/Mulher/Solicitar-atendimento-na-Defensoria-Publica-do-Estado-do-Parana-K03Yaq34 ; https://www.defensoriapublica.pr.def.br/Pagina/Nucleo-de-Promocao-e-Defesa-dos-Direitos-das-Mulheres
+
+### Limites e privacidade
+Os contatos estaduais não comprovam disponibilidade imediata, vaga, competência para todo tipo de demanda ou atendimento em todos os municípios. A ferramenta informa a fonte e a data de atualização consultada e orienta confirmar critérios, documentos e fluxo com a Defensoria. Não solicita CPF, documentos, endereço residencial ou relato de violência. A cobertura estadual ainda é parcial: SP, BA e PR possuem informações específicas; para outras UFs, são apresentados diretórios institucionais, não contatos presumidos.
