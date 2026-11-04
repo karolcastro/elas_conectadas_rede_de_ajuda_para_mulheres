@@ -728,3 +728,28 @@ A consulta ao catálogo de proteção agora aplica uma janela editorial de revis
 - A resposta informa a data de referência `as_of` e o prazo de revisão de cada registro.
 
 A janela de 90 dias é uma política de manutenção do catálogo, não prova de funcionamento, disponibilidade ou atendimento. A confirmação com o órgão responsável continua obrigatória antes de orientar deslocamento. Testes cobrem validade, vencimento, data ausente/inválida e consulta explícita de registros antigos.
+
+
+## 32. Assistência jurídica e iniciativas comunitárias — registro das tools MCP
+
+Foram registradas no servidor MCP as funções que já possuíam módulos de serviço:
+
+- Tool `orientar_assistencia_juridica_gratuita(uf, municipio)`
+- Resource `juridico://assistencia-gratuita`
+- Prompt `orientar_busca_defensoria_mulher`
+- Tool `orientar_busca_ongs_coletivos_mulheres(uf, municipio)`
+- Resource `comunidade://ongs-e-coletivos`
+- Prompt `orientar_validacao_ong_feminina`
+
+### Canal da Defensoria Pública de São Paulo
+
+A Carta de Serviços do Estado, atualizada em 09/09/2026, confirma o telefone gratuito 0800 773 4340, atendimento de segunda a sexta das 7h às 19h (dias úteis) e, em fins de semana/feriados, das 7h às 12h para casos urgentes exclusivamente pelo site com a assistente virtual Júlia. O atendimento exige agendamento. A página informa que não é preciso apresentar documentos para solicitar o serviço; isso não deve ser interpretado como dispensa de documentos em etapas posteriores.
+
+O módulo também aponta a página de direitos das mulheres/NUDEM da DPESP. Não foi incluído telefone direto do núcleo, pois a fonte institucional consultada não forneceu um contato atual direto confirmado. A orientação é solicitar encaminhamento pelo canal geral.
+
+Fontes:
+- https://servicos.sp.gov.br/fcarta/2C493B4D-3542-4441-9DD4-60E7285C8DAB
+- https://www.defensoria.sp.def.br/institucional/enderecos-e-telefones
+- https://www.defensoria.sp.def.br/nucleos-especializados/pagina-inicial-nucleos-especializados/direitos-das-mulheres/redes-de-atendimento/violencia-domestica-e-familiar
+
+Os módulos de organizações continuam sendo fontes de descoberta e critérios de validação, não uma lista de ONGs confirmadas por município. É proibido inferir gratuidade, liderança feminina, atendimento ativo ou vagas sem confirmação institucional.
