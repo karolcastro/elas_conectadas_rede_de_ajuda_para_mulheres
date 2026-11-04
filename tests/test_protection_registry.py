@@ -124,7 +124,10 @@ def test_bahia_services_without_explicit_cost_confirmation_are_not_marked_free()
     result = ProtectionRegistry(as_of=date(2026, 11, 4)).list_services(
         uf="BA", municipality="Salvador"
     )
-    assert all(item.get("free") is True for item in result["services"])
+    cmb = next(item for item in result["services"] if item.get("service_type") == "Casa da Mulher Brasileira")
+    assert cmb["free"] is None
+    assert cmb["cost_status"] == "not_confirmed_by_official_source"
+    assert all(item.get("free") is True or item.get("free") is None for item in result["services"])
     assert not any(item.get("id", "").startswith("ba-salvador-") for item in result["services"])
 
 
