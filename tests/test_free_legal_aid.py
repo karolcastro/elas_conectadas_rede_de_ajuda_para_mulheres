@@ -121,3 +121,27 @@ def test_cras_guide_explains_free_social_protection_and_cadunico_access():
 def test_cras_guide_rejects_invalid_uf():
     with pytest.raises(ValueError, match="UF"):
         FreeLegalAidDirectory().cras_guide(uf="São Paulo")
+
+
+
+def test_cras_guide_includes_municipal_emergency_benefits_for_food_and_housing():
+    result = FreeLegalAidDirectory().cras_guide(uf="SP", municipality="São Paulo")
+    assert "beneficios_eventuais_source" in result
+    assert any("Benefícios Eventuais" in item for item in result["services"])
+    assert any("falta de alimentos" in item for item in result["how_to_access"])
+    assert "regulamentação local" in result["how_to_access"][-1]
+
+
+def test_housing_guide_explains_women_priority_without_promising_free_housing():
+    result = FreeLegalAidDirectory().housing_guide(uf="SP", municipality="São Paulo")
+    assert result["public_program"] is True
+    assert result["free"] is False
+    assert any("mulher é responsável" in item for item in result["priority_groups"])
+    assert any("vítimas de violência doméstica" in item for item in result["priority_groups"])
+    assert any("não garante seleção" in item for item in result["limitations"])
+    assert "gov.br" not in result["official_source"]
+
+
+def test_housing_guide_rejects_invalid_uf():
+    with pytest.raises(ValueError, match="UF"):
+        FreeLegalAidDirectory().housing_guide(uf="São Paulo")
