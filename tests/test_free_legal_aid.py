@@ -156,7 +156,7 @@ def test_food_security_guide_prioritizes_free_meals_and_discloses_local_limits()
     assert options["Cozinhas Comunitárias"]["free"] is None
     assert options["Restaurantes Populares"]["free"] is None
     assert result["automated_local_results"] is False
-    assert any("não confirma vagas" in item for item in result["limitations"])
+    assert any("nem confirma vagas" in item for item in result["limitations"])
 
 
 def test_food_security_guide_rejects_invalid_uf():
