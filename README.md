@@ -591,3 +591,17 @@ Fontes oficiais:
 - https://vamosjuntes.programaria.org/sprint-processos-seletivos
 - https://vamosjuntes.programaria.org/programaria-sprint-ia-generativa
 - https://vamosjuntes.programaria.org/oportunidades-gratuitas
+
+
+
+### Comunidades e próximas turmas — 04/11/2026
+
+O diretório de capacitação passou a diferenciar cursos com inscrição, cursos sem turma aberta e comunidades:
+
+- **Instituto Minas Programam:** cursos gratuitos de introdução à programação, com mais de 90 horas de aulas ao vivo e atividades práticas, voltados a meninas e mulheres cis ou trans e pessoas não-binárias, especialmente mulheres negras e indígenas. A página oficial informa que não há inscrições abertas; a modalidade e o local da próxima turma não estão confirmados.
+- **PyLadies Brasil:** comunidade de mulheres interessadas em Python, com diretório de capítulos e materiais públicos. A existência de um capítulo listado não garante encontro ativo na cidade; custo e calendário não foram confirmados.
+
+Essas entradas não devem ser apresentadas como vagas abertas. Fontes:
+- https://minasprogramam.com/cursos/
+- https://brasil.pyladies.com/about/
+- https://portal.pyladies.com/chapters/
