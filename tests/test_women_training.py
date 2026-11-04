@@ -36,7 +36,7 @@ def test_women_led_training_is_prioritized_and_identified():
         item for item in result["programs"]
         if item["provider"] == "WoMakersCode / Mais Mulheres em Tech"
     ]
-    assert len(womakers) == 3
+    assert len(womakers) == 4
     assert all(item["free"] is True for item in womakers)
     assert all(item["women_specific"] is True for item in womakers)
     assert all(item["verification_date"] == "2026-11-04" for item in womakers)
