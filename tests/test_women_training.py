@@ -119,3 +119,15 @@ def test_acredita_program_prioritizes_cadunico_and_does_not_call_microcredit_fre
     assert "mulheres são um dos públicos prioritários" in acredita["audience"]
     assert "Microcrédito é empréstimo" in acredita["cost_note"]
     assert acredita["women_specific"] is False
+
+
+
+def test_mulheres_mil_catalog_entry_targets_vulnerable_women_and_does_not_claim_open_enrollment():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    item = programs["br-mec-mulheres-mil-qualificacao-profissional"]
+    assert item["free"] is True
+    assert item["women_specific"] is True
+    assert item["priority"] == 0
+    assert "sobreviventes de violência" in item["audience"]
+    assert "outubro já passou" in item["enrollment_status"]
+    assert set(item["ufs"]) == {"AP", "MA", "RN", "GO", "ES", "MG", "SC"}
