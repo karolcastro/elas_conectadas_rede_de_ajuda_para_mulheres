@@ -1391,3 +1391,36 @@ Foi incluído no diretório o curso **Introdução à Computação em Nuvem — 
 
 **Ajuste de precisão PyLadies:** o diretório lista capítulos e formas de contato, mas isso não confirma atividade recente, eventos, calendário ou encontros em andamento. Manter custo como não confirmado e não recomendar como curso/bolsa.
 Fonte complementar da Python Brasil: https://python.org.br/pyladies/.
+
+
+## Ampliação do catálogo de apoio psicossocial e jurídico — 04/11/2026
+
+O módulo `WomenOrganizationsGuide` foi ampliado com três referências, priorizando atendimento gratuito e grupos em situação de vulnerabilidade:
+
+### Acolhe Mais — SUS
+- Programa federal de teleatendimento psicológico gratuito para mulheres que vivem ou viveram violência e mulheres que cuidam de familiares com deficiência, transtornos do neurodesenvolvimento ou doenças raras.
+- Abrangência nacional, por videochamada com psicólogas.
+- A publicação do Ministério da Saúde informa até dez sessões por ciclo, atendimento de segunda a sexta, das 8h às 20h, e aos sábados, das 8h às 14h.
+- Não exige encaminhamento prévio nem documento que comprove violência ou condição de cuidadora.
+- **Atenção ao acesso:** a usuária precisa entrar no Meu SUS Digital com conta gov.br e concluir cadastro na plataforma oficial da AgSUS. O Elas Conectadas não solicita nem recebe credenciais; apenas explica o fluxo e oferece o link oficial.
+- **Limite:** a publicação informa contato da equipe em até 24 horas após o cadastro, mas o agente não deve garantir horário específico ou disponibilidade.
+- Fonte oficial: https://www.gov.br/saude/pt-br/assuntos/noticias/2026/outubro/precisa-de-acolhimento-em-saude-mental-saiba-como-acessar-o-acolhe-mais-pelo-meu-sus-digital
+
+### NUMAPE — Núcleo Maria da Penha
+- Programa público do Governo do Paraná executado em parceria com universidades estaduais.
+- Atendimento gratuito jurídico, psicológico e social a mulheres em situação de violência doméstica e familiar; orientação sobre direitos e medidas protetivas.
+- A SETI/PR publica lista de unidades, contatos e áreas de abrangência por comarcas.
+- **Limite:** a existência de uma unidade no Paraná não significa cobertura de todos os municípios. A localidade deve ser comparada à área de atuação da unidade e a disponibilidade deve ser confirmada diretamente. Não presumir atendimento remoto.
+- Fonte oficial: https://www.seti.pr.gov.br/numape
+
+### Programa Ser Mulher — LBV
+- A página institucional descreve atendimento psicoterapêutico online e gratuito para meninas e mulheres a partir de 12 anos com histórico de violência, em todo o Brasil.
+- Publica contato por WhatsApp: (11) 9999-66-557.
+- **Atenção à atualidade:** a página consultada foi publicada em 24/11/2022. A gratuidade e o escopo estão declarados na página, mas não há confirmação pública recente de que o programa esteja recebendo novas solicitações em 2026. O agente deve apresentar essa ressalva e orientar a confirmação direta antes de encaminhar.
+- Fonte institucional: https://www.lbv.org.br/programa-ser-mulher/
+
+### Regras de apresentação
+- O Acolhe Mais é serviço público gratuito, mas seu acesso externo exige conta gov.br; isso não autoriza o agente a pedir cadastro ou credenciais.
+- O NUMAPE só deve ser recomendado como rede regional do Paraná, com conferência da área de abrangência da unidade.
+- O Programa Ser Mulher deve ser marcado como disponibilidade atual pendente de confirmação, devido à data da publicação.
+- Nenhum desses registros comprova vaga imediata, agendamento garantido ou atendimento de emergência.
