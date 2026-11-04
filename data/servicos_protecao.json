@@ -8037,6 +8037,106 @@
       "verification_date": "2026-11-04",
       "review_due_date": "2027-02-02",
       "shelter_address_public": false
+    },
+    {
+      "id": "al-maceio-hge-referencia-violencia-sexual",
+      "name": "Hospital Geral do Estado Prof. Osvaldo Brandão Vilela — referência para vítimas de violência sexual",
+      "category": "saude",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Maceió",
+      "service_type": "Hospital de referência no atendimento às vítimas de violência sexual; serviço de saúde e encaminhamento especializado",
+      "address": "Bairro do Trapiche, Maceió/AL",
+      "phone": "(82) 3315-3281",
+      "service_hours": "A página da SESAU não informa horário específico para este serviço hospitalar; confirmar diretamente com a unidade.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Público de 0 a 12 anos e maiores de 13 anos, conforme classificação publicada pela SESAU.",
+      "access_instructions": "A Secretaria de Estado da Saúde de Alagoas lista esta unidade entre os hospitais de referência no atendimento às vítimas de violência sexual. Confirme o fluxo de entrada e a disponibilidade diretamente com o hospital. Em emergência imediata, ligue 192 (SAMU) ou 190 quando houver risco de violência; orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page_hospital_reference_list",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "al-maceio-hospital-mulher-referencia-violencia-sexual",
+      "name": "Hospital da Mulher Dra. Nise da Silveira — referência para vítimas de violência sexual",
+      "category": "saude",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Maceió",
+      "service_type": "Hospital de referência no atendimento às vítimas de violência sexual; serviço de saúde e encaminhamento especializado",
+      "address": "Avenida Comendador Leão, 1213, Poço, Maceió/AL",
+      "phone": "(82) 3315-1393",
+      "service_hours": "A página da SESAU não informa horário específico para este serviço hospitalar; confirmar diretamente com a unidade.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Público de 0 a 12 anos e maiores de 13 anos, conforme classificação publicada pela SESAU.",
+      "access_instructions": "A Secretaria de Estado da Saúde de Alagoas lista esta unidade entre os hospitais de referência no atendimento às vítimas de violência sexual. Confirme o fluxo de entrada e a disponibilidade diretamente com o hospital. Em emergência imediata, ligue 192 (SAMU) ou 190 quando houver risco de violência; orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page_hospital_reference_list",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "al-rio-largo-ib-gatto-referencia-violencia-sexual",
+      "name": "Hospital Dr. Ib Gatto Falcão — referência para vítimas de violência sexual",
+      "category": "saude",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Rio Largo",
+      "service_type": "Hospital de referência no atendimento às vítimas de violência sexual; serviço de saúde e encaminhamento especializado",
+      "address": "Rio Largo/AL; endereço de rua não informado na página consultada",
+      "phone": "(82) 3261-2414",
+      "service_hours": "A página da SESAU não informa horário específico para este serviço hospitalar; confirmar diretamente com a unidade.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Vítimas de qualquer sexo e idade, conforme classificação publicada pela SESAU.",
+      "access_instructions": "A Secretaria de Estado da Saúde de Alagoas lista esta unidade entre os hospitais de referência no atendimento às vítimas de violência sexual. Confirme o fluxo de entrada e a disponibilidade diretamente com o hospital. Em emergência imediata, ligue 192 (SAMU) ou 190 quando houver risco de violência; orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page_hospital_reference_list",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "al-arapiraca-he-daniel-houly-referencia-violencia-sexual",
+      "name": "Hospital de Emergência Daniel Houly — referência para vítimas de violência sexual",
+      "category": "saude",
+      "coverage": "AL",
+      "ufs": [
+        "AL"
+      ],
+      "state": "AL",
+      "municipality": "Arapiraca",
+      "service_type": "Hospital de referência no atendimento às vítimas de violência sexual; serviço de saúde e encaminhamento especializado",
+      "address": "Arapiraca/AL; endereço de rua não informado na página consultada",
+      "phone": "(82) 3539-8634",
+      "service_hours": "A página da SESAU não informa horário específico para este serviço hospitalar; confirmar diretamente com a unidade.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Vítimas de qualquer sexo e idade, conforme classificação publicada pela SESAU.",
+      "access_instructions": "A Secretaria de Estado da Saúde de Alagoas lista esta unidade entre os hospitais de referência no atendimento às vítimas de violência sexual. Confirme o fluxo de entrada e a disponibilidade diretamente com o hospital. Em emergência imediata, ligue 192 (SAMU) ou 190 quando houver risco de violência; orientação, 180.",
+      "official_source": "https://www.saude.al.gov.br/rede-de-atencao-as-violencias/",
+      "verification_status": "official_state_health_network_page_hospital_reference_list",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
     }
   ]
 }
