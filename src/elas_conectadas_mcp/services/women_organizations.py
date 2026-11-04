@@ -1,4 +1,4 @@
-"""Fontes de descoberta para ONGs e coletivos com validação reforçada."""
+"""Fontes e iniciativas verificadas de apoio gratuito a mulheres."""
 from __future__ import annotations
 
 from typing import Any
@@ -6,10 +6,14 @@ from typing import Any
 IPEA_MAP_URL = "https://mapaosc.ipea.gov.br/"
 MINISTRY_PANEL_URL = "https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento"
 LIGUE_180_URL = "https://www.gov.br/mulheres/pt-br/ligue180"
+TAMOJUNTAS_URL = "https://tamojuntas.org.br/"
+TAMOJUNTAS_SERVICE_URL = "https://tamojuntas.org.br/elementor-2722/"
+MAPA_ACOLHIMENTO_URL = "https://www.mapadoacolhimento.org/atendimento/"
+VERIFICATION_DATE = "2026-11-03"
 
 
 class WomenOrganizationsGuide:
-    """Oferece fontes de descoberta, sem afirmar que uma OSC atende mulheres ou é gratuita."""
+    """Apresenta iniciativas com evidência institucional e explicita limites de cobertura."""
 
     def guide(
         self, *, uf: str | None = None, municipality: str | None = None
@@ -18,12 +22,77 @@ class WomenOrganizationsGuide:
             raise ValueError("Informe a sigla da UF com duas letras.")
         if municipality and len(municipality.strip()) < 2:
             raise ValueError("Informe um município válido.")
+
+        normalized_uf = uf.strip().upper() if uf else None
+        verified_organizations = [
+            {
+                "name": "TamoJuntas",
+                "organization_type": "ONG feminista composta por mulheres profissionais voluntárias",
+                "support": [
+                    "orientação e assessoria jurídica",
+                    "acolhimento e acompanhamento psicossocial",
+                    "encaminhamentos e apoio social",
+                ],
+                "audience": "Mulheres em situação de violência e vulnerabilidade social; a organização informa atendimento a mulheres cis e trans.",
+                "cost": "Gratuito, conforme declaração institucional.",
+                "service_modes": ["online", "presencial em localidades com equipe"],
+                "territorial_scope": (
+                    "A organização informa atuação e voluntárias em diversas regiões do Brasil. "
+                    "A página de atendimento identifica Salvador, Recife, São Paulo e Rio de Janeiro "
+                    "como cidades com atendimento presencial; confirme a oferta atual antes de encaminhar."
+                ),
+                "state_contact": {
+                    "BA": "contato@tamojuntas.org.br",
+                    "SP": "tamojuntas.sp@tamojuntas.org.br",
+                    "RJ": "tamojuntas.rj@tamojuntas.org.br",
+                    "MG": "tamojuntas.mg@tamojuntas.org.br",
+                    "CE": "tamojuntas.ce@tamojuntas.org.br",
+                    "PE": "tamojuntas.pe@tamojuntas.org.br",
+                }.get(normalized_uf),
+                "general_contact": "contato@tamojuntas.org.br",
+                "website": TAMOJUNTAS_URL,
+                "service_page": TAMOJUNTAS_SERVICE_URL,
+                "limitations": (
+                    "A presença de voluntárias não comprova atendimento imediato em todo município. "
+                    "A disponibilidade, modalidade, escopo profissional e possibilidade de assumir o caso "
+                    "devem ser confirmados diretamente com a organização."
+                ),
+                "verification_date": VERIFICATION_DATE,
+                "verification_basis": "Páginas institucionais Quem Somos, Nossa Atuação e Atendimento a mulheres em situação de violência.",
+            },
+            {
+                "name": "Mapa do Acolhimento",
+                "organization_type": "Plataforma de conexão com rede voluntária de profissionais",
+                "support": [
+                    "acolhimento psicológico",
+                    "orientação e atendimento jurídico",
+                ],
+                "audience": (
+                    "Mulheres cis ou trans, maiores de 18 anos, residentes no Brasil, "
+                    "em situação de baixa renda e que passaram por violência de gênero."
+                ),
+                "cost": "Gratuito; a plataforma informa que os atendimentos voluntários são 100% gratuitos.",
+                "service_modes": ["online"],
+                "territorial_scope": "Brasil, conforme critérios publicados pela plataforma.",
+                "application_channel": MAPA_ACOLHIMENTO_URL,
+                "website": "https://www.mapadoacolhimento.org/",
+                "limitations": (
+                    "A plataforma informa critérios de elegibilidade e solicita o preenchimento de formulário "
+                    "externo para pedir atendimento. Isso não é cadastro no Elas Conectadas. "
+                    "O agente não deve preencher o formulário, coletar dados pessoais ou prometer "
+                    "aceitação, prazo de resposta ou disponibilidade de profissional."
+                ),
+                "verification_date": VERIFICATION_DATE,
+                "verification_basis": "Página oficial Peça ajuda no Mapa do Acolhimento.",
+            },
+        ]
         return {
             "purpose": "Descobrir organizações da sociedade civil, ONGs e iniciativas de apoio a mulheres.",
             "requested_location": {
-                "uf": uf.strip().upper() if uf else None,
+                "uf": normalized_uf,
                 "municipality": municipality.strip() if municipality else None,
             },
+            "verified_organizations": verified_organizations,
             "discovery_sources": [
                 {
                     "name": "IPEA — Mapa das Organizações da Sociedade Civil",
@@ -58,9 +127,10 @@ class WomenOrganizationsGuide:
             ],
             "automated_organization_results": False,
             "important_notice": (
-                "Esta ferramenta indica fontes de descoberta e critérios de validação; não retorna "
-                "uma lista de ONGs locais já confirmadas. O cadastro no Mapa das OSC não é requisito "
-                "para a mulher consultar informações. Não solicite cadastro, login ou dados pessoais."
+                "As iniciativas listadas têm informações institucionais sobre público e gratuidade, "
+                "mas a presença na lista não confirma vaga, resposta imediata ou atendimento disponível "
+                "no município informado. Contate a organização pelos canais oficiais. O cadastro no "
+                "Elas Conectadas nunca é exigido para consultar informações."
             ),
-            "verification_status": "official_discovery_sources_checked_2026-11-03",
+            "verification_status": f"official_organization_pages_checked_{VERIFICATION_DATE}",
         }
