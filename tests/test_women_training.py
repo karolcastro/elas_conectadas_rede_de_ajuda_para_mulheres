@@ -71,3 +71,23 @@ def test_programaria_scholarship_waitlist_is_not_misrepresented_as_open_class():
     assert opportunity["opportunity_type"] == "bolsa_futura_lista_de_interesse"
     assert "Não equivale a turma com inscrições abertas" in opportunity["enrollment_status"]
     assert "não é exclusiva para elas" in opportunity["audience"]
+
+
+
+def test_minas_programam_is_free_but_not_open_for_enrollment():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    minas = programs["br-minas-programam-introducao-programacao-proxima-turma"]
+    assert minas["free"] is True
+    assert minas["opportunity_type"] == "curso_proxima_turma_sem_inscricoes"
+    assert "não há inscrições abertas" in minas["enrollment_status"]
+    assert "não presumir oferta online" in minas["status_note"]
+
+
+def test_pyladies_is_listed_as_community_with_unconfirmed_cost():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    pyladies = programs["br-pyladies-brasil-comunidade-python"]
+    assert pyladies["opportunity_type"] == "comunidade"
+    assert pyladies["free"] is None
+    assert pyladies["women_specific"] is True
+    assert "não comprova" in pyladies["coverage"]
+    assert "não comprova que todos estejam realizando encontros atualmente" in pyladies["status_note"]
