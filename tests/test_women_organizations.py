@@ -84,3 +84,38 @@ def test_without_location_no_local_presence_is_assumed():
         item for item in result["verified_organizations"] if item["name"] == "TamoJuntas"
     )
     assert tamojuntas["locality_match"] == "location_not_provided"
+
+
+
+def test_new_national_free_support_programs_are_listed_with_access_limits():
+    result = WomenOrganizationsGuide().guide(uf="SP", municipality="São Paulo")
+    initiatives = {item["name"]: item for item in result["verified_organizations"]}
+
+    acolhe = initiatives["Acolhe Mais — SUS"]
+    assert acolhe["cost"].startswith("Gratuito")
+    assert acolhe["territorial_scope"].startswith("Brasil")
+    assert "conta gov.br" in acolhe["access_requirements"]
+    assert "não solicita conta gov.br" in acolhe["limitations"]
+
+    lbv = initiatives["Programa Ser Mulher — LBV"]
+    assert lbv["cost"].startswith("Gratuito")
+    assert "2022" in lbv["limitations"]
+    assert lbv["contact_phone"] == "(11) 9999-66-557"
+
+
+def test_numape_is_identified_as_parana_regional_network_not_national_service():
+    result = WomenOrganizationsGuide().guide(uf="PR", municipality="Curitiba")
+    numape = next(
+        item for item in result["verified_organizations"]
+        if item["name"] == "NUMAPE — Núcleo Maria da Penha"
+    )
+    assert numape["cost"].startswith("Gratuito")
+    assert numape["locality_match"] == "statewide_regional_network"
+    assert "não é atendimento automaticamente disponível em todos os municípios" in numape["territorial_scope"]
+
+    outside = WomenOrganizationsGuide().guide(uf="SP", municipality="São Paulo")
+    numape_outside = next(
+        item for item in outside["verified_organizations"]
+        if item["name"] == "NUMAPE — Núcleo Maria da Penha"
+    )
+    assert numape_outside["locality_match"] == "state_not_covered"
