@@ -389,3 +389,89 @@ class FreeLegalAidDirectory:
             ],
             "verification_status": "official_mds_sources_checked_2026-11-04"
         }
+
+    def vulnerable_women_guide(
+        self, *, uf: str | None = None, municipality: str | None = None
+    ) -> dict[str, Any]:
+        """Reúne caminhos oficiais de proteção de renda e apoio para mulheres vulneráveis."""
+        if uf and (len(uf.strip()) != 2 or not uf.strip().isalpha()):
+            raise ValueError("Informe a sigla da UF com duas letras.")
+        if municipality and len(municipality.strip()) < 2:
+            raise ValueError("Informe um município válido.")
+        location = {
+            "uf": uf.strip().upper() if uf else None,
+            "municipality": municipality.strip() if municipality else None,
+        }
+        return {
+            "service": "Orientação sobre benefícios e proteção social para mulheres em vulnerabilidade",
+            "requested_location": location,
+            "priority_audiences": [
+                "Mulheres responsáveis pelo sustento e cuidado da família, inclusive mães solo.",
+                "Mulheres e famílias de baixa renda inscritas ou elegíveis ao Cadastro Único.",
+                "Mulheres com deficiência e pessoas idosas em situação de baixa renda.",
+                "Mulheres em situação de rua ou sem acesso regular a alimentação e higiene.",
+                "Mulheres que precisam se afastar de casa por violência e risco à vida."
+            ],
+            "programs_and_services": [
+                {
+                    "name": "Cadastro Único (CadÚnico)",
+                    "type": "Cadastro gratuito para acesso a políticas sociais",
+                    "free_to_access": True,
+                    "audience": "Famílias com renda mensal de até meio salário mínimo por pessoa; outras famílias podem ser cadastradas quando um programa específico exigir.",
+                    "how_to_access": "Procure presencialmente o CRAS ou posto municipal do Cadastro Único. O cadastro é gratuito. A documentação deve ser apresentada diretamente ao atendimento oficial; nunca envie CPF ou documentos ao Elas Conectadas.",
+                    "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/"
+                },
+                {
+                    "name": "Bolsa Família — prioridade de atendimento às mulheres",
+                    "type": "Programa de transferência de renda",
+                    "free_to_access": True,
+                    "audience": "Famílias que atendam aos critérios vigentes do programa e estejam inscritas no CadÚnico. O MDS informa prioridade às mulheres como responsáveis familiares, especialmente mães solo; isso não significa concessão automática.",
+                    "how_to_access": "Mantenha o CadÚnico atualizado e procure o CRAS ou posto municipal para orientação. A seleção depende das regras do programa e da análise oficial.",
+                    "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/bolsa-familia/paginas/mulheres/protecao-social-para-mulheres-e-meninas"
+                },
+                {
+                    "name": "Benefício de Prestação Continuada (BPC)",
+                    "type": "Benefício assistencial",
+                    "free_to_access": True,
+                    "audience": "Pessoa idosa com 65 anos ou mais ou pessoa com deficiência de qualquer idade, desde que cumpra os critérios legais de renda, avaliação e inscrição atualizada no CadÚnico.",
+                    "how_to_access": "Procure o CRAS para orientação e CadÚnico. O pedido é feito ao INSS, pelos canais oficiais ou telefone 135. A concessão depende de análise e avaliação quando aplicável.",
+                    "official_source": "https://www.gov.br/inss/pt-br/noticias/como-pedir-beneficio-de-prestacao-continuada-bpc"
+                },
+                {
+                    "name": "Auxílio-Inclusão à pessoa com deficiência",
+                    "type": "Benefício assistencial ligado à inclusão no trabalho",
+                    "free_to_access": True,
+                    "audience": "Pessoas com deficiência que recebem ou receberam BPC e passam a exercer atividade remunerada, desde que cumpram os critérios legais, inclusive renda, grau de deficiência e CadÚnico atualizado.",
+                    "how_to_access": "Consulte os critérios e solicite diretamente ao INSS. Não é benefício universal para toda pessoa com deficiência e não deve ser confundido com microcrédito.",
+                    "official_source": "https://www.gov.br/inss/pt-br/direitos-e-deveres/beneficios-assistenciais/auxilio-inclusao-a-pessoa-com-deficiencia"
+                },
+                {
+                    "name": "Centro POP",
+                    "type": "Atendimento socioassistencial gratuito à população em situação de rua",
+                    "free_to_access": True,
+                    "audience": "Pessoas adultas em situação de rua, incluindo mulheres. O serviço não exige documento para atendimento.",
+                    "how_to_access": "Procure o Centro POP do município ou peça orientação à assistência social municipal. Pode oferecer refeições, higiene pessoal, lavagem de roupas, apoio para documentos e informações sobre trabalho e direitos.",
+                    "official_source": "https://www.gov.br/pt-br/servicos/acessar-centro-pop-centro-de-referencia-especializado-para-populacao-em-situacao-de-rua?id=9522&origem=servico"
+                },
+                {
+                    "name": "Acolhimento institucional para mulheres em situação de violência",
+                    "type": "Proteção e acolhimento sigiloso",
+                    "free_to_access": True,
+                    "audience": "Mulheres adultas em risco de morte ou ameaçadas por violência doméstica, com possibilidade de acolhimento junto aos filhos.",
+                    "how_to_access": "Solicite orientação pelo Ligue 180, CREAS ou Secretaria Municipal de Assistência Social. O encaminhamento é feito pela rede competente. O agente nunca deve divulgar endereço de abrigo.",
+                    "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/servico-de-acolhimento-para-mulheres-em-situacao-de-violencia"
+                }
+            ],
+            "official_locator": "https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/",
+            "automated_local_results": False,
+            "important_limits": [
+                "Este guia reúne caminhos nacionais e não confirma elegibilidade individual, concessão de benefício, vagas, estoque, horários ou atendimento imediato.",
+                "O Bolsa Família não é concedido automaticamente pela inscrição no CadÚnico.",
+                "O BPC e o Auxílio-Inclusão dependem de critérios legais e análise do INSS.",
+                "Centro POP e serviços de acolhimento dependem da oferta municipal; confirme a unidade com a assistência social.",
+                "Endereços de abrigos para mulheres em situação de violência são sigilosos e nunca devem ser publicados.",
+                "Não solicite nem receba CPF, senha gov.br, documentos, renda detalhada ou relatos sensíveis no chat."
+            ],
+            "verification_status": "official_sources_checked_2026-11-04"
+        }
+
