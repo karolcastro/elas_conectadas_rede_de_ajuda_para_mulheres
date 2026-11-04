@@ -7887,6 +7887,81 @@
       "verification_date": "2025-11-25",
       "review_due_date": "2027-02-02",
       "shelter_address_public": false
+    },
+    {
+      "id": "mg-belo-horizonte-deam",
+      "name": "Delegacia Especializada de Atendimento à Mulher — Belo Horizonte",
+      "category": "protecao",
+      "coverage": "MG",
+      "ufs": [
+        "MG"
+      ],
+      "state": "MG",
+      "municipality": "Belo Horizonte",
+      "service_type": "Atendimento policial especializado a mulheres",
+      "address": "Rua Rio Grande do Sul, 661, Barro Preto, Belo Horizonte/MG",
+      "phone": "(31) 3330-5752",
+      "service_hours": "Não informado na página oficial consultada; confirmar diretamente.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que necessitam de atendimento policial especializado.",
+      "access_instructions": "Portal MG informa endereço e telefone da DEAM em Belo Horizonte, com atualização em 08/01/2025. Confirme funcionamento e horário antes de se deslocar. Para emergência, 190; Polícia Civil, 197; orientação, 180.",
+      "official_source": "https://www.mg.gov.br/instituicao_unidade/delegacia-especializada-de-atendimento-mulher",
+      "verification_status": "official_state_portal_updated_2025",
+      "verification_date": "2025-01-08",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "mg-belo-horizonte-depam-plantao",
+      "name": "Delegacia de Plantão Especializada — DEPAM",
+      "category": "protecao",
+      "coverage": "MG",
+      "ufs": [
+        "MG"
+      ],
+      "state": "MG",
+      "municipality": "Belo Horizonte",
+      "service_type": "Plantão policial especializado para atendimento a mulheres, crianças, adolescentes e vítimas de intolerâncias",
+      "address": "Avenida Bias Fortes, 1.451, Barro Preto, Belo Horizonte/MG",
+      "phone": "197 — Polícia Civil de Minas Gerais (canal geral, não telefone direto do plantão)",
+      "service_hours": "Plantão especializado; confirmar escala e funcionamento antes do deslocamento.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que necessitam de atendimento policial em regime de plantão.",
+      "access_instructions": "A Polícia Civil de Minas Gerais informou em 06/01/2025 que a DEPAM funciona na entrada da Avenida Bias Fortes, 1.451, Barro Preto. A publicação não fornece telefone direto. Ligue 197 para confirmar acesso e funcionamento. Em emergência imediata, ligue 190; orientação, 180.",
+      "official_source": "https://www.policiacivil.mg.gov.br/site-pc/noticia/exibir?=Delegacias-especializadas-funcionam-em-novo-endere%C3%A7o-na-capital&id=4041323",
+      "verification_status": "official_state_police_news_2025",
+      "verification_date": "2025-01-06",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
+    },
+    {
+      "id": "mg-belo-horizonte-casa-mulher-mineira",
+      "name": "Casa da Mulher Mineira — Belo Horizonte",
+      "category": "protecao",
+      "coverage": "MG",
+      "ufs": [
+        "MG"
+      ],
+      "state": "MG",
+      "municipality": "Belo Horizonte",
+      "service_type": "Unidade de atendimento e apoio a mulheres em contexto de violência, vinculada à rede estadual de proteção",
+      "address": "Avenida Augusto de Lima, 1.845, Barro Preto, Belo Horizonte/MG",
+      "phone": "197 — Polícia Civil de Minas Gerais (canal geral; não telefone direto da unidade)",
+      "service_hours": "Não informado na publicação oficial consultada; confirmar diretamente.",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que buscam atendimento na rede de proteção estadual.",
+      "access_instructions": "A Polícia Civil de Minas Gerais informou em 06/01/2025 que a Casa da Mulher Mineira permanece neste endereço. A publicação não detalha telefone, horário ou escopo dos serviços; confirme diretamente pelo canal 197 antes de se deslocar. Em emergência, ligue 190; orientação, 180.",
+      "official_source": "https://www.policiacivil.mg.gov.br/site-pc/noticia/exibir?=Delegacias-especializadas-funcionam-em-novo-endere%C3%A7o-na-capital&id=4041323",
+      "verification_status": "official_state_police_news_2025_address_confirmation",
+      "verification_date": "2025-01-06",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false
     }
   ]
 }
