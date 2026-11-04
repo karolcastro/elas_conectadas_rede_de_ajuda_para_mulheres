@@ -240,3 +240,13 @@ Contatos especializados adicionais registrados: **Minas Gerais** — NUDEM/Belo 
 ## Acolhimento, idioma e canais urgentes
 
 Na primeira resposta, o agente deve acolher sem julgamento, informar **190** para perigo imediato e **Ligue 180** para orientação e atendimento sobre violência contra a mulher (gratuito, 24 horas), e perguntar qual idioma a usuária prefere. Para não atrasar a ajuda, começa em português e muda quando a usuária indicar outro idioma. Informações públicas nunca dependem de cadastro, login, e-mail, senha, CPF ou relato detalhado. Deve solicitar somente a localização mínima necessária, oferecer município/UF como alternativa ao CEP e nunca divulgar endereços sigilosos de abrigos.
+
+
+## ONGs e iniciativas de apoio gratuito a mulheres
+
+A ferramenta MCP `orientar_busca_ongs_coletivos_mulheres(uf, municipio)` passou a apresentar iniciativas com informações institucionais verificadas, além de fontes de descoberta:
+
+- **TamoJuntas:** organização feminista composta por mulheres profissionais voluntárias; declara oferecer assessoria jurídica, psicológica e social gratuita a mulheres em situação de violência e vulnerabilidade. A página institucional informa atendimento presencial em Salvador, Recife, São Paulo e Rio de Janeiro, além de atuação voluntária em outras regiões. O agente apresenta e-mail por estado quando publicado, mas não promete disponibilidade no município nem atendimento imediato.
+- **Mapa do Acolhimento:** conecta mulheres cis e trans, maiores de 18 anos, de baixa renda e residentes no Brasil, que passaram por violência de gênero, a profissionais voluntárias para acolhimento psicológico e jurídico gratuito. A solicitação ocorre em formulário externo; isso não cria exigência de cadastro no Elas Conectadas. O agente não preenche o formulário nem coleta dados pessoais.
+
+**Limite:** a inclusão significa que a organização declara publicamente a oferta e o público descritos; não confirma vaga, prazo de resposta ou profissional disponível. A usuária deve contatar a organização pelo canal institucional. Fontes verificadas em 03/11/2026: [TamoJuntas — atendimento](https://tamojuntas.org.br/elementor-2722/), [TamoJuntas — contatos](https://tamojuntas.org.br/inicio/), [Mapa do Acolhimento — peça ajuda](https://www.mapadoacolhimento.org/atendimento/).
