@@ -813,3 +813,23 @@ Foi adicionada a ferramenta `orientar_acesso_creas(uf, municipio)`, o resource `
 - Manter a distinção entre serviços confirmados e fontes de descoberta; informar limites territoriais, data de verificação e incertezas relevantes.
 
 Essas regras também constam nas instruções globais do servidor MCP e devem ser respeitadas por todas as ferramentas, resources e prompts.
+
+
+## 37. Diretório inicial de ONGs e iniciativas verificadas
+
+A ferramenta `orientar_busca_ongs_coletivos_mulheres(uf, municipio)` agora retorna iniciativas com páginas institucionais que declaram atendimento gratuito a mulheres, mantendo fontes de descoberta separadas de organizações listadas.
+
+### TamoJuntas
+- Organização feminista composta por mulheres profissionais voluntárias.
+- Declara assessoria jurídica, psicológica, social e encaminhamentos gratuitos para mulheres em situação de violência e vulnerabilidade social.
+- Informa atendimento presencial em Salvador, Recife, São Paulo e Rio de Janeiro e atuação voluntária em diversas regiões do Brasil. A presença de voluntárias em uma região não confirma atendimento imediato ou disponibilidade em cada município.
+- Contatos institucionais publicados por estado: BA `contato@tamojuntas.org.br`; SP `tamojuntas.sp@tamojuntas.org.br`; RJ `tamojuntas.rj@tamojuntas.org.br`; MG `tamojuntas.mg@tamojuntas.org.br`; CE `tamojuntas.ce@tamojuntas.org.br`; PE `tamojuntas.pe@tamojuntas.org.br`. Para outras UFs, o site publica o contato geral `contato@tamojuntas.org.br`.
+- Fontes: https://tamojuntas.org.br/quem-somos/ ; https://tamojuntas.org.br/nossa-atuacao/ ; https://tamojuntas.org.br/elementor-2722/ ; https://tamojuntas.org.br/inicio/.
+
+### Mapa do Acolhimento
+- Plataforma que conecta mulheres a profissionais voluntárias para acolhimento psicológico e orientação/atendimento jurídico gratuitos.
+- Critérios publicados: mulheres cis ou trans, maiores de 18 anos, residentes no Brasil, em situação de baixa renda e que passaram por violência de gênero.
+- A solicitação de atendimento é feita em formulário externo. Isso não é cadastro no Elas Conectadas; o agente apenas informa o canal e os critérios, não preenche formulários nem coleta dados pessoais.
+- Fonte: https://www.mapadoacolhimento.org/atendimento/.
+
+**Regra de apresentação:** informar fonte e data da conferência (03/11/2026), público, gratuidade declarada, área/modalidade e limitações. Não afirmar vaga, tempo de resposta, cobertura presencial nacional ou disponibilidade local sem confirmação direta. A existência de e-mail institucional não significa que o serviço esteja aceitando novos casos.
