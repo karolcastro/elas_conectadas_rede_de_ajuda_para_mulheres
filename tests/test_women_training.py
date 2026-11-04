@@ -48,3 +48,26 @@ def test_women_led_national_courses_are_available_in_state_filter():
     assert "br-womakerscode-introducao-ia" in ids
     assert "br-womakerscode-como-conseguir-emprego" in ids
     assert "br-womakerscode-lideranca-feminina" in ids
+
+
+
+def test_programaria_sprints_are_free_national_and_prioritized():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    processes = programs["br-programaria-sprint-processos-seletivos-tech"]
+    generative_ai = programs["br-programaria-sprint-ia-generativa"]
+    assert processes["free"] is True
+    assert processes["certificate"] is True
+    assert processes["priority"] == 0
+    assert "tempo indeterminado" in processes["enrollment_status"]
+    assert generative_ai["free"] is True
+    assert generative_ai["opportunity_type"] == "minicurso"
+    assert generative_ai["priority"] == 0
+
+
+def test_programaria_scholarship_waitlist_is_not_misrepresented_as_open_class():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    opportunity = programs["br-programaria-bolsas-formacao-tech-lista-interesse"]
+    assert opportunity["free"] is True
+    assert opportunity["opportunity_type"] == "bolsa_futura_lista_de_interesse"
+    assert "Não equivale a turma com inscrições abertas" in opportunity["enrollment_status"]
+    assert "não é exclusiva para elas" in opportunity["audience"]
