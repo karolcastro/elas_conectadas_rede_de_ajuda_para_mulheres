@@ -525,3 +525,18 @@ Fontes:
 - https://www.policiacivil.mg.gov.br/site-pc/noticia/exibir?=Delegacias-especializadas-funcionam-em-novo-endere%C3%A7o-na-capital&id=4041323
 
 **Métricas após esta rodada:** 315 registros, 315 IDs únicos, 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 266 com custo não confirmado.
+
+
+### Expansão de Alagoas — delegacias especializadas (04/11/2026)
+
+Adicionadas três referências policiais com base na página oficial da Rede de Atenção às Violências da Secretaria de Estado da Saúde de Alagoas:
+- 1ª Delegacia Especializada de Atendimento à Mulher — Complexo de Delegacias Especializadas (CODE), Mangabeiras, Maceió; (82) 3315-4976; funcionamento informado: 24 horas.
+- 2ª Delegacia Especializada de Atendimento à Mulher — Rua Antônio Souza Braga, Salvador Lyra, Maceió; (82) 3315-4327; 8h–18h.
+- Delegacia da Mulher — Rua São Domingos, Centro, Arapiraca; (82) 3521-6318; 8h–18h.
+
+A página estadual de saúde consultada lista os contatos e horários na seção "Onde essas mulheres podem denunciar?". A gratuidade individual não foi presumida. Os registros representam canais policiais especializados, não atendimento jurídico ou psicossocial.
+
+Fonte oficial:
+- https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
+
+**Métricas após esta rodada:** 318 registros, 318 IDs únicos, presença nas 27 UFs, 228 combinações município/UF, 49 registros com gratuidade confirmada e 269 com custo não confirmado.
