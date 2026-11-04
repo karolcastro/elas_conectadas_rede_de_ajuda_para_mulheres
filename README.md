@@ -629,3 +629,13 @@ O diretório de organizações e iniciativas passou a incluir três referências
 - **Programa Ser Mulher — LBV:** a página institucional descreve psicoterapia online e gratuita para meninas a partir de 12 anos e mulheres com histórico de violência e publica o WhatsApp (11) 9999-66-557. Como a publicação disponível é de 2022, a disponibilidade para novos atendimentos em 2026 precisa ser confirmada diretamente. Fonte: https://www.lbv.org.br/programa-ser-mulher/
 
 As três referências foram adicionadas ao módulo `WomenOrganizationsGuide`, com limites de cobertura, critérios de acesso, fonte e data de verificação. A inclusão no catálogo não garante vaga, agendamento ou atendimento imediato.
+
+
+## Proteção social básica e inclusão produtiva — 04/11/2026
+
+O catálogo foi ampliado para apoiar também mulheres em vulnerabilidade socioeconômica:
+
+- **CRAS e Cadastro Único:** nova orientação MCP `orientar_acesso_cras(uf, municipio)` e resource `assistencia://cras`. Explica como localizar o CRAS, acessar PAIF, orientação sobre benefícios e inscrição/atualização do CadÚnico. O serviço é gratuito; inscrição no CadÚnico não garante benefício automaticamente. Fontes: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras e https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
+- **Acredita no Primeiro Passo:** incluído no diretório de oportunidades para pessoas de 16 a 65 anos com CadÚnico atualizado. Mulheres são público prioritário, mas o programa não é exclusivo para elas. Reúne cursos gratuitos, apoio à empregabilidade e orientação empreendedora, conforme ofertas dos parceiros. Microcrédito é empréstimo e não é gratuito. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo
+
+O agente não solicita CPF nem documentos para fornecer orientação; documentos necessários para serviços externos devem ser tratados diretamente com o órgão público.
