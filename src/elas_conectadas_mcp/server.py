@@ -375,6 +375,19 @@ def recurso_prioridade_habitacional_mulheres() -> str:
     return json.dumps(free_legal_aid_directory.housing_guide(), ensure_ascii=False)
 
 
+
+@mcp.tool()
+def orientar_acesso_alimentacao_gratuita(uf: str | None = None, municipio: str | None = None) -> dict:
+    """Orienta busca por cozinhas solidárias, cozinhas comunitárias e restaurantes populares."""
+    return free_legal_aid_directory.food_security_guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("alimentacao://apoio-gratuito")
+def recurso_acesso_alimentacao_gratuita() -> str:
+    """Resource com opções oficiais de alimentação gratuita ou de baixo custo."""
+    return json.dumps(free_legal_aid_directory.food_security_guide(), ensure_ascii=False)
+
+
 @mcp.tool()
 def orientar_busca_ongs_coletivos_mulheres(
     uf: str | None = None, municipio: str | None = None
