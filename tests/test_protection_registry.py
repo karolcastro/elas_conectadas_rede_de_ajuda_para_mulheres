@@ -125,3 +125,29 @@ def test_bahia_services_without_explicit_cost_confirmation_are_not_marked_free()
     )
     assert all(item.get("free") is True for item in result["services"])
     assert not any(item.get("id", "").startswith("ba-salvador-") for item in result["services"])
+
+
+def test_bahia_and_pernambuco_directory_leads_do_not_claim_free_service():
+    registry = ProtectionRegistry(as_of=date(2026, 11, 4))
+    ba = registry.list_services(uf="BA", municipality="Lauro de Freitas")
+    pe = registry.list_services(uf="PE", municipality="Olinda")
+
+    assert ba["count"] >= 1
+    assert pe["count"] >= 1
+    for result in (ba, pe):
+        for item in result["services"]:
+            if item.get("cost_status") == "not_confirmed_by_official_source":
+                assert item["free"] is None
+                assert item["recommendation_status"] == "cost_confirmation_required"
+        assert result["free_services_count"] == 0
+        assert result["cost_unconfirmed_count"] >= 1
+
+
+def test_regional_lead_records_include_official_source_and_review_date():
+    registry = ProtectionRegistry(as_of=date(2026, 11, 4))
+    result = registry.list_services(uf="BA")
+    leads = [x for x in result["services"] if x.get("cost_status") == "not_confirmed_by_official_source"]
+    assert len(leads) >= 25
+    assert all(x["official_source"].startswith("https://") for x in leads)
+    assert all(x["free"] is None for x in leads)
+    assert all(x["shelter_address_public"] is False for x in leads)

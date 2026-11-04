@@ -73,6 +73,8 @@ class ProtectionRegistry:
             selected.append(item)
         return {
             "services": selected,
+            "free_services_count": sum(1 for item in selected if item.get("free") is True),
+            "cost_unconfirmed_count": sum(1 for item in selected if item.get("free") is None or item.get("cost_status") == "not_confirmed_by_official_source"),
             "count": len(selected),
             "excluded_stale_count": excluded_stale,
             "as_of": self.as_of.isoformat(),

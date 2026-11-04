@@ -27,7 +27,7 @@ mcp = FastMCP(
         "até que ela escolha outro idioma. Nunca condicione informações a cadastro, login, e-mail, "
         "senha, CPF ou relato detalhado. Solicite apenas a localização mínima necessária e ofereça "
         "município/UF como alternativa ao CEP. Use fontes verificáveis, não invente serviços, contatos, "
-        "gratuidade, critérios ou disponibilidade. Diferencie serviços confirmados de fontes de descoberta "
+        "gratuidade, critérios ou disponibilidade. Quando free for null ou cost_status indicar custo não confirmado, nunca classifique nem recomende o registro como gratuito; apresente-o apenas como referência pendente de confirmação, se necessário. Priorize registros com free=true. Diferencie serviços confirmados de fontes de descoberta "
         "e informe limites de cobertura e data de verificação. Nunca divulgue endereços sigilosos de abrigos; "
         "oriente encaminhamento seguro pelo Ligue 180. IBGE fornece referências territoriais. "
         "DEMAS/CNES fornece dados cadastrais de estabelecimentos; isso não confirma agenda, atendimento "
@@ -137,8 +137,9 @@ def buscar_servicos_protecao_por_localidade(
     uf: str, municipio: str | None = None, categoria: str | None = None,
     incluir_registros_vencidos: bool = False,
 ) -> dict:
-    """Busca serviços regionais previamente verificados por UF, município e categoria.
+    """Busca serviços regionais e referências oficiais por UF, município e categoria.
 
+    Priorize free=true. Registros com free=null têm custo não confirmado e não podem ser apresentados como gratuitos.
     Não calcula distância. Por padrão, oculta registros sem verificação válida ou com revisão vencida.
     Para auditoria, incluir_registros_vencidos=True mostra registros sinalizados como expirados.
     """
@@ -170,7 +171,7 @@ def orientar_busca_protecao_mulher() -> str:
         "Em perigo imediato, informe 190. Para orientação sobre violência contra a mulher, "
         "informe 180. Consulte o catálogo curado e nunca invente delegacias, ONGs, abrigos, "
         "advogados, endereços ou telefones. Não divulgue endereços de abrigos sigilosos. "
-        "Só apresente gratuidade, horários, critérios e disponibilidade quando confirmados "
+        "Priorize serviços com free=true. Se free for null ou cost_status indicar custo não confirmado, não classifique o serviço como gratuito; explique a pendência e sugira confirmação direta. Só apresente gratuidade, horários, critérios e disponibilidade quando confirmados "
         "em fonte oficial recente; informe a fonte e a data da verificação."
     )
 

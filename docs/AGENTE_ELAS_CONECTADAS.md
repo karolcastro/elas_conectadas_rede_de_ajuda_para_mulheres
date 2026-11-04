@@ -913,3 +913,26 @@ Em 04/11/2026, foram adicionados três registros com gratuidade declarada em pá
 - Nenhum endereço de abrigo sigiloso foi incluído.
 - A busca continua sem cálculo de distância e sem confirmação de vaga ou disponibilidade em tempo real.
 - A próxima etapa para a Bahia é confirmar a gratuidade dos serviços diretamente com as unidades/órgãos antes de registrá-los como opções gratuitas.
+
+
+## 41. Expansão de referências municipais — Bahia e Pernambuco
+
+Em 04/11/2026, foram adicionadas 62 referências municipais (30 BA e 32 PE) com base em diretórios oficiais estaduais. Os registros incluem nome da unidade, município, endereço, telefone e horário quando publicados.
+
+### Bahia
+A página da Secretaria de Políticas para as Mulheres, atualizada em 06/10/2026, lista unidades em Lauro de Freitas, Senhor do Bonfim, Conceição do Coité, Camaçari, Alagoinhas, Itabuna, Porto Seguro, Teixeira de Freitas, Cruz das Almas, Vitória da Conquista, Irecê, Paulo Afonso, Abaíra, Valença, Feira de Santana, Juazeiro, Camacã, Barreiras, Itaberaba, Candeias, Santo Amaro, Serrinha, São Francisco do Conde, Jacobina, Santa Cruz Cabrália, Simões Filho, Araci, Cachoeira, Guanambi e Itapetinga.
+Fonte: https://www.ba.gov.br/mulheres/7119/crams
+
+### Pernambuco
+O Portal da Transparência do Estado lista centros em municípios e regiões como Jaboatão dos Guararapes, Camaragibe, Igarassu, Cabo de Santo Agostinho, Moreno, Araçoiaba, Paulista, Recife, Olinda, Ipojuca, São Lourenço da Mata, Nazaré da Mata, Condado, Paudalho, Carpina, Timbaúba, Vitória de Santo Antão, Palmares, Sirinhaém, Barreiros, Caruaru, Bezerros, Gravatá, Agrestina, Pesqueira, Belo Jardim, Garanhuns, Buíque, Serra Talhada, Petrolina e Lagoa Grande.
+Fonte: https://transparencia.pe.gov.br/gestao-estadual/informacao-protecao-e-atendimento-as-mulheres/protecao-e-atendimento-as-mulheres/
+
+### Tratamento de gratuidade e qualidade
+- As duas fontes estaduais listam unidades, contatos e, em vários casos, horários, mas não afirmam expressamente a gratuidade de cada atendimento.
+- Por isso, os registros foram marcados com `free: null`, `cost_status: not_confirmed_by_official_source` e `recommendation_status: cost_confirmation_required`.
+- O catálogo agora retorna contagens separadas de serviços com gratuidade confirmada e referências com custo não confirmado.
+- O agente deve priorizar `free=true`, jamais inferir gratuidade por se tratar de equipamento público, e só oferecer registros `free=null` como referências pendentes de confirmação.
+- Nenhum endereço sigiloso de abrigo foi cadastrado.
+
+### Limites e próxima etapa
+A presença em diretório não confirma funcionamento atual, vaga, equipe disponível nem gratuidade. A próxima etapa é confirmar os custos diretamente com as unidades e expandir a busca estruturada para os demais estados usando o Painel da Rede de Atendimento do Ministério das Mulheres, sem fingir que o painel foi consultado automaticamente quando não houver integração verificável.

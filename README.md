@@ -296,3 +296,19 @@ Fontes oficiais:
 - Bahia — CRAMs: https://www.ba.gov.br/mulheres/7119/crams
 
 **Limites:** a cobertura adicionada é municipal (Rio de Janeiro e Recife), não estadual. A ausência de registro gratuito para Salvador não significa ausência de serviço; significa apenas que a gratuidade ainda não foi confirmada com o padrão de evidência do catálogo. Nenhum endereço sigiloso foi incluído. A validade de 90 dias é editorial e não garante funcionamento ou disponibilidade.
+
+
+## Expansão territorial — Bahia e Pernambuco
+
+Em 04/11/2026, o catálogo foi ampliado com **30 referências municipais na Bahia** e **32 em Pernambuco**, a partir de diretórios oficiais estaduais:
+
+- Bahia: lista estadual de CRAMs/centros de atendimento, com endereços e telefones publicados em 06/10/2026.
+- Pernambuco: Portal da Transparência estadual, com CRM/CEAM por região, endereço, telefone e horários informados.
+
+**Importante sobre gratuidade:** as páginas estaduais consultadas não declaram explicitamente a gratuidade individual de cada unidade. Por isso, esses registros usam `free: null`, `cost_status: not_confirmed_by_official_source` e `recommendation_status: cost_confirmation_required`. Eles não são contados como serviços gratuitos e o agente deve priorizar `free: true`. Só podem ser apresentados como referências para confirmação direta, nunca como atendimento gratuito confirmado.
+
+Fontes:
+- Bahia: https://www.ba.gov.br/mulheres/7119/crams
+- Pernambuco: https://transparencia.pe.gov.br/gestao-estadual/informacao-protecao-e-atendimento-as-mulheres/protecao-e-atendimento-as-mulheres/
+
+A cobertura é municipal conforme as unidades listadas; não representa todos os municípios desses estados. A presença em diretório não confirma vaga, funcionamento no momento da consulta ou disponibilidade de equipe. Contatos e horários devem ser confirmados antes do deslocamento.
