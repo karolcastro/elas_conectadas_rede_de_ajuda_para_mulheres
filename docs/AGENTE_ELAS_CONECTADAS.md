@@ -794,3 +794,9 @@ Os contatos estaduais não comprovam disponibilidade imediata, vaga, competênci
 - O CREAS é serviço público e gratuito para pessoas/famílias em situação de risco ou violação de direitos, incluindo violência física, psicológica e sexual. Oferece acolhida, orientação e encaminhamento à rede pública.
 - O MDS disponibiliza localizador de unidades por município. Se o município não tiver CREAS, a orientação oficial é procurar o setor de assistência social da prefeitura. Não presumir vaga ou atendimento imediato.
 - Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-especializado-de-assistencia-social-creas (atualizada em 26/10/2026).
+
+
+
+## 35. Ferramenta MCP dedicada para CREAS
+
+Foi adicionada a ferramenta `orientar_acesso_creas(uf, municipio)`, o resource `assistencia://creas` e o prompt `orientar_busca_apoio_psicossocial`. A resposta apresenta o localizador oficial do MDS, público atendido, gratuidade, formas de acesso e limitações. Não realiza busca dinâmica de unidade nem afirma disponibilidade; a usuária pode informar apenas UF e município, sem CPF ou documentos.
