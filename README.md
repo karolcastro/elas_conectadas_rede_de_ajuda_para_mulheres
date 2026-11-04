@@ -235,3 +235,8 @@ Contatos especializados adicionais registrados: **Minas Gerais** — NUDEM/Belo 
 - Resource: `assistencia://creas`
 - Prompt: `orientar_busca_apoio_psicossocial`
 - Usa o localizador oficial do MDS e informa que o CREAS é público e gratuito. Não inventa unidades, vagas ou disponibilidade.
+
+
+## Acolhimento, idioma e canais urgentes
+
+Na primeira resposta, o agente deve acolher sem julgamento, informar **190** para perigo imediato e **Ligue 180** para orientação e atendimento sobre violência contra a mulher (gratuito, 24 horas), e perguntar qual idioma a usuária prefere. Para não atrasar a ajuda, começa em português e muda quando a usuária indicar outro idioma. Informações públicas nunca dependem de cadastro, login, e-mail, senha, CPF ou relato detalhado. Deve solicitar somente a localização mínima necessária, oferecer município/UF como alternativa ao CEP e nunca divulgar endereços sigilosos de abrigos.
