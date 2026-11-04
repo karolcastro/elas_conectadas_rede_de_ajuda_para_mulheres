@@ -1161,3 +1161,39 @@ Fonte: https://www.mg.gov.br/servico/solicitar-atendimento-no-centro-risoleta-ne
 ### Métricas após a expansão
 
 O catálogo contém **195 registros**, **195 IDs únicos**, presença nas **27 UFs** e **143 combinações de município/UF**. São **47 registros com gratuidade expressamente confirmada** e **148 com custo não confirmado**. A cobertura municipal é parcial; endereço ou existência de equipamento não garante atendimento disponível.
+
+
+## Expansão municipal — Mato Grosso e Alagoas (04/11/2026)
+
+### Mato Grosso — dez novas referências
+
+O diretório oficial estadual foi consultado e foram acrescentadas:
+- Barra do Bugres — Núcleo da Delegacia Municipal Especializado de Atendimento à Mulher e Vulneráveis; Rua Belo Horizonte, esquina com Rua Goiás, Centro; (65) 3361-1109.
+- Barra do Garças — DEAM; Rua Carajás, 1156, Centro; (66) 3533-4530 / 4537; celular funcional (66) 98156-0098.
+- Brasnorte — Departamento da Mulher; Rua Campo Grande, 989, Centro; (65) 98432-0998.
+- Lucas do Rio Verde — DEAM, Rua Corbélia, 1835, Jardim das Palmeiras; (65) 99218-5931; e Núcleo especializado, Avenida Pará, 109-E, Cidade Nova; mesmo telefone.
+- Matupá — Núcleo especializado, Avenida Central, bairro ZC-1; (66) 3595-1122.
+- Peixoto de Azevedo — Núcleo especializado, Rua José Doca, s/n, Alvorada; (66) 3575-1763 / (66) 98156-0119.
+- Pontes e Lacerda — Núcleo especializado, Rua Vereador Anibas Luís de Souza, 1668, Jardim Bela Vista; (65) 3266-1577 / (65) 3266-1491.
+- Primavera do Leste — Delegacia Especializada de Defesa da Mulher, Criança e Idoso, Rua Lajes, 961, Primavera IV; (66) 3533-4590 / (65) 98173-0750.
+- Vera — Núcleo especializado, Rua Chile, 2123, Centro; (66) 3583-1414.
+
+O diretório estadual informa horário comercial para esses registros. Mesmo quando há telefone funcional ou plantão em um contato, não se deve presumir que o atendimento presencial funcione 24 horas. Gratuidade não foi declarada expressamente pela fonte e permanece como não confirmada.
+
+Fonte: https://mulher.mt.gov.br/atendimentos
+
+### Alagoas — três pontos adicionais
+
+- Rio Largo — Hospital Dr. Ib Gatto Falcão, ponto de acolhimento da Rede de Atenção às Violências. A página estadual não publica endereço de rua, telefone ou horário individual.
+- Porto Calvo — Hospital Regional do Norte, ponto de acolhimento da Rede de Atenção às Violências. A página estadual não publica endereço de rua, telefone ou horário individual.
+- Maceió — Sala Lilás do Hospital Geral do Estado (HGE), bairro do Trapiche; (82) 98833-4123; 7h às 19h, todos os dias.
+
+Os campos não publicados foram mantidos vazios. A SESAU descreve a Rede de Atenção às Violências como voltada a vários grupos prioritários, incluindo mulheres. A gratuidade individual não está expressamente declarada na página e não foi presumida.
+
+Fontes:
+- https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
+- https://www.saude.al.gov.br/rede-de-atencao-as-violencias-promove-acoes-socioeducativas-no-porto-de-maceio/ (atualizada em 25/02/2026)
+
+### Métricas revisadas
+
+Após a inclusão e validação estrutural: **208 registros**, **208 IDs únicos**, presença nas **27 UFs**, **154 combinações município/UF**, **47 registros com gratuidade expressamente confirmada** e **161 com custo não confirmado**. A contagem é de registros e combinações município/UF, não de municípios com disponibilidade confirmada. Diretório publicado não garante vaga, horário em tempo real ou atendimento imediato.
