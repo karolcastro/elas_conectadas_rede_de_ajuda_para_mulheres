@@ -275,3 +275,12 @@ A ferramenta de ONGs agora classifica os resultados conforme a localização inf
 A classificação usa os campos `locality_match`, `locality_priority` e `locality_evidence`. Ela não calcula distância, não confirma vaga ou disponibilidade e não deve ser interpretada como garantia de atendimento. A lista mantém as opções online relevantes, mas coloca a cobertura local comprovada primeiro.
 
 Fonte institucional da TamoJuntas para cidades presenciais e orientações a outras localidades: https://tamojuntas.org.br/elementor-2722/
+
+
+## Transporte HTTP e preparação para Vercel
+
+O transporte MCP local via stdio foi preservado. Para hospedagem HTTP, foi adicionada uma aplicação ASGI separada com Streamable HTTP, autenticação Bearer obrigatória e allowlists explícitas de Host/Origin. O endpoint previsto é /api/mcp, exposto por api/mcp.py no runtime Python da Vercel.
+
+A camada HTTP usa modo stateless e respostas JSON para não depender de sessões em memória entre invocações serverless. Ela falha de forma segura quando as variáveis de autenticação e allowlist não estão configuradas. Nenhum cadastro, banco de dados ou armazenamento de conversas foi introduzido.
+
+**Configuração obrigatória e procedimento de validação:** consulte [docs/VERCEL_DEPLOYMENT.md](docs/VERCEL_DEPLOYMENT.md). Esta alteração prepara o entrypoint, mas não realiza deploy nem comprova o roteamento/funcionamento em um projeto Vercel conectado. O frontend continua sendo uma etapa separada.
