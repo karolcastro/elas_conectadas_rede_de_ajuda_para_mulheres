@@ -63,3 +63,28 @@ def test_state_specific_contacts_do_not_leak_between_states():
     for uf in ("RJ", "MG", "PE"):
         result = FreeLegalAidDirectory().guide(uf=uf)
         assert result["state_specific_contacts"] == []
+
+
+def test_minas_gerais_guide_exposes_nudem_bh_with_local_scope():
+    result = FreeLegalAidDirectory().guide(uf="MG")
+    contact = result["state_specific_contacts"][0]
+    assert contact["phone"] == "(31) 98475-2616 / (31) 98239-8863"
+    assert contact["service_hours"] == "Segunda a sexta-feira, das 11h às 17h."
+    assert "Belo Horizonte" in contact["name"]
+    assert contact["free"] is True
+
+
+def test_pernambuco_guide_exposes_nudem_whatsapp_and_message_only_notice():
+    result = FreeLegalAidDirectory().guide(uf="PE")
+    contact = result["state_specific_contacts"][0]
+    assert contact["phone"] == "(81) 99488-3765"
+    assert contact["service_modes"] == ["WhatsApp por mensagem"]
+    assert contact["source_last_updated"] == "2026-09-25"
+    assert "ordem de chegada" in contact["important_notice"]
+
+
+def test_legal_aid_guide_includes_official_free_creas_locator():
+    result = FreeLegalAidDirectory().guide(uf="AC")
+    creas = next(x for x in result["official_directories"] if x["name"].endswith("CREAS"))
+    assert creas["source_last_updated"] == "2026-10-26"
+    assert "gov.br/mds" in creas["url"]
