@@ -509,3 +509,19 @@ Fontes:
 - https://www.joaopessoa.pb.gov.br/noticias/dia-internacional-pela-eliminacao-da-violencia-contra-as-mulheres-e-marcado-por-reforco-a-rede-de-protecao-e-acoes-de-conscientizacao/
 
 **Métricas após esta rodada:** 312 registros, 312 IDs únicos, 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 263 com custo não confirmado. A cobertura segue parcial; os novos registros policiais de PB não devem ser tratados como confirmação de funcionamento atual até reconfirmação direta.
+
+
+### Expansão da rede de proteção em Minas Gerais — 04/11/2026
+
+Adicionadas três referências em Belo Horizonte com base em publicações oficiais de 2025:
+- Delegacia Especializada de Atendimento à Mulher — Rua Rio Grande do Sul, 661, Barro Preto; telefone (31) 3330-5752, conforme Portal MG atualizado em 08/01/2025.
+- Delegacia de Plantão Especializada (DEPAM) — entrada pela Avenida Bias Fortes, 1.451, Barro Preto. A Polícia Civil informou o endereço em 06/01/2025; não publicou telefone direto. 197 é canal geral da Polícia Civil.
+- Casa da Mulher Mineira — Avenida Augusto de Lima, 1.845, Barro Preto. A Polícia Civil confirmou que permanecia neste endereço em 06/01/2025; a publicação não detalha telefone, horário ou escopo.
+
+Os três registros têm custo não confirmado e exigem confirmação de funcionamento/horário antes do deslocamento. Não foram presumidos serviços, gratuidade ou disponibilidade não publicados.
+
+Fontes:
+- https://www.mg.gov.br/instituicao_unidade/delegacia-especializada-de-atendimento-mulher
+- https://www.policiacivil.mg.gov.br/site-pc/noticia/exibir?=Delegacias-especializadas-funcionam-em-novo-endere%C3%A7o-na-capital&id=4041323
+
+**Métricas após esta rodada:** 315 registros, 315 IDs únicos, 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 266 com custo não confirmado.
