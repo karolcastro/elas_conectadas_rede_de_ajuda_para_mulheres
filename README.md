@@ -701,3 +701,33 @@ Fontes oficiais:
 - Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
 - Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
 - Portal MDS de Educação Empreendedora: cursos digitais gratuitos de educação financeira para mulheres empreendedoras, gestão de negócios de alimentação, tecnologia e gestão para ambulantes; com status e limites de inscrição documentados.
+
+
+## Publicação experimental na Vercel — MCP por HTTP
+
+O servidor mantém o transporte `stdio` para clientes MCP locais e agora possui um entrypoint ASGI separado para publicação experimental na Vercel:
+
+- `api/index.py`: expõe o servidor por Streamable HTTP no caminho `/mcp` e uma verificação simples de saúde em `/health`.
+- `pyproject.toml`: declara `tool.vercel.entrypoint = "api/index.py"` para o runtime Python da Vercel.
+- O endpoint HTTP usa modo sem estado (`stateless_http=True`), adequado ao modelo de funções serverless; o transporte stdio local não foi alterado.
+- A proteção contra DNS rebinding permanece ativa. A lista de hosts permitidos usa o hostname estável do projeto e os hostnames atribuídos pela própria Vercel por variáveis de ambiente.
+- O corpo máximo de requisição MCP foi limitado a 1 MiB nesta primeira configuração.
+
+### Limites e segurança antes de abrir ao público
+
+Esta alteração resolve a ausência de entrypoint Python identificada no build, mas **não significa que a aplicação esteja publicada ou pronta para atendimento público**. Ainda é necessário confirmar o build, testar o handshake MCP e validar as ferramentas no ambiente publicado.
+
+O endpoint MCP não implementa autenticação própria nem limitação distribuída de requisições nesta etapa. A proteção de acesso da Vercel deve permanecer ativa durante a validação. Não desative SSO/Deployment Protection nem associe domínio público antes de revisar autenticação, abuso de API, privacidade, rate limiting e a experiência de uso final.
+
+O projeto atual é um servidor MCP, não uma interface web completa para usuárias. Para um piloto público, ainda será necessária uma interface acessível e um fluxo de conexão seguro com este endpoint. A rota `/health` informa somente estado de vida e não comprova que as consultas externas estejam disponíveis.
+
+### Plano de validação
+
+1. Build de Preview na Vercel, sem promoção para produção.
+2. Conferência dos logs e do estado `READY`.
+3. Teste de `GET /health`.
+4. Teste do protocolo MCP em `/mcp`: inicialização, listagem de ferramentas e chamadas de leitura.
+5. Teste de carga gradual em Preview, começando com baixa concorrência e aumentando somente se não houver erros ou sinais de sobrecarga.
+6. Registro de latência, taxa de erro, consumo de CPU/memória e transferência, sem dados pessoais reais.
+
+Nenhum teste de carga deve usar relatos reais de violência, dados pessoais ou informações sensíveis. Use apenas consultas sintéticas.
