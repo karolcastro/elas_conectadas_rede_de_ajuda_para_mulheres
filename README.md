@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo de 171 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 124 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
+Projeto em desenvolvimento com servidor MCP, catálogo de 190 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 143 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
@@ -411,3 +411,18 @@ Fontes:
 - Cariacica/ES: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/outubro-defeso-eleitoral/centro-de-referencia-da-mulher-brasileira-em-cariacica-es-oferecera-atendimento-a-mulheres-em-situacao-de-violencia
 
 O catálogo agora contém 171 registros em 27 UFs: 47 com gratuidade expressamente confirmada e 124 com custo não confirmado. A cobertura municipal continua parcial.
+
+
+### Ampliação em lote — Amazonas e Mato Grosso (04/11/2026)
+
+Foram adicionadas 19 referências a partir de diretórios oficiais:
+- Amazonas: SAMIC de Barcelos. A página da SEJUSC informa endereço, mas não publica telefone para essa unidade; o campo permanece sem telefone. O serviço oferece atendimento psicológico/social e encaminhamentos nos municípios listados pela Secretaria.
+- Mato Grosso: 18 referências de núcleos da Patrulha Maria da Penha e do Organismo de Políticas para Mulheres em Juína, Luciara, Novo Horizonte do Norte, Novo Santo Antônio, Paranatinga, Porto Alegre do Norte, Porto dos Gaúchos, Poxoréu, São Félix do Araguaia, São José do Xingu, Sapezal, Campo Novo do Parecis, Canabrava do Norte, Canarana, Campo Verde, Tapurah, Santa Terezinha e Nova Xavantina.
+
+As referências de Patrulha Maria da Penha não são apresentadas como plantões abertos ou serviços de emergência: a orientação é confirmar área de cobertura, critérios e disponibilidade diretamente com o contato publicado. Nenhuma dessas 19 referências foi marcada como gratuita, pois as páginas consultadas não declaram expressamente a gratuidade.
+
+Fontes oficiais:
+- Amazonas/SEJUSC: https://www.sejusc.am.gov.br/mulheres/
+- Mato Grosso: https://www.mulher.mt.gov.br/atendimentos
+
+O catálogo contém agora 190 registros em 27 UFs e 142 combinações de município/UF. São 47 registros com gratuidade expressamente confirmada e 143 com custo não confirmado. A cobertura municipal continua parcial.
