@@ -13,7 +13,10 @@ MAPA_ACOLHIMENTO_URL = "https://www.mapadoacolhimento.org/atendimento/"
 MARIA_DAJUDA_URL = "https://mariadajuda.org/"
 MARIAS_DA_INTERNET_URL = "https://www.mariasdainternet.com.br/"
 SAFERNET_HELPLINE_URL = "https://new.safernet.org.br/helpline"
-VERIFICATION_DATE = "2026-11-03"
+ACOLHE_MAIS_URL = "https://www.gov.br/saude/pt-br/assuntos/noticias/2026/outubro/precisa-de-acolhimento-em-saude-mental-saiba-como-acessar-o-acolhe-mais-pelo-meu-sus-digital"
+LBV_SER_MULHER_URL = "https://www.lbv.org.br/programa-ser-mulher/"
+NUMAPE_URL = "https://www.seti.pr.gov.br/numape"
+VERIFICATION_DATE = "2026-11-04"
 
 IN_PERSON_CITIES = {
     ("BA", "salvador"),
@@ -65,6 +68,30 @@ def _locality_match(
             "location_not_provided",
             "Informe município e UF para verificar se a localidade consta entre as cidades com atendimento presencial publicado.",
         )
+    if name == "NUMAPE — Núcleo Maria da Penha":
+        if uf == "PR":
+            return (
+                2,
+                "statewide_regional_network",
+                "A SETI/PR publica unidades e áreas de abrangência em diferentes comarcas. A cidade precisa ser comparada à área de cada unidade; não presumir atendimento em todo o Paraná.",
+            )
+        return (
+            4,
+            "state_not_covered",
+            "A rede NUMAPE cadastrada nesta entrada é do Paraná; não há cobertura confirmada para a UF informada.",
+        )
+    if name == "Acolhe Mais — SUS":
+        return (
+            1,
+            "national_online_scope",
+            "O Ministério da Saúde informa teleatendimento gratuito em todo o Brasil. O acesso externo exige Meu SUS Digital/conta gov.br e cadastro na plataforma oficial; o Elas Conectadas não solicita essas credenciais.",
+        )
+    if name == "Programa Ser Mulher — LBV":
+        return (
+            1,
+            "national_online_scope_availability_to_confirm",
+            "A página institucional descreve atendimento online nacional e gratuito, mas foi publicada em 2022; confirmar se o programa está recebendo solicitações atualmente.",
+        )
     if name == "Mapa do Acolhimento":
         return (
             1,
@@ -93,6 +120,89 @@ class WomenOrganizationsGuide:
 
         normalized_uf = uf.strip().upper() if uf else None
         verified_organizations = [
+            {
+                "name": "Acolhe Mais — SUS",
+                "organization_type": "Programa público federal de teleatendimento psicológico",
+                "support": [
+                    "teleatendimento psicológico por videochamada",
+                    "escuta e avaliação inicial de necessidades e riscos",
+                    "orientação para continuidade do cuidado na rede SUS",
+                ],
+                "audience": (
+                    "Mulheres que vivem ou viveram situações de violência e mulheres que cuidam de familiares "
+                    "com deficiência, transtornos do neurodesenvolvimento ou doenças raras."
+                ),
+                "cost": "Gratuito, conforme Ministério da Saúde.",
+                "service_modes": ["online por videochamada"],
+                "territorial_scope": "Brasil; o Ministério da Saúde informa disponibilidade nacional.",
+                "application_channel": ACOLHE_MAIS_URL,
+                "website": "https://meususdigital.saude.gov.br/",
+                "access_requirements": (
+                    "O acesso externo exige conta gov.br no Meu SUS Digital e cadastro na plataforma AgSUS. "
+                    "Não é necessário encaminhamento prévio nem documento que comprove violência ou condição de cuidadora."
+                ),
+                "access_steps": [
+                    "Abrir o aplicativo Meu SUS Digital e entrar diretamente na conta gov.br.",
+                    "Acessar Miniapps e selecionar Acolhe Mais — Agora Tem Especialistas em Saúde Mental para Mulheres.",
+                    "Concluir o cadastro no ambiente oficial da AgSUS e aguardar o contato para agendamento.",
+                ],
+                "service_hours": "Segunda a sexta, 8h–20h; sábados, 8h–14h, conforme publicação do Ministério da Saúde.",
+                "limitations": (
+                    "A publicação informa até dez sessões por ciclo e contato da equipe em até 24 horas após o cadastro; "
+                    "não prometer horário específico ou disponibilidade antes da confirmação. Não substitui emergência, "
+                    "CAPS, UBS ou canais de proteção. O agente não solicita conta gov.br, senha ou dados de acesso."
+                ),
+                "verification_date": VERIFICATION_DATE,
+                "verification_basis": "Ministério da Saúde, notícia oficial publicada em 27/10/2026 e atualizada em 28/10/2026.",
+            },
+            {
+                "name": "NUMAPE — Núcleo Maria da Penha",
+                "organization_type": "Programa público estadual em parceria com universidades estaduais do Paraná",
+                "support": [
+                    "acolhimento e assistência jurídica gratuita",
+                    "atendimento psicológico",
+                    "atendimento e orientação social",
+                    "orientação sobre direitos e medidas protetivas",
+                ],
+                "audience": "Mulheres em situação de violência doméstica e familiar.",
+                "cost": "Gratuito, conforme Secretaria da Ciência, Tecnologia e Ensino Superior do Paraná.",
+                "service_modes": ["presencial nas unidades e áreas de abrangência publicadas"],
+                "territorial_scope": (
+                    "Paraná, por unidades vinculadas a universidades estaduais e comarcas específicas. "
+                    "A cobertura deve ser verificada pela lista oficial de unidades; não é atendimento automaticamente disponível em todos os municípios."
+                ),
+                "website": NUMAPE_URL,
+                "application_channel": NUMAPE_URL,
+                "limitations": (
+                    "A página estadual publica unidades, contatos e áreas de abrangência. A cidade informada deve ser "
+                    "conferida na descrição da unidade; confirmar funcionamento, critérios e disponibilidade diretamente. "
+                    "Não presumir atendimento remoto."
+                ),
+                "verification_date": VERIFICATION_DATE,
+                "verification_basis": "Secretaria da Ciência, Tecnologia e Ensino Superior do Paraná — página oficial do NUMAPE e diretório de unidades.",
+            },
+            {
+                "name": "Programa Ser Mulher — LBV",
+                "organization_type": "Programa de atendimento psicoterapêutico de organização da sociedade civil",
+                "support": [
+                    "atendimento psicoterapêutico online",
+                    "apoio a meninas e mulheres que vivenciaram violência física, psicológica, patrimonial ou moral",
+                ],
+                "audience": "Pessoas do gênero feminino a partir de 12 anos, com histórico de violência e acesso a aparelho com internet, conforme página institucional.",
+                "cost": "Gratuito, conforme declaração da LBV.",
+                "service_modes": ["online"],
+                "territorial_scope": "Brasil, conforme a página institucional.",
+                "contact_phone": "(11) 9999-66-557",
+                "website": LBV_SER_MULHER_URL,
+                "application_channel": LBV_SER_MULHER_URL,
+                "limitations": (
+                    "A página institucional disponível foi publicada em 24/11/2022. Embora descreva atendimento gratuito "
+                    "e publique WhatsApp de contato, não confirma que o programa esteja recebendo novas solicitações em 2026. "
+                    "Antes de encaminhar, confirmar diretamente se o canal e o atendimento permanecem ativos."
+                ),
+                "verification_date": VERIFICATION_DATE,
+                "verification_basis": "Página institucional da LBV; publicação original de 24/11/2022, consultada em 04/11/2026.",
+            },
             {
                 "name": "TamoJuntas",
                 "organization_type": "ONG feminista composta por mulheres profissionais voluntárias",
