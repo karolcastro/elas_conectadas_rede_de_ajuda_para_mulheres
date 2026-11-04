@@ -1353,3 +1353,25 @@ Foram adicionadas três oportunidades nacionais ao `WomenTrainingDirectory`, ap�
    - Fonte: https://vamosjuntes.programaria.org/oportunidades-gratuitas
 
 **Regra de apresentação:** diferenciar cursos/Sprints com inscrição indicada como aberta de listas de interesse para processos futuros. Não prometer vaga, bolsa, certificado ou acesso além do que a página oficial declara. Data de verificação desta rodada: 04/11/2026.
+
+
+
+## Novas referências de capacitação e comunidade — 04/11/2026
+
+### Instituto Minas Programam
+- Cursos gratuitos de introdução à programação para meninas e mulheres cis ou trans e pessoas não-binárias, especialmente mulheres negras e indígenas.
+- Conteúdo informado: lógica de programação, HTML, CSS e JavaScript; mais de 90 horas de aulas ao vivo e atividades práticas; professoras mulheres; sem exigência de conhecimento prévio.
+- **Status:** a página oficial informa que não há inscrições abertas na data da consulta. Recomenda acompanhar a newsletter para a próxima edição.
+- **Limite:** local e modalidade da próxima turma não publicados na página consultada. Não anunciar como curso online, vaga aberta ou oferta disponível em qualquer município.
+- Fonte: https://minasprogramam.com/cursos/
+
+### PyLadies Brasil
+- Comunidade brasileira vinculada à rede global PyLadies, com propósito declarado de incentivar a entrada e participação de mulheres na tecnologia.
+- O diretório público de capítulos lista cidades brasileiras como Belém, Belo Horizonte, Brasília, Porto Alegre, Campinas, Recife, Rio de Janeiro, Salvador, São Paulo, entre outras.
+- A página de materiais disponibiliza conteúdos e referências para aprendizagem e criação de grupos regionais.
+- **Status:** comunidade e rede de capítulos, não curso com matrícula ou bolsa. A listagem de um capítulo não comprova atividade recente, calendário ou encontros em andamento.
+- **Custo:** não confirmado nas páginas consultadas; não marcar como gratuito.
+- Fontes: https://brasil.pyladies.com/about/ ; https://brasil.pyladies.com/locais/ ; https://portal.pyladies.com/chapters/ ; https://brasil.pyladies.com/materiais/
+
+### Regra de classificação
+O diretório deve diferenciar curso_proxima_turma_sem_inscricoes e comunidade de cursos com inscrições abertas. free=true só deve ser usado quando a fonte declarar gratuidade; comunidades sem informação de custo permanecem com free=null. Presença em diretório de capítulos não equivale a confirmação de atividade local.
