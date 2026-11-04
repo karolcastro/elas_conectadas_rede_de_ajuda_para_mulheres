@@ -1424,3 +1424,29 @@ O módulo `WomenOrganizationsGuide` foi ampliado com três referências, prioriz
 - O NUMAPE só deve ser recomendado como rede regional do Paraná, com conferência da área de abrangência da unidade.
 - O Programa Ser Mulher deve ser marcado como disponibilidade atual pendente de confirmação, devido à data da publicação.
 - Nenhum desses registros comprova vaga imediata, agendamento garantido ou atendimento de emergência.
+
+
+## Expansão para proteção social básica e inclusão produtiva — 04/11/2026
+
+### CRAS e Cadastro Único
+O módulo `FreeLegalAidDirectory` agora oferece `cras_guide(uf, municipality)`, exposto no MCP como `orientar_acesso_cras` e no resource `assistencia://cras`.
+
+- O CRAS é serviço público e gratuito de proteção social básica.
+- Pode ofertar PAIF, Serviço de Convivência e Fortalecimento de Vínculos, orientação sobre benefícios e inscrição/atualização do Cadastro Único, conforme organização municipal.
+- O Cadastro Único é gratuito e realizado presencialmente no CRAS ou posto municipal de cadastramento.
+- O CadÚnico é porta de entrada para diversos programas sociais, mas a inscrição não garante concessão automática de Bolsa Família ou outro benefício.
+- O agente não solicita CPF, documentos ou dados familiares; explica que a documentação deve ser apresentada diretamente ao posto oficial.
+- O localizador MOPS é fonte de descoberta e não confirma horário, vaga ou atendimento imediato.
+
+Fontes oficiais:
+- CRAS: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras
+- Cadastro Único: https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/
+- Localizador MOPS: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
+
+### Programa Acredita no Primeiro Passo
+Incluído no diretório `WomenTrainingDirectory` como programa nacional de inclusão produtiva:
+- Público: pessoas de 16 a 65 anos com inscrição atualizada no CadÚnico; mulheres estão entre os públicos prioritários, mas o programa não é exclusivo para mulheres.
+- Ofertas descritas pelo MDS incluem cursos gratuitos, apoio à busca de emprego, educação financeira e orientação para empreendedorismo.
+- A disponibilidade de cursos, vagas e serviços depende dos parceiros e das ofertas vigentes.
+- **Atenção:** microcrédito é empréstimo e não deve ser apresentado como recurso gratuito, bolsa ou benefício a fundo perdido.
+- Fonte oficial: https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo
