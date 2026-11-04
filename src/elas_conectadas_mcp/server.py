@@ -362,6 +362,19 @@ def recurso_acesso_cras() -> str:
     return json.dumps(free_legal_aid_directory.cras_guide(), ensure_ascii=False)
 
 
+
+@mcp.tool()
+def orientar_acesso_moradia_popular(uf: str | None = None, municipio: str | None = None) -> dict:
+    """Explica a prioridade de mulheres no Minha Casa, Minha Vida e o acesso municipal."""
+    return free_legal_aid_directory.housing_guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("habitacao://minha-casa-minha-vida-mulheres")
+def recurso_prioridade_habitacional_mulheres() -> str:
+    """Resource com direitos e limites da prioridade habitacional para mulheres."""
+    return json.dumps(free_legal_aid_directory.housing_guide(), ensure_ascii=False)
+
+
 @mcp.tool()
 def orientar_busca_ongs_coletivos_mulheres(
     uf: str | None = None, municipio: str | None = None
