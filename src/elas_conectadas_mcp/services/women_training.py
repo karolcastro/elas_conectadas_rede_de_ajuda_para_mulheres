@@ -58,6 +58,66 @@ PROGRAMS = [
         "opportunity_directory_url": "https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9",
         "verification_date": "2026-11-03",
         "status_note": "No Painel de Oportunidades do Pronatec, filtre Mulheres Mil e selecione Novembro ou Dezembro. Depois, confirme requisitos, prazo e inscrição diretamente com a instituição responsável. Não presumir que vagas continuam abertas.",
+    },,
+    {
+        "id": "br-womakerscode-introducao-ia",
+        "name": "Introdução à Inteligência Artificial — Mais Mulheres em Tech",
+        "provider": "WoMakersCode / Mais Mulheres em Tech",
+        "audience": "Mulheres interessadas em aprender fundamentos de IA generativa e aplicações práticas no trabalho, nos estudos e no cotidiano.",
+        "coverage": "Brasil",
+        "ufs": [],
+        "format": "Online, autoinstrucional",
+        "free": True,
+        "certificate": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "curso",
+        "content": ["fundamentos de inteligência artificial", "IA generativa", "produtividade", "uso responsável de IA", "Copilot e ferramentas digitais"],
+        "enrollment_status": "Página oficial do curso acessível na verificação de 04/11/2026. A página não informa prazo de inscrição nem quantidade de vagas; confirme se o acesso continua disponível na plataforma.",
+        "application_url": "https://www.maismulheres.tech/courses/introducao-inteligencia-artificial",
+        "official_source": "https://www.womakerscode.org/programas",
+        "verification_date": "2026-11-04",
+        "status_note": "A página do curso declara modalidade online, gratuidade e certificado. A plataforma Mais Mulheres em Tech é apresentada como criada por mulheres para mulheres. A disponibilidade de acesso deve ser reconfirmada no destino.",
+    },
+    {
+        "id": "br-womakerscode-como-conseguir-emprego",
+        "name": "Como Conseguir um Emprego — Mais Mulheres em Tech",
+        "provider": "WoMakersCode / Mais Mulheres em Tech",
+        "audience": "Mulheres que buscam o primeiro emprego ou recolocação profissional.",
+        "coverage": "Brasil",
+        "ufs": [],
+        "format": "Online, autoinstrucional",
+        "free": True,
+        "certificate": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "curso",
+        "content": ["currículo", "busca de vagas", "candidaturas", "LinkedIn", "preparação para entrevistas"],
+        "enrollment_status": "Página oficial do curso acessível na verificação de 04/11/2026. A página não informa prazo de inscrição nem quantidade de vagas; confirme se o acesso continua disponível na plataforma.",
+        "application_url": "https://www.maismulheres.tech/courses/como-conseguir-um-emprego",
+        "official_source": "https://www.womakerscode.org/programas",
+        "verification_date": "2026-11-04",
+        "status_note": "A página do curso declara modalidade online, gratuidade e certificado. A plataforma Mais Mulheres em Tech é apresentada como criada por mulheres para mulheres. A disponibilidade de acesso deve ser reconfirmada no destino.",
+    },
+    {
+        "id": "br-womakerscode-lideranca-feminina",
+        "name": "Liderança Feminina e Soft Skills — Mais Mulheres em Tech",
+        "provider": "WoMakersCode / Mais Mulheres em Tech",
+        "audience": "Mulheres interessadas em desenvolver liderança, comunicação e habilidades profissionais.",
+        "coverage": "Brasil",
+        "ufs": [],
+        "format": "Online, conteúdo gravado e autoinstrucional",
+        "free": True,
+        "certificate": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "curso",
+        "content": ["liderança feminina", "soft skills", "autoconhecimento", "planejamento de carreira", "comunicação", "organização financeira"],
+        "enrollment_status": "Conteúdo gravado disponível na página oficial consultada em 04/11/2026. Não é uma turma ao vivo; confirme acesso e condições de certificado na plataforma.",
+        "application_url": "https://www.maismulheres.tech/courses/lideranca-feminina-e-soft-skills",
+        "official_source": "https://www.womakerscode.org/programas",
+        "verification_date": "2026-11-04",
+        "status_note": "A página declara que o conteúdo é gratuito, online, com interpretação em Libras e certificado. O curso reúne gravações de um bootcamp realizado em 2020; não deve ser apresentado como turma nova ou mentoria ao vivo.",
     },
 ]
 
@@ -75,6 +135,7 @@ class WomenTrainingDirectory:
             or item["coverage"] == "Brasil"
             or normalized_uf in item.get("ufs", [])
         ]
+        matches.sort(key=lambda item: (item.get("priority", 1), item["name"].casefold()))
         return {
             "programs": matches,
             "count": len(matches),
@@ -82,8 +143,11 @@ class WomenTrainingDirectory:
             "important_notice": (
                 "Gratuidade e público-alvo são descritos nas fontes indicadas. Vagas, inscrições, "
                 "datas, elegibilidade e disponibilidade podem mudar; confirme no portal oficial "
-                "ou com a instituição antes de se inscrever. O agente não solicita CPF, senha, "
-                "login, e-mail ou documentos. Se um serviço externo exigir conta gov.br, a usuária "
+                "ou com a instituição antes de se inscrever. Iniciativas criadas por mulheres "
+                "para mulheres ou destinadas especificamente ao público feminino aparecem primeiro. "
+                "Comunidades, cursos autoinstrucionais, turmas com inscrições abertas e programas "
+                "encerrados devem ser diferenciados. O agente não solicita CPF, senha, login, e-mail "
+                "ou documentos. Se um serviço externo exigir conta gov.br, a usuária "
                 "deve acessar diretamente o site oficial e nunca compartilhar a senha com o agente."
             ),
         }
