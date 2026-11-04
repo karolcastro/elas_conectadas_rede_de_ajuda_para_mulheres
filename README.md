@@ -461,3 +461,17 @@ Fontes oficiais:
 - SESAU Alagoas — notícia sobre pontos no interior, atualizada em 25/02/2026: https://www.saude.al.gov.br/rede-de-atencao-as-violencias-promove-acoes-socioeducativas-no-porto-de-maceio/
 
 **Métricas atuais após a rodada:** 208 registros, 208 IDs únicos, 27 UFs e 154 combinações município/UF. São 47 registros com gratuidade expressamente confirmada e 161 com custo não confirmado. Cobertura municipal parcial; presença em diretório não garante vaga, disponibilidade, funcionamento ininterrupto ou atendimento imediato.
+
+
+### Expansão estadual — Mato Grosso do Sul (04/11/2026)
+
+Foram adicionadas **40 referências** a partir do diretório oficial estadual "Não Se Cale":
+- 11 centros municipais de referência/atendimento à mulher: Jardim, Dourados, Paranaíba, Aquidauana, Corumbá, Coxim, Fátima do Sul, Naviraí, Nova Andradina, Três Lagoas e Rio Brilhante.
+- 13 Delegacias de Atendimento à Mulher (DEAMs): Aquidauana, Bataguassu, Campo Grande, Corumbá, Coxim, Dourados, Fátima do Sul, Jardim, Naviraí, Nova Andradina, Paranaíba, Ponta Porã e Três Lagoas.
+- 16 pontos do PROMUSE/Programa Mulher Segura vinculados à Polícia Militar: Amambai, Aquidauana, Batayporã, Bonito, Caarapó, Campo Grande, Dourados, Fátima do Sul, Inocência, Jardim, Naviraí, Nova Andradina, Paranaíba, Pedro Gomes, Ponta Porã e Três Lagoas.
+
+Os registros PROMUSE foram classificados como proteção/policiamento especializado, não como delegacia ou plantão de emergência. Os horários não publicados foram deixados sem confirmação. A fonte oficial não declara gratuidade individual para esses serviços; os 40 registros permanecem com custo não confirmado.
+
+Fonte oficial: https://www.naosecale.ms.gov.br/fale-conosco/outros-contatos/
+
+**Métricas após a rodada:** 248 registros, 248 IDs únicos, 27 UFs e 177 combinações município/UF. São 47 registros com gratuidade expressamente confirmada e 201 com custo não confirmado. A cobertura é parcial e a presença em diretório não garante disponibilidade imediata.
