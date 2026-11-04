@@ -207,7 +207,7 @@ class FreeLegalAidDirectory:
                 "Atendimento especializado a famílias e indivíduos (PAEFI).",
                 "Orientação sobre direitos e apoio para acesso a serviços públicos."
             ],
-            "official_locator": "https://aplicacoes.mds.gov.br/sagi/atendimento/",
+            "official_locator": "https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/",
             "official_source": CREAS_MDS_URL,
             "source_last_updated": "2026-10-26",
             "how_to_access": [
