@@ -1490,3 +1490,23 @@ Fontes:
 - Minha Casa, Minha Vida é política habitacional subsidiada e possui modalidades distintas; não classificar genericamente como gratuito.
 - Mulheres Mil tem editais e turmas por instituição; uma notícia de vagas de outubro não comprova inscrição aberta em novembro.
 - Não solicitar documentos, CPF, senha, relato detalhado de violência ou medida protetiva no chat.
+
+
+## Alimentação gratuita e segurança alimentar — 04/11/2026
+
+O módulo `FreeLegalAidDirectory` agora oferece `food_security_guide(uf, municipality)`, exposto no MCP como `orientar_acesso_alimentacao_gratuita` e no resource `alimentacao://apoio-gratuito`.
+
+Opções apresentadas, com prioridade para as gratuitas:
+- **Cozinhas Solidárias:** iniciativas da sociedade civil que oferecem refeições gratuitas, priorizando pessoas em vulnerabilidade socioeconômica e insegurança alimentar. O MDS informa mais de 2 mil cozinhas em funcionamento no país. A mulher deve confirmar local, dias e horários diretamente com a unidade ou pela rede municipal.
+- **Cozinhas Comunitárias:** equipamentos públicos que podem oferecer refeições gratuitas ou a baixo custo. O valor e os critérios variam por unidade e município.
+- **Restaurantes Populares:** equipamentos de acesso universal com refeições a preços acessíveis; algumas localidades podem adotar gratuidade ou preço simbólico para grupos prioritários, mas isso não é garantido nacionalmente.
+- **Benefícios Eventuais:** em situação de falta de alimentação, a mulher pode solicitar avaliação à assistência social municipal. A concessão e a forma do benefício dependem das regras locais.
+
+O guia não possui consulta georreferenciada nem confirma unidade, vaga, distribuição ou horário em cada município. Não inventa endereço e não promete refeição imediata.
+
+Fontes oficiais:
+- Programa Cozinha Solidária: https://www.gov.br/mds/pt-br/acoes-e-programas/acesso-a-alimentos-e-a-agua/programa-cozinha-solidaria
+- Cozinhas Comunitárias: https://www.gov.br/mds/pt-br/acoes-e-programas/equipamentos-de-seguranca-alimentar-e-nutricional/cozinha-comunitaria/cozinha-comunitaria/
+- Restaurantes Populares: https://www.gov.br/pt-br/servicos/acessar-os-restaurantes-populares
+- Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
+- Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
