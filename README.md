@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo de 166 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 119 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
+Projeto em desenvolvimento com servidor MCP, catálogo de 171 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 124 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
@@ -398,3 +398,16 @@ Fonte: https://www.pc.ro.gov.br/unidades-policiais/
 O registro do CREAM de Manaus também foi corrigido conforme o diretório da SEJUSC: endereço Avenida Presidente Kennedy, 39, Educandos, contatos telefônicos e horário de segunda a sexta, 8h às 17h. A gratuidade permanece não confirmada.
 
 Fonte: https://www.sejusc.am.gov.br/mulheres/
+
+
+### Revisão de fontes oficiais — 04/11/2026
+
+O catálogo foi ampliado com cinco referências de núcleos/delegacias especializados em Mato Grosso, nos municípios de Nobres, Nova Mutum, Nova Xavantina, Querência e Alto Araguaia. A fonte estadual informa endereço, telefone, e-mail e horário comercial para os registros. A gratuidade não é declarada expressamente e permanece não confirmada.
+
+O registro do Centro de Referência da Mulher Brasileira de Cariacica/ES foi revalidado com a notícia oficial de inauguração de 09/10/2026: Rua Rio Branco, 446, bairro Rio Branco; telefone (27) 3354-5565; segunda a sexta, 8h–18h. A publicação confirma atendimento psicológico, social e orientação jurídica, mas a gratuidade individual não é explicitada.
+
+Fontes:
+- Mato Grosso: https://mulher.mt.gov.br/atendimentos
+- Cariacica/ES: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/outubro-defeso-eleitoral/centro-de-referencia-da-mulher-brasileira-em-cariacica-es-oferecera-atendimento-a-mulheres-em-situacao-de-violencia
+
+O catálogo agora contém 171 registros em 27 UFs: 47 com gratuidade expressamente confirmada e 124 com custo não confirmado. A cobertura municipal continua parcial.
