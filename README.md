@@ -228,3 +228,10 @@ A cobertura específica não representa atendimento nacional completo. Os dados 
 A orientação jurídica também aponta para o **CREAS**, serviço público e gratuito do SUAS que atende pessoas e famílias com direitos violados, incluindo violência física, psicológica e sexual. O MDS disponibiliza localizador oficial por município; se não houver CREAS local, a orientação oficial é procurar a assistência social da prefeitura. A ferramenta não presume endereço ou vaga.
 
 Contatos especializados adicionais registrados: **Minas Gerais** — NUDEM/Belo Horizonte, (31) 98475-2616 e (31) 98239-8863, 11h–17h; **Pernambuco** — NUDEM, WhatsApp (81) 99488-3765, atendimento inicial exclusivamente por mensagem e respostas por ordem de chegada. Escopo geográfico e condições estão na documentação técnica.
+
+
+### Ferramenta MCP dedicada — CREAS
+- Tool: `orientar_acesso_creas(uf, municipio)`
+- Resource: `assistencia://creas`
+- Prompt: `orientar_busca_apoio_psicossocial`
+- Usa o localizador oficial do MDS e informa que o CREAS é público e gratuito. Não inventa unidades, vagas ou disponibilidade.
