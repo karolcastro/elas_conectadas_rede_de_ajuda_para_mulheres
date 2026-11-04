@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo de 195 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 148 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
+Projeto em desenvolvimento com servidor MCP e catálogo de **322 referências**, distribuídas pelas **27 UFs** e por **226 combinações município/UF** (verificação em 04/11/2026). Os 322 IDs são únicos. Há **49 registros com gratuidade expressamente confirmada** e **273 com custo não confirmado**; estes últimos não podem ser apresentados como gratuitos. A cobertura municipal é parcial e não representa todos os municípios. A busca não calcula distância nem confirma disponibilidade operacional. Para cursos, o diretório prioriza iniciativas criadas por mulheres para mulheres, como WoMakersCode / Mais Mulheres em Tech, e diferencia conteúdo autoinstrucional de turmas com inscrições abertas. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
@@ -556,3 +556,21 @@ Fonte oficial:
 - https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
 
 **Métricas após o complemento:** 322 registros, 322 IDs únicos, presença nas 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 273 com custo não confirmado.
+
+
+## Capacitação feminina — diretório priorizado
+
+O módulo `WomenTrainingDirectory` foi ampliado com três cursos gratuitos da WoMakersCode / Mais Mulheres em Tech, iniciativa criada por mulheres para mulheres:
+- Introdução à Inteligência Artificial — curso online, autoinstrucional e com certificado.
+- Como Conseguir um Emprego — currículo, busca de vagas, LinkedIn e entrevistas; online e gratuito.
+- Liderança Feminina e Soft Skills — conteúdo gravado, gratuito, online, com certificado e interpretação em Libras.
+
+As páginas dos cursos foram consultadas em 04/11/2026. A página oficial não publica prazo ou quantidade de vagas para os cursos autoinstrucionais; por isso, o agente informa que o conteúdo estava acessível na verificação e orienta confirmar o acesso diretamente na plataforma. O conteúdo de liderança é gravação de bootcamp de 2020, não uma nova turma ao vivo.
+
+A busca agora ordena primeiro as iniciativas de mulheres para mulheres e mantém cursos nacionais disponíveis quando a pesquisa é filtrada por UF. Isso não significa que todos os bootcamps da organização estejam abertos: as turmas com inscrições encerradas continuam fora dos resultados como oportunidades abertas.
+
+Fontes oficiais:
+- WoMakersCode — programas: https://www.womakerscode.org/programas
+- Introdução à IA: https://www.maismulheres.tech/courses/introducao-inteligencia-artificial
+- Como Conseguir um Emprego: https://www.maismulheres.tech/courses/como-conseguir-um-emprego
+- Liderança Feminina e Soft Skills: https://www.maismulheres.tech/courses/lideranca-feminina-e-soft-skills
