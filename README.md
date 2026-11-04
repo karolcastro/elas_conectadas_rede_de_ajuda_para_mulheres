@@ -605,3 +605,16 @@ Essas entradas não devem ser apresentadas como vagas abertas. Fontes:
 - https://minasprogramam.com/cursos/
 - https://brasil.pyladies.com/about/
 - https://portal.pyladies.com/chapters/
+
+
+
+### Atualização WoMakersCode — Computação em Nuvem (04/11/2026)
+
+Incluído o curso **Introdução à Computação em Nuvem — Mais Mulheres em Tech**, gratuito, online, autoinstrucional, com 9,5 horas, 46 lições e certificado. Conteúdo: fundamentos de cloud, AWS, Azure, Google Cloud, infraestrutura, redes, bancos de dados, automação, escalabilidade e segurança. A página institucional da WoMakersCode o apresenta na seção de programas com inscrições abertas; a página individual não informa prazo final ou quantidade de vagas. Confirmar acesso diretamente no portal.
+
+Também foi refinada a descrição da PyLadies: diretórios de capítulos e contatos não comprovam atividade recente de cada grupo.
+
+Fontes:
+- https://www.womakerscode.org/
+- https://www.maismulheres.tech/courses/introducao-a-computacao-em-nuvem
+- https://python.org.br/pyladies/
