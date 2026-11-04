@@ -962,3 +962,35 @@ A fonte declara atendimento gratuito, sem necessidade de agendamento, de segunda
 ### Ressalva importante sobre as Casas da Mulher Brasileira
 
 A publicação federal de agosto de 2026 confirma 13 Casas da Mulher Brasileira em funcionamento e atendimento 24 horas, mas a declaração de gratuidade que aparece na mesma página refere-se ao Ligue 180, não às Casas. Para evitar inferência, os registros das Casas foram corrigidos para `free: null` e custo não confirmado. Eles não devem ser apresentados como gratuitos até confirmação explícita por fonte oficial ou pela unidade. A unidade de São Paulo já estava no catálogo e foi mantida como registro único.
+
+
+## 43. Expansão municipal — Acre, Goiás, Piauí e Espírito Santo
+
+Em 04/11/2026, oito referências municipais de Centros de Referência da Mulher Brasileira foram incorporadas ao catálogo:
+
+| UF | Município | Evidência registrada |
+|---|---|---|
+| AC | Cruzeiro do Sul | Secretaria de Estado da Mulher publica telefone local |
+| AC | Brasiléia | Secretaria de Estado da Mulher publica telefone local |
+| GO | Águas Lindas de Goiás | Ministério das Mulheres registra inauguração |
+| GO | Jataí | Ministério das Mulheres publica inauguração e endereço |
+| GO | Cidade Ocidental | Prefeitura publica página do Centro, telefone e horário |
+| GO | Santo Antônio do Descoberto | Ministério das Mulheres inclui a unidade entre os CRMBs em funcionamento em Goiás |
+| PI | São Raimundo Nonato | Ministério das Mulheres publica inauguração, endereço e abrangência regional de 18 municípios |
+| ES | Cariacica | Ministério das Mulheres publica inauguração, endereço, telefone e horário |
+
+### Custo e recomendação
+Nenhuma das fontes específicas consultadas declara de forma inequívoca a gratuidade individual de todas essas oito unidades. Os registros permanecem com `free: null`, `cost_status: not_confirmed_by_official_source` e `recommendation_status: cost_confirmation_required`. O agente não pode apresentá-los como opções gratuitas confirmadas. Deve explicar que são referências institucionais e orientar a confirmação direta do custo, funcionamento, critérios e disponibilidade.
+
+### Fontes oficiais
+- Acre — Secretaria de Estado da Mulher: https://semulher.ac.gov.br/voce-nao-esta-sozinha/
+- Goiás — Águas Lindas: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2025/outubro/em-aguas-lindas-de-goias-marcia-lopes-inaugura-centro-de-referencia-da-mulher-brasileira
+- Goiás — Jataí: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2024/marco/em-goias-municipio-de-jatai-ganha-primeiro-centro-de-referencia-da-mulher-brasileira-nesta-sexta-feira-8
+- Goiás — Cidade Ocidental: https://cidadeocidental.go.gov.br/centro-de-referencia-da-mulher-brasileira/
+- Goiás — quatro unidades em funcionamento: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/junho/ministra-marcia-lopes-visita-rede-de-protecao-as-mulheres-em-cidade-ocidental-go
+- Piauí — São Raimundo Nonato: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/janeiro/sao-raimundo-nonato-inaugura-primeiro-centro-de-referencia-da-mulher-brasileira
+- Espírito Santo — Cariacica: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/outubro-defeso-eleitoral/centro-de-referencia-da-mulher-brasileira-em-cariacica-es-oferecera-atendimento-a-mulheres-em-situacao-de-violencia
+
+### Limite da cobertura nacional
+A existência de registros em uma UF não significa cobertura de todos os seus municípios. O Painel da Rede do Ministério das Mulheres permite pesquisa por estado e município e reúne diversas categorias de serviços; esta implementação ainda não importa automaticamente os dados do painel. A ausência de resultado no catálogo local não significa ausência de atendimento. A consulta oficial deve continuar disponível como rota complementar:
+https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento
