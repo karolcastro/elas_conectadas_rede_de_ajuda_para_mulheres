@@ -15,6 +15,10 @@ BA_DEFENSORIA_SERVICE_URL = "https://www.ba.gov.br/servico/dpe/solicitar-atendim
 BA_DEFENSORIA_CONTACT_URL = "https://www.ba.gov.br/ouvidoria/120/dpe"
 PR_DEFENSORIA_SERVICE_URL = "https://www.parana.pr.gov.br/servicos/Servicos/Mulher/Solicitar-atendimento-na-Defensoria-Publica-do-Estado-do-Parana-K03Yaq34"
 PR_NUDEM_URL = "https://www.defensoriapublica.pr.def.br/Pagina/Nucleo-de-Promocao-e-Defesa-dos-Direitos-das-Mulheres"
+MG_NUDEM_URL = "https://defensoria.mg.def.br/contatos-para-o-atendimento/"
+PE_NUDEM_URL = "https://www.defensoria.pe.def.br/noticias/detalhe/4300/"
+PE_CAPITAL_DIRECTORY_URL = "https://www.defensoria.pe.def.br/enderecos/capital/"
+CREAS_MDS_URL = "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-especializado-de-assistencia-social-creas"
 
 
 class FreeLegalAidDirectory:
@@ -88,6 +92,31 @@ class FreeLegalAidDirectory:
                 "source_last_updated": "2026-09-29",
                 "purpose": "Núcleo especializado em promoção e defesa dos direitos das mulheres; atendimento somente com agendamento."
             })
+        if normalized_uf == "MG":
+            state_specific_contacts.append({
+                "name": "Defensoria Pública de Minas Gerais — NUDEM/Belo Horizonte",
+                "phone": "(31) 98475-2616 / (31) 98239-8863",
+                "service_hours": "Segunda a sexta-feira, das 11h às 17h.",
+                "free": True,
+                "service_modes": ["chamada", "WhatsApp"],
+                "email": "atendimentonudembh@defensoria.mg.def.br",
+                "official_source": MG_NUDEM_URL,
+                "source_last_updated": "2025-06-23",
+                "important_notice": "Contato publicado para o NUDEM em Belo Horizonte. Não presumir que seja canal de atendimento de todo o estado; para outras cidades, consulte a lista de unidades e contatos psicossociais no site oficial."
+            })
+        if normalized_uf == "PE":
+            state_specific_contacts.append({
+                "name": "Defensoria Pública de Pernambuco — NUDEM",
+                "phone": "(81) 99488-3765",
+                "service_hours": "Página de endereços informa 8h às 16h; confirme disponibilidade por mensagem.",
+                "free": True,
+                "service_modes": ["WhatsApp por mensagem"],
+                "email": "defesadamulher@defensoria.pe.gov.br",
+                "appointment_required": False,
+                "official_source": PE_NUDEM_URL,
+                "source_last_updated": "2026-09-25",
+                "important_notice": "A notícia oficial informa que o atendimento inicial é exclusivamente por mensagem e respondido por ordem de chegada. Se for necessário comparecer à sede após orientação, a notícia informa que não é necessário agendamento prévio. O endereço/horário devem ser confirmados na página oficial da capital."
+            })
         return {
             "service": "Assistência jurídica gratuita",
             "requested_location": {
@@ -117,6 +146,12 @@ class FreeLegalAidDirectory:
                     "purpose": "Orienta sobre direitos e indica serviços da rede local; atendimento gratuito 24 horas.",
                 },
                 {
+                    "name": "Ministério do Desenvolvimento e Assistência Social — CREAS",
+                    "url": CREAS_MDS_URL,
+                    "purpose": "Serviço público e gratuito de proteção social especial para pessoas e famílias com direitos violados, incluindo violência física, psicológica e sexual; permite localizar unidades por município.",
+                    "source_last_updated": "2026-10-26",
+                },
+                {
                     "name": "Painel da Rede de Atendimento",
                     "url": PANEL_URL,
                     "purpose": "Permite localizar serviços da rede por estado e município.",
@@ -129,6 +164,9 @@ class FreeLegalAidDirectory:
                 "Em São Paulo, use o telefone estadual 0800 773 4340 ou o agendamento online; o atendimento exige agendamento prévio.",
                 "Na Bahia, use o Disque Defensoria 129 ou 0800 071 3121; confirme a opção adequada e os critérios diretamente com a DPE-BA.",
                 "No Paraná, consulte o NUDEM pelo telefone (41) 99285-8134 ou e-mail nudem@defensoria.pr.def.br; o núcleo atende somente com agendamento, presencial ou remotamente.",
+                "Em Minas Gerais, os contatos publicados do NUDEM em Belo Horizonte são (31) 98475-2616 e (31) 98239-8863, de 11h às 17h; para outras cidades, consulte a lista oficial de unidades.",
+                "Em Pernambuco, o NUDEM recebe mensagens pelo WhatsApp (81) 99488-3765; atendimento inicial exclusivamente por mensagem e resposta por ordem de chegada.",
+                "Para apoio socioassistencial gratuito em qualquer estado, procure o CREAS municipal; consulte a unidade no localizador oficial do MDS. Se não houver CREAS no município, procure a assistência social da prefeitura.",
                 "Para demanda relacionada à violência contra a mulher em São Paulo, consulte a página do NUDEM; se não houver contato direto publicado, solicite encaminhamento pelo canal geral da Defensoria.",
                 "Se não encontrar o núcleo local, use o Ligue 180 para orientação e encaminhamento na rede.",
             ],
