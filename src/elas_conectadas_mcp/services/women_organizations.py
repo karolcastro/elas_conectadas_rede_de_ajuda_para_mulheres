@@ -9,6 +9,9 @@ LIGUE_180_URL = "https://www.gov.br/mulheres/pt-br/ligue180"
 TAMOJUNTAS_URL = "https://tamojuntas.org.br/"
 TAMOJUNTAS_SERVICE_URL = "https://tamojuntas.org.br/elementor-2722/"
 MAPA_ACOLHIMENTO_URL = "https://www.mapadoacolhimento.org/atendimento/"
+MARIA_DAJUDA_URL = "https://mariadajuda.org/"
+MARIAS_DA_INTERNET_URL = "https://www.mariasdainternet.com.br/"
+SAFERNET_HELPLINE_URL = "https://new.safernet.org.br/helpline"
 VERIFICATION_DATE = "2026-11-03"
 
 
@@ -85,6 +88,30 @@ class WomenOrganizationsGuide:
                 "verification_date": VERIFICATION_DATE,
                 "verification_basis": "Página oficial Peça ajuda no Mapa do Acolhimento.",
             },
+            {
+                "name": "Maria d'Ajuda — MariaLab",
+                "organization_type": "Linha de ajuda em segurança digital criada por organização feminista",
+                "support": [
+                    "acolhimento e orientação em segurança digital",
+                    "orientação em casos de perda de contas, ataques de ódio e assédio online",
+                    "orientação em situações de perseguição, repressão e censura digital",
+                    "estratégias de mitigação de danos em ameaças digitais",
+                ],
+                "audience": "Mulheres, pessoas não binárias, pessoas LGBTQIA+ e organizações da América Latina, conforme a apresentação institucional.",
+                "cost": "Gratuito, conforme declaração institucional.",
+                "service_modes": ["online por e-mail"],
+                "territorial_scope": "América Latina; a página institucional não restringe o atendimento a um município específico.",
+                "contact_email": "sos@mariadajuda.org",
+                "website": MARIA_DAJUDA_URL,
+                "response_time": "A página informa retorno em até 2 dias após o envio do e-mail; confirmar a condição atual diretamente com a equipe.",
+                "limitations": (
+                    "Atendimento especializado em segurança e cuidados digitais; não substitui emergência policial, "
+                    "assistência jurídica ou atendimento psicológico. A equipe informa que encaminha para outras linhas "
+                    "quando a demanda não é de segurança digital."
+                ),
+                "verification_date": VERIFICATION_DATE,
+                "verification_basis": "Página institucional da Maria d'Ajuda/MariaLab, com declaração de gratuidade, público, escopo e canal de contato.",
+            },
         ]
         return {
             "purpose": "Descobrir organizações da sociedade civil, ONGs e iniciativas de apoio a mulheres.",
@@ -93,6 +120,23 @@ class WomenOrganizationsGuide:
                 "municipality": municipality.strip() if municipality else None,
             },
             "verified_organizations": verified_organizations,
+            "organizations_requiring_cost_confirmation": [
+                {
+                    "name": "Marias da Internet",
+                    "support": "Orientação jurídica, psicológica e de perícia digital para mulheres vítimas de divulgação não autorizada de imagens íntimas, conforme página institucional.",
+                    "website": MARIAS_DA_INTERNET_URL,
+                    "cost": "Não confirmado nas páginas institucionais consultadas. Não apresentar como gratuito até confirmação direta.",
+                    "limitations": "O site disponibiliza um canal para solicitar ajuda, mas a gratuidade e a disponibilidade atual não foram confirmadas nesta verificação.",
+                    "verification_date": VERIFICATION_DATE,
+                }
+            ],
+            "scope_notes": [
+                {
+                    "name": "SaferNet — Helpline",
+                    "note": "A página oficial informa que o Helpline atende crianças e adolescentes e que adultos não são elegíveis para orientação individual. Não recomendar como canal geral para mulheres adultas.",
+                    "url": SAFERNET_HELPLINE_URL,
+                }
+            ],
             "discovery_sources": [
                 {
                     "name": "IPEA — Mapa das Organizações da Sociedade Civil",
