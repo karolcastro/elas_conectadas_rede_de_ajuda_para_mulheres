@@ -246,16 +246,20 @@ class FreeLegalAidDirectory:
                 "Orientação sobre benefícios assistenciais e programas sociais.",
                 "Inscrição e atualização do Cadastro Único, conforme fluxo municipal.",
                 "Serviço de Convivência e Fortalecimento de Vínculos (SCFV), conforme oferta local.",
-                "Encaminhamento para outros serviços da rede socioassistencial."
+                "Encaminhamento para outros serviços da rede socioassistencial.",
+
+            "Benefícios Eventuais da Assistência Social, conforme regulamentação municipal, para situações temporárias de vulnerabilidade, que podem incluir falta de alimentação, necessidade de abrigo/moradia temporária, transporte ou outras necessidades urgentes.",
             ],
             "official_locator": "https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/",
             "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/centro-de-referencia-de-assistencia-social-cras",
             "cadunico_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/cadastro-unico/Cadastro-unico/",
+            "beneficios_eventuais_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais",
             "how_to_access": [
                 "Procure o CRAS mais próximo ou o posto de atendimento do Cadastro Único do município.",
                 "A inscrição e a atualização do Cadastro Único são gratuitas e presenciais.",
                 "A lista de documentos e o fluxo de atendimento devem ser confirmados com o município; o MDS informa CPF dos integrantes da família e documento de identificação do responsável familiar.",
-                "A inscrição no Cadastro Único não garante concessão automática de Bolsa Família ou de outro benefício."
+                "A inscrição no Cadastro Único não garante concessão automática de Bolsa Família ou de outro benefício.",
+                "Em situação de falta de alimentos, desabrigo ou outra vulnerabilidade temporária, solicite avaliação para Benefício Eventual diretamente à assistência social municipal; concessão, formato, documentos e critérios dependem da regulamentação local."
             ],
             "limitations": [
                 "O localizador do MDS é uma fonte para descobrir unidades; não confirma horário, vaga ou atendimento imediato.",
@@ -263,4 +267,47 @@ class FreeLegalAidDirectory:
                 "Não envie CPF, documentos ou dados familiares ao agente. A usuária deve tratar documentos diretamente com o posto oficial."
             ],
             "verification_status": "official_mds_sources_checked_2026-11-04"
+        }
+
+
+    def housing_guide(self, *, uf: str | None = None, municipality: str | None = None) -> dict[str, Any]:
+        """Orienta sobre prioridade de mulheres no Minha Casa, Minha Vida sem prometer unidade."""
+        if uf and (len(uf.strip()) != 2 or not uf.strip().isalpha()):
+            raise ValueError("Informe a sigla da UF com duas letras.")
+        if municipality and len(municipality.strip()) < 2:
+            raise ValueError("Informe um município válido.")
+        return {
+            "service": "Orientação sobre prioridade de mulheres no Minha Casa, Minha Vida",
+            "requested_location": {
+                "uf": uf.strip().upper() if uf else None,
+                "municipality": municipality.strip() if municipality else None,
+            },
+            "public_program": True,
+            "free": False,
+            "cost_status": "Programa habitacional subsidiado; não significa moradia gratuita em todas as modalidades.",
+            "priority_groups": [
+                "Famílias em que a mulher é responsável pela unidade familiar.",
+                "Famílias que tenham entre seus integrantes mulheres vítimas de violência doméstica e familiar.",
+                "Outros grupos prioritários previstos na legislação, como famílias em vulnerabilidade social, pessoas com deficiência, idosos, crianças e adolescentes, pessoas em situação de rua e moradores de áreas de risco."
+            ],
+            "rights": [
+                "Na provisão subsidiada, mulheres responsáveis pela família e famílias com mulheres vítimas de violência doméstica e familiar estão entre os grupos prioritários.",
+                "Os contratos e registros são formalizados preferencialmente em nome da mulher, observadas as regras legais e a modalidade do programa.",
+                "As regras específicas de titularidade e proteção não se aplicam indistintamente a todas as modalidades; conferir o contrato e a modalidade."
+            ],
+            "how_to_access": [
+                "Manter o Cadastro Único atualizado, quando exigido pela modalidade.",
+                "Procurar a Secretaria Municipal de Habitação ou o órgão habitacional responsável no município para conhecer inscrições, seleção e critérios locais.",
+                "Consultar as informações oficiais do Ministério das Cidades sobre a modalidade aplicável.",
+                "Mulheres sob medida protetiva ou em situação de violência podem pedir orientação ao Ligue 180 e à rede local de atendimento; não é necessário relatar detalhes ao agente."
+            ],
+            "official_source": "https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/habitacao/programa-minha-casa-minha-vida/guia-dos-beneficiarios-2013-programa-minha-casa-minha-vida-pmcmv/programa-minha-casa-minha-vida-pmcmv-perguntas-frequentes/8-existem-criterios-de",
+            "women_rights_source": "https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/dia-nacional-da-habitacao-conheca-os-direitos-das-mulheres-no-minha-casa-minha-vida",
+            "limitations": [
+                "O programa não é automaticamente gratuito; subsídio, prestações, renda máxima, documentação e critérios variam por modalidade e regras vigentes.",
+                "Prioridade não garante seleção, contemplação, imóvel ou prazo de entrega.",
+                "Inscrições e seleções dependem do município e da modalidade; este guia não confirma cadastro aberto ou disponibilidade local.",
+                "Não envie CPF, documentos, medida protetiva ou dados sensíveis ao agente."
+            ],
+            "verification_status": "official_ministry_sources_checked_2026-11-04"
         }
