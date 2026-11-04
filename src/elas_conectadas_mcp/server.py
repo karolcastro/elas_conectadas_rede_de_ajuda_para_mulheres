@@ -316,6 +316,31 @@ def orientar_busca_defensoria_mulher() -> str:
     )
 
 
+
+@mcp.tool()
+def orientar_acesso_creas(uf: str | None = None, municipio: str | None = None) -> dict:
+    """Orienta acesso gratuito ao CREAS e localizador oficial do MDS."""
+    return free_legal_aid_directory.creas_guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("assistencia://creas")
+def recurso_acesso_creas() -> str:
+    """Resource com informações oficiais sobre o CREAS e acesso gratuito."""
+    return json.dumps(free_legal_aid_directory.creas_guide(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_busca_apoio_psicossocial() -> str:
+    """Prompt para orientar acesso ao CREAS sem prometer vaga ou atendimento."""
+    return (
+        "Oriente a mulher a localizar o CREAS pelo localizador oficial do MDS. "
+        "Explique que é um serviço público e gratuito para pessoas e famílias com direitos violados, "
+        "incluindo violência física, psicológica e sexual. Se não houver CREAS no município, "
+        "oriente procurar a assistência social da prefeitura. Não invente endereço, horário, vaga "
+        "ou disponibilidade e não solicite documentos, CPF ou relato detalhado no chat."
+    )
+
+
 @mcp.tool()
 def orientar_busca_ongs_coletivos_mulheres(
     uf: str | None = None, municipio: str | None = None
