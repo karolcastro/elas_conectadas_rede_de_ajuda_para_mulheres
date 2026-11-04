@@ -1302,3 +1302,26 @@ Fonte oficial:
 - https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
 
 **Métricas após o complemento:** 322 registros, 322 IDs únicos, presença nas 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 273 com custo não confirmado.
+
+
+## 13. Diretório de capacitação feminina — revisão de 04/11/2026
+
+A busca de cursos deve priorizar iniciativas criadas por mulheres para mulheres, lideradas por mulheres ou destinadas especificamente ao público feminino. O módulo MCP `WomenTrainingDirectory` foi ampliado com três cursos da WoMakersCode / Mais Mulheres em Tech, plataforma que se apresenta como criada por mulheres para mulheres:
+
+| Curso | Conteúdo | Modalidade | Situação verificada |
+|---|---|---|---|
+| Introdução à Inteligência Artificial | Fundamentos de IA, IA generativa, produtividade e uso responsável | Online, autoinstrucional; gratuito e com certificado | Página do curso acessível na verificação de 04/11/2026; sem prazo ou quantidade de vagas publicados |
+| Como Conseguir um Emprego | Currículo, busca de vagas, LinkedIn e entrevistas | Online, autoinstrucional; gratuito e com certificado | Página do curso acessível na verificação de 04/11/2026; sem prazo ou quantidade de vagas publicados |
+| Liderança Feminina e Soft Skills | Liderança, comunicação, autoconhecimento, carreira e organização financeira | Online, conteúdo gravado; gratuito, com certificado e interpretação em Libras | Conteúdo gravado de bootcamp realizado em 2020; não é uma turma ao vivo |
+
+Links oficiais:
+- Programas WoMakersCode: https://www.womakerscode.org/programas
+- Introdução à IA: https://www.maismulheres.tech/courses/introducao-inteligencia-artificial
+- Como Conseguir um Emprego: https://www.maismulheres.tech/courses/como-conseguir-um-emprego
+- Liderança Feminina e Soft Skills: https://www.maismulheres.tech/courses/lideranca-feminina-e-soft-skills
+
+O diretório distingue cursos autoinstrucionais de bootcamps, mentorias, comunidades e turmas com inscrição aberta. A presença de uma página de curso não comprova vaga, prazo de inscrição ou disponibilidade futura; o agente deve orientar a confirmação no portal oficial. Não deve afirmar que bootcamps marcados como encerrados estão abertos. A filtragem por UF preserva oportunidades nacionais, e a ordenação prioriza as iniciativas de mulheres para mulheres.
+
+### Estado do catálogo de proteção em 04/11/2026
+
+Após conferência do JSON do repositório: **322 registros**, **322 IDs únicos**, **27 UFs**, **226 combinações município/UF**, **49 registros com gratuidade expressamente confirmada** e **273 com custo não confirmado**. A cobertura municipal permanece parcial; registro publicado não garante funcionamento, vaga ou atendimento imediato.
