@@ -1128,3 +1128,36 @@ Fontes oficiais:
 ### Métricas atuais após a ampliação
 
 O catálogo contém **190 registros**, com IDs únicos, fontes e datas de verificação preenchidos e presença nas **27 UFs**. Há **47 registros com gratuidade expressamente confirmada** e **143 com custo não confirmado**. A cobertura municipal permanece parcial e não representa todos os municípios de cada UF.
+
+
+## Expansão municipal — Alagoas e Paraíba (04/11/2026)
+
+### Alagoas — três municípios / quatro pontos de atendimento
+
+Foram adicionados:
+- Maceió — Área Lilás do Hospital da Mulher, bairro do Poço; telefones (82) 98882-9765 e (82) 98833-9061; 24 horas todos os dias.
+- Maceió — Sala Lilás do Complexo de Delegacias Especializadas (CODE), Avenida Comendador Gustavo Paiva, Mangabeiras; (82) 98833-9061; 7h às 19h diariamente.
+- Arapiraca — Área Lilás do Hospital de Emergência do Agreste, AL-220, km 5, Senador Arnon de Melo; (82) 3529-2485; 24 horas todos os dias.
+- Delmiro Gouveia — Sala Lilás no CISP; (82) 98833-4105; 7h às 19h diariamente. A página estadual consultada não publica endereço de rua, por isso o catálogo não inventa esse dado.
+
+A fonte SESAU informa que a Rede de Atenção às Violências atende mulheres e outros grupos prioritários. A gratuidade individual não está expressamente descrita na página consultada, então esses registros permanecem com `free: null`.
+
+Fontes:
+- SESAU/AL: https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
+- Prefeitura de Arapiraca, agosto de 2026: https://web.arapiraca.al.gov.br/2026/08/arapiraca-abre-programacao-do-agosto-lilas-reunindo-esporte-e-conscientizacao-com-treinao-sextou/
+
+### Paraíba — Bayeux
+
+Foi incluída referência ao Centro de Referência de Apoio à Mulher (CRAM) de Bayeux. O Diário Oficial da Paraíba de 01/05/2026 publicou aditivo de locação de imóvel destinado à instalação do serviço, no endereço Avenida Brasil, 89, bairro SESI. A publicação confirma a destinação do imóvel e o vínculo com a Secretaria Municipal de Políticas Públicas para as Mulheres e Diversidade Humana, mas não comprova por si só que o centro já iniciou atendimento, nem fornece telefone, horário ou declaração de gratuidade. O registro orienta confirmar abertura e acesso antes de deslocamento.
+
+Fonte: https://auniao.pb.gov.br/servicos/doe/2026/maio/diario-oficial-01-05-2026-portal.pdf
+
+### Minas Gerais — revalidação do CERNA
+
+O registro do Centro Estadual Risoleta Neves de Atendimento às Mulheres (CERNA), em Belo Horizonte, foi conferido no Portal MG. A página oficial declara o serviço gratuito, com atendimento presencial ou virtual para mulheres em situação de violência em qualquer município do estado; telefones (31) 3270-3235 e (31) 3270-3296; e-mail cerna@social.mg.gov.br; endereço Avenida Amazonas, 558, Centro, Belo Horizonte. Atendimento presencial mediante agendamento. A gratuidade permanece confirmada.
+
+Fonte: https://www.mg.gov.br/servico/solicitar-atendimento-no-centro-risoleta-neves-de-atendimento-mulheres-cerna
+
+### Métricas após a expansão
+
+O catálogo contém **195 registros**, **195 IDs únicos**, presença nas **27 UFs** e **143 combinações de município/UF**. São **47 registros com gratuidade expressamente confirmada** e **148 com custo não confirmado**. A cobertura municipal é parcial; endereço ou existência de equipamento não garante atendimento disponível.
