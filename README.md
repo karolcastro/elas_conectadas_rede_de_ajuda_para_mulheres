@@ -708,7 +708,7 @@ Fontes oficiais:
 O servidor mantém o transporte `stdio` para clientes MCP locais e agora possui um entrypoint ASGI separado para publicação experimental na Vercel:
 
 - `api/index.py`: expõe o servidor por Streamable HTTP no caminho `/mcp` e uma verificação simples de saúde em `/health`.
-- `pyproject.toml`: declara `tool.vercel.entrypoint = "api/index.py"` para o runtime Python da Vercel.
+- `pyproject.toml`: declara `tool.vercel.entrypoint = "api.index:app"` para o runtime Python da Vercel.
 - O endpoint HTTP usa modo sem estado (`stateless_http=True`), adequado ao modelo de funções serverless; o transporte stdio local não foi alterado.
 - A proteção contra DNS rebinding permanece ativa. A lista de hosts permitidos usa o hostname estável do projeto e os hostnames atribuídos pela própria Vercel por variáveis de ambiente.
 - O corpo máximo de requisição MCP foi limitado a 1 MiB nesta primeira configuração.
