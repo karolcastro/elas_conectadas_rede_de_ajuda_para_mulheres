@@ -261,3 +261,17 @@ A **Marias da Internet** aparece em uma seção separada de iniciativas especial
 **Limite importante:** o Helpline da SaferNet é voltado a crianças e adolescentes; a página oficial informa que adultos não são elegíveis para orientação individual. Não o indicar como canal geral para mulheres adultas.
 
 Fontes institucionais: https://mariadajuda.org/ ; https://www.mariasdainternet.com.br/ ; https://new.safernet.org.br/helpline
+
+
+## Priorização territorial das ONGs e iniciativas
+
+A ferramenta de ONGs agora classifica os resultados conforme a localização informada, sem excluir opções online:
+
+- Primeiro: atendimento presencial publicado para a cidade informada (TamoJuntas: Salvador, Recife, São Paulo e Rio de Janeiro).
+- Em seguida: iniciativas com escopo online nacional ou latino-americano (Mapa do Acolhimento e Maria d'Ajuda), sempre com critérios e limites de disponibilidade.
+- Depois: contato estadual publicado sem confirmação de atendimento presencial na cidade, ou orientação/encaminhamento para outras localidades.
+- Sem município/UF, o agente não presume presença local.
+
+A classificação usa os campos `locality_match`, `locality_priority` e `locality_evidence`. Ela não calcula distância, não confirma vaga ou disponibilidade e não deve ser interpretada como garantia de atendimento. A lista mantém as opções online relevantes, mas coloca a cobertura local comprovada primeiro.
+
+Fonte institucional da TamoJuntas para cidades presenciais e orientações a outras localidades: https://tamojuntas.org.br/elementor-2722/
