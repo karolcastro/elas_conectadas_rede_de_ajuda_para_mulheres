@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo de 190 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 143 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
+Projeto em desenvolvimento com servidor MCP, catálogo de 195 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 148 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
@@ -425,4 +425,23 @@ Fontes oficiais:
 - Amazonas/SEJUSC: https://www.sejusc.am.gov.br/mulheres/
 - Mato Grosso: https://www.mulher.mt.gov.br/atendimentos
 
-O catálogo contém agora 190 registros em 27 UFs e 142 combinações de município/UF. São 47 registros com gratuidade expressamente confirmada e 143 com custo não confirmado. A cobertura municipal continua parcial.
+O catálogo contém agora 195 registros em 27 UFs e 142 combinações de município/UF. São 47 registros com gratuidade expressamente confirmada e 148 com custo não confirmado. A cobertura municipal continua parcial.
+
+
+### Expansão municipal — Alagoas e Paraíba (04/11/2026)
+
+Foram adicionadas cinco referências:
+- Maceió/AL: Área Lilás do Hospital da Mulher (24h) e Sala Lilás do Complexo de Delegacias Especializadas (7h–19h diariamente).
+- Arapiraca/AL: Área Lilás do Hospital de Emergência do Agreste (24h).
+- Delmiro Gouveia/AL: Sala Lilás no CISP (7h–19h diariamente; endereço de rua não publicado na fonte consultada).
+- Bayeux/PB: CRAM, com endereço identificado em publicação do Diário Oficial de 01/05/2026; telefone, horário e início efetivo do atendimento não confirmados na publicação. Confirmar abertura antes de orientar deslocamento.
+
+O CERNA de Belo Horizonte/MG já constava no catálogo e foi revalidado nesta rodada: o Portal MG confirma atendimento gratuito, presencial ou virtual, para mulheres de todo o estado.
+
+Fontes oficiais:
+- SESAU Alagoas: https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
+- Prefeitura de Arapiraca (publicação de agosto/2026): https://web.arapiraca.al.gov.br/2026/08/arapiraca-abre-programacao-do-agosto-lilas-reunindo-esporte-e-conscientizacao-com-treinao-sextou/
+- Diário Oficial da Paraíba (01/05/2026): https://auniao.pb.gov.br/servicos/doe/2026/maio/diario-oficial-01-05-2026-portal.pdf
+- Portal MG — CERNA: https://www.mg.gov.br/servico/solicitar-atendimento-no-centro-risoleta-neves-de-atendimento-mulheres-cerna
+
+O catálogo contém 195 registros em 27 UFs e 143 combinações município/UF. São 47 registros com gratuidade expressamente confirmada e 148 com custo não confirmado. A cobertura municipal continua parcial.
