@@ -156,6 +156,7 @@ def test_regional_lead_records_include_official_source_and_review_date():
 
 def test_national_casa_da_mulher_brasileira_units_are_free_and_24_hours():
     registry = ProtectionRegistry(as_of=date(2026, 11, 4))
+    total_cmb = 0
     for uf, city in [("DF", "Brasília"), ("MS", "Campo Grande"), ("BA", "Salvador"),
                      ("CE", "Fortaleza"), ("MA", "São Luís"), ("PI", "Teresina"),
                      ("SE", "Aracaju"), ("AP", "Macapá"), ("PA", "Ananindeua"),
@@ -166,3 +167,5 @@ def test_national_casa_da_mulher_brasileira_units_are_free_and_24_hours():
         assert len(cmb) == 1
         assert cmb[0]["free"] is True
         assert cmb[0]["service_hours"] == "24 horas por dia, todos os dias"
+        total_cmb += len(cmb)
+    assert total_cmb == 13
