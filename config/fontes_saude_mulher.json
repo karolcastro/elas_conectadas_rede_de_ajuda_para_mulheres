@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "project": "Elas Conectadas",
+  "category": "saude_da_mulher",
+  "note": "Registro inicial de fontes. URLs e mecanismos foram identificados em páginas oficiais; antes da produção, validar endpoints, parâmetros, autenticação, limites, licença e atualização.",
+  "sources": [
+    {
+      "id": "demas_api",
+      "name": "DEMAS - API de Dados Abertos do Ministério da Saúde",
+      "source_type": "api",
+      "base_url": "https://apidadosabertos.saude.gov.br/",
+      "documentation_url": "https://apidadosabertos.saude.gov.br/",
+      "priority": 1,
+      "planned_resources": [
+        "unidades_basicas_de_saude",
+        "hospitais_e_leitos",
+        "cnes_estabelecimentos",
+        "cnes_servicos_especializados",
+        "cnes_equipamentos"
+      ],
+      "auth": "A página institucional da SEIDIGI informa acesso livre sem autenticação; validar cada endpoint em teste.",
+      "status": "documented_not_integrated",
+      "use_limit": "Cadastro não comprova agenda ou oferta atual de exame."
+    },
+    {
+      "id": "cnes_dataset",
+      "name": "CNES - Cadastro Nacional de Estabelecimentos de Saúde",
+      "source_type": "open_data_dataset",
+      "url": "https://dadosabertos.saude.gov.br/dataset/cnes-cadastro-nacional-de-estabelecimentos-de-saude",
+      "priority": 1,
+      "update_frequency_reported": "daily",
+      "status": "documented_not_integrated",
+      "use_limit": "Validar data de atualização dos recursos e qualidade dos campos."
+    },
+    {
+      "id": "ibge_localidades",
+      "name": "IBGE - API de Localidades",
+      "source_type": "api",
+      "base_url": "https://servicodados.ibge.gov.br/api/v1/localidades",
+      "documentation_url": "https://servicodados.ibge.gov.br/api/docs/localidades",
+      "priority": 1,
+      "status": "documented_not_integrated",
+      "use_limit": "Usar para códigos territoriais, não para localizar serviços de saúde."
+    },
+    {
+      "id": "dignidade_menstrual",
+      "name": "Programa Dignidade Menstrual / Farmácia Popular",
+      "source_type": "official_portal",
+      "url": "https://www.gov.br/saude/pt-br/composicao/sectics/farmacia-popular",
+      "faq_url": "https://www.gov.br/saude/pt-br/composicao/saps/dignidade-menstrual/faq",
+      "priority": 1,
+      "status": "official_information_source",
+      "use_limit": "Consultar regras vigentes e painel oficial de farmácias; não presumir API pública de pontos de retirada."
+    },
+    {
+      "id": "health_secretariats",
+      "name": "Secretarias Estaduais e Municipais de Saúde",
+      "source_type": "official_websites",
+      "priority": 2,
+      "status": "source_discovery_required",
+      "use_limit": "Cadastrar cada domínio oficial e validar campanha, serviço e contato."
+    },
+    {
+      "id": "women_ngo_campaigns",
+      "name": "ONGs e coletivos de mulheres",
+      "source_type": "official_organization_websites",
+      "priority": 2,
+      "status": "source_discovery_required",
+      "use_limit": "Validar identidade da organização, campanha vigente, gratuidade, público e área atendida."
+    }
+  ]
+}
