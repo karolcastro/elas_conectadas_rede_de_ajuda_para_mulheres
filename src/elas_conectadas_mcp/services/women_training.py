@@ -176,6 +176,45 @@ PROGRAMS = [
         "official_source": "https://vamosjuntes.programaria.org/oportunidades-gratuitas",
         "verification_date": "2026-11-04",
         "status_note": "O portal informa que oferece bolsas para pessoas que não conseguem arcar com os cursos e apresenta trilhas de front-end, dados e back-end. A seleção, quantidade de bolsas, datas e critérios de cada edição precisam ser confirmados quando publicados."
+    },
+    {
+        "id": "br-minas-programam-introducao-programacao-proxima-turma",
+        "name": "Instituto Minas Programam — cursos gratuitos de introdução à programação",
+        "provider": "Instituto Minas Programam",
+        "audience": "Meninas e mulheres cis ou trans e pessoas não-binárias, com atenção especial a mulheres negras e indígenas; não exige conhecimento prévio.",
+        "coverage": "Alcance territorial e modalidade da próxima turma devem ser confirmados com a organização.",
+        "ufs": [],
+        "format": "Cursos com mais de 90 horas de aulas ao vivo e atividades práticas; modalidade e local da próxima edição não confirmados.",
+        "free": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "curso_proxima_turma_sem_inscricoes",
+        "content": ["lógica de programação", "HTML", "CSS", "JavaScript", "desenvolvimento frontend"],
+        "enrollment_status": "A página oficial consultada em 04/11/2026 informa expressamente que não há inscrições abertas. A organização recomenda assinar a newsletter para saber da próxima edição.",
+        "application_url": "https://minasprogramam.com/cursos/",
+        "official_source": "https://minasprogramam.com/cursos/",
+        "verification_date": "2026-11-04",
+        "status_note": "Os cursos são descritos como gratuitos e conduzidos por mulheres. A página não informa local ou modalidade da próxima turma; não presumir oferta online ou disponibilidade em todos os estados. Newsletter é apenas canal de notícias, não inscrição em turma."
+    },
+    {
+        "id": "br-pyladies-brasil-comunidade-python",
+        "name": "PyLadies Brasil — comunidade de mulheres em Python",
+        "provider": "PyLadies Brasil / comunidade global PyLadies",
+        "audience": "Mulheres interessadas em programação Python, desde iniciantes até desenvolvedoras experientes; confirmar critérios e atividades com cada capítulo.",
+        "coverage": "Rede brasileira com capítulos listados em cidades específicas; a lista não comprova presença em todos os municípios ou estados.",
+        "ufs": [],
+        "format": "Comunidade, encontros, atividades locais e materiais de aprendizagem; calendário e formato variam por capítulo.",
+        "free": None,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "comunidade",
+        "content": ["apoio e troca entre mulheres na programação Python", "eventos e encontros comunitários", "materiais de aprendizagem", "orientações para criar grupos regionais"],
+        "enrollment_status": "Comunidade ativa com diretório público de capítulos consultado em 04/11/2026. A página não confirma custo, calendário, vagas ou disponibilidade de encontros em cada cidade; consulte o capítulo local.",
+        "application_url": "https://brasil.pyladies.com/locais/",
+        "official_source": "https://brasil.pyladies.com/about/",
+        "directory_url": "https://portal.pyladies.com/chapters/",
+        "verification_date": "2026-11-04",
+        "status_note": "A PyLadies Brasil declara como propósito incentivar a participação de mulheres na tecnologia. O diretório global lista capítulos em cidades brasileiras, mas não comprova que todos estejam realizando encontros atualmente. Gratuidade não confirmada; não apresentar como curso ou bolsa."
     }
 ]
 
