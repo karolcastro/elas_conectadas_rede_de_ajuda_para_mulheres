@@ -58,7 +58,7 @@ PROGRAMS = [
         "opportunity_directory_url": "https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9",
         "verification_date": "2026-11-03",
         "status_note": "No Painel de Oportunidades do Pronatec, filtre Mulheres Mil e selecione Novembro ou Dezembro. Depois, confirme requisitos, prazo e inscrição diretamente com a instituição responsável. Não presumir que vagas continuam abertas.",
-    },,
+    },
     {
         "id": "br-womakerscode-introducao-ia",
         "name": "Introdução à Inteligência Artificial — Mais Mulheres em Tech",
