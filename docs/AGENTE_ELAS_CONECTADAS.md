@@ -1286,3 +1286,19 @@ Fonte oficial:
 - https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
 
 **Métricas após esta rodada:** 318 registros, 318 IDs únicos, presença nas 27 UFs, 228 combinações município/UF, 49 registros com gratuidade confirmada e 269 com custo não confirmado.
+
+
+### Complemento de Alagoas — hospitais de referência (04/11/2026)
+
+Além das três delegacias especializadas, foram cadastrados quatro hospitais que a SESAU/AL lista como referências no atendimento a vítimas de violência sexual:
+- Hospital Geral do Estado Prof. Osvaldo Brandão Vilela, Maceió — (82) 3315-3281.
+- Hospital da Mulher Dra. Nise da Silveira, Maceió — (82) 3315-1393.
+- Hospital Dr. Ib Gatto Falcão, Rio Largo — (82) 3261-2414.
+- Hospital de Emergência Daniel Houly, Arapiraca — (82) 3539-8634.
+
+A página estadual informa que os dois primeiros atendem públicos de 0 a 12 anos e maiores de 13 anos; os dois últimos, vítimas de qualquer sexo e idade. O horário específico do serviço hospitalar e a gratuidade individual não foram presumidos; confirmar diretamente com a unidade. Estes registros de saúde são distintos dos pontos de acolhimento da RAV já catalogados.
+
+Fonte oficial:
+- https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
+
+**Métricas após o complemento:** 322 registros, 322 IDs únicos, presença nas 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 273 com custo não confirmado.
