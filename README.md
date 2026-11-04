@@ -275,3 +275,24 @@ A ferramenta de ONGs agora classifica os resultados conforme a localização inf
 A classificação usa os campos `locality_match`, `locality_priority` e `locality_evidence`. Ela não calcula distância, não confirma vaga ou disponibilidade e não deve ser interpretada como garantia de atendimento. A lista mantém as opções online relevantes, mas coloca a cobertura local comprovada primeiro.
 
 Fonte institucional da TamoJuntas para cidades presenciais e orientações a outras localidades: https://tamojuntas.org.br/elementor-2722/
+
+
+## Expansão regional do catálogo de proteção — Rio de Janeiro e Recife
+
+Em 04/11/2026, foram adicionados ao catálogo regional três registros com atendimento gratuito declarado em páginas oficiais municipais:
+
+- **Rio de Janeiro/RJ:** CEAM Chiquinha Gonzaga e CEAM Tia Gaúcha. A Prefeitura informa atendimento gratuito e esclarece que não é necessário boletim de ocorrência para buscar ajuda nos CEAMs. Os horários não foram reproduzidos porque a página oficial consultada não os especifica.
+- **Recife/PE:** Centro de Referência Clarice Lispector. A Prefeitura confirma gratuidade, equipe multidisciplinar, endereço, telefone e atendimento 24 horas. Também são publicados o Liga Mulher 0800 281 0107 e o WhatsApp de plantão 24h (81) 99488-6138.
+
+### Bahia — serviço oficial identificado, custo não cadastrado como gratuito
+
+A Secretaria de Políticas para as Mulheres da Bahia mantém páginas oficiais atualizadas em 06/10/2026 sobre a Casa da Mulher Brasileira de Salvador e os CRAMs Loreta Valadares, Irmã Dulce e Arlete Magalhães. As páginas consultadas apresentam endereços e contatos, mas não afirmam de forma inequívoca a gratuidade de cada atendimento. Por isso, esses registros ainda não foram marcados como gratuitos nem inseridos na lista recomendável de serviços gratuitos. A próxima validação deverá confirmar o custo e os horários diretamente com as unidades ou em fonte oficial que os declare.
+
+Fontes oficiais:
+- Rio de Janeiro — CEAMs: https://mulher.prefeitura.rio/centro-especializado-de-atendimento-a-mulher/
+- Recife — Centro Clarice Lispector: https://www2.recife.pe.gov.br/servico/centro-de-referencia-clarice-lispector
+- Recife — rede de serviços e canais: https://www2.recife.pe.gov.br/pagina/secretaria-da-mulher
+- Bahia — Casa da Mulher Brasileira: https://www.ba.gov.br/mulheres/7117/casa-da-mulher-brasileira
+- Bahia — CRAMs: https://www.ba.gov.br/mulheres/7119/crams
+
+**Limites:** a cobertura adicionada é municipal (Rio de Janeiro e Recife), não estadual. A ausência de registro gratuito para Salvador não significa ausência de serviço; significa apenas que a gratuidade ainda não foi confirmada com o padrão de evidência do catálogo. Nenhum endereço sigiloso foi incluído. A validade de 90 dias é editorial e não garante funcionamento ou disponibilidade.

@@ -85,3 +85,43 @@ def test_missing_or_invalid_verification_date_requires_review(tmp_path: Path):
     result = ProtectionRegistry(catalog, as_of=date(2026, 11, 3)).list_services(uf="SP")
     assert result["services"] == []
     assert result["excluded_stale_count"] == 1
+
+
+
+def test_registry_returns_verified_free_services_in_rio_and_recife():
+    registry = ProtectionRegistry(as_of=date(2026, 11, 4))
+
+    rio = registry.list_services(uf="RJ", municipality="Rio de Janeiro")
+    recife = registry.list_services(uf="PE", municipality="Recife")
+
+    rio_ids = {item["id"] for item in rio["services"]}
+    recife_ids = {item["id"] for item in recife["services"]}
+
+    assert "rj-capital-ceam-chiquinha-gonzaga" in rio_ids
+    assert "rj-capital-ceam-tia-gaucha" in rio_ids
+    assert "pe-recife-centro-referencia-clarice-lispector" in recife_ids
+    assert all(item["free"] is True for item in rio["services"])
+    assert all(item["free"] is True for item in recife["services"])
+
+
+def test_new_regional_records_have_sources_and_no_shelter_addresses():
+    result = ProtectionRegistry(as_of=date(2026, 11, 4)).list_services(
+        uf="RJ", municipality="Rio de Janeiro"
+    )
+    records = [
+        item for item in result["services"]
+        if item["id"].startswith("rj-capital-")
+    ]
+
+    assert len(records) == 2
+    assert all(item["official_source"].startswith("https://") for item in records)
+    assert all(item["verification_date"] == "2026-11-04" for item in records)
+    assert all(item["shelter_address_public"] is False for item in records)
+
+
+def test_bahia_services_without_explicit_cost_confirmation_are_not_marked_free():
+    result = ProtectionRegistry(as_of=date(2026, 11, 4)).list_services(
+        uf="BA", municipality="Salvador"
+    )
+    assert all(item.get("free") is True for item in result["services"])
+    assert not any(item.get("id", "").startswith("ba-salvador-") for item in result["services"])

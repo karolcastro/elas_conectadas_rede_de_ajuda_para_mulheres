@@ -885,3 +885,31 @@ Cada iniciativa recebe `locality_priority`, `locality_match` e `locality_evidenc
 A comparação normaliza acentos e caixa alta/baixa nos nomes das cidades. Não calcula distância geográfica, não confirma vagas, disponibilidade, tempo de resposta ou aceitação de novos casos. A página da TamoJuntas distingue atendimento nas quatro cidades de orientações e encaminhamentos para outras localidades: https://tamojuntas.org.br/elementor-2722/
 
 Testes automatizados cobrem cidades publicadas, outra cidade no mesmo estado, escopo online nacional/latino-americano, normalização de acentos e ausência de localização.
+
+
+## 40. Expansão regional do catálogo público — RJ, PE e validação pendente na BA
+
+Em 04/11/2026, foram adicionados três registros com gratuidade declarada em páginas institucionais:
+
+### Rio de Janeiro/RJ
+- **CEAM Chiquinha Gonzaga:** Rua Benedito Hipólito, 125, Centro; telefones (21) 2517-2726 e (21) 98555-2151.
+- **CEAM Tia Gaúcha:** Rua Álvaro Alberto, 601, Santa Cruz; telefone (21) 97092-8071.
+- A Prefeitura do Rio informa que os CEAMs são gratuitos e que não é necessário boletim de ocorrência para buscar ajuda. A página atual não informa horários; por isso, o catálogo não inventa nem presume expediente.
+- Fonte: https://mulher.prefeitura.rio/centro-especializado-de-atendimento-a-mulher/
+
+### Recife/PE
+- **Centro de Referência Clarice Lispector:** Rua Doutor Silva Ferreira, 122, Santo Amaro; telefone (81) 3355-3008; atendimento 24 horas.
+- A Prefeitura declara que todo o atendimento é gratuito e descreve acolhimento por equipe multidisciplinar. A Secretaria da Mulher também publica o Liga Mulher 0800 281 0107 e o WhatsApp de plantão 24h (81) 99488-6138.
+- Fontes: https://www2.recife.pe.gov.br/servico/centro-de-referencia-clarice-lispector ; https://www2.recife.pe.gov.br/pagina/secretaria-da-mulher
+
+### Bahia/BA — não classificado como gratuito até confirmação
+- A Secretaria de Políticas para as Mulheres da Bahia publica contatos e endereços da Casa da Mulher Brasileira e dos CRAMs de Salvador, incluindo Loreta Valadares, Irmã Dulce e Arlete Magalhães.
+- As páginas institucionais consultadas foram atualizadas em 06/10/2026, mas não declaram explicitamente a gratuidade de cada atendimento. Para cumprir a regra de não inferir gratuidade, os serviços foram mantidos fora do catálogo de recomendações gratuitas até confirmação institucional.
+- Fontes para próxima validação: https://www.ba.gov.br/mulheres/7117/casa-da-mulher-brasileira ; https://www.ba.gov.br/mulheres/7119/crams
+
+### Qualidade, segurança e limites
+- Os três registros novos têm fonte oficial, data de verificação e revisão editorial prevista para 02/02/2027.
+- A cobertura adicionada é somente Rio de Janeiro capital e Recife; não representa todo o estado.
+- Nenhum endereço de abrigo sigiloso foi incluído.
+- A busca continua sem cálculo de distância e sem confirmação de vaga ou disponibilidade em tempo real.
+- A próxima etapa para a Bahia é confirmar a gratuidade dos serviços diretamente com as unidades/órgãos antes de registrá-los como opções gratuitas.

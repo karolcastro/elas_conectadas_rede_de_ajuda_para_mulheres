@@ -928,6 +928,79 @@
       "shelter_address_public": false,
       "email": "smdhccdcmfranciscafranco@prefeitura.sp.gov.br",
       "review_due_date": "2027-02-01"
+    },
+    {
+      "id": "rj-capital-ceam-chiquinha-gonzaga",
+      "name": "CEAM Chiquinha Gonzaga",
+      "category": "apoio_psicossocial",
+      "coverage": "RJ",
+      "ufs": [
+        "RJ"
+      ],
+      "municipality": "Rio de Janeiro",
+      "state": "RJ",
+      "zone": "Centro",
+      "service_type": "Centro Especializado de Atendimento à Mulher",
+      "address": "Rua Benedito Hipólito, 125, Centro, Rio de Janeiro",
+      "phone": "(21) 2517-2726 / (21) 98555-2151",
+      "free": true,
+      "audience": "Mulheres em situação de violência doméstica, familiar ou violência por sua condição de mulher.",
+      "access_instructions": "Atendimento gratuito; a Prefeitura informa que não é necessário boletim de ocorrência para buscar ajuda. Confirme o funcionamento antes do deslocamento. Em emergência, ligue 190; para orientação, 180.",
+      "official_source": "https://mulher.prefeitura.rio/centro-especializado-de-atendimento-a-mulher/",
+      "verification_status": "official_municipal_service_page",
+      "service_hours": null,
+      "shelter_address_public": false,
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02"
+    },
+    {
+      "id": "rj-capital-ceam-tia-gaucha",
+      "name": "CEAM Tia Gaúcha",
+      "category": "apoio_psicossocial",
+      "coverage": "RJ",
+      "ufs": [
+        "RJ"
+      ],
+      "municipality": "Rio de Janeiro",
+      "state": "RJ",
+      "zone": "Santa Cruz",
+      "service_type": "Centro Especializado de Atendimento à Mulher",
+      "address": "Rua Álvaro Alberto, 601, Santa Cruz, Rio de Janeiro",
+      "phone": "(21) 97092-8071",
+      "free": true,
+      "audience": "Mulheres em situação de violência doméstica, familiar ou violência por sua condição de mulher.",
+      "access_instructions": "Atendimento gratuito. Confirme o funcionamento antes do deslocamento. Em emergência, ligue 190; para orientação, 180.",
+      "official_source": "https://mulher.prefeitura.rio/centro-especializado-de-atendimento-a-mulher/",
+      "verification_status": "official_municipal_service_page",
+      "service_hours": null,
+      "shelter_address_public": false,
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02"
+    },
+    {
+      "id": "pe-recife-centro-referencia-clarice-lispector",
+      "name": "Centro de Referência Clarice Lispector",
+      "category": "apoio_psicossocial",
+      "coverage": "PE",
+      "ufs": [
+        "PE"
+      ],
+      "municipality": "Recife",
+      "state": "PE",
+      "service_type": "Centro de Referência de Atendimento à Mulher",
+      "address": "Rua Doutor Silva Ferreira, 122, Santo Amaro, Recife",
+      "phone": "(81) 3355-3008",
+      "whatsapp": "(81) 99488-6138",
+      "secondary_phone": "0800 281 0107",
+      "free": true,
+      "audience": "Mulheres em situação de violência doméstica, familiar e/ou sexista.",
+      "access_instructions": "Atendimento gratuito, com acolhimento e orientação por equipe multidisciplinar. A Prefeitura informa funcionamento 24 horas. O serviço também publica plantão de WhatsApp 24h e Liga Mulher 0800 281 0107. Confirme os canais antes do deslocamento. Em emergência, ligue 190; para orientação nacional, 180.",
+      "official_source": "https://www2.recife.pe.gov.br/servico/centro-de-referencia-clarice-lispector",
+      "verification_status": "official_municipal_service_page",
+      "service_hours": "24 horas",
+      "shelter_address_public": false,
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02"
     }
   ]
 }
