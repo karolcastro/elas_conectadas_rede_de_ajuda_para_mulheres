@@ -388,6 +388,21 @@ def recurso_acesso_alimentacao_gratuita() -> str:
     return json.dumps(free_legal_aid_directory.food_security_guide(), ensure_ascii=False)
 
 
+
+@mcp.tool()
+def orientar_beneficios_mulheres_vulnerabilidade(
+    uf: str | None = None, municipio: str | None = None
+) -> dict:
+    """Orienta sobre CadÚnico, Bolsa Família, BPC, Auxílio-Inclusão, Centro POP e acolhimento."""
+    return free_legal_aid_directory.vulnerable_women_guide(uf=uf, municipality=municipio)
+
+
+@mcp.resource("assistencia://beneficios-mulheres-vulnerabilidade")
+def recurso_beneficios_mulheres_vulnerabilidade() -> str:
+    """Resource nacional sobre benefícios e proteção social para mulheres vulneráveis."""
+    return json.dumps(free_legal_aid_directory.vulnerable_women_guide(), ensure_ascii=False)
+
+
 @mcp.tool()
 def orientar_busca_ongs_coletivos_mulheres(
     uf: str | None = None, municipio: str | None = None
