@@ -145,3 +145,20 @@ def test_housing_guide_explains_women_priority_without_promising_free_housing():
 def test_housing_guide_rejects_invalid_uf():
     with pytest.raises(ValueError, match="UF"):
         FreeLegalAidDirectory().housing_guide(uf="São Paulo")
+
+
+
+def test_food_security_guide_prioritizes_free_meals_and_discloses_local_limits():
+    result = FreeLegalAidDirectory().food_security_guide(uf="SP", municipality="São Paulo")
+    assert result["requested_location"] == {"uf": "SP", "municipality": "São Paulo"}
+    options = {item["name"]: item for item in result["options"]}
+    assert options["Cozinhas Solidárias"]["free"] is True
+    assert options["Cozinhas Comunitárias"]["free"] is None
+    assert options["Restaurantes Populares"]["free"] is None
+    assert result["automated_local_results"] is False
+    assert any("não confirma vagas" in item for item in result["limitations"])
+
+
+def test_food_security_guide_rejects_invalid_uf():
+    with pytest.raises(ValueError, match="UF"):
+        FreeLegalAidDirectory().food_security_guide(uf="São Paulo")
