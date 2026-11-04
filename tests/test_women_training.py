@@ -114,7 +114,7 @@ def test_acredita_program_prioritizes_cadunico_and_does_not_call_microcredit_fre
     programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
     acredita = programs["br-mds-acredita-primeiro-passo-inclusao-produtiva"]
     assert acredita["free"] is True
-    assert acredita["priority"] == 0
+    assert acredita["priority"] == 1
     assert "CadÚnico" in acredita["audience"]
     assert "mulheres são um dos públicos prioritários" in acredita["audience"]
     assert "Microcrédito é empréstimo" in acredita["cost_note"]
