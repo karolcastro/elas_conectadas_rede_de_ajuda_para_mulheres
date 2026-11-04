@@ -13,7 +13,7 @@ PROGRAMS = [
         "ufs": [],
         "format": "Programa nacional com cursos online e ações de empregabilidade e empreendedorismo oferecidas por parceiros; modalidades variam conforme a oferta.",
         "free": True,
-        "priority": 0,
+        "priority": 1,
         "women_specific": False,
         "opportunity_type": "programa_inclusao_produtiva",
         "content": [
