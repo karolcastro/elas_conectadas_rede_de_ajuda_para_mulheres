@@ -185,3 +185,39 @@ class FreeLegalAidDirectory:
                 "sensíveis ao agente para obter estes links."
             ),
         }
+
+
+    def creas_guide(self, *, uf: str | None = None, municipality: str | None = None) -> dict[str, Any]:
+        """Orienta acesso gratuito ao CREAS sem inventar unidade ou disponibilidade."""
+        if uf and (len(uf.strip()) != 2 or not uf.strip().isalpha()):
+            raise ValueError("Informe a sigla da UF com duas letras.")
+        if municipality and len(municipality.strip()) < 2:
+            raise ValueError("Informe um município válido.")
+        return {
+            "service": "Orientação para acesso ao CREAS — Proteção Social Especial",
+            "requested_location": {
+                "uf": uf.strip().upper() if uf else None,
+                "municipality": municipality.strip() if municipality else None,
+            },
+            "free": True,
+            "public_service": True,
+            "audience": "Pessoas e famílias em situação de risco pessoal/social ou com direitos violados, incluindo violência física, psicológica e sexual.",
+            "services": [
+                "Acolhida, orientação e encaminhamento à rede de assistência social e demais serviços públicos.",
+                "Atendimento especializado a famílias e indivíduos (PAEFI).",
+                "Orientação sobre direitos e apoio para acesso a serviços públicos."
+            ],
+            "official_locator": "https://aplicacoes.mds.gov.br/sagi/atendimento/",
+            "official_source": CREAS_MDS_URL,
+            "source_last_updated": "2026-10-26",
+            "how_to_access": [
+                "Consulte o localizador oficial do MDS e procure o CREAS do município informado.",
+                "Se não houver CREAS no município, procure o setor de assistência social da prefeitura.",
+                "O atendimento também pode ocorrer por encaminhamento de outros serviços públicos ou órgãos do sistema de garantia de direitos."
+            ],
+            "limitations": [
+                "O localizador e a página institucional não confirmam vaga, horário ou atendimento imediato.",
+                "Confirme diretamente endereço, horário, documentos eventualmente necessários e fluxo de acolhimento.",
+                "Não envie CPF, documentos ou relato detalhado de violência ao agente para receber estas orientações."
+            ]
+        }
