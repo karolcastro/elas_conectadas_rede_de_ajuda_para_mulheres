@@ -1007,3 +1007,8 @@ Em 04/11/2026, foram incluídas quatro referências municipais adicionais:
 A gratuidade individual não foi explicitamente confirmada pelas fontes utilizadas. Os quatro registros permanecem com `free: null` e custo não confirmado. Não os apresentar como serviços gratuitos confirmados.
 
 Fontes: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/marco/tenda-lilas-leva-acolhimento-e-informacao-sobre-enfrentamento-a-violencia-contra-as-mulheres-em-sergipe-e-no-rio-grande-do-norte ; https://www.estado.rs.gov.br/sexta-conferencia-estadual-de-politicas-para-as-mulheres-define-tres-propostas-e-elege-91-delegadas-para-a-etapa-nacional ; https://devportal.pmf.sc.gov.br/entidades/saude/index.php?cms=raivs&menu=6&submenuid=dyn-153 ; https://www.sapucaiadosul.rs.gov.br/telefones-uteis/
+
+
+## Situação consolidada da cobertura territorial (04/11/2026)
+
+O catálogo possui **131 registros** com referências em **21 das 27 Unidades da Federação** (incluindo o Distrito Federal). A validação estrutural encontrou IDs únicos e todos os registros possuem fonte, data de verificação e campo explícito de gratuidade. Há 44 registros com `free: true` e 87 com `free: null`/custo não confirmado. Os estados sem registros locais curados nesta versão são **AL, AM, MT, MG, PB e RO**. Para eles, o MCP mantém a ferramenta `orientar_consulta_rede_oficial_atendimento(uf, municipio, tipo_servico)`, que encaminha à consulta por estado e município no Painel do Ministério das Mulheres. Essa rota não é uma importação automática e não deve ser descrita como catálogo municipal próprio. A ausência de registros locais não significa ausência de serviços.
