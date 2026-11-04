@@ -445,3 +445,19 @@ Fontes oficiais:
 - Portal MG — CERNA: https://www.mg.gov.br/servico/solicitar-atendimento-no-centro-risoleta-neves-de-atendimento-mulheres-cerna
 
 O catálogo contém 195 registros em 27 UFs e 143 combinações município/UF. São 47 registros com gratuidade expressamente confirmada e 148 com custo não confirmado. A cobertura municipal continua parcial.
+
+
+### Expansão municipal — Mato Grosso e Alagoas (04/11/2026)
+
+Foram adicionadas 13 referências:
+- **Mato Grosso:** Barra do Bugres (núcleo especializado), Barra do Garças (DEAM), Brasnorte (Departamento da Mulher), Lucas do Rio Verde (DEAM e núcleo especializado), Matupá, Peixoto de Azevedo, Pontes e Lacerda, Primavera do Leste e Vera (unidades especializadas).
+- **Alagoas:** Rio Largo (Hospital Dr. Ib Gatto Falcão), Porto Calvo (Hospital Regional do Norte) e Maceió (Sala Lilás do HGE).
+
+No caso de Rio Largo e Porto Calvo, a fonte estadual confirma o ponto de acolhimento hospitalar, mas não publica endereço de rua, telefone ou horário individual. Esses campos permanecem sem preenchimento, sem inferências. Para as unidades de Mato Grosso, o diretório estadual lista horário comercial; isso não deve ser confundido com plantão 24h. Os registros não foram classificados como gratuitos porque a fonte não declara expressamente a gratuidade.
+
+Fontes oficiais:
+- Portal Mato Grosso em Defesa das Mulheres — diretório de atendimentos: https://mulher.mt.gov.br/atendimentos
+- SESAU Alagoas — Rede de Atenção às Violências: https://www.saude.al.gov.br/rede-de-atencao-as-violencias/
+- SESAU Alagoas — notícia sobre pontos no interior, atualizada em 25/02/2026: https://www.saude.al.gov.br/rede-de-atencao-as-violencias-promove-acoes-socioeducativas-no-porto-de-maceio/
+
+**Métricas atuais após a rodada:** 208 registros, 208 IDs únicos, 27 UFs e 154 combinações município/UF. São 47 registros com gratuidade expressamente confirmada e 161 com custo não confirmado. Cobertura municipal parcial; presença em diretório não garante vaga, disponibilidade, funcionamento ininterrupto ou atendimento imediato.
