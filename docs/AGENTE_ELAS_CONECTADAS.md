@@ -1533,3 +1533,20 @@ Fontes oficiais:
 - Acolhimento para mulheres em situação de violência: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/unidades-de-atendimento/servico-de-acolhimento-para-mulheres-em-situacao-de-violencia
 - Localizador MOPS: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
 
+## Capacitação e inclusão produtiva — atualização de 04/11/2026
+
+Foi incluído no catálogo de formação o **Portal de Educação Empreendedora do Programa Acredita no Primeiro Passo (MDS)**. A página oficial lista cursos digitais gratuitos, incluindo:
+- Educação Financeira para Mulheres Empreendedoras — módulos 1 (6h) e 2 (5h);
+- Crescendo meu Negócio de Alimentação (6h);
+- Superpoderes da Tecnologia (3h);
+- Guia Essencial de Gestão para Ambulantes (2h).
+
+A página oficial do MDS foi atualizada em 02/11/2026. O catálogo informa que os cursos são online e gratuitos, mas não promete prazo de inscrição, vaga individual, mentoria, bolsa ou capital semente. O Acredita no Primeiro Passo tem foco em inclusão produtiva e prioriza públicos em vulnerabilidade; nem todos os cursos do portal são exclusivos para mulheres.
+
+Também foi verificada notícia oficial de 03/11/2026 sobre previsão de 230 vagas do Programa Mulheres Mil para novembro e dezembro de 2026, em MG, PE, PR, ES, RN e BA. São cursos presenciais ofertados por instituições locais. A notícia orienta consultar o Painel de Oportunidades do Pronatec com filtro “Mulheres Mil” e mês “Novembro” ou “Dezembro”; não significa que todas as inscrições estejam abertas ou que existam vagas em todos os municípios.
+
+Fontes:
+- Portal de Educação Empreendedora (MDS): https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo/quero-empreender/portal-de-educacao-empreendedora/portal-de-educacao-empreendedora
+- Notícia sobre 230 vagas Mulheres Mil (Agência Gov/MEC, 03/11/2026): https://agenciagov.ebc.com.br/noticias/202611/programa-mulheres-mil-oferece-230-vagas-gratuitas-em-cursos-de-qualificacao-profissional
+- Painel de Oportunidades Pronatec: https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9
+
