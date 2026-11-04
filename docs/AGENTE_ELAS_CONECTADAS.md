@@ -1375,3 +1375,19 @@ Foram adicionadas três oportunidades nacionais ao `WomenTrainingDirectory`, ap�
 
 ### Regra de classificação
 O diretório deve diferenciar curso_proxima_turma_sem_inscricoes e comunidade de cursos com inscrições abertas. free=true só deve ser usado quando a fonte declarar gratuidade; comunidades sem informação de custo permanecem com free=null. Presença em diretório de capítulos não equivale a confirmação de atividade local.
+
+
+
+## Atualização WoMakersCode — curso de Computação em Nuvem (04/11/2026)
+
+Foi incluído no diretório o curso **Introdução à Computação em Nuvem — Mais Mulheres em Tech**:
+- Gratuito, online, autoinstrucional.
+- Carga horária publicada: 9,5 horas e 46 lições.
+- Certificado informado na página do curso.
+- Conteúdo: fundamentos de cloud computing, AWS, Microsoft Azure, Google Cloud, modelos IaaS/PaaS/SaaS, infraestrutura, redes, bancos de dados, automação, escalabilidade, segurança e laboratórios.
+- Público: iniciantes, sem experiência prévia exigida na página.
+- A página institucional da WoMakersCode o apresenta na seção “Programas com inscrições abertas” na consulta de 04/11/2026. A página individual não publica prazo final ou número de vagas.
+- Fontes oficiais: https://www.womakerscode.org/ e https://www.maismulheres.tech/courses/introducao-a-computacao-em-nuvem.
+
+**Ajuste de precisão PyLadies:** o diretório lista capítulos e formas de contato, mas isso não confirma atividade recente, eventos, calendário ou encontros em andamento. Manter custo como não confirmado e não recomendar como curso/bolsa.
+Fonte complementar da Python Brasil: https://python.org.br/pyladies/.
