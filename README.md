@@ -700,3 +700,4 @@ Fontes oficiais:
 - Restaurantes Populares: https://www.gov.br/pt-br/servicos/acessar-os-restaurantes-populares
 - Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
 - Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
+- Portal MDS de Educação Empreendedora: cursos digitais gratuitos de educação financeira para mulheres empreendedoras, gestão de negócios de alimentação, tecnologia e gestão para ambulantes; com status e limites de inscrição documentados.
