@@ -88,3 +88,18 @@ def test_legal_aid_guide_includes_official_free_creas_locator():
     creas = next(x for x in result["official_directories"] if x["name"].endswith("CREAS"))
     assert creas["source_last_updated"] == "2026-10-26"
     assert "gov.br/mds" in creas["url"]
+
+
+def test_creas_guide_is_free_and_points_to_official_mds_locator():
+    result = FreeLegalAidDirectory().creas_guide(uf="PE", municipality="Recife")
+    assert result["free"] is True
+    assert result["public_service"] is True
+    assert result["requested_location"] == {"uf": "PE", "municipality": "Recife"}
+    assert "aplicacoes.mds.gov.br" in result["official_locator"]
+    assert result["source_last_updated"] == "2026-10-26"
+    assert any("violência psicológica" in x for x in result["audience"].split(";")) or "violência psicológica" in result["audience"]
+
+
+def test_creas_guide_rejects_invalid_location():
+    with pytest.raises(ValueError, match="UF"):
+        FreeLegalAidDirectory().creas_guide(uf="Pernambuco")
