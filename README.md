@@ -316,7 +316,7 @@ A cobertura é municipal conforme as unidades listadas; não representa todos os
 
 ## Cobertura nacional — 13 Casas da Mulher Brasileira
 
-O catálogo agora inclui as 13 Casas da Mulher Brasileira (12 registros novos; São Paulo já constava no catálogo) que o Ministério das Mulheres listou como em funcionamento em agosto de 2026: Brasília/Ceilândia (DF), Campo Grande (MS), Salvador (BA), Fortaleza (CE), São Luís (MA), Teresina (PI), Aracaju (SE), Macapá (AP), Ananindeua (PA), Boa Vista (RR), Palmas (TO), São Paulo (SP) e Curitiba (PR). A fonte nacional confirma atendimento gratuito e funcionamento 24 horas, todos os dias.
+O catálogo agora inclui as 13 Casas da Mulher Brasileira (12 registros novos; São Paulo já constava no catálogo) que o Ministério das Mulheres listou como em funcionamento em agosto de 2026: Brasília/Ceilândia (DF), Campo Grande (MS), Salvador (BA), Fortaleza (CE), São Luís (MA), Teresina (PI), Aracaju (SE), Macapá (AP), Ananindeua (PA), Boa Vista (RR), Palmas (TO), São Paulo (SP) e Curitiba (PR). A fonte nacional confirma funcionamento 24 horas, todos os dias, mas não declara explicitamente a gratuidade das Casas. A declaração de gratuidade na mesma página refere-se ao Ligue 180. Por isso, as Casas estão marcadas com `free: null` e não são recomendadas como gratuitas até confirmação.
 
 Fonte oficial: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/casa-da-mulher-brasileira-como-funciona-o-atendimento-e-onde-encontrar-uma-unidade
 

@@ -942,7 +942,7 @@ A presença em diretório não confirma funcionamento atual, vaga, equipe dispon
 
 O catálogo passou a cobrir as 13 unidades (12 registros novos; a unidade de São Paulo já existia) que o Ministério das Mulheres informou estarem em funcionamento em agosto de 2026: Brasília/Ceilândia (DF), Campo Grande (MS), Salvador (BA), Fortaleza (CE), São Luís (MA), Teresina (PI), Aracaju (SE), Macapá (AP), Ananindeua (PA), Boa Vista (RR), Palmas (TO), São Paulo (SP) e Curitiba (PR).
 
-A fonte federal confirma que as Casas funcionam 24 horas por dia, todos os dias, e declara que o serviço é gratuito. Os endereços foram transcritos da relação oficial. Telefones locais não foram inventados nem adicionados quando não constavam da fonte.
+A fonte federal confirma que as Casas funcionam 24 horas por dia, todos os dias, mas não declara explicitamente a gratuidade das unidades. A declaração de gratuidade na mesma página refere-se ao Ligue 180. Os registros das Casas usam `free: null` e não podem ser recomendados como gratuitos até confirmação. Os endereços foram transcritos da relação oficial. Telefones locais não foram inventados nem adicionados quando não constavam da fonte.
 
 Fonte: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/casa-da-mulher-brasileira-como-funciona-o-atendimento-e-onde-encontrar-uma-unidade
 
