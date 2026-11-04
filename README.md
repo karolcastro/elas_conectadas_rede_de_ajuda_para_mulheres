@@ -279,7 +279,7 @@ Fonte institucional da TamoJuntas para cidades presenciais e orientações a out
 
 ## Transporte HTTP e preparação para Vercel
 
-O transporte MCP local via stdio foi preservado. Para hospedagem HTTP, foi adicionada uma aplicação ASGI separada com Streamable HTTP, autenticação Bearer obrigatória e allowlists explícitas de Host/Origin. O endpoint previsto é /api/mcp, exposto por api/index.py no runtime Python da Vercel.
+O transporte MCP local via stdio foi preservado. Para hospedagem HTTP, foi adicionada uma aplicação ASGI separada com Streamable HTTP, autenticação Bearer obrigatória e allowlists explícitas de Host/Origin. O endpoint previsto é /api/mcp, exposto por api/mcp.py no runtime Python da Vercel.
 
 A camada HTTP usa modo stateless e respostas JSON para não depender de sessões em memória entre invocações serverless. Ela falha de forma segura quando as variáveis de autenticação e allowlist não estão configuradas. Nenhum cadastro, banco de dados ou armazenamento de conversas foi introduzido.
 
