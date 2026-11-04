@@ -250,3 +250,14 @@ A ferramenta MCP `orientar_busca_ongs_coletivos_mulheres(uf, municipio)` passou 
 - **Mapa do Acolhimento:** conecta mulheres cis e trans, maiores de 18 anos, de baixa renda e residentes no Brasil, que passaram por violência de gênero, a profissionais voluntárias para acolhimento psicológico e jurídico gratuito. A solicitação ocorre em formulário externo; isso não cria exigência de cadastro no Elas Conectadas. O agente não preenche o formulário nem coleta dados pessoais.
 
 **Limite:** a inclusão significa que a organização declara publicamente a oferta e o público descritos; não confirma vaga, prazo de resposta ou profissional disponível. A usuária deve contatar a organização pelo canal institucional. Fontes verificadas em 03/11/2026: [TamoJuntas — atendimento](https://tamojuntas.org.br/elementor-2722/), [TamoJuntas — contatos](https://tamojuntas.org.br/inicio/), [Mapa do Acolhimento — peça ajuda](https://www.mapadoacolhimento.org/atendimento/).
+
+
+## Segurança digital e acolhimento especializado
+
+O diretório de iniciativas verificadas agora inclui a **Maria d'Ajuda**, linha de ajuda feminista e gratuita da MariaLab para mulheres, pessoas não binárias, pessoas LGBTQIA+ e organizações da América Latina que enfrentam ameaças digitais. O canal institucional publicado é **sos@mariadajuda.org**; a página informa retorno em até dois dias, prazo que deve ser confirmado diretamente com a equipe. O escopo é segurança digital e não substitui emergência policial, assistência jurídica ou atendimento psicológico.
+
+A **Marias da Internet** aparece em uma seção separada de iniciativas especializadas cuja gratuidade não foi confirmada nas páginas institucionais consultadas. Por isso, o agente não pode apresentá-la como serviço gratuito até validar esse ponto diretamente.
+
+**Limite importante:** o Helpline da SaferNet é voltado a crianças e adolescentes; a página oficial informa que adultos não são elegíveis para orientação individual. Não o indicar como canal geral para mulheres adultas.
+
+Fontes institucionais: https://mariadajuda.org/ ; https://www.mariasdainternet.com.br/ ; https://new.safernet.org.br/helpline
