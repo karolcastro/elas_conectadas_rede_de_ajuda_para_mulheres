@@ -639,3 +639,43 @@ O catálogo foi ampliado para apoiar também mulheres em vulnerabilidade socioec
 - **Acredita no Primeiro Passo:** incluído no diretório de oportunidades para pessoas de 16 a 65 anos com CadÚnico atualizado. Mulheres são público prioritário, mas o programa não é exclusivo para elas. Reúne cursos gratuitos, apoio à empregabilidade e orientação empreendedora, conforme ofertas dos parceiros. Microcrédito é empréstimo e não é gratuito. Fonte: https://www.gov.br/mds/pt-br/acoes-e-programas/programa-acredita-no-primeiro-passo
 
 O agente não solicita CPF nem documentos para fornecer orientação; documentos necessários para serviços externos devem ser tratados diretamente com o órgão público.
+
+
+## Expansão de segurança alimentar, moradia e qualificação — 04/11/2026
+
+### Benefícios Eventuais da Assistência Social
+A orientação de CRAS foi ampliada para explicar que municípios e Distrito Federal podem conceder Benefícios Eventuais em situações de vulnerabilidade temporária, inclusive falta de alimentação, ausência de residência ou outras necessidades urgentes. A concessão, a modalidade (bens ou apoio financeiro), os critérios, documentos e fluxos são definidos localmente. A mulher deve solicitar avaliação diretamente à assistência social municipal; o agente não promete cesta básica, aluguel social ou concessão automática.
+
+Fonte oficial do MDS: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
+
+### Minha Casa, Minha Vida — prioridade habitacional para mulheres
+Novo guia MCP `orientar_acesso_moradia_popular(uf, municipio)` e resource `habitacao://minha-casa-minha-vida-mulheres`.
+
+- Na provisão subsidiada, a legislação prioriza famílias em que a mulher é responsável pela unidade familiar e famílias com mulheres vítimas de violência doméstica e familiar, além de outros grupos prioritários.
+- Contratos e registros são formalizados preferencialmente em nome da mulher, conforme a modalidade e as regras legais.
+- **Não é promessa de moradia gratuita:** subsídios, prestações, elegibilidade e critérios dependem da modalidade.
+- Prioridade não garante seleção, contemplação, imóvel ou prazo. Inscrições e seleção dependem da prefeitura/órgão habitacional e da modalidade.
+- O agente não solicita CPF, documentos, medida protetiva ou dados sensíveis.
+
+Fontes oficiais:
+- Ministério das Cidades: https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/habitacao/programa-minha-casa-minha-vida/guia-dos-beneficiarios-2013-programa-minha-casa-minha-vida-pmcmv/programa-minha-casa-minha-vida-pmcmv-perguntas-frequentes/8-existem-criterios-de
+- Ministério das Mulheres: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/dia-nacional-da-habitacao-conheca-os-direitos-das-mulheres-no-minha-casa-minha-vida
+
+### Programa Mulheres Mil
+Incluído no `WomenTrainingDirectory` como iniciativa criada para qualificação de mulheres em vulnerabilidade social e econômica:
+- Público: mulheres a partir de 16 anos, com prioridade para pobreza/extrema pobreza, baixa escolaridade, mulheres responsáveis sozinhas pelo cuidado familiar, sobreviventes de violência e grupos historicamente vulnerabilizados.
+- Cursos gratuitos presenciais, carga horária mínima de 160 horas, ofertados por institutos federais, escolas técnicas e redes estaduais conforme edital.
+- Em 25/09/2026 foi divulgada uma rodada com mais de 1.300 vagas, 18 cursos e instituições de sete estados (AP, MA, RN, GO, ES, MG e SC), prevista a partir de outubro de 2026.
+- Como outubro já passou, o catálogo **não apresenta essa rodada como inscrição aberta**. Orienta verificar vagas remanescentes e novas turmas no Painel de Oportunidades do Pronatec e nos editais das instituições.
+- A presença do programa no âmbito nacional não significa turma disponível em todo município ou UF.
+
+Fontes:
+- Ministério das Mulheres: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/setembro-defeso-eleitoral/mulheres-mil-abre-1-3-mil-vagas-de-cursos-profissionalizantes-gratuitos-e-presenciais
+- MEC — público-alvo: https://www.gov.br/mec/pt-br/acesso-a-informacao/perguntas-frequentes/mulheres-mil/qual-o-publico-de-mulheres
+- Painel de Oportunidades do Pronatec: https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9
+
+### Segurança e precisão
+- Benefícios eventuais são municipais; o agente deve orientar a solicitar avaliação, nunca garantir cesta, aluguel social ou dinheiro.
+- Minha Casa, Minha Vida é política habitacional subsidiada e possui modalidades distintas; não classificar genericamente como gratuito.
+- Mulheres Mil tem editais e turmas por instituição; uma notícia de vagas de outubro não comprova inscrição aberta em novembro.
+- Não solicitar documentos, CPF, senha, relato detalhado de violência ou medida protetiva no chat.
