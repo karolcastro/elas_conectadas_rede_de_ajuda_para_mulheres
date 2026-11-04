@@ -22,9 +22,9 @@ jobs:
       - name: Run tests
         run: pytest -q
       - name: Check lint
-        run: ruff check src tests
+        run: ruff check src tests api
       - name: Scan Python code
-        run: bandit -r src -ll
+        run: bandit -r src api -ll
       - name: Audit dependencies
         run: pip-audit
   secret-scan:
