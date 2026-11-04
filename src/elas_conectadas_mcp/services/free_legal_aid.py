@@ -310,3 +310,82 @@ class FreeLegalAidDirectory:
             ],
             "verification_status": "official_ministry_sources_checked_2026-11-04"
         }
+
+
+    def food_security_guide(self, *, uf: str | None = None, municipality: str | None = None) -> dict[str, Any]:
+        """Orienta busca por alimentação gratuita e equipamentos públicos locais."""
+        if uf and (len(uf.strip()) != 2 or not uf.strip().isalpha()):
+            raise ValueError("Informe a sigla da UF com duas letras.")
+        if municipality and len(municipality.strip()) < 2:
+            raise ValueError("Informe um município válido.")
+        return {
+            "service": "Orientação para acesso a alimentação gratuita ou de baixo custo",
+            "requested_location": {
+                "uf": uf.strip().upper() if uf else None,
+                "municipality": municipality.strip() if municipality else None,
+            },
+            "priority": "Priorizar refeições gratuitas e atendimento a pessoas em insegurança alimentar.",
+            "options": [
+                {
+                    "name": "Cozinhas Solidárias",
+                    "free": True,
+                    "description": (
+                        "Iniciativas da sociedade civil que oferecem refeições gratuitas, com prioridade "
+                        "para pessoas em vulnerabilidade socioeconômica e insegurança alimentar. O MDS "
+                        "informa mais de 2 mil cozinhas em funcionamento no país."
+                    ),
+                    "how_to_find": [
+                        "Consultar a assistência social municipal/CRAS para identificar cozinhas solidárias e iniciativas locais.",
+                        "Consultar informações e canais oficiais do Programa Cozinha Solidária do MDS.",
+                        "Confirmar diretamente com a cozinha os dias, horários, local de distribuição e regras de atendimento."
+                    ],
+                    "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/acesso-a-alimentos-e-a-agua/programa-cozinha-solidaria",
+                    "network_system": "https://cozinhasolidaria.digital/",
+                },
+                {
+                    "name": "Cozinhas Comunitárias",
+                    "free": None,
+                    "description": (
+                        "Equipamentos públicos implementados em parceria com estados e municípios. "
+                        "Oferecem refeições gratuitas ou a baixo custo, prioritariamente a pessoas em "
+                        "vulnerabilidade e insegurança alimentar."
+                    ),
+                    "how_to_find": [
+                        "Perguntar ao CRAS ou à Secretaria Municipal de Assistência Social/Segurança Alimentar se há unidade no município.",
+                        "Confirmar se a refeição é gratuita ou tem preço, os critérios e o horário diretamente com a gestão local."
+                    ],
+                    "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/equipamentos-de-seguranca-alimentar-e-nutricional/cozinha-comunitaria/cozinha-comunitaria/",
+                },
+                {
+                    "name": "Restaurantes Populares",
+                    "free": None,
+                    "description": (
+                        "Equipamentos públicos de acesso universal com refeições a preços acessíveis; "
+                        "em alguns municípios pode haver preço simbólico ou gratuidade para públicos "
+                        "prioritários. Não presumir que a refeição seja gratuita."
+                    ),
+                    "how_to_find": [
+                        "Consultar a prefeitura ou a Secretaria Municipal de Assistência Social/Segurança Alimentar.",
+                        "Confirmar preço, horários, endereço e eventual prioridade diretamente com o equipamento."
+                    ],
+                    "official_source": "https://www.gov.br/pt-br/servicos/acessar-os-restaurantes-populares",
+                },
+            ],
+            "municipal_emergency_support": {
+                "service": "Benefícios Eventuais da Assistência Social",
+                "description": (
+                    "Em situações temporárias de vulnerabilidade, incluindo falta de alimentação, a pessoa "
+                    "pode solicitar avaliação para benefício eventual junto à assistência social municipal."
+                ),
+                "official_source": "https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais",
+            },
+            "official_locator": "https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/",
+            "automated_local_results": False,
+            "limitations": [
+                "Este guia não consulta um cadastro georreferenciado de cozinhas nem confirma vagas, distribuição, horário ou funcionamento atual.",
+                "A existência de um programa nacional não garante unidade no município informado.",
+                "Cozinhas comunitárias e restaurantes populares podem cobrar valor baixo; confirmar antes de se deslocar.",
+                "Não envie CPF, documentos, renda detalhada ou informações sensíveis ao agente."
+            ],
+            "verification_status": "official_mds_sources_checked_2026-11-04"
+        }
