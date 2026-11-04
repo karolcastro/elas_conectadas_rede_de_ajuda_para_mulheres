@@ -113,7 +113,7 @@ def test_cras_guide_explains_free_social_protection_and_cadunico_access():
     assert result["public_service"] is True
     assert result["requested_location"]["uf"] == "SP"
     assert any("Cadastro Único" in item for item in result["services"])
-    assert "não garante concessão automática" in result["how_to_access"][-1]
+    assert "não garante concessão automática" in result["how_to_access"][-2]
     assert "gov.br" in result["official_source"]
     assert "Não envie CPF" in result["limitations"][-1]
 
