@@ -1046,3 +1046,30 @@ A Paraíba recebeu duas referências adicionais: Centro Estadual de Referência 
 
 Fonte PB estadual: https://paraiba.pb.gov.br/diretas/secretaria-da-mulher-e-da-diversidade-humana/arquivos/servicos-da-semdh.pdf
 Fonte PB municipal: https://www.joaopessoa.pb.gov.br/noticias/dia-internacional-pela-eliminacao-da-violencia-contra-as-mulheres-e-marcado-por-reforco-a-rede-de-protecao-e-acoes-de-conscientizacao/
+
+
+## Atualização de catálogo — expansão de Rondônia e correção do Amazonas (04/11/2026)
+
+Foram adicionados oito registros de Delegacias Especializadas em Atendimento à Mulher (DEAM) em Rondônia, com base no diretório oficial da Polícia Civil:
+- Porto Velho — (69) 99944-4124 / (69) 99944-2861.
+- Ariquemes — (69) 99944-2045 / (69) 99926-3151.
+- Cacoal — (69) 99963-3176 / (69) 99962-1327 / (69) 99950-8635.
+- Guajará-Mirim — (69) 99920-6999 / (69) 99923-4381.
+- Jaru — (69) 99901-2768 / (69) 99977-2783.
+- Ji-Paraná — (69) 99903-4263 / (69) 99602-2268.
+- Rolim de Moura — (69) 99976-2800 / (69) 99981-9646.
+- Vilhena — (69) 99903-7167 / (69) 99907-2964.
+
+A página da Polícia Civil também publica e-mails institucionais por unidade, transcritos nos registros do catálogo. Ela não apresenta endereços textuais nem horários específicos dessas DEAMs; os campos de endereço e horário permanecem sem preenchimento. A orientação ao público é confirmar localização e funcionamento diretamente com a unidade antes de se deslocar. A fonte não declara expressamente a gratuidade, portanto todos os registros usam `free: null`, `cost_status: not_confirmed_by_official_source` e `recommendation_status: cost_confirmation_required`.
+
+Fonte: https://www.pc.ro.gov.br/unidades-policiais/
+
+### Correção do CREAM — Manaus/AM
+
+O registro `am-manaus-cream` foi revisado com base no diretório da SEJUSC: endereço Avenida Presidente Kennedy, 39, Educandos; telefones (92) 98406-7151, (92) 98460-6899, (92) 98436-4761, (92) 98469-9366, (92) 98483-6488 e (92) 98460-7366; horário publicado de segunda a sexta, das 8h às 17h. A gratuidade individual continua não confirmada pela página e não foi inferida.
+
+Fonte: https://www.sejusc.am.gov.br/mulheres/
+
+### Métricas após a atualização (04/11/2026)
+
+O catálogo contém **166 registros**, com IDs únicos, presença nas **27 UFs**, 47 registros com gratuidade confirmada e 119 com gratuidade não confirmada. A cobertura municipal segue parcial. A página da Polícia Civil de Rondônia é uma fonte de descoberta institucional; os dados devem ser revalidados antes de orientar deslocamentos.
