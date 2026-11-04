@@ -4289,8 +4289,8 @@
       "free": null,
       "cost_status": "not_confirmed_by_official_source",
       "recommendation_status": "cost_confirmation_required",
-      "audience": "Mulheres acompanhadas ou atendidas no âmbito da rede de proteção e segurança pública; critérios e área operacional devem ser confirmados com a unidade.",
-      "access_instructions": "A página oficial do Governo de Mato Grosso lista este núcleo/organismo e seus contatos. Patrulha Maria da Penha é serviço policial especializado e não deve ser presumido como atendimento presencial aberto ou canal de emergência. Confirme elegibilidade, área de cobertura, funcionamento e disponibilidade diretamente com o contato publicado. A fonte não declara expressamente a gratuidade. Em perigo imediato, ligue 190; para orientação, 180.",
+      "audience": "Mulheres que buscam informações e articulação com o Organismo de Políticas para Mulheres do município; escopo e serviços devem ser confirmados diretamente com o órgão.",
+      "access_instructions": "A página oficial do Governo de Mato Grosso lista o Organismo de Políticas para Mulheres de Juína, com endereço e telefone. Confirme os serviços prestados, critérios, funcionamento e disponibilidade diretamente com o órgão. A fonte não declara expressamente a gratuidade. Em perigo imediato, ligue 190; para orientação, 180.",
       "official_source": "https://www.mulher.mt.gov.br/atendimentos",
       "verification_status": "official_state_service_directory",
       "verification_date": "2026-11-04",
@@ -4299,7 +4299,7 @@
       "shelter_address_public": false
     },
     {
-      "id": "mt-pmp-luc-iara",
+      "id": "mt-pmp-luciara",
       "name": "Núcleo da Patrulha Maria da Penha",
       "category": "protecao",
       "coverage": "MT",
