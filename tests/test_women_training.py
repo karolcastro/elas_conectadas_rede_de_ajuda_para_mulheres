@@ -91,3 +91,20 @@ def test_pyladies_is_listed_as_community_with_unconfirmed_cost():
     assert pyladies["women_specific"] is True
     assert "não comprova" in pyladies["coverage"]
     assert "não comprova que todos estejam realizando encontros atualmente" in pyladies["status_note"]
+
+
+
+def test_womakerscode_cloud_course_is_free_and_online():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    cloud = programs["br-womakerscode-introducao-computacao-nuvem"]
+    assert cloud["free"] is True
+    assert cloud["certificate"] is True
+    assert cloud["opportunity_type"] == "curso"
+    assert "9,5 horas" in cloud["format"]
+    assert "não informa prazo final" in cloud["enrollment_status"]
+
+
+def test_pyladies_directory_does_not_claim_current_activity():
+    programs = {item["id"]: item for item in WomenTrainingDirectory().search()["programs"]}
+    pyladies = programs["br-pyladies-brasil-comunidade-python"]
+    assert "não confirma atividade recente" in pyladies["enrollment_status"]
