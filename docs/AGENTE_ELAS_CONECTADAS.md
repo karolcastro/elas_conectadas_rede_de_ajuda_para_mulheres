@@ -1197,3 +1197,25 @@ Fontes:
 ### Métricas revisadas
 
 Após a inclusão e validação estrutural: **208 registros**, **208 IDs únicos**, presença nas **27 UFs**, **154 combinações município/UF**, **47 registros com gratuidade expressamente confirmada** e **161 com custo não confirmado**. A contagem é de registros e combinações município/UF, não de municípios com disponibilidade confirmada. Diretório publicado não garante vaga, horário em tempo real ou atendimento imediato.
+
+
+## Expansão estadual — Mato Grosso do Sul (04/11/2026)
+
+Foi consultada a página oficial "Não Se Cale — Outros Contatos", que apresenta contatos de centros de atendimento à mulher, DEAMs, delegacias com Sala Lilás, Defensoria, organismos municipais e Programa Mulher Segura/PROMUSE.
+
+Nesta rodada, foram inseridos 40 registros:
+1. **Centros de referência/atendimento (11):** Jardim, Dourados, Paranaíba, Aquidauana, Corumbá, Coxim, Fátima do Sul, Naviraí, Nova Andradina, Três Lagoas e Rio Brilhante.
+2. **Delegacias de Atendimento à Mulher (13):** Aquidauana, Bataguassu, Campo Grande, Corumbá, Coxim, Dourados, Fátima do Sul, Jardim, Naviraí, Nova Andradina, Paranaíba, Ponta Porã e Três Lagoas.
+3. **PROMUSE/Programa Mulher Segura (16):** Amambai, Aquidauana, Batayporã, Bonito, Caarapó, Campo Grande, Dourados, Fátima do Sul, Inocência, Jardim, Naviraí, Nova Andradina, Paranaíba, Pedro Gomes, Ponta Porã e Três Lagoas.
+
+Os serviços PROMUSE estão vinculados a unidades da Polícia Militar. O catálogo os diferencia de delegacias e centros de referência, sem prometer acolhimento presencial imediato ou cobertura universal. A fonte consultada não publica horários individuais para a maioria desses pontos; por isso, os horários foram marcados como não informados. A gratuidade individual não foi expressamente declarada e não foi presumida.
+
+Fonte oficial: https://www.naosecale.ms.gov.br/fale-conosco/outros-contatos/
+
+### Limites de atualização da Paraíba
+
+Foi localizado um Guia Estadual da Rede de Enfrentamento da Paraíba publicado em 2021, além de referências institucionais e notícias mais recentes. Como os endereços e telefones do guia são antigos e não foi encontrada confirmação atual individual suficiente para novos CRAMs nesta rodada, esses dados não foram importados como se fossem atuais. A busca continua para revalidar as unidades antes de incluí-las.
+
+### Métricas após a rodada
+
+O catálogo contém **248 registros**, **248 IDs únicos**, presença nas **27 UFs** e **177 combinações de município/UF**. São **47 registros com gratuidade expressamente confirmada** e **201 com custo não confirmado**. Os dados são referências de contato, não garantia de funcionamento, vaga ou atendimento imediato.
