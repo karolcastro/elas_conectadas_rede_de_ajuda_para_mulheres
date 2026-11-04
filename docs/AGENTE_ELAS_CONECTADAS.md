@@ -1325,3 +1325,31 @@ O diretório distingue cursos autoinstrucionais de bootcamps, mentorias, comunid
 ### Estado do catálogo de proteção em 04/11/2026
 
 Após conferência do JSON do repositório: **322 registros**, **322 IDs únicos**, **27 UFs**, **226 combinações município/UF**, **49 registros com gratuidade expressamente confirmada** e **273 com custo não confirmado**. A cobertura municipal permanece parcial; registro publicado não garante funcionamento, vaga ou atendimento imediato.
+
+
+
+## Atualização do diretório de capacitação feminina — PrograMaria (04/11/2026)
+
+Foram adicionadas três oportunidades nacionais ao `WomenTrainingDirectory`, após consulta às páginas oficiais da PrograMaria:
+
+1. **PrograMaria Sprint — Processos Seletivos em Tech**
+   - Gratuita, online, quatro módulos com artigos, vídeos e atividades.
+   - Conteúdo: currículo, LinkedIn, GitHub, busca de vagas, pretensão salarial, networking, entrevistas, testes técnicos e negociação de propostas.
+   - A página informa certificado digital, acesso ao conteúdo por seis semanas após a inscrição e inscrições por tempo indeterminado.
+   - Público: principalmente mulheres cis e trans e pessoas de gêneros minorizados interessadas em tecnologia.
+   - Fonte: https://vamosjuntes.programaria.org/sprint-processos-seletivos
+
+2. **PrograMaria Sprint — IA Generativa**
+   - Minicurso online gratuito com nove módulos, atividades, lives, vídeos e artigos.
+   - Conteúdo: fundamentos de IA generativa e LLMs, prompts, vieses, GitHub Copilot, APIs OpenAI e Gemini, tools, agentes inteligentes, interfaces e prototipagem.
+   - A página informa inscrições abertas e ilimitadas. Não foi publicada confirmação de certificado ou prazo final.
+   - Público: principalmente mulheres cis e trans, pessoas não-binárias e outros gêneros minorizados com interesse em dados e IA.
+   - Fonte: https://vamosjuntes.programaria.org/programaria-sprint-ia-generativa
+
+3. **PrograMaria — Lista de interesse para bolsas em formação tech**
+   - Trilhas apresentadas: front-end (HTML, CSS, JavaScript), análise de dados (planilhas, Python, SQL, visualização e fundamentos de machine learning) e back-end (JavaScript, Node.js, APIs, bancos de dados, Git e GitHub).
+   - A página informa que as datas dos processos de bolsas serão divulgadas em breve. A lista de interesse não significa turma aberta, seleção em andamento ou bolsa garantida.
+   - A iniciativa atende pessoas afetadas por desigualdades de gênero e outras condições; não é exclusiva para mulheres.
+   - Fonte: https://vamosjuntes.programaria.org/oportunidades-gratuitas
+
+**Regra de apresentação:** diferenciar cursos/Sprints com inscrição indicada como aberta de listas de interesse para processos futuros. Não prometer vaga, bolsa, certificado ou acesso além do que a página oficial declara. Data de verificação desta rodada: 04/11/2026.
