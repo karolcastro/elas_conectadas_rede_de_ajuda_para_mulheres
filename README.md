@@ -475,3 +475,18 @@ Os registros PROMUSE foram classificados como proteção/policiamento especializ
 Fonte oficial: https://www.naosecale.ms.gov.br/fale-conosco/outros-contatos/
 
 **Métricas após a rodada:** 248 registros, 248 IDs únicos, 27 UFs e 177 combinações município/UF. São 47 registros com gratuidade expressamente confirmada e 201 com custo não confirmado. A cobertura é parcial e a presença em diretório não garante disponibilidade imediata.
+
+
+### Expansão rápida — organismos municipais e NUDEM em Mato Grosso do Sul (04/11/2026)
+
+Foram adicionadas **49 referências**:
+- 48 organismos municipais de políticas para mulheres (coordenadorias, gerências e secretarias) em municípios do estado, com os contatos e endereços publicados pelo portal estadual.
+- 1 NUDEM da Defensoria Pública de MS, em Campo Grande. A página oficial informa atendimento jurídico especializado, telefone (67) 3313-4919, e-mail nudem@defensoria.ms.def.br e endereço Avenida Afonso Pena, 3850. A atuação do NUDEM no interior depende de designação excepcional.
+
+Os organismos municipais são portas de orientação institucional, articulação e encaminhamento; não foram descritos como delegacias, abrigos ou plantões de emergência. Horários não publicados permanecem como não informados. Os 48 organismos municipais não tiveram gratuidade individual presumida. A gratuidade do NUDEM está indicada conforme a natureza do serviço da Defensoria Pública.
+
+Fontes:
+- Diretório estadual: https://www.naosecale.ms.gov.br/fale-conosco/outros-contatos/
+- NUDEM: https://www.naosecale.ms.gov.br/rede-de-apoio/defensoria-publica-de-mato-grosso-do-sul/
+
+**Métricas após esta rodada:** 297 registros, 297 IDs únicos, presença nas 27 UFs, 215 combinações município/UF, 48 registros com gratuidade expressamente confirmada e 249 com custo não confirmado. A cobertura é parcial; os organismos municipais não substituem atendimento emergencial ou especializado.
