@@ -36,3 +36,30 @@ def test_sp_guide_exposes_verified_free_phone_and_scheduling_conditions():
 def test_non_sp_guide_does_not_show_sp_specific_phone():
     result = FreeLegalAidDirectory().guide(uf="RJ")
     assert result["state_specific_contacts"] == []
+
+
+def test_bahia_guide_exposes_official_disque_defensoria_channels():
+    result = FreeLegalAidDirectory().guide(uf="BA")
+    contact = result["state_specific_contacts"][0]
+    assert contact["phone"] == "129 ou 0800 071 3121"
+    assert contact["free"] is True
+    assert contact["source_last_updated"] == "2026-07-17"
+    assert "ba.gov.br" in contact["official_source"]
+
+
+def test_parana_guide_exposes_nudem_contact_and_scheduling():
+    result = FreeLegalAidDirectory().guide(uf="PR")
+    general, nudem = result["state_specific_contacts"]
+    assert general["phone"] == "(41) 99123-1961"
+    assert general["free"] is True
+    assert "independentemente de renda" in general["audience"]
+    assert nudem["phone"] == "(41) 99285-8134"
+    assert nudem["email"] == "nudem@defensoria.pr.def.br"
+    assert nudem["appointment_required"] is True
+    assert nudem["source_last_updated"] == "2026-09-29"
+
+
+def test_state_specific_contacts_do_not_leak_between_states():
+    for uf in ("RJ", "MG", "PE"):
+        result = FreeLegalAidDirectory().guide(uf=uf)
+        assert result["state_specific_contacts"] == []
