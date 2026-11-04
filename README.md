@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo de 156 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 46 registros têm gratuidade confirmada e 110 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
+Projeto em desenvolvimento com servidor MCP, catálogo de 158 referências e presença nas 27 UFs (contagem em 04/11/2026). A cobertura municipal ainda é parcial e não representa todos os municípios de cada estado. 47 registros têm gratuidade confirmada e 111 têm custo pendente de confirmação; o agente não deve apresentar os últimos como gratuitos. Para municípios sem referência local curada, o agente oferece consulta ao Painel oficial do Ligue 180 por estado e município. A busca não calcula distância nem confirma disponibilidade operacional. Consulte a documentação para fontes e limites.
 
 
 ## Código-fonte inicial
