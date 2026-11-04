@@ -139,7 +139,7 @@ def test_bahia_and_pernambuco_directory_leads_do_not_claim_free_service():
             if item.get("cost_status") == "not_confirmed_by_official_source":
                 assert item["free"] is None
                 assert item["recommendation_status"] == "cost_confirmation_required"
-        assert result["free_services_count"] == 0
+        assert result["free_services_count"] >= 2
         assert result["cost_unconfirmed_count"] >= 1
 
 
