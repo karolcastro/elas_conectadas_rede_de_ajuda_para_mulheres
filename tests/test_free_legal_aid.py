@@ -60,9 +60,11 @@ def test_parana_guide_exposes_nudem_contact_and_scheduling():
 
 
 def test_state_specific_contacts_do_not_leak_between_states():
-    for uf in ("RJ", "MG", "PE"):
+    for uf in ("RJ", "AC", "GO"):
         result = FreeLegalAidDirectory().guide(uf=uf)
         assert result["state_specific_contacts"] == []
+    assert FreeLegalAidDirectory().guide(uf="MG")["state_specific_contacts"][0]["phone"].startswith("(31)")
+    assert FreeLegalAidDirectory().guide(uf="PE")["state_specific_contacts"][0]["phone"] == "(81) 99488-3765"
 
 
 def test_minas_gerais_guide_exposes_nudem_bh_with_local_scope():
