@@ -618,3 +618,14 @@ Fontes:
 - https://www.womakerscode.org/
 - https://www.maismulheres.tech/courses/introducao-a-computacao-em-nuvem
 - https://python.org.br/pyladies/
+
+
+## Novas referências gratuitas de acolhimento — 04/11/2026
+
+O diretório de organizações e iniciativas passou a incluir três referências com foco em mulheres em situação de vulnerabilidade:
+
+- **Acolhe Mais — SUS:** teleatendimento psicológico gratuito, online e nacional para mulheres que vivem ou viveram violência e mulheres cuidadoras de familiares com deficiência, transtornos do neurodesenvolvimento ou doenças raras. O acesso externo exige conta gov.br no Meu SUS Digital e cadastro na plataforma AgSUS; o agente não solicita credenciais. Fonte: https://www.gov.br/saude/pt-br/assuntos/noticias/2026/outubro/precisa-de-acolhimento-em-saude-mental-saiba-como-acessar-o-acolhe-mais-pelo-meu-sus-digital
+- **NUMAPE — Núcleo Maria da Penha:** atendimento público gratuito jurídico, psicológico e social em unidades universitárias e comarcas do Paraná. A localização deve ser conferida na lista oficial de unidades; não presumir cobertura estadual integral. Fonte: https://www.seti.pr.gov.br/numape
+- **Programa Ser Mulher — LBV:** a página institucional descreve psicoterapia online e gratuita para meninas a partir de 12 anos e mulheres com histórico de violência e publica o WhatsApp (11) 9999-66-557. Como a publicação disponível é de 2022, a disponibilidade para novos atendimentos em 2026 precisa ser confirmada diretamente. Fonte: https://www.lbv.org.br/programa-ser-mulher/
+
+As três referências foram adicionadas ao módulo `WomenOrganizationsGuide`, com limites de cobertura, critérios de acesso, fonte e data de verificação. A inclusão no catálogo não garante vaga, agendamento ou atendimento imediato.
