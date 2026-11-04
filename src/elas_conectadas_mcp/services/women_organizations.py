@@ -1,8 +1,8 @@
 """Fontes e iniciativas verificadas de apoio gratuito a mulheres."""
 from __future__ import annotations
 
-from typing import Any
 import unicodedata
+from typing import Any
 
 IPEA_MAP_URL = "https://mapaosc.ipea.gov.br/"
 MINISTRY_PANEL_URL = "https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento"
