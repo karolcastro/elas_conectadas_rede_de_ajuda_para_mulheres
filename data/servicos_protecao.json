@@ -2177,6 +2177,30 @@
       "review_due_date": "2027-02-02"
     },
     {
+      "id": "rn-mossoro-crmb",
+      "name": "Centro de Referência da Mulher Brasileira",
+      "category": "apoio_psicossocial",
+      "coverage": "RN",
+      "ufs": [
+        "RN"
+      ],
+      "municipality": "Mossoró",
+      "state": "RN",
+      "service_type": "Centro de Referência / Atendimento à Mulher",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que buscam acolhimento, orientação ou atendimento relacionado à violência de gênero, conforme escopo institucional publicado.",
+      "access_instructions": "A fonte oficial publica a existência e/ou os contatos do serviço, mas não confirma expressamente a gratuidade. Confirme custo, funcionamento, critérios e disponibilidade diretamente com o órgão antes de se deslocar. Em perigo imediato, ligue 190; para orientação, 180.",
+      "official_source": "https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/marco/tenda-lilas-leva-acolhimento-e-informacao-sobre-enfrentamento-a-violencia-contra-as-mulheres-em-sergipe-e-no-rio-grande-do-norte",
+      "verification_status": "official_government_service_reference",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false,
+      "address": null,
+      "phone": null
+    },
+    {
       "id": "br-cmb-boa-vista",
       "name": "Casa da Mulher Brasileira",
       "category": "apoio_psicossocial",
@@ -2200,6 +2224,82 @@
       "shelter_address_public": false,
       "cost_status": "not_confirmed_by_official_source",
       "recommendation_status": "cost_confirmation_required"
+    },
+    {
+      "id": "rs-porto-alegre-crm-vania-araujo",
+      "name": "Centro de Referência da Mulher Vânia Araújo Machado",
+      "category": "apoio_psicossocial",
+      "coverage": "RS",
+      "ufs": [
+        "RS"
+      ],
+      "municipality": "Porto Alegre",
+      "state": "RS",
+      "service_type": "Centro de Referência / Atendimento à Mulher",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que buscam acolhimento, orientação ou atendimento relacionado à violência de gênero, conforme escopo institucional publicado.",
+      "access_instructions": "A fonte oficial publica a existência e/ou os contatos do serviço, mas não confirma expressamente a gratuidade. Confirme custo, funcionamento, critérios e disponibilidade diretamente com o órgão antes de se deslocar. Em perigo imediato, ligue 190; para orientação, 180.",
+      "official_source": "https://www.estado.rs.gov.br/sexta-conferencia-estadual-de-politicas-para-as-mulheres-define-tres-propostas-e-elege-91-delegadas-para-a-etapa-nacional",
+      "verification_status": "official_government_service_reference",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false,
+      "address": "Rua Miguel Tostes, 823, bairro Rio Branco",
+      "phone": "0800 541 0803; WhatsApp (51) 98151-5249",
+      "email": "crm@justica.rs.gov.br",
+      "service_hours": "8h30 às 18h, segunda a sexta"
+    },
+    {
+      "id": "rs-sapucaia-centro-referencia-mulher",
+      "name": "Centro de Referência da Mulher — Coordenadoria da Mulher e Guardiãs Maria da Penha",
+      "category": "apoio_psicossocial",
+      "coverage": "RS",
+      "ufs": [
+        "RS"
+      ],
+      "municipality": "Sapucaia do Sul",
+      "state": "RS",
+      "service_type": "Centro de Referência / Atendimento à Mulher",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que buscam acolhimento, orientação ou atendimento relacionado à violência de gênero, conforme escopo institucional publicado.",
+      "access_instructions": "A fonte oficial publica a existência e/ou os contatos do serviço, mas não confirma expressamente a gratuidade. Confirme custo, funcionamento, critérios e disponibilidade diretamente com o órgão antes de se deslocar. Em perigo imediato, ligue 190; para orientação, 180.",
+      "official_source": "https://www.sapucaiadosul.rs.gov.br/telefones-uteis/",
+      "verification_status": "official_government_service_reference",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false,
+      "address": "Avenida Leônidas de Souza, 957, bairro Santa Catarina",
+      "phone": "(51) 99239-7532",
+      "service_hours": "11h às 17h, segunda a sexta"
+    },
+    {
+      "id": "sc-florianopolis-cremv",
+      "name": "Centro de Referência de Atendimento à Mulher em Situação de Violência (CREMV)",
+      "category": "apoio_psicossocial",
+      "coverage": "SC",
+      "ufs": [
+        "SC"
+      ],
+      "municipality": "Florianópolis",
+      "state": "SC",
+      "service_type": "Centro de Referência / Atendimento à Mulher",
+      "free": null,
+      "cost_status": "not_confirmed_by_official_source",
+      "recommendation_status": "cost_confirmation_required",
+      "audience": "Mulheres que buscam acolhimento, orientação ou atendimento relacionado à violência de gênero, conforme escopo institucional publicado.",
+      "access_instructions": "A fonte oficial publica a existência e/ou os contatos do serviço, mas não confirma expressamente a gratuidade. Confirme custo, funcionamento, critérios e disponibilidade diretamente com o órgão antes de se deslocar. Em perigo imediato, ligue 190; para orientação, 180.",
+      "official_source": "https://devportal.pmf.sc.gov.br/entidades/saude/index.php?cms=raivs&menu=6&submenuid=dyn-153",
+      "verification_status": "official_government_service_reference",
+      "verification_date": "2026-11-04",
+      "review_due_date": "2027-02-02",
+      "shelter_address_public": false,
+      "address": "Rua Delminda Silveira, 65–83, Agronômica",
+      "phone": "(48) 3224-7373 / (48) 3224-6605",
+      "email": "cremv@pmf.sc.gov.br"
     },
     {
       "id": "br-cmb-aracaju",
