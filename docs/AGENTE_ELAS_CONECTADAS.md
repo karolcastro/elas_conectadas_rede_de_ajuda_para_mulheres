@@ -1236,3 +1236,22 @@ Fontes:
 ### Métricas após esta rodada
 
 **297 registros**, **297 IDs únicos**, presença nas **27 UFs**, **215 combinações município/UF**, **48 registros com gratuidade expressamente confirmada** e **249 com custo não confirmado**. Catálogo parcial e sem garantia de disponibilidade ou atendimento imediato.
+
+
+### Expansão da Paraíba — 04/11/2026
+
+Adicionadas 15 referências a partir de publicações oficiais:
+- 12 municípios listados no Informativo nº 1, de março de 2025, do Governo da Paraíba como locais com Delegacia Especializada de Atendimento à Mulher: João Pessoa, Picuí, Sousa, Cajazeiras, Campina Grande, Bayeux, Cabedelo, Guarabira, Santa Rita, Monteiro, Patos e Mamanguape.
+- 2 Núcleos de Atendimento à Mulher da Polícia Civil citados no mesmo informativo: Queimadas e Esperança.
+- 1 Ronda Maria da Penha em João Pessoa, com contatos municipais divulgados pela Prefeitura.
+
+**Limite de verificação:** o informativo estadual é de março de 2025 e comprova que as unidades foram relacionadas naquele momento, mas não publica endereços, telefones diretos ou horários; por isso, os registros de DEAMs e núcleos ficam marcados como necessidade de reconfirmação operacional. O número 197 é canal estadual da Polícia Civil, não telefone direto das unidades. Não importar endereços e contatos de diretórios antigos.
+
+O Centro de Referência da Mulher Ednalva Bezerra, em João Pessoa, também foi atualizado com base no relatório municipal publicado em 26/12/2025: atendimento presencial na Rua Afonso Campos, 111, de segunda a sexta, 8h–16h; Prefeitura informa atendimento 24h pelo 0800-283-3883 e contatos (83) 98695-3549 e (83) 3213-7359 em dias úteis, 8h–17h. Atendimento remoto em fins de semana e feriados.
+
+Fontes:
+- https://paraiba.pb.gov.br/diretas/secretaria-de-desenvolvimento-humano/consultas/Informativo2025n1DiaInternacionaldaMulher2.pdf
+- https://www.joaopessoa.pb.gov.br/noticias/prefeitura-registra-315-atendimentos-a-mulheres-vitimas-de-violencia-em-2025/
+- https://www.joaopessoa.pb.gov.br/noticias/dia-internacional-pela-eliminacao-da-violencia-contra-as-mulheres-e-marcado-por-reforco-a-rede-de-protecao-e-acoes-de-conscientizacao/
+
+**Métricas após esta rodada:** 312 registros, 312 IDs únicos, 27 UFs, 226 combinações município/UF, 49 registros com gratuidade confirmada e 263 com custo não confirmado. A cobertura segue parcial; os novos registros policiais de PB não devem ser tratados como confirmação de funcionamento atual até reconfirmação direta.
