@@ -105,3 +105,19 @@ def test_creas_guide_is_free_and_points_to_official_mds_locator():
 def test_creas_guide_rejects_invalid_location():
     with pytest.raises(ValueError, match="UF"):
         FreeLegalAidDirectory().creas_guide(uf="Pernambuco")
+
+
+def test_cras_guide_explains_free_social_protection_and_cadunico_access():
+    result = FreeLegalAidDirectory().cras_guide(uf="SP", municipality="São Paulo")
+    assert result["free"] is True
+    assert result["public_service"] is True
+    assert result["requested_location"]["uf"] == "SP"
+    assert any("Cadastro Único" in item for item in result["services"])
+    assert "não garante concessão automática" in result["how_to_access"][-1]
+    assert "gov.br" in result["official_source"]
+    assert "Não envie CPF" in result["limitations"][-1]
+
+
+def test_cras_guide_rejects_invalid_uf():
+    with pytest.raises(ValueError, match="UF"):
+        FreeLegalAidDirectory().cras_guide(uf="São Paulo")
