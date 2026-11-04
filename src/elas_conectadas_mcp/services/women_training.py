@@ -118,7 +118,7 @@ PROGRAMS = [
         "official_source": "https://www.womakerscode.org/programas",
         "verification_date": "2026-11-04",
         "status_note": "A página declara que o conteúdo é gratuito, online, com interpretação em Libras e certificado. O curso reúne gravações de um bootcamp realizado em 2020; não deve ser apresentado como turma nova ou mentoria ao vivo.",
-    },,
+    },
     {
         "id": "br-programaria-sprint-processos-seletivos-tech",
         "name": "PrograMaria Sprint — Processos Seletivos em Tech",
