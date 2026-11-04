@@ -154,7 +154,7 @@ def test_regional_lead_records_include_official_source_and_review_date():
     assert all(x["shelter_address_public"] is False for x in leads)
 
 
-def test_national_casa_da_mulher_brasileira_units_are_free_and_24_hours():
+def test_national_casa_da_mulher_brasileira_units_are_listed_24_hours_cost_unconfirmed():
     registry = ProtectionRegistry(as_of=date(2026, 11, 4))
     total_cmb = 0
     for uf, city in [("DF", "Brasília"), ("MS", "Campo Grande"), ("BA", "Salvador"),
@@ -165,7 +165,21 @@ def test_national_casa_da_mulher_brasileira_units_are_free_and_24_hours():
         result = registry.list_services(uf=uf, municipality=city)
         cmb = [x for x in result["services"] if x.get("service_type") == "Casa da Mulher Brasileira"]
         assert len(cmb) == 1
-        assert cmb[0]["free"] is True
+        assert cmb[0]["free"] is None
+        assert cmb[0]["cost_status"] == "not_confirmed_by_official_source"
         assert cmb[0]["service_hours"] == "24 horas por dia, todos os dias"
         total_cmb += len(cmb)
     assert total_cmb == 13
+
+
+def test_df_womens_reference_centers_are_explicitly_free():
+    registry = ProtectionRegistry(as_of=date(2026, 11, 4))
+    expected = {
+        "df-crmb-recanto-das-emas", "df-crmb-sol-nascente",
+        "df-crmb-sao-sebastiao", "df-crmb-sobradinho-ii",
+    }
+    result = registry.list_services(uf="DF")
+    records = {x["id"]: x for x in result["services"] if x["id"] in expected}
+    assert set(records) == expected
+    assert all(x["free"] is True for x in records.values())
+    assert all(x["cost_status"] == "confirmed_free_by_official_source" for x in records.values())

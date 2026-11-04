@@ -321,3 +321,10 @@ O catálogo agora inclui as 13 Casas da Mulher Brasileira (12 registros novos; S
 Fonte oficial: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/casa-da-mulher-brasileira-como-funciona-o-atendimento-e-onde-encontrar-uma-unidade
 
 O endereço está cadastrado apenas para as Casas da Mulher Brasileira listadas publicamente. Nenhum endereço de abrigo sigiloso é divulgado. A lista de unidades em funcionamento foi publicada em agosto de 2026 e deve ser revalidada antes do prazo editorial.
+
+
+### Distrito Federal — quatro Centros de Referência com gratuidade confirmada
+
+Foram adicionados quatro Centros de Referência da Mulher Brasileira no DF: Recanto das Emas, Sol Nascente, São Sebastião e Sobradinho II. O Governo do Distrito Federal confirma atendimento gratuito, sem necessidade de agendamento, com telefones e endereços publicados. Horário informado: segunda a sexta, das 9h às 18h.
+
+Fonte oficial: https://www.gdfsaude.df.gov.br/web/guest/w/ef-centros-oferecem-atendimento-gratuito-a-mulheres-em-situacao-de-vulnerabilidade?p_l_back_url=%2Fweb%2Fguest%2Ftopicos%3Fsort%3DcreateDate-%26tag%3DEspa%25C3%25A7o%2BPr%25C3%25B3-Mulher&p_l_back_url_title=T%C3%B3picos

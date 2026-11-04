@@ -947,3 +947,18 @@ A fonte federal confirma que as Casas funcionam 24 horas por dia, todos os dias,
 Fonte: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/agosto-defeso-eleitoral/casa-da-mulher-brasileira-como-funciona-o-atendimento-e-onde-encontrar-uma-unidade
 
 A cobertura é das 13 unidades explicitamente listadas como em funcionamento naquela publicação; não significa que haja uma Casa em todos os estados. A condição de funcionamento deve ser revalidada periodicamente.
+
+
+### Distrito Federal — CRMBs com gratuidade confirmada
+
+Quatro unidades foram incluídas com gratuidade confirmada em página do Governo do Distrito Federal atualizada em 26/10/2026:
+- CRMB Recanto das Emas — (61) 3181-2665 / 2666.
+- CRMB Sol Nascente — (61) 3181-2255 / 2660.
+- CRMB São Sebastião — (61) 3181-2661 / 2662.
+- CRMB Sobradinho II — (61) 3181-2663 / 2664.
+
+A fonte declara atendimento gratuito, sem necessidade de agendamento, de segunda a sexta, das 9h às 18h. Fonte: https://www.gdfsaude.df.gov.br/web/guest/w/ef-centros-oferecem-atendimento-gratuito-a-mulheres-em-situacao-de-vulnerabilidade?p_l_back_url=%2Fweb%2Fguest%2Ftopicos%3Fsort%3DcreateDate-%26tag%3DEspa%25C3%25A7o%2BPr%25C3%25B3-Mulher&p_l_back_url_title=T%C3%B3picos
+
+### Ressalva importante sobre as Casas da Mulher Brasileira
+
+A publicação federal de agosto de 2026 confirma 13 Casas da Mulher Brasileira em funcionamento e atendimento 24 horas, mas a declaração de gratuidade que aparece na mesma página refere-se ao Ligue 180, não às Casas. Para evitar inferência, os registros das Casas foram corrigidos para `free: null` e custo não confirmado. Eles não devem ser apresentados como gratuitos até confirmação explícita por fonte oficial ou pela unidade. A unidade de São Paulo já estava no catálogo e foi mantida como registro único.

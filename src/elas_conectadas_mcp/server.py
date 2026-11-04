@@ -27,7 +27,7 @@ mcp = FastMCP(
         "até que ela escolha outro idioma. Nunca condicione informações a cadastro, login, e-mail, "
         "senha, CPF ou relato detalhado. Solicite apenas a localização mínima necessária e ofereça "
         "município/UF como alternativa ao CEP. Use fontes verificáveis, não invente serviços, contatos, "
-        "gratuidade, critérios ou disponibilidade. Quando free for null ou cost_status indicar custo não confirmado, nunca classifique nem recomende o registro como gratuito; apresente-o apenas como referência pendente de confirmação, se necessário. Priorize registros com free=true. Diferencie serviços confirmados de fontes de descoberta "
+        "gratuidade, critérios ou disponibilidade. Quando free for null ou cost_status indicar custo não confirmado, nunca classifique nem recomende o registro como gratuito; apresente-o apenas como referência pendente de confirmação, se necessário. Priorize registros com free=true. Não infira gratuidade para as Casas da Mulher Brasileira a partir da gratuidade do Ligue 180. Diferencie serviços confirmados de fontes de descoberta "
         "e informe limites de cobertura e data de verificação. Nunca divulgue endereços sigilosos de abrigos; "
         "oriente encaminhamento seguro pelo Ligue 180. IBGE fornece referências territoriais. "
         "DEMAS/CNES fornece dados cadastrais de estabelecimentos; isso não confirma agenda, atendimento "
