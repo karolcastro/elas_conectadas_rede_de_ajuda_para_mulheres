@@ -5,6 +5,32 @@ from typing import Any
 
 PROGRAMS = [
     {
+        "id": "br-mec-mulheres-mil-qualificacao-profissional",
+        "name": "Programa Mulheres Mil — qualificação profissional para mulheres",
+        "provider": "Ministério da Educação (MEC), Rede Federal de Educação Profissional e Tecnológica e instituições estaduais",
+        "audience": "Mulheres a partir de 16 anos, prioritariamente em situação de vulnerabilidade social e econômica, pobreza ou extrema pobreza, com baixa escolaridade, responsáveis sozinhas pelo cuidado familiar ou sobreviventes de violência. Inclui mulheres negras, indígenas, quilombolas, ciganas, rurais, migrantes, refugiadas, trans e travestis.",
+        "coverage": "AP, MA, RN, GO, ES, MG e SC na rodada divulgada para outubro de 2026; programa nacional, com oferta territorial por edital e instituição.",
+        "ufs": ["AP", "MA", "RN", "GO", "ES", "MG", "SC"],
+        "format": "Cursos presenciais de qualificação profissional, com carga horária mínima de 160 horas; locais e cursos variam conforme edital.",
+        "free": True,
+        "priority": 0,
+        "women_specific": True,
+        "opportunity_type": "programa_cursos_por_edital",
+        "content": [
+            "qualificação profissional e tecnológica",
+            "assistente administrativo, logística e recursos humanos",
+            "cuidados com pessoas idosas e crianças",
+            "alimentação escolar e horticultura",
+            "empreendedorismo, vendas e atividades de serviços",
+            "artesanato e outras formações definidas pelas instituições ofertantes",
+        ],
+        "enrollment_status": "O MEC e o Ministério das Mulheres divulgaram em 25/09/2026 uma rodada de mais de 1.300 vagas, com 18 cursos em sete estados, prevista a partir de outubro de 2026. Como outubro já passou, esta rodada não deve ser apresentada como inscrição aberta; consultar o Painel de Oportunidades do Pronatec e os editais das instituições para verificar vagas remanescentes ou novas turmas.",
+        "application_url": "https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9",
+        "official_source": "https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/setembro-defeso-eleitoral/mulheres-mil-abre-1-3-mil-vagas-de-cursos-profissionalizantes-gratuitos-e-presenciais",
+        "verification_date": "2026-11-04",
+        "status_note": "O programa é destinado especificamente a mulheres em vulnerabilidade, mas as vagas são ofertadas por instituições e editais locais. A notícia de setembro descreve oferta para outubro; não há confirmação de inscrições abertas em 04/11/2026. Não presumir curso ou vaga em toda UF apenas porque o programa é nacional.",
+    },
+    {
         "id": "br-mds-acredita-primeiro-passo-inclusao-produtiva",
         "name": "Acredita no Primeiro Passo — inclusão produtiva para pessoas do CadÚnico",
         "provider": "Ministério do Desenvolvimento e Assistência Social — MDS e instituições parceiras",
