@@ -66,7 +66,7 @@ Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para r
 
 ## Status
 
-Projeto em desenvolvimento com servidor MCP, catálogo nacional de canais oficiais, catálogo regional inicial de São Paulo capital, diretório inicial de capacitações e conectores de território/saúde. A cobertura regional ainda é parcial; a busca não calcula distância e não confirma disponibilidade operacional. Consulte a documentação para limites e status de cada integração.
+Projeto em desenvolvimento com servidor MCP, catálogo nacional de canais oficiais, catálogo regional com registros verificados em São Paulo capital, Rio de Janeiro capital e Recife, diretório inicial de capacitações e conectores de território/saúde. A cobertura regional ainda é parcial; para Salvador/BA, serviços oficiais foram identificados, mas a gratuidade individual ainda precisa de confirmação antes de incluí-los como opções gratuitas. A busca não calcula distância e não confirma disponibilidade operacional. Consulte a documentação para limites e status de cada integração.
 
 
 ## Código-fonte inicial
