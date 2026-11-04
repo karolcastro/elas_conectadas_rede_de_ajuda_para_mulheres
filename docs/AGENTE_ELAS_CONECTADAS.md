@@ -1109,3 +1109,22 @@ Fonte: https://www.sejusc.am.gov.br/mulheres/
 ### Métricas após revisão
 
 O catálogo contém **171 registros**, com presença nas **27 UFs**. São **47 registros com gratuidade expressamente confirmada** e **124 com custo não confirmado**. A cobertura municipal continua parcial; a existência de registros em todos os estados não significa atendimento cadastrado em todos os municípios.
+
+
+## Ampliação em lote — Amazonas e Mato Grosso (04/11/2026)
+
+Foram adicionadas **19 referências** de fontes oficiais, ampliando a presença municipal em 18 localidades:
+- Amazonas: SAMIC de Barcelos. A SEJUSC publica o endereço (Rua Efigênio Sales, s/n, São Sebastião, dentro do 75º DIP), mas não publica telefone específico para Barcelos; o campo permanece nulo. A fonte descreve atendimento psicológico/social e encaminhamentos para o SAMIC.
+- Mato Grosso: 18 referências de Organismos de Políticas para Mulheres e núcleos da Patrulha Maria da Penha em Juína, Luciara, Novo Horizonte do Norte, Novo Santo Antônio, Paranatinga, Porto Alegre do Norte, Porto dos Gaúchos, Poxoréu, São Félix do Araguaia, São José do Xingu, Sapezal, Campo Novo do Parecis, Canabrava do Norte, Canarana, Campo Verde, Tapurah, Santa Terezinha e Nova Xavantina.
+
+Os registros da Patrulha Maria da Penha são referências de policiamento especializado. Não devem ser apresentados como plantões abertos, centros de atendimento presencial ou canais de emergência. A orientação é confirmar diretamente área de cobertura, critérios de acesso, funcionamento e disponibilidade. O registro de Juína é de Organismo de Políticas para Mulheres, não de patrulha.
+
+As páginas consultadas não declaram expressamente gratuidade individual para essas 19 referências. Todas permanecem com `free: null`, `cost_status: not_confirmed_by_official_source` e `recommendation_status: cost_confirmation_required`. Não recomendar como gratuitas confirmadas.
+
+Fontes oficiais:
+- SEJUSC Amazonas — Mulheres: https://www.sejusc.am.gov.br/mulheres/
+- Governo de Mato Grosso — Canais de ajuda/atendimentos: https://www.mulher.mt.gov.br/atendimentos
+
+### Métricas atuais após a ampliação
+
+O catálogo contém **190 registros**, com IDs únicos, fontes e datas de verificação preenchidos e presença nas **27 UFs**. Há **47 registros com gratuidade expressamente confirmada** e **143 com custo não confirmado**. A cobertura municipal permanece parcial e não representa todos os municípios de cada UF.
