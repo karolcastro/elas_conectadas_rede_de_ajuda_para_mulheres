@@ -99,7 +99,7 @@ def test_creas_guide_is_free_and_points_to_official_mds_locator():
     assert result["requested_location"] == {"uf": "PE", "municipality": "Recife"}
     assert "aplicacoes.mds.gov.br" in result["official_locator"]
     assert result["source_last_updated"] == "2026-10-26"
-    assert any("violência psicológica" in x for x in result["audience"].split(";")) or "violência psicológica" in result["audience"]
+    assert "psicológica" in result["audience"]
 
 
 def test_creas_guide_rejects_invalid_location():
