@@ -221,3 +221,10 @@ O módulo `orientar_assistencia_juridica_gratuita(uf, municipio)` agora inclui i
 - **São Paulo:** canal estadual 0800 773 4340 e NUDEM com encaminhamento pelo canal geral, conforme as ressalvas já documentadas.
 
 A cobertura específica não representa atendimento nacional completo. Os dados não garantem vaga ou disponibilidade imediata; confirmar critérios e fluxo diretamente com o órgão. Fontes, datas e limitações estão detalhadas em `docs/AGENTE_ELAS_CONECTADAS.md`.
+
+
+## Assistência psicossocial e social gratuita
+
+A orientação jurídica também aponta para o **CREAS**, serviço público e gratuito do SUAS que atende pessoas e famílias com direitos violados, incluindo violência física, psicológica e sexual. O MDS disponibiliza localizador oficial por município; se não houver CREAS local, a orientação oficial é procurar a assistência social da prefeitura. A ferramenta não presume endereço ou vaga.
+
+Contatos especializados adicionais registrados: **Minas Gerais** — NUDEM/Belo Horizonte, (31) 98475-2616 e (31) 98239-8863, 11h–17h; **Pernambuco** — NUDEM, WhatsApp (81) 99488-3765, atendimento inicial exclusivamente por mensagem e respostas por ordem de chegada. Escopo geográfico e condições estão na documentação técnica.
