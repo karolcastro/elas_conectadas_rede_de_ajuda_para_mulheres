@@ -865,3 +865,23 @@ Em 03/11/2026, o diretório de ONGs e iniciativas foi ampliado com a Maria d'Aju
 - Informar modalidade, público, abrangência e prazo como declarado pela própria iniciativa.
 - Não afirmar disponibilidade de equipe, resposta imediata ou cobertura presencial sem confirmação.
 - Manter iniciativas com gratuidade não confirmada fora da lista de serviços gratuitos verificados.
+
+
+## 39. Priorização territorial transparente das ONGs e iniciativas
+
+A ferramenta `orientar_busca_ongs_coletivos_mulheres(uf, municipio)` agora classifica e ordena as iniciativas sem transformar escopo nacional ou contato estadual em falsa confirmação de atendimento local.
+
+### Regra de classificação
+- `presential_city_published`: município e UF correspondem a uma das cidades que a TamoJuntas publica como local de atendimento presencial: Salvador/BA, Recife/PE, São Paulo/SP e Rio de Janeiro/RJ. A classificação significa que a cidade consta na página institucional, não que exista vaga ou equipe disponível no momento.
+- `national_online_scope`: Mapa do Acolhimento publica critérios de atendimento online/nacional; a classificação não confirma profissional disponível ou aceitação do pedido.
+- `latin_america_online_scope`: Maria d'Ajuda declara atendimento online de segurança digital para a América Latina; não representa serviço presencial local.
+- `state_contact_published_no_local_service_confirmation`: há contato estadual da TamoJuntas, mas o município informado não está entre as cidades publicadas para atendimento presencial. A organização informa que, para outras localidades, realiza orientações e encaminhamentos.
+- `no_local_service_confirmation`: não há cidade presencial nem contato estadual específico confirmado nesta base; a resposta deve informar o canal geral e a orientação de encaminhamento, sem declarar ausência da organização no estado.
+- `location_not_provided`: sem UF e município, não é possível estabelecer correspondência local.
+
+### Ordenação e campos
+Cada iniciativa recebe `locality_priority`, `locality_match` e `locality_evidence`. Os resultados com atendimento presencial publicado para a cidade aparecem primeiro; opções online nacionais/regionais vêm depois; contatos estaduais sem confirmação municipal ficam abaixo. Nenhuma opção online é descartada apenas por não ter unidade presencial.
+
+A comparação normaliza acentos e caixa alta/baixa nos nomes das cidades. Não calcula distância geográfica, não confirma vagas, disponibilidade, tempo de resposta ou aceitação de novos casos. A página da TamoJuntas distingue atendimento nas quatro cidades de orientações e encaminhamentos para outras localidades: https://tamojuntas.org.br/elementor-2722/
+
+Testes automatizados cobrem cidades publicadas, outra cidade no mesmo estado, escopo online nacional/latino-americano, normalização de acentos e ausência de localização.
