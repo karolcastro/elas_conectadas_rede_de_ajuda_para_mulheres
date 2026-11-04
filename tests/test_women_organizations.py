@@ -16,6 +16,14 @@ def test_guide_returns_discovery_sources_and_curated_free_initiatives():
     assert initiatives["TamoJuntas"]["state_contact"] == "tamojuntas.sp@tamojuntas.org.br"
     assert initiatives["Mapa do Acolhimento"]["cost"].startswith("Gratuito")
     assert "formulário externo" in initiatives["Mapa do Acolhimento"]["limitations"]
+    assert initiatives["Maria d'Ajuda — MariaLab"]["cost"].startswith("Gratuito")
+    assert initiatives["Maria d'Ajuda — MariaLab"]["contact_email"] == "sos@mariadajuda.org"
+    assert initiatives["Maria d'Ajuda — MariaLab"]["territorial_scope"].startswith("América Latina")
+    pending = {item["name"]: item for item in result["organizations_requiring_cost_confirmation"]}
+    assert pending["Marias da Internet"]["cost"].startswith("Não confirmado")
+    safernet = result["scope_notes"][0]
+    assert safernet["name"] == "SaferNet — Helpline"
+    assert "adultos não são elegíveis" in safernet["note"]
 
 
 def test_tamojuntas_state_contact_is_not_misrepresented_as_national_contact():
