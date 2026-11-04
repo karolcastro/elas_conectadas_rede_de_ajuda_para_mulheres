@@ -1011,7 +1011,7 @@ Fontes: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/mar
 
 ## Situação consolidada da cobertura territorial (04/11/2026)
 
-O catálogo possui **156 registros** e presença nas **27 das 27 Unidades da Federação** (incluindo o Distrito Federal). A cobertura municipal continua parcial e não equivale a uma listagem exaustiva de todos os municípios. A validação estrutural encontrou IDs únicos e todos os registros possuem fonte, data de verificação e campo explícito de gratuidade. Há 46 registros com `free: true` e 110 com `free: null`/custo não confirmado. Para municípios sem referência local curada, o MCP mantém a ferramenta `orientar_consulta_rede_oficial_atendimento(uf, municipio, tipo_servico)`, que encaminha à consulta por estado e município no Painel do Ministério das Mulheres. Essa rota não é uma importação automática e não deve ser descrita como catálogo municipal próprio.
+O catálogo possui **158 registros** e presença nas **27 das 27 Unidades da Federação** (incluindo o Distrito Federal). A cobertura municipal continua parcial e não equivale a uma listagem exaustiva de todos os municípios. A validação estrutural encontrou IDs únicos e todos os registros possuem fonte, data de verificação e campo explícito de gratuidade. Há 47 registros com `free: true` e 111 com `free: null`/custo não confirmado. Para municípios sem referência local curada, o MCP mantém a ferramenta `orientar_consulta_rede_oficial_atendimento(uf, municipio, tipo_servico)`, que encaminha à consulta por estado e município no Painel do Ministério das Mulheres. Essa rota não é uma importação automática e não deve ser descrita como catálogo municipal próprio.
 
 
 ## Atualização territorial — UFs antes sem referências locais (04/11/2026)
@@ -1038,3 +1038,11 @@ Foram incorporadas referências de atendimento em **Alagoas, Amazonas, Mato Gros
 **Gratuidade:** apenas CEAM Maceió e CERNA/MG foram marcados `free: true` nesta rodada, porque suas fontes declaram expressamente que o serviço não tem custo/é gratuito. Os demais foram mantidos com `free: null` e custo não confirmado. O agente não pode apresentá-los como opções gratuitas confirmadas.
 
 **Limites de cobertura:** os registros de Mato Grosso e Amazonas são serviços especializados e centros em municípios específicos; não representam todos os municípios desses estados. Para municípios sem unidade local curada, manter o encaminhamento ao Painel oficial da Rede do Ligue 180: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento.
+
+
+### Complemento — Paraíba e revisão de metadados (04/11/2026)
+
+A Paraíba recebeu duas referências adicionais: Centro Estadual de Referência da Mulher Fátima Lopes (Campina Grande) e Centro de Referência Intermunicipal de Atendimento às Mulheres do Cariri — CRIAMC (Sumé), com base na Carta de Serviços estadual. A gratuidade não está expressamente declarada nesse documento, portanto os registros permanecem com custo não confirmado. O cadastro do Centro Ednalva Bezerra, em João Pessoa, foi atualizado com endereço, telefones e horário publicados pela Prefeitura; a fonte municipal informa atendimento gratuito e sigiloso. Também foi removida a indicação de 24 horas do nome da delegacia de Várzea Grande porque o diretório estadual exibe horário comercial para o registro.
+
+Fonte PB estadual: https://paraiba.pb.gov.br/diretas/secretaria-da-mulher-e-da-diversidade-humana/arquivos/servicos-da-semdh.pdf
+Fonte PB municipal: https://www.joaopessoa.pb.gov.br/noticias/dia-internacional-pela-eliminacao-da-violencia-contra-as-mulheres-e-marcado-por-reforco-a-rede-de-protecao-e-acoes-de-conscientizacao/
