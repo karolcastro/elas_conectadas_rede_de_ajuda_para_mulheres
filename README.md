@@ -348,3 +348,16 @@ Fontes oficiais: [Secretaria da Mulher do Acre](https://semulher.ac.gov.br/voce-
 O catálogo local não equivale a uma base nacional completa. O Ministério das Mulheres informa que o Painel da Rede permite pesquisar serviços por estado e município e reúne delegacias, Defensorias, CRAM/CEAM, acolhimento, saúde, Casas da Mulher Brasileira e outros pontos de atenção. A ferramenta MCP de consulta ao painel continua sendo um encaminhamento oficial, não uma importação automática dos registros. Ausência de unidade no catálogo não significa ausência de serviço no município.
 
 Fonte: https://www.gov.br/mulheres/pt-br/ligue180/painel-da-rede-de-atendimento
+
+
+## Expansão municipal complementar — Rio Grande do Norte, Rio Grande do Sul e Santa Catarina
+
+Em 04/11/2026, foram incluídas quatro referências municipais adicionais:
+- **Mossoró/RN:** Centro de Referência da Mulher Brasileira, cuja operação é citada pelo Ministério das Mulheres em publicação de março de 2026.
+- **Porto Alegre/RS:** Centro de Referência da Mulher Vânia Araújo Machado, com Escuta Lilás, telefone, WhatsApp, endereço e horário publicados pelo Governo do Estado.
+- **Florianópolis/SC:** CREMV, com endereço, telefone e e-mail em página institucional municipal.
+- **Sapucaia do Sul/RS:** Centro de Referência da Mulher, com endereço, telefone e horário em página oficial municipal.
+
+A gratuidade individual não foi explicitamente confirmada pelas fontes utilizadas. Os quatro registros permanecem com `free: null` e custo não confirmado. Não os apresentar como serviços gratuitos confirmados.
+
+Fontes: https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/marco/tenda-lilas-leva-acolhimento-e-informacao-sobre-enfrentamento-a-violencia-contra-as-mulheres-em-sergipe-e-no-rio-grande-do-norte ; https://www.estado.rs.gov.br/sexta-conferencia-estadual-de-politicas-para-as-mulheres-define-tres-propostas-e-elege-91-delegadas-para-a-etapa-nacional ; https://devportal.pmf.sc.gov.br/entidades/saude/index.php?cms=raivs&menu=6&submenuid=dyn-153 ; https://www.sapucaiadosul.rs.gov.br/telefones-uteis/
