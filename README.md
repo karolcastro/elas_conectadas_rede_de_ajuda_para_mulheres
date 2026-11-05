@@ -701,3 +701,90 @@ Fontes oficiais:
 - Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
 - Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
 - Portal MDS de Educação Empreendedora: cursos digitais gratuitos de educação financeira para mulheres empreendedoras, gestão de negócios de alimentação, tecnologia e gestão para ambulantes; com status e limites de inscrição documentados.
+
+
+## Teste local de concorrência (sem serviço de hospedagem)
+
+O projeto inclui um adaptador HTTP local e um teste sintético para validar a rota de saúde sem Vercel, sem contratação de hospedagem e sem chamadas a APIs externas:
+
+- Aplicação ASGI: `src/elas_conectadas_mcp/http_app.py`.
+- Verificação mínima: `GET /health`.
+- Teste automatizado: `tests/test_http_app.py`.
+- Simulador local: `scripts/test_carga_local.py`.
+
+Para executar em ambiente Python 3.11 ou superior:
+
+```bash
+python -m pip install -e ".[dev]"
+pytest -q
+python scripts/test_carga_local.py --requests 100 --concurrency 1 5 10 25 50
+```
+
+O GitHub Actions também executa automaticamente esse cenário sintético em cada Pull Request para registrar as métricas no log da execução.
+
+O simulador executa chamadas sintéticas em memória pelo ASGI, mede latência média, p50, p95, pico e requisições por segundo, e informa erros por nível de concorrência. Ele não acessa serviços externos nem usa dados pessoais.
+
+**Limite importante:** este teste valida o comportamento da aplicação no processo local. Não mede rede real, internet, hardware de hospedagem, limites de um provedor, chamadas externas, interface web completa ou capacidade mensal de usuárias. Para medir esses fatores, será necessário executar o sistema em um servidor HTTP real e instrumentado, em ambiente de teste controlado. Não usar relatos reais ou dados sensíveis em testes de carga.
+
+
+### Compatibilidade do SDK e correção do catálogo
+
+A validação automatizada identificou que o código atual utiliza a API `FastMCP` da linha 1.x do SDK, enquanto o projeto declarava `mcp[cli]==2.3.0`, incompatível com esses imports. A dependência foi fixada em `mcp[cli]==1.30.0` para corresponder à API usada pelo servidor. Também foi corrigida a vírgula ausente entre dois registros do catálogo de capacitação, que impedia a importação do módulo. Essas correções são pré-requisitos para executar os testes; o pipeline precisa ser validado novamente.
+
+
+## Teste funcional do protocolo MCP (stdio)
+
+Além do teste local da rota HTTP e da concorrência sintética, a suíte executa um teste de ponta a ponta do transporte MCP original via stdio:
+
+- Inicializa um cliente MCP real contra o processo local do servidor.
+- Negocia a versão do protocolo.
+- Lista as ferramentas expostas e confirma ferramentas-chave de proteção e capacitação.
+- Executa `consultar_telefones_de_urgencia` e verifica os canais oficiais 190 e 180.
+- Simula uma busca regional com UF `SP` e município `São Paulo`, validando o formato de retorno e os filtros.
+- Simula uma busca de cursos para UF `SP`, validando a estrutura do catálogo e o filtro territorial.
+- As consultas usam o catálogo local estático: não chamam APIs externas e não utilizam dados pessoais.
+
+O teste está em `tests/test_mcp_protocol.py` e é executado automaticamente pelo comando `pytest -q` no GitHub Actions. Ele valida a integração MCP real sobre stdio, mas não equivale a testar o transporte HTTP nem uma interface web de usuárias.
+
+
+## Iniciativas para mulheres negras, indígenas e coletivos
+
+O agente agora possui a ferramenta `buscar_iniciativas_mulheres_negras_indigenas`, com diretório curado de oportunidades de financiamento, capital semente, bolsas-prêmio, capacitação e fortalecimento institucional.
+
+### Filtros
+- `uf`: sigla de estado; resultados nacionais continuam disponíveis.
+- `publico`: `negras`, `indigenas`, `quilombolas`, `coletivos`, `empreendedoras` ou `vulnerabilidade_social`.
+- `tipo`: `financiamento`, `capacitacao`, `fortalecimento_coletivo` ou `articulacao`.
+- `incluir_encerradas`: permite ocultar editais encerrados.
+
+### Oportunidades e redes incluídas
+- Recode — Movimento Comunicadoras Indígenas: formação digital gratuita; a página consultada em 04/11/2026 informa inscrições abertas, mas o agente orienta confirmar se o formulário ainda recebe candidaturas.
+- Instituto Rede Mulher Empreendedora — Impacto Feminino: o apoio de R$ 1.000 está previsto apenas para participantes já selecionadas da formação; não é inscrição aberta ao público geral.
+- Consulado da Mulher — Multiplica por Elas: apoio institucional a OSCs; página informa inscrições em breve, sem calendário publicado.
+- Fundo Agbara — Ajé Empreende, Ajé Lidera e Malunga: portfólio de fomento a negócios, lideranças, organizações e coletivos de mulheres negras; não há chamada pública aberta confirmada na página consultada.
+- Impactô Malunga: edição para organizações lideradas por mulheres negras, indígenas e quilombolas em PE e RN, com aporte de até R$ 15 mil; inscrições encerradas.
+- Fundo Baobá — Programa Marielle Franco, Apoio Coletivo: apoio de R$ 300 mil a organizações e coletivos de mulheres negras; prazo da 2ª edição encerrado em 19/10/2026.
+- REAFRO — Obinrin 2025/2026: formação gratuita para mulheres negras e indígenas, com ciclo previsto até julho de 2026; edição encerrada.
+- FAS — Parentas que Fazem: fortalecimento de organizações de mulheres indígenas no Amazonas, com formação digital e apoio a projetos; não é chamada pública aberta confirmada.
+- Mulheres Indígenas: Tecendo o Bem Viver: edital público anterior com bolsas-prêmio de R$ 30 mil, R$ 50 mil e R$ 100 mil; edição encerrada e resultado publicado em 2025.
+- Fundo Casa — Mulheres que Transformam o Futuro: chamada de 2026 com apoio direto de até R$ 60 mil a projetos comunitários; prazo encerrado em 25/08/2026.
+- Conservação Internacional/COICA/BID — Mulheres Indígenas da Amazônia: chamada de bioeconomia com quatro bolsas de aproximadamente R$ 53 mil; prazo prorrogado até 28/10/2026 e encerrado.
+- ANMIGA e Instituto Socioambiental: articulação e mapeamento de organizações de mulheres indígenas; referência de rede, não edital financeiro.
+
+### Regras de segurança e precisão
+- O diretório distingue inscrições abertas, apoio restrito a participantes de uma turma, programas sem chamada aberta confirmada e edições encerradas.
+- Empréstimo/crédito nunca é classificado como bolsa, doação ou financiamento não reembolsável.
+- Se o edital não explicitar a natureza do repasse, o agente informa que é necessário consultar o regulamento.
+- Prioriza oportunidades para mulheres negras, indígenas, quilombolas e coletivos; destaca critérios de vulnerabilidade somente quando constam da fonte.
+- A consulta não exige cadastro, login, CPF, e-mail, senha ou relato pessoal.
+- Cada registro contém fonte oficial e data de verificação. Datas, vagas e elegibilidade precisam ser confirmadas no portal da organização antes de orientar candidatura.
+
+Exemplo:
+```python
+buscar_iniciativas_mulheres_negras_indigenas(
+    uf="AM",
+    publico="indigenas",
+    tipo="fortalecimento_coletivo",
+    incluir_encerradas=False,
+)
+```

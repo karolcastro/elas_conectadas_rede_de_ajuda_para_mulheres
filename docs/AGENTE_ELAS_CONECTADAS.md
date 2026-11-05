@@ -1550,3 +1550,101 @@ Fontes:
 - Notícia sobre 230 vagas Mulheres Mil (Agência Gov/MEC, 03/11/2026): https://agenciagov.ebc.com.br/noticias/202611/programa-mulheres-mil-oferece-230-vagas-gratuitas-em-cursos-de-qualificacao-profissional
 - Painel de Oportunidades Pronatec: https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9
 
+
+
+## Validação local de HTTP e concorrência — sem Vercel
+
+Foi adicionado um caminho de validação local que não depende de conta ou serviço de hospedagem:
+
+- `src/elas_conectadas_mcp/http_app.py` cria uma aplicação ASGI com transporte MCP Streamable HTTP, mantendo o comando MCP stdio original. A rota `GET /health` retorna somente status técnico e não expõe dados de usuárias nem o catálogo.
+- A proteção contra DNS rebinding fica habilitada, com hosts locais permitidos (`localhost`, `127.0.0.1` e `testserver`).
+- `tests/test_http_app.py` valida a resposta de saúde usando HTTPX ASGITransport, sem rede externa.
+- `scripts/test_carga_local.py` simula chamadas concorrentes em memória e apresenta duração, taxa de requisições, latência média, p50, p95, máxima e erros.
+
+### Como executar
+
+```bash
+python -m pip install -e ".[dev]"
+pytest -q
+python scripts/test_carga_local.py --requests 100 --concurrency 1 5 10 25 50
+```
+
+O workflow de qualidade executa o mesmo cenário automaticamente em Pull Requests; os tempos e a taxa de requisições por segundo ficam registrados nos logs do job.
+
+O total padrão é de 100 chamadas por nível de concorrência. O teste atinge somente `/health`, não aciona as ferramentas de busca e não consulta ViaCEP, IBGE, CNES ou outros serviços externos. Assim, evita gerar carga em fontes públicas e não utiliza dados pessoais.
+
+### Como interpretar
+
+- **Erros:** qualquer resposta diferente de HTTP 200 ou payload de saúde inesperado é contabilizado como falha.
+- **Latência p50/p95:** indica o tempo abaixo do qual ficaram 50% e 95% das respostas, respectivamente.
+- **Requisições por segundo:** volume processado no teste local, não uma previsão de usuárias/mês.
+- **Concorrência:** número máximo de chamadas simultâneas no simulador.
+
+### Limites
+
+O ASGITransport executa a aplicação dentro do próprio processo Python. Portanto, o resultado mede comportamento das rotas e do event loop em memória, não mede socket/rede real, CPU e memória de um provedor, cold starts, balanceamento, limites de hospedagem, tráfego de internet, disponibilidade de APIs externas ou capacidade mensal. Também não substitui teste de ponta a ponta do protocolo MCP nem teste de uma interface web para as usuárias.
+
+A próxima etapa de validação, ainda sem contratar hospedagem, é executar o teste automatizado e o simulador em ambiente Python local, registrar resultados reais e então decidir se vale montar um servidor HTTP local separado para um teste de rede controlado. Usar exclusivamente dados sintéticos e não executar testes de estresse agressivos contra serviços externos.
+
+Nenhuma publicação na Vercel, alteração de cobrança ou chamada de implantação é necessária para esta etapa.
+
+
+### Ajustes encontrados na validação automatizada local
+
+A primeira execução do GitHub Actions identificou dois problemas que já existiam na base de código e impediam a coleta dos testes: (1) o projeto declarava `mcp[cli]==2.3.0`, mas `server.py` usa `mcp.server.fastmcp.FastMCP`, API da linha 1.x; a dependência foi alinhada para `mcp[cli]==1.30.0`, versão com correções de segurança publicadas para a linha 1.x; (2) havia uma vírgula ausente entre os registros PyLadies e WoMakersCode no catálogo `women_training.py`, causando `SyntaxError`. A segunda execução confirmou que a API de `streamable_http_app()` na versão 1.26.0 não recebe parâmetros de configuração diretamente; o adaptador foi ajustado para usar `mcp.settings.stateless_http = True` e `mcp.streamable_http_app()`. A validação completa ainda precisa ser reexecutada após esses ajustes.
+
+
+## Teste funcional do protocolo MCP — transporte stdio
+
+Foi adicionado `tests/test_mcp_protocol.py`, um teste de integração que inicia o servidor como processo local e utiliza `mcp.ClientSession` + `stdio_client` (SDK MCP) para:
+
+1. Inicializar a sessão e negociar o protocolo.
+2. Listar ferramentas publicadas pelo servidor.
+3. Confirmar a presença de `consultar_telefones_de_urgencia`, `buscar_servicos_protecao_por_localidade` e `buscar_cursos_programas_para_mulheres`.
+4. Executar a consulta nacional de canais de urgência e conferir os números 190 e 180.
+5. Simular uma busca de serviços de proteção com UF `SP` e município `São Paulo`, validando o formato JSON e os filtros retornados.
+6. Simular a busca de cursos e programas para UF `SP`, validando o formato JSON e o filtro territorial.
+
+As duas buscas usam catálogos locais estáticos. Portanto, a execução não depende de ViaCEP, IBGE, CNES/DEMAS ou serviços de terceiros e não utiliza dados pessoais.
+
+### O que este teste comprova e o que não comprova
+
+Comprova que o processo MCP inicia, negocia o protocolo, publica as ferramentas esperadas e executa uma chamada segura pelo transporte stdio. Não comprova o transporte Streamable HTTP, a interface final, a disponibilidade de serviços regionais, a atualização em tempo real do catálogo nem a capacidade de hospedagem. A validação HTTP e o teste sintético em ASGITransport continuam sendo etapas separadas.
+
+
+## Diretório de fomento e autonomia econômica para mulheres negras, indígenas e coletivos
+
+### Nova ferramenta MCP
+Foi adicionada `buscar_iniciativas_mulheres_negras_indigenas(uf=None, publico=None, tipo=None, incluir_encerradas=True)`, implementada em `services/women_economic_autonomy.py`.
+
+Filtros aceitos:
+- Público: `negras`, `indigenas`, `quilombolas`, `coletivos`, `empreendedoras`, `vulnerabilidade_social`.
+- Tipo: `financiamento`, `capacitacao`, `fortalecimento_coletivo`, `articulacao`.
+- UF: sigla brasileira; oportunidades nacionais são mantidas na busca territorial.
+- `incluir_encerradas=False` exclui inscrições e edições encerradas.
+
+### Registros incluídos e status verificado em 04/11/2026
+1. Recode — Movimento Comunicadoras Indígenas: página oficial informa inscrição aberta para formação digital gratuita de mulheres indígenas de todo o Brasil, a partir de 16 anos; a formação está prevista entre agosto e novembro de 2026. Confirmar disponibilidade real do formulário.
+2. IRME — Impacto Feminino: 50 apoios de R$ 1.000 previstos para participantes já selecionadas da formação. A entrada na formação encerrou em 20/10/2026; a seleção de apoio financeiro, de 03/11 a 12/11/2026, é restrita à turma elegível. O edital prioriza mulheres negras, renda familiar até R$ 3.500 e moradoras de periferias/territórios vulnerabilizados.
+3. Consulado da Mulher — Multiplica por Elas: apoio a OSCs com pelo menos dois anos, experiência em empreendedorismo feminino e atuação territorial; página informa inscrições em breve, sem data.
+4. Fundo Agbara — Ajé Empreende, Ajé Lidera e Malunga: recursos, formação e fortalecimento de negócios, lideranças e coletivos liderados por mulheres negras. Não há chamada aberta confirmada no diretório consultado.
+5. Fundo Agbara/Instituto Neoenergia — Impactô Malunga: edição para 15 organizações e iniciativas lideradas por mulheres negras, indígenas e quilombolas em Pernambuco e Rio Grande do Norte; aporte de até R$ 15 mil após a jornada; inscrições encerradas.
+6. Fundo Baobá — Programa Marielle Franco, Apoio Coletivo: edital da 2ª edição previa R$ 300 mil, assessoria técnica e articulação em rede para grupos com ao menos 85% de mulheres negras na coordenação e membresia e dois anos de atuação; prazo encerrado em 19/10/2026.
+7. REAFRO/EMGEA — Projeto Obinrin 2025/2026: formação empreendedora gratuita para mulheres negras e indígenas, com mentorias, saúde mental e coletivos estaduais; ciclo previsto de dezembro de 2025 a julho de 2026, edição encerrada.
+8. FAS/Google.org — Parentas que Fazem: projeto no Amazonas para fortalecer organizações de mulheres indígenas com inclusão digital, formação em projetos, finanças, vendas e marketing e apoio financeiro; cinco organizações selecionadas; não há inscrição pública aberta indicada.
+9. Ministério dos Povos Indígenas/Ministério das Mulheres — Mulheres Indígenas: Tecendo o Bem Viver: edição 2024 distribuiu bolsas-prêmio de R$ 30 mil, R$ 50 mil e R$ 100 mil; resultado de 13 iniciativas selecionadas publicado em março de 2025; edição encerrada.
+10. Fundo Casa — Mulheres que Transformam o Futuro: chamada de 2026 ofereceu até R$ 60 mil por projeto, com prioridade a iniciativas lideradas por mulheres indígenas, quilombolas e de comunidades tradicionais; prazo encerrado em 25/08/2026.
+11. Conservação Internacional/COICA/BID — Mulheres Indígenas da Amazônia: chamada especial de bioeconomia com quatro bolsas de aproximadamente R$ 53 mil para iniciativas lideradas por mulheres indígenas da Amazônia brasileira; prazo prorrogado até 28/10/2026 e encerrado.
+12. ANMIGA/Instituto Socioambiental: articulação nacional e mapeamento de organizações de mulheres indígenas; fonte para rede e descoberta territorial, não edital de financiamento.
+
+### Limites e salvaguardas
+- Status reflete as páginas e editais oficiais consultados em 04/11/2026; não é monitoramento em tempo real.
+- “Inscrições abertas” significa que a página oficial exibia essa informação na data de verificação; confirmar formulário, calendário e vagas antes de recomendar.
+- “Apoio aberto apenas para coorte” nunca deve ser apresentado como inscrição geral.
+- Não classificar como não reembolsável quando a fonte não esclarecer a natureza do repasse.
+- Crédito Origem/linhas de microcrédito da REAFRO não devem ser apresentados como bolsa ou doação.
+- O agente não solicita cadastro, login, CPF, e-mail, senha ou relato pessoal para apresentar informações públicas.
+- A ferramenta não presume elegibilidade, aprovação, disponibilidade de recursos ou vagas.
+
+### Testes
+`tests/test_women_economic_autonomy.py` cobre filtros, status de chamadas, critérios de vulnerabilidade, oportunidades indígenas/negros e fontes oficiais. O teste de integração MCP também chama a ferramenta com cenário sintético Amazonas + público indígena + fortalecimento coletivo.
