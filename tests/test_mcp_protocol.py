@@ -1,7 +1,6 @@
 """End-to-end MCP protocol smoke tests over the original stdio transport."""
 
 import json
-import json
 import sys
 
 import pytest
