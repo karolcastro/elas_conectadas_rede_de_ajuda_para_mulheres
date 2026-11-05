@@ -286,7 +286,7 @@ PROGRAMS = [
         "official_source": "https://www.womakerscode.org/",
         "verification_date": "2026-11-04",
         "status_note": "A página individual informa certificado, 9,5 horas e 46 lições. A página institucional da WoMakersCode apresenta cursos/programas com inscrições abertas. A usuária deve confirmar acesso e eventuais requisitos diretamente no portal."
-    }
+    },
     {
         "id": "br-mds-portal-educacao-empreendedora-mulheres",
         "name": "Portal de Educação Empreendedora — cursos gratuitos para mulheres",
