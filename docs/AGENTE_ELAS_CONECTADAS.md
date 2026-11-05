@@ -1585,3 +1585,8 @@ O ASGITransport executa a aplicação dentro do próprio processo Python. Portan
 A próxima etapa de validação, ainda sem contratar hospedagem, é executar o teste automatizado e o simulador em ambiente Python local, registrar resultados reais e então decidir se vale montar um servidor HTTP local separado para um teste de rede controlado. Usar exclusivamente dados sintéticos e não executar testes de estresse agressivos contra serviços externos.
 
 Nenhuma publicação na Vercel, alteração de cobrança ou chamada de implantação é necessária para esta etapa.
+
+
+### Ajustes encontrados na validação automatizada local
+
+A primeira execução do GitHub Actions identificou dois problemas que já existiam na base de código e impediam a coleta dos testes: (1) o projeto declarava `mcp[cli]==2.3.0`, mas `server.py` usa `mcp.server.fastmcp.FastMCP`, API da linha 1.x; a dependência foi alinhada para `mcp[cli]==1.26.0`; (2) havia uma vírgula ausente entre os registros PyLadies e WoMakersCode no catálogo `women_training.py`, causando `SyntaxError`. A segunda execução confirmou que a API de `streamable_http_app()` na versão 1.26.0 não recebe parâmetros de configuração diretamente; o adaptador foi ajustado para usar `mcp.settings.stateless_http = True` e `mcp.streamable_http_app()`. A validação completa ainda precisa ser reexecutada após esses ajustes.
