@@ -739,7 +739,9 @@ Além do teste local da rota HTTP e da concorrência sintética, a suíte execut
 - Inicializa um cliente MCP real contra o processo local do servidor.
 - Negocia a versão do protocolo.
 - Lista as ferramentas expostas e confirma ferramentas-chave de proteção e capacitação.
-- Executa `consultar_telefones_de_urgencia` com argumentos vazios e verifica os canais oficiais 190 e 180.
-- Não chama APIs externas, não consulta cadastros regionais e não utiliza dados pessoais.
+- Executa `consultar_telefones_de_urgencia` e verifica os canais oficiais 190 e 180.
+- Simula uma busca regional com UF `SP` e município `São Paulo`, validando o formato de retorno e os filtros.
+- Simula uma busca de cursos para UF `SP`, validando a estrutura do catálogo e o filtro territorial.
+- As consultas usam o catálogo local estático: não chamam APIs externas e não utilizam dados pessoais.
 
 O teste está em `tests/test_mcp_protocol.py` e é executado automaticamente pelo comando `pytest -q` no GitHub Actions. Ele valida a integração MCP real sobre stdio, mas não equivale a testar o transporte HTTP nem uma interface web de usuárias.
