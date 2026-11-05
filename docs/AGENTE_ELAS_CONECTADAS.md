@@ -1592,3 +1592,19 @@ Nenhuma publicação na Vercel, alteração de cobrança ou chamada de implanta�
 ### Ajustes encontrados na validação automatizada local
 
 A primeira execução do GitHub Actions identificou dois problemas que já existiam na base de código e impediam a coleta dos testes: (1) o projeto declarava `mcp[cli]==2.3.0`, mas `server.py` usa `mcp.server.fastmcp.FastMCP`, API da linha 1.x; a dependência foi alinhada para `mcp[cli]==1.30.0`, versão com correções de segurança publicadas para a linha 1.x; (2) havia uma vírgula ausente entre os registros PyLadies e WoMakersCode no catálogo `women_training.py`, causando `SyntaxError`. A segunda execução confirmou que a API de `streamable_http_app()` na versão 1.26.0 não recebe parâmetros de configuração diretamente; o adaptador foi ajustado para usar `mcp.settings.stateless_http = True` e `mcp.streamable_http_app()`. A validação completa ainda precisa ser reexecutada após esses ajustes.
+
+
+## Teste funcional do protocolo MCP — transporte stdio
+
+Foi adicionado `tests/test_mcp_protocol.py`, um teste de integração que inicia o servidor como processo local e utiliza `mcp.ClientSession` + `stdio_client` (SDK MCP) para:
+
+1. Inicializar a sessão e negociar o protocolo.
+2. Listar ferramentas publicadas pelo servidor.
+3. Confirmar a presença de `consultar_telefones_de_urgencia`, `buscar_servicos_protecao_por_localidade` e `buscar_cursos_programas_para_mulheres`.
+4. Chamar `consultar_telefones_de_urgencia` sem argumentos e conferir a presença dos canais 190 e 180 no retorno.
+
+A ferramenta testada utiliza catálogo estático e não faz chamadas de rede. Portanto, a execução não depende de ViaCEP, IBGE, CNES/DEMAS ou serviços de terceiros e não utiliza dados pessoais.
+
+### O que este teste comprova e o que não comprova
+
+Comprova que o processo MCP inicia, negocia o protocolo, publica as ferramentas esperadas e executa uma chamada segura pelo transporte stdio. Não comprova o transporte Streamable HTTP, a interface final, a disponibilidade de serviços regionais, a atualização em tempo real do catálogo nem a capacidade de hospedagem. A validação HTTP e o teste sintético em ASGITransport continuam sendo etapas separadas.
