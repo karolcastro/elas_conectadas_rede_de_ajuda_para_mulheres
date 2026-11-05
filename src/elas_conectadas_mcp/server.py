@@ -14,9 +14,9 @@ from elas_conectadas_mcp.services.health_search import HealthSearchService
 from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
 from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
+from elas_conectadas_mcp.services.women_economic_autonomy import WomenEconomicAutonomyDirectory
 from elas_conectadas_mcp.services.women_organizations import WomenOrganizationsGuide
 from elas_conectadas_mcp.services.women_training import WomenTrainingDirectory
-from elas_conectadas_mcp.services.women_economic_autonomy import WomenEconomicAutonomyDirectory
 
 mcp = FastMCP(
     "Elas Conectadas",
