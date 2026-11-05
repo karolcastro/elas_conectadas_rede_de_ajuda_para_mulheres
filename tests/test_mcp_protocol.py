@@ -1,6 +1,7 @@
 """End-to-end MCP protocol smoke tests over the original stdio transport."""
 
 import json
+import json
 import sys
 
 import pytest
@@ -28,6 +29,7 @@ async def test_stdio_mcp_lists_tools_and_runs_synthetic_women_queries() -> None:
         assert "consultar_telefones_de_urgencia" in tool_names
         assert "buscar_servicos_protecao_por_localidade" in tool_names
         assert "buscar_cursos_programas_para_mulheres" in tool_names
+        assert "buscar_iniciativas_mulheres_negras_indigenas" in tool_names
 
         emergency = await session.call_tool(
             "consultar_telefones_de_urgencia",
@@ -64,3 +66,16 @@ async def test_stdio_mcp_lists_tools_and_runs_synthetic_women_queries() -> None:
         training_data = json.loads(training_text)
         assert isinstance(training_data.get("programs"), list)
         assert training_data["filter"]["uf"] == "SP"
+
+        initiatives = await session.call_tool(
+            "buscar_iniciativas_mulheres_negras_indigenas",
+            arguments={"uf": "AM", "publico": "indigenas", "tipo": "fortalecimento_coletivo"},
+        )
+        assert initiatives.isError is False
+        initiatives_text = "\\n".join(
+            block.text for block in initiatives.content if hasattr(block, "text")
+        )
+        initiatives_data = json.loads(initiatives_text)
+        initiative_ids = {item["id"] for item in initiatives_data["opportunities"]}
+        assert "br-fas-parentas-que-fazem" in initiative_ids
+        assert "br-anmiga-mapa-articulacao-mulheres-indigenas" in initiative_ids
