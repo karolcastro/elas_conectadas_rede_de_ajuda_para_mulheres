@@ -1610,3 +1610,40 @@ As duas buscas usam catálogos locais estáticos. Portanto, a execução não de
 ### O que este teste comprova e o que não comprova
 
 Comprova que o processo MCP inicia, negocia o protocolo, publica as ferramentas esperadas e executa uma chamada segura pelo transporte stdio. Não comprova o transporte Streamable HTTP, a interface final, a disponibilidade de serviços regionais, a atualização em tempo real do catálogo nem a capacidade de hospedagem. A validação HTTP e o teste sintético em ASGITransport continuam sendo etapas separadas.
+
+
+## Diretório de fomento e autonomia econômica para mulheres negras, indígenas e coletivos
+
+### Nova ferramenta MCP
+Foi adicionada `buscar_iniciativas_mulheres_negras_indigenas(uf=None, publico=None, tipo=None, incluir_encerradas=True)`, implementada em `services/women_economic_autonomy.py`.
+
+Filtros aceitos:
+- Público: `negras`, `indigenas`, `quilombolas`, `coletivos`, `empreendedoras`, `vulnerabilidade_social`.
+- Tipo: `financiamento`, `capacitacao`, `fortalecimento_coletivo`, `articulacao`.
+- UF: sigla brasileira; oportunidades nacionais são mantidas na busca territorial.
+- `incluir_encerradas=False` exclui inscrições e edições encerradas.
+
+### Registros incluídos e status verificado em 04/11/2026
+1. Recode — Movimento Comunicadoras Indígenas: página oficial informa inscrição aberta para formação digital gratuita de mulheres indígenas de todo o Brasil, a partir de 16 anos; a formação está prevista entre agosto e novembro de 2026. Confirmar disponibilidade real do formulário.
+2. IRME — Impacto Feminino: 50 apoios de R$ 1.000 previstos para participantes já selecionadas da formação. A entrada na formação encerrou em 20/10/2026; a seleção de apoio financeiro, de 03/11 a 12/11/2026, é restrita à turma elegível. O edital prioriza mulheres negras, renda familiar até R$ 3.500 e moradoras de periferias/territórios vulnerabilizados.
+3. Consulado da Mulher — Multiplica por Elas: apoio a OSCs com pelo menos dois anos, experiência em empreendedorismo feminino e atuação territorial; página informa inscrições em breve, sem data.
+4. Fundo Agbara — Ajé Empreende, Ajé Lidera e Malunga: recursos, formação e fortalecimento de negócios, lideranças e coletivos liderados por mulheres negras. Não há chamada aberta confirmada no diretório consultado.
+5. Fundo Agbara/Instituto Neoenergia — Impactô Malunga: edição para 15 organizações e iniciativas lideradas por mulheres negras, indígenas e quilombolas em Pernambuco e Rio Grande do Norte; aporte de até R$ 15 mil após a jornada; inscrições encerradas.
+6. Fundo Baobá — Programa Marielle Franco, Apoio Coletivo: edital da 2ª edição previa R$ 300 mil, assessoria técnica e articulação em rede para grupos com ao menos 85% de mulheres negras na coordenação e membresia e dois anos de atuação; prazo encerrado em 19/10/2026.
+7. REAFRO/EMGEA — Projeto Obinrin 2025/2026: formação empreendedora gratuita para mulheres negras e indígenas, com mentorias, saúde mental e coletivos estaduais; ciclo previsto de dezembro de 2025 a julho de 2026, edição encerrada.
+8. FAS/Google.org — Parentas que Fazem: projeto no Amazonas para fortalecer organizações de mulheres indígenas com inclusão digital, formação em projetos, finanças, vendas e marketing e apoio financeiro; cinco organizações selecionadas; não há inscrição pública aberta indicada.
+9. Ministério dos Povos Indígenas/Ministério das Mulheres — Mulheres Indígenas: Tecendo o Bem Viver: edição 2024 distribuiu bolsas-prêmio de R$ 30 mil, R$ 50 mil e R$ 100 mil; resultado de 13 iniciativas selecionadas publicado em março de 2025; edição encerrada.
+10. Fundo Casa — Mulheres que Transformam o Futuro: chamada de 2026 ofereceu até R$ 60 mil por projeto, com prioridade a iniciativas lideradas por mulheres indígenas, quilombolas e de comunidades tradicionais; prazo encerrado em 25/08/2026.
+11. ANMIGA/Instituto Socioambiental: articulação nacional e mapeamento de organizações de mulheres indígenas; fonte para rede e descoberta territorial, não edital de financiamento.
+
+### Limites e salvaguardas
+- Status reflete as páginas e editais oficiais consultados em 04/11/2026; não é monitoramento em tempo real.
+- “Inscrições abertas” significa que a página oficial exibia essa informação na data de verificação; confirmar formulário, calendário e vagas antes de recomendar.
+- “Apoio aberto apenas para coorte” nunca deve ser apresentado como inscrição geral.
+- Não classificar como não reembolsável quando a fonte não esclarecer a natureza do repasse.
+- Crédito Origem/linhas de microcrédito da REAFRO não devem ser apresentados como bolsa ou doação.
+- O agente não solicita cadastro, login, CPF, e-mail, senha ou relato pessoal para apresentar informações públicas.
+- A ferramenta não presume elegibilidade, aprovação, disponibilidade de recursos ou vagas.
+
+### Testes
+`tests/test_women_economic_autonomy.py` cobre filtros, status de chamadas, critérios de vulnerabilidade, oportunidades indígenas/negros e fontes oficiais. O teste de integração MCP também chama a ferramenta com cenário sintético Amazonas + público indígena + fortalecimento coletivo.
