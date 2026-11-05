@@ -1634,7 +1634,8 @@ Filtros aceitos:
 8. FAS/Google.org — Parentas que Fazem: projeto no Amazonas para fortalecer organizações de mulheres indígenas com inclusão digital, formação em projetos, finanças, vendas e marketing e apoio financeiro; cinco organizações selecionadas; não há inscrição pública aberta indicada.
 9. Ministério dos Povos Indígenas/Ministério das Mulheres — Mulheres Indígenas: Tecendo o Bem Viver: edição 2024 distribuiu bolsas-prêmio de R$ 30 mil, R$ 50 mil e R$ 100 mil; resultado de 13 iniciativas selecionadas publicado em março de 2025; edição encerrada.
 10. Fundo Casa — Mulheres que Transformam o Futuro: chamada de 2026 ofereceu até R$ 60 mil por projeto, com prioridade a iniciativas lideradas por mulheres indígenas, quilombolas e de comunidades tradicionais; prazo encerrado em 25/08/2026.
-11. ANMIGA/Instituto Socioambiental: articulação nacional e mapeamento de organizações de mulheres indígenas; fonte para rede e descoberta territorial, não edital de financiamento.
+11. Conservação Internacional/COICA/BID — Mulheres Indígenas da Amazônia: chamada especial de bioeconomia com quatro bolsas de aproximadamente R$ 53 mil para iniciativas lideradas por mulheres indígenas da Amazônia brasileira; prazo prorrogado até 28/10/2026 e encerrado.
+12. ANMIGA/Instituto Socioambiental: articulação nacional e mapeamento de organizações de mulheres indígenas; fonte para rede e descoberta territorial, não edital de financiamento.
 
 ### Limites e salvaguardas
 - Status reflete as páginas e editais oficiais consultados em 04/11/2026; não é monitoramento em tempo real.
