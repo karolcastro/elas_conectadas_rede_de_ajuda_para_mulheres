@@ -14,8 +14,10 @@ async def test_stdio_mcp_lists_tools_and_returns_official_helplines() -> None:
         args=["-c", "from elas_conectadas_mcp.server import main; main()"],
     )
 
-    async with stdio_client(server) as (read_stream, write_stream):
-        async with ClientSession(read_stream, write_stream) as session:
+    async with (
+        stdio_client(server) as (read_stream, write_stream),
+        ClientSession(read_stream, write_stream) as session,
+    ):
             initialized = await session.initialize()
             assert initialized.protocolVersion
 
