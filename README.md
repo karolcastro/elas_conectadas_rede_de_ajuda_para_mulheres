@@ -701,3 +701,25 @@ Fontes oficiais:
 - Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
 - Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
 - Portal MDS de Educação Empreendedora: cursos digitais gratuitos de educação financeira para mulheres empreendedoras, gestão de negócios de alimentação, tecnologia e gestão para ambulantes; com status e limites de inscrição documentados.
+
+
+## Teste local de concorrência (sem serviço de hospedagem)
+
+O projeto inclui um adaptador HTTP local e um teste sintético para validar a rota de saúde sem Vercel, sem contratação de hospedagem e sem chamadas a APIs externas:
+
+- Aplicação ASGI: `src/elas_conectadas_mcp/http_app.py`.
+- Verificação mínima: `GET /health`.
+- Teste automatizado: `tests/test_http_app.py`.
+- Simulador local: `scripts/test_carga_local.py`.
+
+Para executar em ambiente Python 3.11 ou superior:
+
+```bash
+python -m pip install -e ".[dev]"
+pytest -q
+python scripts/test_carga_local.py --requests 100 --concurrency 1 5 10 25 50
+```
+
+O simulador executa chamadas sintéticas em memória pelo ASGI, mede latência média, p50, p95, pico e requisições por segundo, e informa erros por nível de concorrência. Ele não acessa serviços externos nem usa dados pessoais.
+
+**Limite importante:** este teste valida o comportamento da aplicação no processo local. Não mede rede real, internet, hardware de hospedagem, limites de um provedor, chamadas externas, interface web completa ou capacidade mensal de usuárias. Para medir esses fatores, será necessário executar o sistema em um servidor HTTP real e instrumentado, em ambiente de teste controlado. Não usar relatos reais ou dados sensíveis em testes de carga.
