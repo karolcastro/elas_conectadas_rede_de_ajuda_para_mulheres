@@ -1601,9 +1601,11 @@ Foi adicionado `tests/test_mcp_protocol.py`, um teste de integração que inicia
 1. Inicializar a sessão e negociar o protocolo.
 2. Listar ferramentas publicadas pelo servidor.
 3. Confirmar a presença de `consultar_telefones_de_urgencia`, `buscar_servicos_protecao_por_localidade` e `buscar_cursos_programas_para_mulheres`.
-4. Chamar `consultar_telefones_de_urgencia` sem argumentos e conferir a presença dos canais 190 e 180 no retorno.
+4. Executar a consulta nacional de canais de urgência e conferir os números 190 e 180.
+5. Simular uma busca de serviços de proteção com UF `SP` e município `São Paulo`, validando o formato JSON e os filtros retornados.
+6. Simular a busca de cursos e programas para UF `SP`, validando o formato JSON e o filtro territorial.
 
-A ferramenta testada utiliza catálogo estático e não faz chamadas de rede. Portanto, a execução não depende de ViaCEP, IBGE, CNES/DEMAS ou serviços de terceiros e não utiliza dados pessoais.
+As duas buscas usam catálogos locais estáticos. Portanto, a execução não depende de ViaCEP, IBGE, CNES/DEMAS ou serviços de terceiros e não utiliza dados pessoais.
 
 ### O que este teste comprova e o que não comprova
 
