@@ -5,7 +5,6 @@ The MCP stdio entrypoint remains available and unchanged.
 
 from starlette.requests import Request
 from starlette.responses import JSONResponse
-from mcp.server.transport_security import TransportSecuritySettings
 
 from elas_conectadas_mcp.server import mcp
 
@@ -22,19 +21,7 @@ async def health_check(request: Request) -> JSONResponse:
     )
 
 
-_local_security = TransportSecuritySettings(
-    enable_dns_rebinding_protection=True,
-    allowed_hosts=[
-        "localhost",
-        "localhost:8000",
-        "127.0.0.1",
-        "127.0.0.1:8000",
-        "testserver",
-    ],
-)
-
-app = mcp.streamable_http_app(
-    transport_security=_local_security,
-    stateless_http=True,
-    max_request_body_size=1 * 1024 * 1024,
-)
+# FastMCP 1.x uses server settings for Streamable HTTP configuration.
+# The stdio transport remains the default when main() calls mcp.run().
+mcp.settings.stateless_http = True
+app = mcp.streamable_http_app()
