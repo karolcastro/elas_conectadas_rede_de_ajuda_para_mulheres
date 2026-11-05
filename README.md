@@ -723,3 +723,8 @@ python scripts/test_carga_local.py --requests 100 --concurrency 1 5 10 25 50
 O simulador executa chamadas sintéticas em memória pelo ASGI, mede latência média, p50, p95, pico e requisições por segundo, e informa erros por nível de concorrência. Ele não acessa serviços externos nem usa dados pessoais.
 
 **Limite importante:** este teste valida o comportamento da aplicação no processo local. Não mede rede real, internet, hardware de hospedagem, limites de um provedor, chamadas externas, interface web completa ou capacidade mensal de usuárias. Para medir esses fatores, será necessário executar o sistema em um servidor HTTP real e instrumentado, em ambiente de teste controlado. Não usar relatos reais ou dados sensíveis em testes de carga.
+
+
+### Compatibilidade do SDK e correção do catálogo
+
+A validação automatizada identificou que o código atual utiliza a API `FastMCP` da linha 1.x do SDK, enquanto o projeto declarava `mcp[cli]==2.3.0`, incompatível com esses imports. A dependência foi fixada em `mcp[cli]==1.26.0` para corresponder à API usada pelo servidor. Também foi corrigida a vírgula ausente entre dois registros do catálogo de capacitação, que impedia a importação do módulo. Essas correções são pré-requisitos para executar os testes; o pipeline precisa ser validado novamente.
