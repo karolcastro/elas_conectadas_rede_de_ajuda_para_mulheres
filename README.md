@@ -768,6 +768,7 @@ O agente agora possui a ferramenta `buscar_iniciativas_mulheres_negras_indigenas
 - FAS — Parentas que Fazem: fortalecimento de organizações de mulheres indígenas no Amazonas, com formação digital e apoio a projetos; não é chamada pública aberta confirmada.
 - Mulheres Indígenas: Tecendo o Bem Viver: edital público anterior com bolsas-prêmio de R$ 30 mil, R$ 50 mil e R$ 100 mil; edição encerrada e resultado publicado em 2025.
 - Fundo Casa — Mulheres que Transformam o Futuro: chamada de 2026 com apoio direto de até R$ 60 mil a projetos comunitários; prazo encerrado em 25/08/2026.
+- Conservação Internacional/COICA/BID — Mulheres Indígenas da Amazônia: chamada de bioeconomia com quatro bolsas de aproximadamente R$ 53 mil; prazo prorrogado até 28/10/2026 e encerrado.
 - ANMIGA e Instituto Socioambiental: articulação e mapeamento de organizações de mulheres indígenas; referência de rede, não edital financeiro.
 
 ### Regras de segurança e precisão
