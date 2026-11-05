@@ -9,7 +9,7 @@ description = "Servidor MCP do Elas Conectadas com conectores para fontes públi
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-  "mcp[cli]==2.3.0",
+  "mcp[cli]==1.26.0",
   "httpx==0.28.1",
 ]
 
