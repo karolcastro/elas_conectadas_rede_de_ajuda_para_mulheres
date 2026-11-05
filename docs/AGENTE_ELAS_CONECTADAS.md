@@ -1550,3 +1550,38 @@ Fontes:
 - Notícia sobre 230 vagas Mulheres Mil (Agência Gov/MEC, 03/11/2026): https://agenciagov.ebc.com.br/noticias/202611/programa-mulheres-mil-oferece-230-vagas-gratuitas-em-cursos-de-qualificacao-profissional
 - Painel de Oportunidades Pronatec: https://app.powerbi.com/view?r=eyJrIjoiYTRjMTlkNDUtNjBlYy00NjIyLTkxYjQtNGE3MzNmZDc0OWUwIiwidCI6ImI4YzI1OTMyLTVlNzYtNGIyYi05YzUzLWQ0MTc0NWU5YzkyZCJ9
 
+
+
+## Validação local de HTTP e concorrência — sem Vercel
+
+Foi adicionado um caminho de validação local que não depende de conta ou serviço de hospedagem:
+
+- `src/elas_conectadas_mcp/http_app.py` cria uma aplicação ASGI com transporte MCP Streamable HTTP, mantendo o comando MCP stdio original. A rota `GET /health` retorna somente status técnico e não expõe dados de usuárias nem o catálogo.
+- A proteção contra DNS rebinding fica habilitada, com hosts locais permitidos (`localhost`, `127.0.0.1` e `testserver`).
+- `tests/test_http_app.py` valida a resposta de saúde usando HTTPX ASGITransport, sem rede externa.
+- `scripts/test_carga_local.py` simula chamadas concorrentes em memória e apresenta duração, taxa de requisições, latência média, p50, p95, máxima e erros.
+
+### Como executar
+
+```bash
+python -m pip install -e ".[dev]"
+pytest -q
+python scripts/test_carga_local.py --requests 100 --concurrency 1 5 10 25 50
+```
+
+O total padrão é de 100 chamadas por nível de concorrência. O teste atinge somente `/health`, não aciona as ferramentas de busca e não consulta ViaCEP, IBGE, CNES ou outros serviços externos. Assim, evita gerar carga em fontes públicas e não utiliza dados pessoais.
+
+### Como interpretar
+
+- **Erros:** qualquer resposta diferente de HTTP 200 ou payload de saúde inesperado é contabilizado como falha.
+- **Latência p50/p95:** indica o tempo abaixo do qual ficaram 50% e 95% das respostas, respectivamente.
+- **Requisições por segundo:** volume processado no teste local, não uma previsão de usuárias/mês.
+- **Concorrência:** número máximo de chamadas simultâneas no simulador.
+
+### Limites
+
+O ASGITransport executa a aplicação dentro do próprio processo Python. Portanto, o resultado mede comportamento das rotas e do event loop em memória, não mede socket/rede real, CPU e memória de um provedor, cold starts, balanceamento, limites de hospedagem, tráfego de internet, disponibilidade de APIs externas ou capacidade mensal. Também não substitui teste de ponta a ponta do protocolo MCP nem teste de uma interface web para as usuárias.
+
+A próxima etapa de validação, ainda sem contratar hospedagem, é executar o teste automatizado e o simulador em ambiente Python local, registrar resultados reais e então decidir se vale montar um servidor HTTP local separado para um teste de rede controlado. Usar exclusivamente dados sintéticos e não executar testes de estresse agressivos contra serviços externos.
+
+Nenhuma publicação na Vercel, alteração de cobrança ou chamada de implantação é necessária para esta etapa.
