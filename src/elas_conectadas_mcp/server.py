@@ -16,6 +16,7 @@ from elas_conectadas_mcp.services.official_network_directory import OfficialNetw
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
 from elas_conectadas_mcp.services.women_organizations import WomenOrganizationsGuide
 from elas_conectadas_mcp.services.women_training import WomenTrainingDirectory
+from elas_conectadas_mcp.services.women_economic_autonomy import WomenEconomicAutonomyDirectory
 
 mcp = FastMCP(
     "Elas Conectadas",
@@ -45,6 +46,7 @@ menstrual_dignity_guide = MenstrualDignityGuide()
 free_legal_aid_directory = FreeLegalAidDirectory()
 women_organizations_guide = WomenOrganizationsGuide()
 women_training_directory = WomenTrainingDirectory()
+women_economic_autonomy_directory = WomenEconomicAutonomyDirectory()
 
 
 @mcp.tool()
@@ -278,6 +280,45 @@ def orientar_privacidade_e_seguranca() -> str:
 def buscar_cursos_programas_para_mulheres(uf: str | None = None) -> dict:
     """Lista cursos gratuitos e programas destinados a mulheres, com status de inscrição e fontes."""
     return women_training_directory.search(uf=uf)
+
+
+@mcp.tool()
+def buscar_iniciativas_mulheres_negras_indigenas(
+    uf: str | None = None,
+    publico: str | None = None,
+    tipo: str | None = None,
+    incluir_encerradas: bool = True,
+) -> dict:
+    """Busca editais, bolsas, formação e iniciativas para mulheres negras, indígenas e coletivos.
+
+    Filtros de público: negras, indigenas, quilombolas, coletivos,
+    empreendedoras, vulnerabilidade_social.
+    Filtros de tipo: financiamento, capacitacao, fortalecimento_coletivo, articulacao.
+    Diferencia chamadas abertas, apoios restritos a turmas selecionadas e editais encerrados.
+    """
+    return women_economic_autonomy_directory.search(
+        uf=uf, publico=publico, tipo=tipo, incluir_encerradas=incluir_encerradas
+    )
+
+
+@mcp.resource("autonomia://mulheres-negras-indigenas")
+def recurso_iniciativas_mulheres_negras_indigenas() -> str:
+    """Resource com iniciativas verificadas de autonomia econômica e fortalecimento coletivo."""
+    return json.dumps(women_economic_autonomy_directory.search(), ensure_ascii=False)
+
+
+@mcp.prompt()
+def orientar_busca_fomento_mulheres_negras_indigenas() -> str:
+    """Prompt para localizar fomento sem confundir empréstimo com apoio não reembolsável."""
+    return (
+        "Priorize iniciativas e editais para mulheres negras, indígenas e quilombolas, "
+        "especialmente organizações e coletivos em situação de vulnerabilidade. Diferencie "
+        "bolsa-prêmio, doação, capital semente, apoio institucional e empréstimo. Nunca chame "
+        "crédito de recurso não reembolsável. Mostre critérios, território, prazo e fonte oficial. "
+        "Se a chamada estiver encerrada, informe isso claramente e indique monitoramento de nova "
+        "edição. Não solicite cadastro, login, CPF, e-mail, senha ou dados pessoais para apresentar "
+        "informações públicas."
+    )
 
 
 @mcp.resource("capacitacao://programas-gratuitos")
