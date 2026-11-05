@@ -727,4 +727,4 @@ O simulador executa chamadas sintéticas em memória pelo ASGI, mede latência m
 
 ### Compatibilidade do SDK e correção do catálogo
 
-A validação automatizada identificou que o código atual utiliza a API `FastMCP` da linha 1.x do SDK, enquanto o projeto declarava `mcp[cli]==2.3.0`, incompatível com esses imports. A dependência foi fixada em `mcp[cli]==1.26.0` para corresponder à API usada pelo servidor. Também foi corrigida a vírgula ausente entre dois registros do catálogo de capacitação, que impedia a importação do módulo. Essas correções são pré-requisitos para executar os testes; o pipeline precisa ser validado novamente.
+A validação automatizada identificou que o código atual utiliza a API `FastMCP` da linha 1.x do SDK, enquanto o projeto declarava `mcp[cli]==2.3.0`, incompatível com esses imports. A dependência foi fixada em `mcp[cli]==1.30.0` para corresponder à API usada pelo servidor. Também foi corrigida a vírgula ausente entre dois registros do catálogo de capacitação, que impedia a importação do módulo. Essas correções são pré-requisitos para executar os testes; o pipeline precisa ser validado novamente.
