@@ -1569,6 +1569,8 @@ pytest -q
 python scripts/test_carga_local.py --requests 100 --concurrency 1 5 10 25 50
 ```
 
+O workflow de qualidade executa o mesmo cenário automaticamente em Pull Requests; os tempos e a taxa de requisições por segundo ficam registrados nos logs do job.
+
 O total padrão é de 100 chamadas por nível de concorrência. O teste atinge somente `/health`, não aciona as ferramentas de busca e não consulta ViaCEP, IBGE, CNES ou outros serviços externos. Assim, evita gerar carga em fontes públicas e não utiliza dados pessoais.
 
 ### Como interpretar
