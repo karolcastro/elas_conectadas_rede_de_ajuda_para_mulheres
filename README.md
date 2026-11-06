@@ -754,3 +754,16 @@ O runtime Python da Vercel falhou ao importar `mcp.server.fastmcp.FastMCP` porqu
 A validação dos logs do Preview identificou um erro de sintaxe em `src/elas_conectadas_mcp/services/women_training.py`: faltava uma vírgula entre dois registros do catálogo `PROGRAMS`. A vírgula foi adicionada. O erro impedia a importação do módulo e, consequentemente, a inicialização da função Python na Vercel.
 
 **Validação pendente:** aguardar o novo deploy de Preview, conferir a inicialização e testar `GET /health`, a interface `/` e `POST /chat` com mensagens sintéticas. O estado `READY` sozinho não comprova funcionamento. Não promover para produção antes dos testes.
+
+
+### Correção da inicialização ASGI na Vercel — 06/11/2026
+
+O teste de importação do entrypoint no mesmo ambiente Python e com a dependência MCP instalada reproduziu a falha que causava HTTP 500 em todas as rotas:
+
+`TypeError: FastMCP.streamable_http_app() got an unexpected keyword argument 'transport_security'`
+
+Na linha MCP SDK 1.x usada pelo projeto, `streamable_http_app()` não recebe parâmetros. As opções `transport_security`, `stateless_http` e `max_request_body_size` pertencem a `mcp.settings`, configuradas antes de criar a aplicação ASGI.
+
+O entrypoint `api/index.py` foi corrigido para configurar essas três opções em `mcp.settings` e, em seguida, chamar `mcp.streamable_http_app()` sem argumentos. A proteção contra DNS rebinding e a lista de hosts permitidos foram preservadas.
+
+**Validação:** a importação do servidor e a criação do objeto Starlette foram reproduzidas com sucesso no sandbox usando MCP 1.30.0. Isso identifica e corrige a exceção de inicialização, mas o novo Preview ainda precisa ser publicado e testado em `/` e `/health`. A Produção não foi alterada.
