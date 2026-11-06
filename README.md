@@ -740,3 +740,10 @@ A branch `feat/gemini-chat-mvp` adiciona uma interface web na rota raiz (`/`) e 
 A interface apresenta 190 e Ligue 180, não exige cadastro e permite ao Gemini acionar somente ferramentas MCP de consulta e orientação explicitamente autorizadas. Ferramentas de escrita ou alteração não são expostas ao modelo.
 
 **Validação obrigatória antes de uso público:** testar a integração em Preview com mensagens sintéticas, confirmar o modelo e o formato de chamadas de ferramentas, implementar proteção contra abuso/rate limiting, revisar privacidade, segurança e acessibilidade. Não utilizar relatos reais nem dados sensíveis durante os testes. O chat é experimental e não substitui serviços de emergência ou profissionais.
+
+
+### Correção de compatibilidade MCP — 06/11/2026
+
+O runtime Python da Vercel falhou ao importar `mcp.server.fastmcp.FastMCP` porque a dependência estava fixada em `mcp[cli]==2.3.0`, versão incompatível com a API usada pelo servidor. A dependência foi ajustada para a linha de manutenção 1.x (`mcp[cli]>=1.28,<2`) para preservar a implementação atual sem migração ampla para MCP SDK 2.x.
+
+**Validação pendente:** aguardar novo build de Preview, confirmar importação da função e testar `GET /health`, interface `/` e `POST /chat` com mensagens sintéticas. A alteração no arquivo de dependências, por si só, não comprova que o erro foi resolvido. Não promover para produção antes desses testes.
