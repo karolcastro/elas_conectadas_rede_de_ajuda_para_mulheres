@@ -747,3 +747,10 @@ A interface apresenta 190 e Ligue 180, não exige cadastro e permite ao Gemini a
 O runtime Python da Vercel falhou ao importar `mcp.server.fastmcp.FastMCP` porque a dependência estava fixada em `mcp[cli]==2.3.0`, versão incompatível com a API usada pelo servidor. A dependência foi ajustada para a linha de manutenção 1.x (`mcp[cli]>=1.28,<2`) para preservar a implementação atual sem migração ampla para MCP SDK 2.x.
 
 **Validação pendente:** aguardar novo build de Preview, confirmar importação da função e testar `GET /health`, interface `/` e `POST /chat` com mensagens sintéticas. A alteração no arquivo de dependências, por si só, não comprova que o erro foi resolvido. Não promover para produção antes desses testes.
+
+
+### Correção de sintaxe no catálogo de capacitação — 06/11/2026
+
+A validação dos logs do Preview identificou um erro de sintaxe em `src/elas_conectadas_mcp/services/women_training.py`: faltava uma vírgula entre dois registros do catálogo `PROGRAMS`. A vírgula foi adicionada. O erro impedia a importação do módulo e, consequentemente, a inicialização da função Python na Vercel.
+
+**Validação pendente:** aguardar o novo deploy de Preview, conferir a inicialização e testar `GET /health`, a interface `/` e `POST /chat` com mensagens sintéticas. O estado `READY` sozinho não comprova funcionamento. Não promover para produção antes dos testes.
