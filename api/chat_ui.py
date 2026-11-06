@@ -1,11 +1,12 @@
 """Experimental stateless Gemini chat UI backed by read-only MCP tools."""
 from __future__ import annotations
-import os, json
+import os, json, logging
 import httpx
 from starlette.requests import Request
 from starlette.responses import HTMLResponse, JSONResponse
 
 MODEL = "gemini-3.8-flash"
+logger = logging.getLogger("elas_conectadas.gemini")
 ALLOWED = {
  "consultar_telefones_de_urgencia","listar_canais_oficiais_de_ajuda",
  "buscar_servicos_protecao_por_localidade","orientar_consulta_rede_oficial_atendimento",
@@ -32,6 +33,42 @@ def _text_result(result):
     content=getattr(result,"content",None) or []
     return "\n".join(getattr(x,"text",str(x)) for x in content)[:10000] or json.dumps(getattr(result,"structuredContent",{}),ensure_ascii=False)[:10000]
 
+
+def _gemini_schema(schema):
+    """Convert Pydantic/MCP JSON Schema to Gemini's supported subset."""
+    if isinstance(schema, list):
+        return [_gemini_schema(item) for item in schema]
+    if not isinstance(schema, dict):
+        return schema
+    if "anyOf" in schema:
+        options = [item for item in schema["anyOf"] if isinstance(item, dict) and item.get("type") != "null"]
+        if len(options) == 1:
+            merged = dict(options[0])
+            for key in ("description",):
+                if key in schema and key not in merged:
+                    merged[key] = schema[key]
+            return _gemini_schema(merged)
+    allowed = {"type", "description", "enum", "items", "properties", "required", "format"}
+    return {key: _gemini_schema(value) for key, value in schema.items() if key in allowed and value is not None}
+
+def _gemini_error(status, response_text):
+    """Return a safe user-facing diagnosis without exposing credentials."""
+    try:
+        payload = json.loads(response_text)
+        detail = payload.get("error", {}).get("message", "")
+    except Exception:
+        detail = ""
+    detail = str(detail)[:350]
+    if status in (401, 403):
+        return "O Google recusou a credencial ou a permissão da API (HTTP %s). Confira se GEMINI_API_KEY é uma chave válida do Gemini API e se a API está habilitada no projeto Google." % status
+    if status == 404:
+        return "O modelo ou endpoint não foi encontrado (HTTP 404). O identificador configurado é %s." % MODEL
+    if status == 429:
+        return "A cota ou limite de uso do Gemini foi atingido (HTTP 429). Verifique os limites do projeto Google."
+    if status == 400:
+        return "O Gemini rejeitou o formato da solicitação (HTTP 400). Os parâmetros das ferramentas podem ser incompatíveis. Detalhe: %s" % (detail or "sem detalhe fornecido")
+    return "O Gemini retornou HTTP %s. %s" % (status, detail or "Tente novamente mais tarde.")
+
 def register_chat_routes(mcp):
     @mcp.custom_route("/", methods=["GET"])
     async def home(request: Request):
@@ -51,13 +88,15 @@ def register_chat_routes(mcp):
             contents.append({"role":"user","parts":[{"text":message}]})
             declarations=[]
             for t in await mcp.list_tools():
-                if t.name in ALLOWED:declarations.append({"name":t.name,"description":(t.description or t.name)[:800],"parameters":t.inputSchema})
+                if t.name in ALLOWED:declarations.append({"name":t.name,"description":(t.description or t.name)[:800],"parameters":_gemini_schema(t.inputSchema)})
             body={"systemInstruction":{"parts":[{"text":SYSTEM}]},"contents":contents,"tools":[{"functionDeclarations":declarations}],"generationConfig":{"temperature":0.2,"maxOutputTokens":1200}}
             endpoint=f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
             async with httpx.AsyncClient(timeout=45) as client:
                 for _ in range(5):
                     r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
-                    if r.status_code>=400:return JSONResponse({"error":"Gemini indisponível no momento. Verifique modelo e credencial configurados."},status_code=502)
+                    if r.status_code>=400:
+                        logger.error("Gemini API error status=%s body=%s", r.status_code, r.text[:1200])
+                        return JSONResponse({"error":_gemini_error(r.status_code, r.text)},status_code=502)
                     candidates=r.json().get("candidates") or []
                     if not candidates:return JSONResponse({"error":"A IA não retornou resposta."},status_code=502)
                     c=candidates[0].get("content",{}); parts=c.get("parts",[])
