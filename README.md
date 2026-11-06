@@ -767,3 +767,12 @@ Na linha MCP SDK 1.x usada pelo projeto, `streamable_http_app()` não recebe par
 O entrypoint `api/index.py` foi corrigido para configurar essas três opções em `mcp.settings` e, em seguida, chamar `mcp.streamable_http_app()` sem argumentos. A proteção contra DNS rebinding e a lista de hosts permitidos foram preservadas.
 
 **Validação:** a importação do servidor e a criação do objeto Starlette foram reproduzidas com sucesso no sandbox usando MCP 1.30.0. Isso identifica e corrige a exceção de inicialização, mas o novo Preview ainda precisa ser publicado e testado em `/` e `/health`. A Produção não foi alterada.
+
+
+### Diagnóstico da integração Gemini — 06/11/2026
+
+A tela inicial e a rota `/health` responderam HTTP 200, mas a primeira mensagem do chat recebeu uma rejeição da API Gemini. O modelo configurado `gemini-3.8-flash` foi confirmado na documentação oficial do Google como modelo estável e compatível com chamadas de função; por isso, não foi trocado sem evidência.
+
+A integração foi ajustada para converter os esquemas JSON gerados pelo MCP/Pydantic para o subconjunto aceito nas declarações de função do Gemini (incluindo a simplificação de campos opcionais `anyOf: string | null)). Também passou a registrar somente status e corpo de erro retornados pelo Google, sem registrar a chave, e a devolver uma mensagem diagnóstica diferente para erros HTTP 400, 401/403, 404 e 429.
+
+**Validação pendente:** publicar o Preview, enviar uma mensagem de teste e interpretar o status real retornado pela API. Se o erro for 401/403, será necessário revisar a chave Gemini API e as restrições/permissões no Google AI Studio/Google Cloud; nenhuma credencial foi alterada por este commit.
