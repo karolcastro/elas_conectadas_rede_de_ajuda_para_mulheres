@@ -776,3 +776,12 @@ A tela inicial e a rota `/health` responderam HTTP 200, mas a primeira mensagem 
 A integração foi ajustada para converter os esquemas JSON gerados pelo MCP/Pydantic para o subconjunto aceito nas declarações de função do Gemini (incluindo a simplificação de campos opcionais `anyOf: string | null)). Também passou a registrar somente status e corpo de erro retornados pelo Google, sem registrar a chave, e a devolver uma mensagem diagnóstica diferente para erros HTTP 400, 401/403, 404 e 429.
 
 **Validação pendente:** publicar o Preview, enviar uma mensagem de teste e interpretar o status real retornado pela API. Se o erro for 401/403, será necessário revisar a chave Gemini API e as restrições/permissões no Google AI Studio/Google Cloud; nenhuma credencial foi alterada por este commit.
+
+
+### Correção de validação dos parâmetros das ferramentas Gemini — 06/11/2026
+
+Um teste do chat identificou HTTP 400 na validação de `GenerateContentRequest`: algumas declarações MCP/Pydantic enviavam itens em `required` que não correspondiam a propriedades presentes em `properties`. O Gemini rejeita esse esquema antes de executar qualquer ferramenta.
+
+A conversão de esquemas em `api/chat_ui.py` foi ajustada para filtrar os nomes de `required` pelas propriedades efetivamente preservadas na conversão. Se o esquema não tiver um objeto `properties`, a lista `required` é removida. Isso evita referências órfãs após a remoção de construções JSON Schema que não fazem parte do subconjunto suportado pelo Gemini.
+
+**Validação pendente:** publicar novo Preview e testar o chat com consultas sintéticas. A correção resolve a inconsistência estrutural apontada pelo erro; ainda é necessário confirmar a aceitação de todas as declarações e o ciclo de chamada/resposta das ferramentas no ambiente publicado. A Produção não foi alterada.
