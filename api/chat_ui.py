@@ -49,7 +49,22 @@ def _gemini_schema(schema):
                     merged[key] = schema[key]
             return _gemini_schema(merged)
     allowed = {"type", "description", "enum", "items", "properties", "required", "format"}
-    return {key: _gemini_schema(value) for key, value in schema.items() if key in allowed and value is not None}
+    normalized = {
+        key: _gemini_schema(value)
+        for key, value in schema.items()
+        if key in allowed and value is not None
+    }
+    # Gemini valida cada item de "required" contra as chaves de "properties".
+    # MCP/Pydantic pode emitir required junto de schemas com allOf/$ref ou
+    # propriedades que foram removidas na conversão; nunca encaminhe nomes órfãos.
+    properties = normalized.get("properties")
+    required = normalized.get("required")
+    if required is not None:
+        if isinstance(properties, dict):
+            normalized["required"] = [name for name in required if name in properties]
+        else:
+            normalized.pop("required", None)
+    return normalized
 
 def _gemini_error(status, response_text):
     """Return a safe user-facing diagnosis without exposing credentials."""
