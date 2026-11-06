@@ -731,3 +731,12 @@ O projeto atual é um servidor MCP, não uma interface web completa para usuári
 6. Registro de latência, taxa de erro, consumo de CPU/memória e transferência, sem dados pessoais reais.
 
 Nenhum teste de carga deve usar relatos reais de violência, dados pessoais ou informações sensíveis. Use apenas consultas sintéticas.
+
+
+## Interface experimental de conversa com Gemini
+
+A branch `feat/gemini-chat-mvp` adiciona uma interface web na rota raiz (`/`) e uma API `POST /chat`. O navegador mantém um histórico curto somente na memória da aba; o backend não persiste conversas. A chave `GEMINI_API_KEY` permanece no servidor.
+
+A interface apresenta 190 e Ligue 180, não exige cadastro e permite ao Gemini acionar somente ferramentas MCP de consulta e orientação explicitamente autorizadas. Ferramentas de escrita ou alteração não são expostas ao modelo.
+
+**Validação obrigatória antes de uso público:** testar a integração em Preview com mensagens sintéticas, confirmar o modelo e o formato de chamadas de ferramentas, implementar proteção contra abuso/rate limiting, revisar privacidade, segurança e acessibilidade. Não utilizar relatos reais nem dados sensíveis durante os testes. O chat é experimental e não substitui serviços de emergência ou profissionais.
