@@ -792,3 +792,8 @@ A conversão de esquemas em `api/chat_ui.py` foi ajustada para filtrar os nomes 
 Após a correção de esquema do Gemini, os logs do Preview registraram HTTP 200 na chamada `generateContent`, mas a interface ainda apresentou a mensagem genérica de erro. Isso indica que a falha observada não foi uma rejeição HTTP do Gemini; ela ocorreu em outra etapa do processamento da rota `/chat` ou ao interpretar a resposta.
 
 Foi adicionado registro de exceção com stack trace no log de runtime da Vercel para identificar a etapa exata sem expor detalhes técnicos ou credenciais à usuária. A resposta pública continua genérica por segurança. Próximo passo: publicar Preview desta alteração, reproduzir com dados sintéticos e consultar o log correspondente antes de corrigir o fluxo. A Produção não foi alterada.
+
+
+## Tratamento de lentidão na API Gemini (Preview)
+
+O endpoint de chat registra a exceção técnica sem expor detalhes internos à usuária. Quando a API Gemini excede o tempo de leitura configurado (diagnóstico observado: `httpx.ReadTimeout`), o servidor faz uma segunda tentativa. Cada tentativa aguarda até 20 segundos (conexão: 8 segundos). Se ambas expirarem, a aplicação retorna HTTP 504 com uma mensagem compreensível, orientando a tentar novamente. Essa proteção reduz a espera máxima e evita que a falha seja apresentada como erro genérico. Ela não garante disponibilidade da API externa; a latência do Gemini ainda precisa ser validada em novos testes de Preview.
