@@ -106,9 +106,18 @@ def register_chat_routes(mcp):
                 if t.name in ALLOWED:declarations.append({"name":t.name,"description":(t.description or t.name)[:800],"parameters":_gemini_schema(t.inputSchema)})
             body={"systemInstruction":{"parts":[{"text":SYSTEM}]},"contents":contents,"tools":[{"functionDeclarations":declarations}],"generationConfig":{"temperature":0.2,"maxOutputTokens":1200}}
             endpoint=f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
-            async with httpx.AsyncClient(timeout=45) as client:
+            # Evita que uma única espera longa bloqueie a função; em timeout, tenta uma vez novamente.
+            async with httpx.AsyncClient(timeout=httpx.Timeout(20.0, connect=8.0)) as client:
                 for _ in range(5):
-                    r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
+                    try:
+                        r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
+                    except httpx.TimeoutException:
+                        logger.warning("Gemini request timed out; retrying once")
+                        try:
+                            r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
+                        except httpx.TimeoutException:
+                            logger.exception("Gemini request timed out after retry")
+                            return JSONResponse({"error":"O serviço de IA está demorando para responder. Aguarde alguns segundos e tente novamente."},status_code=504)
                     if r.status_code>=400:
                         logger.error("Gemini API error status=%s body=%s", r.status_code, r.text[:1200])
                         return JSONResponse({"error":_gemini_error(r.status_code, r.text)},status_code=502)
