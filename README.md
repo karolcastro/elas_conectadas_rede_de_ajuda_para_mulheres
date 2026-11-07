@@ -785,3 +785,10 @@ Um teste do chat identificou HTTP 400 na validação de `GenerateContentRequest`
 A conversão de esquemas em `api/chat_ui.py` foi ajustada para filtrar os nomes de `required` pelas propriedades efetivamente preservadas na conversão. Se o esquema não tiver um objeto `properties`, a lista `required` é removida. Isso evita referências órfãs após a remoção de construções JSON Schema que não fazem parte do subconjunto suportado pelo Gemini.
 
 **Validação pendente:** publicar novo Preview e testar o chat com consultas sintéticas. A correção resolve a inconsistência estrutural apontada pelo erro; ainda é necessário confirmar a aceitação de todas as declarações e o ciclo de chamada/resposta das ferramentas no ambiente publicado. A Produção não foi alterada.
+
+
+### Diagnóstico do erro genérico no chat — 07/11/2026
+
+Após a correção de esquema do Gemini, os logs do Preview registraram HTTP 200 na chamada `generateContent`, mas a interface ainda apresentou a mensagem genérica de erro. Isso indica que a falha observada não foi uma rejeição HTTP do Gemini; ela ocorreu em outra etapa do processamento da rota `/chat` ou ao interpretar a resposta.
+
+Foi adicionado registro de exceção com stack trace no log de runtime da Vercel para identificar a etapa exata sem expor detalhes técnicos ou credenciais à usuária. A resposta pública continua genérica por segurança. Próximo passo: publicar Preview desta alteração, reproduzir com dados sintéticos e consultar o log correspondente antes de corrigir o fluxo. A Produção não foi alterada.
