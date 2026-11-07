@@ -797,3 +797,8 @@ Foi adicionado registro de exceção com stack trace no log de runtime da Vercel
 ## Tratamento de lentidão na API Gemini (Preview)
 
 O endpoint de chat registra a exceção técnica sem expor detalhes internos à usuária. Quando a API Gemini excede o tempo de leitura configurado (diagnóstico observado: `httpx.ReadTimeout`), o servidor faz uma segunda tentativa. Cada tentativa aguarda até 20 segundos (conexão: 8 segundos). Se ambas expirarem, a aplicação retorna HTTP 504 com uma mensagem compreensível, orientando a tentar novamente. Essa proteção reduz a espera máxima e evita que a falha seja apresentada como erro genérico. Ela não garante disponibilidade da API externa; a latência do Gemini ainda precisa ser validada em novos testes de Preview.
+
+
+### Indisponibilidade temporária do Gemini (HTTP 503)
+
+Quando o Gemini responder HTTP 503 por alta demanda, o chat registra o evento, aguarda 1,5 segundo e tenta novamente uma única vez. Se o provedor continuar indisponível, retorna uma mensagem explícita de indisponibilidade temporária, sem mascarar o problema como erro interno. HTTP 429 é tratado separadamente como limite de uso/cota; não é repetido automaticamente para evitar insistência quando o limite pode persistir. A disponibilidade do provedor externo não é garantida pela aplicação.
