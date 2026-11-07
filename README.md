@@ -808,19 +808,19 @@ Quando o Gemini responder HTTP 503 por alta demanda, o chat registra o evento, a
 A interface de chat agora suporta dois provedores independentes:
 
 - **Principal:** Google Gemini, modelo configurável pelo código (`gemini-3.8-flash`).
-- **Alternativo:** OpenAI Chat Completions, modelo configurável por `OPENAI_MODEL` (padrão: `gpt-4.1-mini`).
+- **Alternativo:** OpenAI Chat Completions, modelo configurável por `OPENAI_MODEL` (padrão: `gpt-5.6-luna`).
 
-O Gemini continua sendo utilizado primeiro. Se retornar limite de uso (HTTP 429), indisponibilidade do servidor (HTTP 5xx) ou timeout após a tentativa adicional, a aplicação tenta automaticamente a OpenAI. Se o Gemini não tiver chave configurada, a OpenAI pode atender como único provedor. As ferramentas MCP permanecem em lista permitida e somente de consulta; os dois provedores recebem os mesmos recursos autorizados.
+O Gemini continua sendo utilizado primeiro. Se retornar limite de uso (HTTP 429), indisponibilidade do servidor (HTTP 5xx) ou timeout após a tentativa adicional, a aplicação tenta automaticamente a OpenAI. O fallback usa por padrão o modelo `gpt-5.6-luna`, otimizado para tarefas de alto volume e custo reduzido; a integração usa Chat Completions com chamada de ferramentas e `reasoning_effort=none`. Se o Gemini não tiver chave configurada, a OpenAI pode atender como único provedor. As ferramentas MCP permanecem em lista permitida e somente de consulta; os dois provedores recebem os mesmos recursos autorizados.
 
 ### Configuração na Vercel (Preview)
 
 1. Abra o projeto na Vercel e entre em **Settings → Environment Variables**.
 2. Adicione `OPENAI_API_KEY` com uma chave criada na plataforma oficial da OpenAI.
 3. Selecione **Preview** (e Development somente se for testar localmente). Não é necessário alterar Production.
-4. Opcionalmente, adicione `OPENAI_MODEL` com `gpt-4.1-mini`; se omitida, esse será o padrão.
+4. Opcionalmente, adicione `OPENAI_MODEL` com `gpt-5.6-luna`; se omitida, esse será o padrão.
 5. Salve e aguarde um novo deploy de Preview para carregar a variável.
 
-**Segurança:** a chave deve ser inserida diretamente no painel da Vercel, nunca em mensagens, commits, README, código-fonte ou arquivos versionados. Não coloque o valor real em `.env.example`. A API da OpenAI é um serviço separado do ChatGPT e pode gerar cobrança conforme uso e limites da conta. A configuração do fallback não ativa nem fornece crédito automaticamente.
+**Segurança:** a chave deve ser inserida diretamente no painel da Vercel, nunca em mensagens, commits, README, código-fonte ou arquivos versionados. Não coloque o valor real em `.env.example`. A API da OpenAI é um serviço separado do ChatGPT e pode gerar cobrança conforme uso e limites da conta. Na tabela consultada em 06/11/2026, o GPT-5.6 Luna custa US$ 0,20 por 1 milhão de tokens de entrada e US$ 1,20 por 1 milhão de tokens de saída em contexto curto; valores e disponibilidade podem mudar. A configuração do fallback não ativa nem fornece crédito automaticamente.
 
 ### Limites e comportamento
 
@@ -830,3 +830,6 @@ O Gemini continua sendo utilizado primeiro. Se retornar limite de uso (HTTP 429)
 - O fallback reduz dependência de um único fornecedor, mas não garante disponibilidade contínua. A resposta e as consultas devem continuar respeitando as fontes, limites de gratuidade e regras de privacidade do projeto.
 
 **Validação pendente:** configurar a chave OpenAI somente no ambiente Preview e testar mensagens sintéticas, incluindo simulação/observação de indisponibilidade do Gemini. Não promover para Production antes da validação funcional e da revisão de custos.
+
+
+**Referência técnica do provedor alternativo:** o GPT-5.6 Luna oferece suporte a Chat Completions e function calling; para esse fluxo, a documentação usa `reasoning_effort=none`. Consulte a documentação oficial do [modelo GPT-5.6 Luna](https://developers.openai.com/api/docs/models/gpt-5.6-luna) e do [function calling](https://developers.openai.com/api/docs/guides/function-calling).
