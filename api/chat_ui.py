@@ -129,4 +129,5 @@ def register_chat_routes(mcp):
                         body["contents"].append({"role":"function","parts":[{"functionResponse":{"name":name,"response":{"result":result}}}]})
             return JSONResponse({"error":"A consulta excedeu o limite de etapas. Tente ser mais específica."},status_code=502)
         except Exception:
+            logger.exception("Unhandled error while processing /chat request")
             return JSONResponse({"error":"Erro ao processar a mensagem. Tente novamente."},status_code=500)
