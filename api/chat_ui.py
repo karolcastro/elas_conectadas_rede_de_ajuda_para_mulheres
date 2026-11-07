@@ -1,4 +1,4 @@
-"""Experimental stateless Gemini chat UI backed by read-only MCP tools."""
+"""Experimental multi-provider chat UI backed by read-only MCP tools."""
 from __future__ import annotations
 import os, json, logging, asyncio
 import httpx
@@ -6,7 +6,7 @@ from starlette.requests import Request
 from starlette.responses import HTMLResponse, JSONResponse
 
 MODEL = "gemini-3.8-flash"
-logger = logging.getLogger("elas_conectadas.gemini")
+logger = logging.getLogger("elas_conectadas.chat")
 ALLOWED = {
  "consultar_telefones_de_urgencia","listar_canais_oficiais_de_ajuda",
  "buscar_servicos_protecao_por_localidade","orientar_consulta_rede_oficial_atendimento",
@@ -66,85 +66,236 @@ def _gemini_schema(schema):
             normalized.pop("required", None)
     return normalized
 
-def _gemini_error(status, response_text):
-    """Return a safe user-facing diagnosis without exposing credentials."""
-    try:
-        payload = json.loads(response_text)
-        detail = payload.get("error", {}).get("message", "")
-    except Exception:
-        detail = ""
-    detail = str(detail)[:350]
-    if status in (401, 403):
-        return "O Google recusou a credencial ou a permissão da API (HTTP %s). Confira se GEMINI_API_KEY é uma chave válida do Gemini API e se a API está habilitada no projeto Google." % status
-    if status == 404:
-        return "O modelo ou endpoint não foi encontrado (HTTP 404). O identificador configurado é %s." % MODEL
-    if status == 429:
-        return "O limite de uso do Gemini foi atingido temporariamente (HTTP 429). Aguarde um pouco antes de tentar novamente."
-    if status == 503:
-        return "O Gemini está com alta demanda no momento (HTTP 503). Isso costuma ser temporário; aguarde alguns instantes e tente novamente."
-    if status == 400:
-        return "O Gemini rejeitou o formato da solicitação (HTTP 400). Os parâmetros das ferramentas podem ser incompatíveis. Detalhe: %s" % (detail or "sem detalhe fornecido")
-    return "O Gemini retornou HTTP %s. %s" % (status, detail or "Tente novamente mais tarde.")
+class ProviderUnavailable(Exception):
+    def __init__(self, provider, status=None, reason="unavailable"):
+        self.provider = provider
+        self.status = status
+        self.reason = reason
+        super().__init__(f"{provider}:{reason}:{status}")
+
+
+def _openai_tools(declarations):
+    """Convert MCP declarations to OpenAI Chat Completions function tools."""
+    return [
+        {
+            "type": "function",
+            "function": {
+                "name": item["name"],
+                "description": item.get("description", item["name"]),
+                "parameters": item.get("parameters") or {"type": "object", "properties": {}},
+            },
+        }
+        for item in declarations
+    ]
+
+
+async def _execute_tool_calls(mcp, calls, provider):
+    results = []
+    for call in calls:
+        name = call.get("name", "")
+        if name not in ALLOWED:
+            result = "Ferramenta não permitida."
+        else:
+            try:
+                args = call.get("args") if provider == "gemini" else call.get("arguments")
+                if isinstance(args, str):
+                    args = json.loads(args or "{}")
+                if not isinstance(args, dict):
+                    args = {}
+                result = _text_result(await mcp.call_tool(name, args))
+            except Exception:
+                logger.exception("MCP tool call failed provider=%s tool=%s", provider, name)
+                result = "Consulta indisponível. Não invente resultados."
+        results.append((call, result))
+    return results
+
+
+async def _run_gemini(client, key, contents, declarations, mcp):
+    body = {
+        "systemInstruction": {"parts": [{"text": SYSTEM}]},
+        "contents": list(contents),
+        "tools": [{"functionDeclarations": declarations}],
+        "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1200},
+    }
+    endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+    retried_503 = False
+    for _ in range(5):
+        try:
+            response = await client.post(
+                endpoint, headers={"x-goog-api-key": key}, json=body
+            )
+        except httpx.TimeoutException as exc:
+            logger.warning("Gemini request timed out; retrying once")
+            try:
+                response = await client.post(
+                    endpoint, headers={"x-goog-api-key": key}, json=body
+                )
+            except httpx.TimeoutException as retry_exc:
+                raise ProviderUnavailable("gemini", reason="timeout") from retry_exc
+        if response.status_code == 503 and not retried_503:
+            retried_503 = True
+            logger.warning("Gemini returned HTTP 503; retrying once")
+            await asyncio.sleep(1.5)
+            continue
+        if response.status_code == 429 or response.status_code >= 500:
+            raise ProviderUnavailable("gemini", response.status_code)
+        if response.status_code >= 400:
+            logger.error("Gemini API rejected request status=%s body=%s", response.status_code, response.text[:1000])
+            raise RuntimeError(f"Gemini recusou a solicitação (HTTP {response.status_code}).")
+        candidates = response.json().get("candidates") or []
+        if not candidates:
+            raise RuntimeError("O Gemini não retornou uma resposta.")
+        candidate = candidates[0].get("content", {})
+        parts = candidate.get("parts", [])
+        calls = [
+            {"name": part["functionCall"].get("name", ""), "args": part["functionCall"].get("args") or {}}
+            for part in parts if "functionCall" in part
+        ]
+        if not calls:
+            answer = "\n".join(part.get("text", "") for part in parts if part.get("text")).strip()
+            return answer or "Não consegui responder. Pode reformular?"
+        body["contents"].append(candidate)
+        results = await _execute_tool_calls(mcp, calls, "gemini")
+        for call, result in results:
+            body["contents"].append({
+                "role": "function",
+                "parts": [{
+                    "functionResponse": {
+                        "name": call["name"],
+                        "response": {"result": result},
+                    }
+                }],
+            })
+    raise RuntimeError("A consulta excedeu o limite de etapas. Tente ser mais específica.")
+
+
+async def _run_openai(client, key, messages, tools, mcp):
+    model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+    request_messages = list(messages)
+    endpoint = "https://api.openai.com/v1/chat/completions"
+    for _ in range(5):
+        try:
+            response = await client.post(
+                endpoint,
+                headers={"Authorization": f"Bearer {key}"},
+                json={
+                    "model": model,
+                    "messages": request_messages,
+                    "tools": tools,
+                    "tool_choice": "auto",
+                    "temperature": 0.2,
+                    "max_completion_tokens": 1200,
+                    "store": False,
+                },
+            )
+        except httpx.TimeoutException as exc:
+            logger.warning("OpenAI request timed out")
+            raise ProviderUnavailable("openai", reason="timeout") from exc
+        if response.status_code == 429 or response.status_code >= 500:
+            raise ProviderUnavailable("openai", response.status_code)
+        if response.status_code >= 400:
+            logger.error("OpenAI API rejected request status=%s body=%s", response.status_code, response.text[:1000])
+            raise RuntimeError(f"A OpenAI recusou a solicitação (HTTP {response.status_code}).")
+        choices = response.json().get("choices") or []
+        if not choices:
+            raise RuntimeError("A OpenAI não retornou uma resposta.")
+        message = choices[0].get("message") or {}
+        tool_calls = message.get("tool_calls") or []
+        if not tool_calls:
+            return str(message.get("content") or "").strip() or "Não consegui responder. Pode reformular?"
+        request_messages.append(message)
+        calls = []
+        for item in tool_calls:
+            function = item.get("function") or {}
+            calls.append({
+                "id": item.get("id", ""),
+                "name": function.get("name", ""),
+                "arguments": function.get("arguments", "{}"),
+            })
+        results = await _execute_tool_calls(mcp, calls, "openai")
+        for call, result in results:
+            request_messages.append({
+                "role": "tool",
+                "tool_call_id": call["id"],
+                "content": str(result),
+            })
+    raise RuntimeError("A consulta excedeu o limite de etapas. Tente ser mais específica.")
+
 
 def register_chat_routes(mcp):
     @mcp.custom_route("/", methods=["GET"])
     async def home(request: Request):
         return HTMLResponse(PAGE)
+
     @mcp.custom_route("/chat", methods=["POST"])
     async def chat(request: Request):
-        key=os.getenv("GEMINI_API_KEY")
-        if not key:return JSONResponse({"error":"O serviço de conversa não está configurado."},status_code=503)
         try:
-            data=await request.json(); message=str(data.get("message","")).strip()
-            if not message or len(message)>2000:return JSONResponse({"error":"Envie uma mensagem de até 2.000 caracteres."},status_code=400)
-            history=data.get("history",[]); history=history[-8:] if isinstance(history,list) else []
-            contents=[]
-            for h in history:
-                if isinstance(h,dict) and h.get("role") in ("user","model") and h.get("text"):
-                    contents.append({"role":h["role"],"parts":[{"text":str(h["text"])[:2000]}]})
-            contents.append({"role":"user","parts":[{"text":message}]})
-            declarations=[]
-            for t in await mcp.list_tools():
-                if t.name in ALLOWED:declarations.append({"name":t.name,"description":(t.description or t.name)[:800],"parameters":_gemini_schema(t.inputSchema)})
-            body={"systemInstruction":{"parts":[{"text":SYSTEM}]},"contents":contents,"tools":[{"functionDeclarations":declarations}],"generationConfig":{"temperature":0.2,"maxOutputTokens":1200}}
-            endpoint=f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
-            # Evita que uma única espera longa bloqueie a função; em timeout, tenta uma vez novamente.
+            data = await request.json()
+            message = str(data.get("message", "")).strip()
+            if not message or len(message) > 2000:
+                return JSONResponse({"error": "Envie uma mensagem de até 2.000 caracteres."}, status_code=400)
+
+            gemini_key = os.getenv("GEMINI_API_KEY")
+            openai_key = os.getenv("OPENAI_API_KEY")
+            if not gemini_key and not openai_key:
+                return JSONResponse({"error": "O serviço de conversa não está configurado."}, status_code=503)
+
+            history = data.get("history", [])
+            history = history[-8:] if isinstance(history, list) else []
+            contents = []
+            openai_messages = [{"role": "system", "content": SYSTEM}]
+            for item in history:
+                if not isinstance(item, dict) or item.get("role") not in ("user", "model") or not item.get("text"):
+                    continue
+                text = str(item["text"])[:2000]
+                gemini_role = item["role"]
+                contents.append({"role": gemini_role, "parts": [{"text": text}]})
+                openai_messages.append({
+                    "role": "assistant" if gemini_role == "model" else "user",
+                    "content": text,
+                })
+            contents.append({"role": "user", "parts": [{"text": message}]})
+            openai_messages.append({"role": "user", "content": message})
+
+            declarations = []
+            for tool in await mcp.list_tools():
+                if tool.name in ALLOWED:
+                    declarations.append({
+                        "name": tool.name,
+                        "description": (tool.description or tool.name)[:800],
+                        "parameters": _gemini_schema(tool.inputSchema),
+                    })
+            openai_tools = _openai_tools(declarations)
+
+            # Gemini permanece como principal. OpenAI só é acionada se houver
+            # indisponibilidade transitória, limite de uso ou timeout no Gemini.
             async with httpx.AsyncClient(timeout=httpx.Timeout(20.0, connect=8.0)) as client:
-                gemini_503_retries = 0
-                for _ in range(5):
+                if gemini_key:
                     try:
-                        r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
-                    except httpx.TimeoutException:
-                        logger.warning("Gemini request timed out; retrying once")
-                        try:
-                            r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
-                        except httpx.TimeoutException:
-                            logger.exception("Gemini request timed out after retry")
-                            return JSONResponse({"error":"O serviço de IA está demorando para responder. Aguarde alguns segundos e tente novamente."},status_code=504)
-                    if r.status_code == 503 and gemini_503_retries < 1:
-                        gemini_503_retries += 1
-                        logger.warning("Gemini returned HTTP 503; retrying once after a short delay")
-                        await asyncio.sleep(1.5)
-                        continue
-                    if r.status_code>=400:
-                        logger.error("Gemini API error status=%s body=%s", r.status_code, r.text[:1200])
-                        return JSONResponse({"error":_gemini_error(r.status_code, r.text)},status_code=503 if r.status_code == 503 else 502)
-                    candidates=r.json().get("candidates") or []
-                    if not candidates:return JSONResponse({"error":"A IA não retornou resposta."},status_code=502)
-                    c=candidates[0].get("content",{}); parts=c.get("parts",[])
-                    calls=[p["functionCall"] for p in parts if "functionCall" in p]
-                    if not calls:
-                        answer="\n".join(p.get("text","") for p in parts if p.get("text")).strip()
-                        return JSONResponse({"reply":answer or "Não consegui responder. Pode reformular?"})
-                    body["contents"].append(c)
-                    for call in calls:
-                        name=call.get("name","")
-                        if name not in ALLOWED:result="Ferramenta não permitida."
-                        else:
-                            try:result=_text_result(await mcp.call_tool(name,call.get("args") or {}))
-                            except Exception:result="Consulta indisponível. Não invente resultados."
-                        body["contents"].append({"role":"function","parts":[{"functionResponse":{"name":name,"response":{"result":result}}}]})
-            return JSONResponse({"error":"A consulta excedeu o limite de etapas. Tente ser mais específica."},status_code=502)
+                        answer = await _run_gemini(client, gemini_key, contents, declarations, mcp)
+                        return JSONResponse({"reply": answer, "provider": "gemini"})
+                    except ProviderUnavailable as exc:
+                        logger.warning(
+                            "Primary provider unavailable provider=%s status=%s reason=%s; trying fallback",
+                            exc.provider, exc.status, exc.reason,
+                        )
+                        if not openai_key:
+                            return JSONResponse({
+                                "error": "O Gemini está temporariamente indisponível e não há um provedor alternativo configurado. Tente novamente em alguns instantes."
+                            }, status_code=503)
+                if openai_key:
+                    try:
+                        answer = await _run_openai(client, openai_key, openai_messages, openai_tools, mcp)
+                        return JSONResponse({"reply": answer, "provider": "openai"})
+                    except ProviderUnavailable as exc:
+                        logger.error(
+                            "Fallback provider unavailable provider=%s status=%s reason=%s",
+                            exc.provider, exc.status, exc.reason,
+                        )
+                        return JSONResponse({
+                            "error": "Os serviços de IA estão temporariamente indisponíveis. Tente novamente em alguns instantes."
+                        }, status_code=503)
+            return JSONResponse({"error": "Não foi possível responder neste momento."}, status_code=503)
         except Exception:
             logger.exception("Unhandled error while processing /chat request")
-            return JSONResponse({"error":"Erro ao processar a mensagem. Tente novamente."},status_code=500)
+            return JSONResponse({"error": "Erro ao processar a mensagem. Tente novamente."}, status_code=500)
