@@ -170,7 +170,7 @@ async def _run_gemini(client, key, contents, declarations, mcp):
 
 
 async def _run_openai(client, key, messages, tools, mcp):
-    model = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+    model = os.getenv("OPENAI_MODEL", "gpt-5.6-luna")
     request_messages = list(messages)
     endpoint = "https://api.openai.com/v1/chat/completions"
     for _ in range(5):
@@ -180,6 +180,7 @@ async def _run_openai(client, key, messages, tools, mcp):
                 headers={"Authorization": f"Bearer {key}"},
                 json={
                     "model": model,
+                    "reasoning_effort": "none",
                     "messages": request_messages,
                     "tools": tools,
                     "tool_choice": "auto",
