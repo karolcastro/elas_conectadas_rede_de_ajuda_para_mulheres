@@ -802,3 +802,31 @@ O endpoint de chat registra a exceção técnica sem expor detalhes internos à 
 ### Indisponibilidade temporária do Gemini (HTTP 503)
 
 Quando o Gemini responder HTTP 503 por alta demanda, o chat registra o evento, aguarda 1,5 segundo e tenta novamente uma única vez. Se o provedor continuar indisponível, retorna uma mensagem explícita de indisponibilidade temporária, sem mascarar o problema como erro interno. HTTP 429 é tratado separadamente como limite de uso/cota; não é repetido automaticamente para evitar insistência quando o limite pode persistir. A disponibilidade do provedor externo não é garantida pela aplicação.
+
+## Fallback automático entre provedores de IA — 06/11/2026
+
+A interface de chat agora suporta dois provedores independentes:
+
+- **Principal:** Google Gemini, modelo configurável pelo código (`gemini-3.8-flash`).
+- **Alternativo:** OpenAI Chat Completions, modelo configurável por `OPENAI_MODEL` (padrão: `gpt-4.1-mini`).
+
+O Gemini continua sendo utilizado primeiro. Se retornar limite de uso (HTTP 429), indisponibilidade do servidor (HTTP 5xx) ou timeout após a tentativa adicional, a aplicação tenta automaticamente a OpenAI. Se o Gemini não tiver chave configurada, a OpenAI pode atender como único provedor. As ferramentas MCP permanecem em lista permitida e somente de consulta; os dois provedores recebem os mesmos recursos autorizados.
+
+### Configuração na Vercel (Preview)
+
+1. Abra o projeto na Vercel e entre em **Settings → Environment Variables**.
+2. Adicione `OPENAI_API_KEY` com uma chave criada na plataforma oficial da OpenAI.
+3. Selecione **Preview** (e Development somente se for testar localmente). Não é necessário alterar Production.
+4. Opcionalmente, adicione `OPENAI_MODEL` com `gpt-4.1-mini`; se omitida, esse será o padrão.
+5. Salve e aguarde um novo deploy de Preview para carregar a variável.
+
+**Segurança:** a chave deve ser inserida diretamente no painel da Vercel, nunca em mensagens, commits, README, código-fonte ou arquivos versionados. Não coloque o valor real em `.env.example`. A API da OpenAI é um serviço separado do ChatGPT e pode gerar cobrança conforme uso e limites da conta. A configuração do fallback não ativa nem fornece crédito automaticamente.
+
+### Limites e comportamento
+
+- A troca é automática e transparente para a usuária; a resposta inclui apenas um identificador técnico de provedor para diagnóstico.
+- Erros de autenticação/permissão ou de formato (HTTP 400/401/403) não provocam troca automática, pois indicam configuração ou solicitação inválida que precisa ser corrigida.
+- Se os dois provedores estiverem indisponíveis, o chat apresenta uma mensagem clara e orienta tentar novamente.
+- O fallback reduz dependência de um único fornecedor, mas não garante disponibilidade contínua. A resposta e as consultas devem continuar respeitando as fontes, limites de gratuidade e regras de privacidade do projeto.
+
+**Validação pendente:** configurar a chave OpenAI somente no ambiente Preview e testar mensagens sintéticas, incluindo simulação/observação de indisponibilidade do Gemini. Não promover para Production antes da validação funcional e da revisão de custos.
