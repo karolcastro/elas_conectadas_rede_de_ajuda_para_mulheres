@@ -1,6 +1,6 @@
 """Experimental stateless Gemini chat UI backed by read-only MCP tools."""
 from __future__ import annotations
-import os, json, logging
+import os, json, logging, asyncio
 import httpx
 from starlette.requests import Request
 from starlette.responses import HTMLResponse, JSONResponse
@@ -79,7 +79,9 @@ def _gemini_error(status, response_text):
     if status == 404:
         return "O modelo ou endpoint não foi encontrado (HTTP 404). O identificador configurado é %s." % MODEL
     if status == 429:
-        return "A cota ou limite de uso do Gemini foi atingido (HTTP 429). Verifique os limites do projeto Google."
+        return "O limite de uso do Gemini foi atingido temporariamente (HTTP 429). Aguarde um pouco antes de tentar novamente."
+    if status == 503:
+        return "O Gemini está com alta demanda no momento (HTTP 503). Isso costuma ser temporário; aguarde alguns instantes e tente novamente."
     if status == 400:
         return "O Gemini rejeitou o formato da solicitação (HTTP 400). Os parâmetros das ferramentas podem ser incompatíveis. Detalhe: %s" % (detail or "sem detalhe fornecido")
     return "O Gemini retornou HTTP %s. %s" % (status, detail or "Tente novamente mais tarde.")
@@ -108,6 +110,7 @@ def register_chat_routes(mcp):
             endpoint=f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
             # Evita que uma única espera longa bloqueie a função; em timeout, tenta uma vez novamente.
             async with httpx.AsyncClient(timeout=httpx.Timeout(20.0, connect=8.0)) as client:
+                gemini_503_retries = 0
                 for _ in range(5):
                     try:
                         r=await client.post(endpoint,headers={"x-goog-api-key":key},json=body)
@@ -118,9 +121,14 @@ def register_chat_routes(mcp):
                         except httpx.TimeoutException:
                             logger.exception("Gemini request timed out after retry")
                             return JSONResponse({"error":"O serviço de IA está demorando para responder. Aguarde alguns segundos e tente novamente."},status_code=504)
+                    if r.status_code == 503 and gemini_503_retries < 1:
+                        gemini_503_retries += 1
+                        logger.warning("Gemini returned HTTP 503; retrying once after a short delay")
+                        await asyncio.sleep(1.5)
+                        continue
                     if r.status_code>=400:
                         logger.error("Gemini API error status=%s body=%s", r.status_code, r.text[:1200])
-                        return JSONResponse({"error":_gemini_error(r.status_code, r.text)},status_code=502)
+                        return JSONResponse({"error":_gemini_error(r.status_code, r.text)},status_code=503 if r.status_code == 503 else 502)
                     candidates=r.json().get("candidates") or []
                     if not candidates:return JSONResponse({"error":"A IA não retornou resposta."},status_code=502)
                     c=candidates[0].get("content",{}); parts=c.get("parts",[])
