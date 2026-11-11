@@ -61,6 +61,10 @@ Essas tecnologias compõem a arquitetura proposta; a presença nesta lista não 
 6. Cursos gratuitos, bolsas e capacitação para mulheres.
 7. Saúde da Mulher: localização de serviços e exames, saúde menstrual e campanhas para mulheres e meninas.
 
+## Segurança para parcerias
+
+O projeto possui uma arquitetura de segurança documentada para divulgação por ONGs e instituições. A integração recomendada é um link HTTPS simples, sem scripts, iframes ou acesso aos sistemas da parceira. Consulte [Arquitetura de Segurança](docs/ARQUITETURA_SEGURANCA.md) e [Política de Segurança](SECURITY.md). Os controles descritos para o futuro site público só serão considerados ativos após implementação e validação no ambiente de hospedagem.
+
 ## Documentação
 
 Consulte [docs/AGENTE_ELAS_CONECTADAS.md](docs/AGENTE_ELAS_CONECTADAS.md) para requisitos funcionais, fluxo de atendimento, regras de segurança, critérios de validação, estratégia de atualização e arquitetura proposta.

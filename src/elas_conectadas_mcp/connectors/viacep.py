@@ -6,6 +6,8 @@ from typing import Any
 
 import httpx
 
+from elas_conectadas_mcp.connectors.http_security import get_json
+
 BASE_URL = "https://viacep.com.br/ws"
 _TIMEOUT = httpx.Timeout(12.0, connect=5.0)
 
@@ -26,14 +28,8 @@ class ViaCEPConnector:
             raise ValueError("Informe um CEP válido com oito dígitos.")
         url = f"{BASE_URL}/{digits}/json/"
         try:
-            if self._client is not None:
-                response = await self._client.get(url, timeout=_TIMEOUT)
-            else:
-                async with httpx.AsyncClient(timeout=_TIMEOUT) as client:
-                    response = await client.get(url)
-            response.raise_for_status()
-            data = response.json()
-        except (httpx.HTTPError, ValueError) as exc:
+            data = await get_json(client=self._client, url=url, timeout=_TIMEOUT)
+        except (httpx.HTTPError, ValueError, RuntimeError) as exc:
             raise ViaCEPError("Não foi possível consultar o ViaCEP neste momento.") from exc
         if not isinstance(data, dict) or data.get("erro") is True:
             raise ValueError("CEP não encontrado na base consultada.")

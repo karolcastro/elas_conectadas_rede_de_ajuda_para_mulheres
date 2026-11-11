@@ -11,6 +11,8 @@ from typing import Any
 
 import httpx
 
+from elas_conectadas_mcp.connectors.http_security import get_json
+
 BASE_URL = "https://apidadosabertos.saude.gov.br"
 SOURCE_URL = "https://apidadosabertos.saude.gov.br/"
 SWAGGER_URL = "https://apidadosabertos.saude.gov.br/static/swagger.json"
@@ -56,14 +58,13 @@ class DEMASConnector:
     async def _get(self, path: str, params: dict[str, Any]) -> Any:
         url = f"{BASE_URL}/{path.lstrip('/')}"
         try:
-            if self._client is not None:
-                response = await self._client.get(url, params=params, timeout=_TIMEOUT)
-            else:
-                async with httpx.AsyncClient(timeout=_TIMEOUT) as client:
-                    response = await client.get(url, params=params)
-            response.raise_for_status()
-            return response.json()
-        except (httpx.HTTPError, ValueError) as exc:
+            return await get_json(
+                client=self._client,
+                url=url,
+                params=params,
+                timeout=_TIMEOUT,
+            )
+        except (httpx.HTTPError, ValueError, RuntimeError) as exc:
             raise DEMASAPIError(
                 "Não foi possível consultar a base pública DEMAS/CNES neste momento."
             ) from exc

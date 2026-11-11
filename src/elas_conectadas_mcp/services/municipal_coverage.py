@@ -114,6 +114,16 @@ class MunicipalCoverageService:
             })
 
         missing_total = total_municipalities - covered_municipalities
+        regional_records_all = [
+            item for item in valid_records
+            if not item.get("municipality")
+            and any(
+                item.get("state") == state["sigla"]
+                or state["sigla"] in (item.get("ufs") or [])
+                or item.get("coverage") in {state["sigla"], "Brasil"}
+                for state in states
+            )
+        ]
         return {
             "fonte_territorial": "IBGE — API de Localidades",
             "data_consulta": catalog.get("as_of"),
@@ -129,6 +139,7 @@ class MunicipalCoverageService:
             "limite_amostra": missing_limit,
             "total_registros_catalogo": catalog.get("count", len(records)),
             "registros_validos_considerados": len(valid_records),
+            "registros_estaduais_ou_nacionais_validos": len(regional_records_all),
             "registros_com_revisao_vencida_ou_pendente": sum(
                 1 for item in records if item.get("catalog_status") != "verified"
             ),
@@ -219,14 +230,14 @@ class MunicipalCoverageService:
                     "registros_locais_pendentes_revisao": len(stale_local),
                     "referencias_estaduais_ou_nacionais": len(state_refs),
                     "proximas_acoes": [
-                        "Pesquisar portal oficial da prefeitura e secretaria municipal "
-                        "responsável.",
+                        ("Pesquisar portal oficial da prefeitura e secretaria municipal "
+                        "responsável."),
                         "Pesquisar órgãos estaduais e a rede oficial de atendimento.",
-                        "Verificar existência, público atendido, endereço público e contato "
-                        "institucional.",
+                        ("Verificar existência, público atendido, endereço público e contato "
+                        "institucional."),
                         "Confirmar gratuidade, funcionamento, critérios e data da fonte.",
-                        "Cadastrar somente após validação documental; nunca publicar endereço "
-                        "sigiloso de abrigo.",
+                        ("Cadastrar somente após validação documental; nunca publicar endereço "
+                        "sigiloso de abrigo."),
                     ],
                 })
             state_summary.append({
