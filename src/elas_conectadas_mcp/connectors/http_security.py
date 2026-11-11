@@ -3,9 +3,8 @@
 from __future__ import annotations
 
 import json
-from typing import Any
-
 import httpx
+from typing import Any
 
 
 MAX_JSON_RESPONSE_BYTES = 5 * 1024 * 1024
