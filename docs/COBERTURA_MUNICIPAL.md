@@ -48,3 +48,24 @@ Usar os resultados para priorizar a pesquisa documental por UF e município. Cad
 - Registro estadual/nacional não conta como cobertura local.
 - Resultado apresenta metodologia e limites para impedir conclusões indevidas.
 - Testes automatizados cobrem agregação, filtro e validação de parâmetros.
+
+
+## Fila de pesquisa municipal
+
+A segunda entrega adiciona:
+
+- Serviço: método `MunicipalCoverageService.research_queue()`.
+- Ferramenta MCP: `gerar_fila_pesquisa_municipal(uf=None, limite=100, offset=0)`.
+- Paginação: limite de 1 a 500 itens por chamada e deslocamento a partir de zero.
+- Cada item informa município, UF, código IBGE, situação da pesquisa, referências locais pendentes de revisão e próximas ações de validação.
+- A ordenação é determinística por UF e nome do município.
+
+A fila contém municípios sem registro local válido. Registros vencidos ou pendentes não são tratados como cobertura confirmada. A prioridade alta indica apenas que a pesquisa documental ainda precisa ser feita; não representa risco, vulnerabilidade ou urgência da população. A fila não cadastra nem recomenda serviços automaticamente.
+
+Exemplos:
+
+- Brasil, primeira página: `gerar_fila_pesquisa_municipal()`
+- São Paulo: `gerar_fila_pesquisa_municipal(uf="SP")`
+- Próxima página: `gerar_fila_pesquisa_municipal(uf="SP", limite=100, offset=100)`
+
+Cada instituição encontrada deve passar por validação individual em fonte institucional antes de entrar no catálogo: existência, escopo, contato, endereço público quando aplicável, gratuidade, critérios, funcionamento e data de verificação. Endereços sigilosos de acolhimento não devem ser publicados.
