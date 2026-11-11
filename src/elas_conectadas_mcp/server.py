@@ -12,6 +12,7 @@ from elas_conectadas_mcp.connectors.viacep import ViaCEPConnector
 from elas_conectadas_mcp.services.free_legal_aid import FreeLegalAidDirectory
 from elas_conectadas_mcp.services.health_search import HealthSearchService
 from elas_conectadas_mcp.services.menstrual_dignity import MenstrualDignityGuide
+from elas_conectadas_mcp.services.municipal_coverage import MunicipalCoverageService
 from elas_conectadas_mcp.services.official_network_directory import OfficialNetworkDirectory
 from elas_conectadas_mcp.services.protection_registry import ProtectionRegistry
 from elas_conectadas_mcp.services.women_organizations import WomenOrganizationsGuide
@@ -40,11 +41,31 @@ demas = DEMASConnector()
 viacep = ViaCEPConnector()
 health_search = HealthSearchService(ibge=ibge, demas=demas, viacep=viacep)
 protection_registry = ProtectionRegistry()
+municipal_coverage = MunicipalCoverageService(ibge=ibge, protection_registry=protection_registry)
 official_network_directory = OfficialNetworkDirectory()
 menstrual_dignity_guide = MenstrualDignityGuide()
 free_legal_aid_directory = FreeLegalAidDirectory()
 women_organizations_guide = WomenOrganizationsGuide()
 women_training_directory = WomenTrainingDirectory()
+
+
+@mcp.tool()
+async def auditar_cobertura_municipal(uf: str | None = None, limite_municipios_sem_cadastro: int = 100) -> dict:
+    """Compara municípios do IBGE com registros locais válidos do catálogo de proteção.
+
+    A auditoria identifica lacunas cadastrais; não prova inexistência de serviços no território.
+    Registros estaduais/nacionais não são contados como cobertura municipal local.
+    """
+    return await municipal_coverage.audit(uf=uf, missing_limit=limite_municipios_sem_cadastro)
+
+
+@mcp.tool()
+async def gerar_fila_pesquisa_municipal(uf: str | None = None, limite: int = 100, offset: int = 0) -> dict:
+    """Gera fila paginada de municípios sem registro local válido para pesquisa documental.
+
+    Prioridade alta significa lacuna de pesquisa, não risco ou urgência. A fila não recomenda serviços.
+    """
+    return await municipal_coverage.research_queue(uf=uf, limit=limite, offset=offset)
 
 
 @mcp.tool()
