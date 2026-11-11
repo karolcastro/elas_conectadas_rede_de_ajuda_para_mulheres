@@ -230,14 +230,14 @@ class MunicipalCoverageService:
                     "registros_locais_pendentes_revisao": len(stale_local),
                     "referencias_estaduais_ou_nacionais": len(state_refs),
                     "proximas_acoes": [
-                        "Pesquisar portal oficial da prefeitura e secretaria municipal "
-                        "responsável.",
+                        ("Pesquisar portal oficial da prefeitura e secretaria municipal "
+                        "responsável."),
                         "Pesquisar órgãos estaduais e a rede oficial de atendimento.",
-                        "Verificar existência, público atendido, endereço público e contato "
-                        "institucional.",
+                        ("Verificar existência, público atendido, endereço público e contato "
+                        "institucional."),
                         "Confirmar gratuidade, funcionamento, critérios e data da fonte.",
-                        "Cadastrar somente após validação documental; nunca publicar endereço "
-                        "sigiloso de abrigo.",
+                        ("Cadastrar somente após validação documental; nunca publicar endereço "
+                        "sigiloso de abrigo."),
                     ],
                 })
             state_summary.append({
