@@ -67,6 +67,15 @@ class MunicipalCoverageService:
                 or state_uf in (item.get("ufs") or [])
                 or item.get("coverage") == state_uf
             ]
+            regional_records = [
+                item for item in valid_records
+                if not item.get("municipality")
+                and (
+                    item.get("state") == state_uf
+                    or state_uf in (item.get("ufs") or [])
+                    or item.get("coverage") in {state_uf, "Brasil"}
+                )
+            ]
             state_covered = 0
             state_missing = 0
 
@@ -101,7 +110,7 @@ class MunicipalCoverageService:
                 "cobertura_local_percentual": round(
                     state_covered / len(municipalities) * 100, 2
                 ) if municipalities else 0.0,
-                "registros_estaduais_ou_nacionais_validos": len(state_records),
+                "registros_estaduais_ou_nacionais_validos": len(regional_records),
             })
 
         missing_total = total_municipalities - covered_municipalities
@@ -184,7 +193,10 @@ class MunicipalCoverageService:
                 name = municipality["nome"]
                 matching = [
                     item for item in records
-                    if str(item.get("municipality", "")).strip().casefold() == name.strip().casefold()
+                    if (
+                        str(item.get("municipality", "")).strip().casefold()
+                        == name.strip().casefold()
+                    )
                     and (
                         item.get("state") == state_uf
                         or state_uf in (item.get("ufs") or [])
