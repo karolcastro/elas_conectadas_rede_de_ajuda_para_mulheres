@@ -11,6 +11,8 @@ from typing import Any
 
 import httpx
 
+from elas_conectadas_mcp.connectors.http_security import get_json
+
 BASE_URL = "https://servicodados.ibge.gov.br/api/v1/localidades"
 _TIMEOUT = httpx.Timeout(15.0, connect=5.0)
 
@@ -43,14 +45,8 @@ class IBGEConnector:
     async def _get(self, path: str) -> Any:
         url = f"{BASE_URL}/{path.lstrip('/')}"
         try:
-            if self._client is not None:
-                response = await self._client.get(url, timeout=_TIMEOUT)
-            else:
-                async with httpx.AsyncClient(timeout=_TIMEOUT) as client:
-                    response = await client.get(url)
-            response.raise_for_status()
-            return response.json()
-        except (httpx.HTTPError, ValueError) as exc:
+            return await get_json(client=self._client, url=url, timeout=_TIMEOUT)
+        except (httpx.HTTPError, ValueError, RuntimeError) as exc:
             raise IBGEAPIError("Não foi possível consultar a API do IBGE neste momento.") from exc
 
     async def list_states(self) -> list[dict[str, Any]]:
