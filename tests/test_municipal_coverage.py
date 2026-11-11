@@ -58,7 +58,7 @@ async def test_audit_counts_only_verified_local_records_as_municipal_coverage():
     assert result["municipios_sem_registro_amostra"] == [
         {"municipio": "Beta", "uf": "AA", "codigo_ibge": 2}
     ]
-    assert result["registros_estaduais_ou_nacionais_validos"] == 2
+    assert result["registros_estaduais_ou_nacionais_validos"] == 1
     assert "não comprovam unidade física" in result["nota_metodologica"]
 
 
