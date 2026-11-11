@@ -74,7 +74,10 @@ class MunicipalCoverageService:
                 name = municipality["nome"]
                 local_records = [
                     item for item in state_records
-                    if str(item.get("municipality", "")).strip().casefold() == name.strip().casefold()
+                    if (
+                        str(item.get("municipality", "")).strip().casefold()
+                        == name.strip().casefold()
+                    )
                 ]
                 if local_records:
                     state_covered += 1
@@ -129,7 +132,13 @@ class MunicipalCoverageService:
             ),
         }
 
-    async def research_queue(self, *, uf: str | None = None, limit: int = 100, offset: int = 0) -> dict[str, Any]:
+    async def research_queue(
+        self,
+        *,
+        uf: str | None = None,
+        limit: int = 100,
+        offset: int = 0,
+    ) -> dict[str, Any]:
         """Monta fila paginada de pesquisa para municípios sem registro local válido."""
         if uf is not None:
             normalized_uf = uf.strip().upper()
@@ -185,7 +194,10 @@ class MunicipalCoverageService:
                 if any(item.get("catalog_status") == "verified" for item in matching):
                     continue
                 uncovered += 1
-                stale_local = [item for item in matching if item.get("catalog_status") != "verified"]
+                stale_local = [
+                    item for item in matching
+                    if item.get("catalog_status") != "verified"
+                ]
                 queue.append({
                     "municipio": name,
                     "uf": state_uf,
@@ -195,11 +207,14 @@ class MunicipalCoverageService:
                     "registros_locais_pendentes_revisao": len(stale_local),
                     "referencias_estaduais_ou_nacionais": len(state_refs),
                     "proximas_acoes": [
-                        "Pesquisar portal oficial da prefeitura e secretaria municipal responsável.",
+                        "Pesquisar portal oficial da prefeitura e secretaria municipal "
+                        "responsável.",
                         "Pesquisar órgãos estaduais e a rede oficial de atendimento.",
-                        "Verificar existência, público atendido, endereço público e contato institucional.",
+                        "Verificar existência, público atendido, endereço público e contato "
+                        "institucional.",
                         "Confirmar gratuidade, funcionamento, critérios e data da fonte.",
-                        "Cadastrar somente após validação documental; nunca publicar endereço sigiloso de abrigo.",
+                        "Cadastrar somente após validação documental; nunca publicar endereço "
+                        "sigiloso de abrigo.",
                     ],
                 })
             state_summary.append({
