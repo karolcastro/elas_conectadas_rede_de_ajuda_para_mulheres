@@ -72,3 +72,38 @@ async def test_audit_rejects_invalid_state_and_sample_limit():
         await service.audit(uf="Estado A")
     with pytest.raises(ValueError, match="limite"):
         await service.audit(missing_limit=501)
+
+
+@pytest.mark.asyncio
+async def test_research_queue_includes_uncovered_and_expired_local_records():
+    service = MunicipalCoverageService(ibge=FakeIBGE(), protection_registry=FakeRegistry())
+
+    result = await service.research_queue()
+
+    assert result["total_municipios_na_fila"] == 1
+    assert result["fila"][0]["municipio"] == "Beta"
+    assert result["fila"][0]["status_pesquisa"] == "aguardando_pesquisa"
+    assert result["fila"][0]["registros_locais_pendentes_revisao"] == 1
+    assert result["proxima_pagina_offset"] is None
+    assert "não ausência de serviços" in result["nota_metodologica"]
+
+
+@pytest.mark.asyncio
+async def test_research_queue_supports_state_filter_and_pagination():
+    service = MunicipalCoverageService(ibge=FakeIBGE(), protection_registry=FakeRegistry())
+
+    result = await service.research_queue(uf="aa", limit=1, offset=0)
+
+    assert result["uf_filtro"] == "AA"
+    assert result["total_municipios_na_fila"] == 1
+    assert len(result["fila"]) == 1
+
+
+@pytest.mark.asyncio
+async def test_research_queue_rejects_invalid_pagination():
+    service = MunicipalCoverageService(ibge=FakeIBGE(), protection_registry=FakeRegistry())
+
+    with pytest.raises(ValueError, match="limite"):
+        await service.research_queue(limit=0)
+    with pytest.raises(ValueError, match="deslocamento"):
+        await service.research_queue(offset=-1)
