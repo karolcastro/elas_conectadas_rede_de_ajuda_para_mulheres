@@ -163,9 +163,12 @@ class MunicipalCoverageService:
             municipalities = await self.ibge.list_municipalities(state_uf)
             state_refs = [
                 item for item in verified
-                if item.get("state") == state_uf
-                or state_uf in (item.get("ufs") or [])
-                or item.get("coverage") == state_uf
+                if not item.get("municipality")
+                and (
+                    item.get("state") == state_uf
+                    or state_uf in (item.get("ufs") or [])
+                    or item.get("coverage") in {state_uf, "Brasil"}
+                )
             ]
             uncovered = 0
             for municipality in municipalities:
