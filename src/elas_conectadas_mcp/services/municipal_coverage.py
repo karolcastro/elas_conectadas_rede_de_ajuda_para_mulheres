@@ -128,3 +128,102 @@ class MunicipalCoverageService:
                 "Municípios sem registro local podem possuir serviços ainda não cadastrados."
             ),
         }
+
+    async def research_queue(self, *, uf: str | None = None, limit: int = 100, offset: int = 0) -> dict[str, Any]:
+        """Monta fila paginada de pesquisa para municípios sem registro local válido."""
+        if uf is not None:
+            normalized_uf = uf.strip().upper()
+            if len(normalized_uf) != 2 or not normalized_uf.isalpha():
+                raise ValueError("Informe uma sigla de UF válida com duas letras.")
+        else:
+            normalized_uf = None
+        if isinstance(limit, bool) or not isinstance(limit, int):
+            raise TypeError("O limite deve ser um número inteiro.")
+        if isinstance(offset, bool) or not isinstance(offset, int):
+            raise TypeError("O deslocamento deve ser um número inteiro.")
+        if limit < 1 or limit > 500:
+            raise ValueError("O limite deve estar entre 1 e 500.")
+        if offset < 0 or offset > 100000:
+            raise ValueError("O deslocamento deve estar entre 0 e 100000.")
+
+        states = await self.ibge.list_states()
+        if normalized_uf:
+            states = [state for state in states if state["sigla"] == normalized_uf]
+            if not states:
+                raise ValueError("UF não encontrada na lista oficial do IBGE.")
+
+        catalog = self.protection_registry.list_services(include_stale=True)
+        records = catalog.get("services", [])
+        verified = [item for item in records if item.get("catalog_status") == "verified"]
+        queue = []
+        state_summary = []
+
+        for state in states:
+            state_uf = state["sigla"]
+            municipalities = await self.ibge.list_municipalities(state_uf)
+            state_refs = [
+                item for item in verified
+                if item.get("state") == state_uf
+                or state_uf in (item.get("ufs") or [])
+                or item.get("coverage") == state_uf
+            ]
+            uncovered = 0
+            for municipality in municipalities:
+                name = municipality["nome"]
+                matching = [
+                    item for item in records
+                    if str(item.get("municipality", "")).strip().casefold() == name.strip().casefold()
+                    and (
+                        item.get("state") == state_uf
+                        or state_uf in (item.get("ufs") or [])
+                        or item.get("coverage") == state_uf
+                    )
+                ]
+                if any(item.get("catalog_status") == "verified" for item in matching):
+                    continue
+                uncovered += 1
+                stale_local = [item for item in matching if item.get("catalog_status") != "verified"]
+                queue.append({
+                    "municipio": name,
+                    "uf": state_uf,
+                    "codigo_ibge": municipality.get("id"),
+                    "prioridade": "alta",
+                    "status_pesquisa": "aguardando_pesquisa",
+                    "registros_locais_pendentes_revisao": len(stale_local),
+                    "referencias_estaduais_ou_nacionais": len(state_refs),
+                    "proximas_acoes": [
+                        "Pesquisar portal oficial da prefeitura e secretaria municipal responsável.",
+                        "Pesquisar órgãos estaduais e a rede oficial de atendimento.",
+                        "Verificar existência, público atendido, endereço público e contato institucional.",
+                        "Confirmar gratuidade, funcionamento, critérios e data da fonte.",
+                        "Cadastrar somente após validação documental; nunca publicar endereço sigiloso de abrigo.",
+                    ],
+                })
+            state_summary.append({
+                "uf": state_uf,
+                "estado": state["nome"],
+                "total_municipios_ibge": len(municipalities),
+                "municipios_na_fila": uncovered,
+                "referencias_estaduais_ou_nacionais_validas": len(state_refs),
+            })
+
+        queue.sort(key=lambda item: (item["uf"], item["municipio"].casefold()))
+        total = len(queue)
+        return {
+            "fonte_territorial": "IBGE — API de Localidades",
+            "data_consulta_catalogo": catalog.get("as_of"),
+            "uf_filtro": normalized_uf,
+            "total_municipios_na_fila": total,
+            "offset": offset,
+            "limit": limit,
+            "proxima_pagina_offset": offset + limit if offset + limit < total else None,
+            "fila": queue[offset:offset + limit],
+            "resumo_por_estado": state_summary,
+            "nota_metodologica": (
+                "A fila identifica lacunas cadastrais, não ausência de serviços no território. "
+                "Prioridade alta significa necessidade de pesquisa documental, não risco ou "
+                "urgência para as mulheres. Referências estaduais/nacionais não comprovam "
+                "unidade local. Nenhum serviço é recomendado até validação de fonte, contato, "
+                "gratuidade e condições de atendimento."
+            ),
+        }
