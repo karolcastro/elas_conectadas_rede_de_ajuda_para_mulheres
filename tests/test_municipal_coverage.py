@@ -28,10 +28,19 @@ class FakeRegistry:
             "as_of": "2026-11-10",
             "count": 4,
             "services": [
-                {"id": "local-alfa", "state": "AA", "municipality": "Alfa", "catalog_status": "verified"},
+                {
+                    "id": "local-alfa", "state": "AA", "municipality": "Alfa",
+                    "catalog_status": "verified",
+                },
                 {"id": "statewide-aa", "coverage": "AA", "catalog_status": "verified"},
-                {"id": "local-beta-expired", "state": "AA", "municipality": "Beta", "catalog_status": "expired"},
-                {"id": "local-gama", "state": "BB", "municipality": "Gama", "catalog_status": "verified"},
+                {
+                    "id": "local-beta-expired", "state": "AA", "municipality": "Beta",
+                    "catalog_status": "expired",
+                },
+                {
+                    "id": "local-gama", "state": "BB", "municipality": "Gama",
+                    "catalog_status": "verified",
+                },
             ],
         }
 
