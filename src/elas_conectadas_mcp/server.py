@@ -60,6 +60,15 @@ async def auditar_cobertura_municipal(uf: str | None = None, limite_municipios_s
 
 
 @mcp.tool()
+async def gerar_fila_pesquisa_municipal(uf: str | None = None, limite: int = 100, offset: int = 0) -> dict:
+    """Gera fila paginada de municípios sem registro local válido para pesquisa documental.
+
+    Prioridade alta significa lacuna de pesquisa, não risco ou urgência. A fila não recomenda serviços.
+    """
+    return await municipal_coverage.research_queue(uf=uf, limit=limite, offset=offset)
+
+
+@mcp.tool()
 async def listar_estados() -> list[dict]:
     """Lista estados brasileiros usando a API oficial de Localidades do IBGE."""
     return await ibge.list_states()
