@@ -98,6 +98,19 @@ Configurar no host web, depois de confirmar todas as origens legítimas utilizad
 - Informar claramente quando um CEP é enviado ao ViaCEP e quais dados são transmitidos a cada fonte externa.
 - Não usar ferramentas de terceiros para rastrear usuárias em situação de vulnerabilidade.
 
+## 5.1 Controles já implementados no backend
+
+Os conectores IBGE, DEMAS/CNES e ViaCEP passaram a utilizar `connectors/http_security.py`, com os seguintes controles:
+
+- Somente destinos HTTPS são aceitos pelo helper.
+- Redirecionamentos HTTP 3xx são bloqueados; o cliente não segue redirects automaticamente.
+- Respostas acima de 5 MiB são rejeitadas, inclusive quando o tamanho declarado excede o limite.
+- Conteúdo com tipo diferente de JSON é rejeitado quando o servidor informa um Content-Type.
+- JSON inválido é rejeitado com erro controlado.
+- Os conectores continuam construindo URLs a partir de hosts fixos e parâmetros validados; nenhuma ferramenta deve receber URL arbitrária da usuária.
+
+Esses controles reduzem riscos de redirecionamento para destinos não confiáveis, respostas excessivas e conteúdo inesperado. Não substituem allowlist de host em uma futura funcionalidade de busca externa, nem proteção de rede contra DNS rebinding/SSRF caso a arquitetura passe a aceitar URLs configuráveis.
+
 ## 5. Proteção do servidor MCP e conectores
 
 - Manter o transporte `stdio` enquanto não houver necessidade validada de transporte remoto.
