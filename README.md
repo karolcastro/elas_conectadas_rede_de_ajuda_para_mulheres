@@ -701,3 +701,8 @@ Fontes oficiais:
 - Benefícios Eventuais: https://www.gov.br/mds/pt-br/acoes-e-programas/SUAS/beneficios-assistenciais/beneficios-eventuais
 - Localizador MOPS para rede socioassistencial: https://aplicacoes.mds.gov.br/sagi/FerramentasSAGI/Mops/
 - Portal MDS de Educação Empreendedora: cursos digitais gratuitos de educação financeira para mulheres empreendedoras, gestão de negócios de alimentação, tecnologia e gestão para ambulantes; com status e limites de inscrição documentados.
+
+
+## Auditoria de cobertura municipal
+
+A ferramenta MCP `auditar_cobertura_municipal(uf=None, limite_municipios_sem_cadastro=100)` compara os municípios oficiais do IBGE com registros locais válidos do catálogo de proteção. Ela apresenta cobertura por UF, municípios sem registro local e uma amostra limitada das lacunas. Registros estaduais/nacionais e registros com revisão vencida não contam como cobertura municipal válida. Ausência de cadastro não significa ausência de serviço. A auditoria não confirma funcionamento, gratuidade, agenda ou disponibilidade. Consulte [docs/COBERTURA_MUNICIPAL.md](docs/COBERTURA_MUNICIPAL.md) para metodologia, limites e próximos passos.
